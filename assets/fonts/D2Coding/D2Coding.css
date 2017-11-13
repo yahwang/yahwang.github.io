@@ -1,0 +1,12 @@
+
+@font-face {
+    font-family: 'D2Coding';
+    font-weight: 700;
+    src:  url('D2CodingBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'D2Coding';
+    font-weight: 400;
+    src:  url('D2Coding.ttf') format('truetype');
+}

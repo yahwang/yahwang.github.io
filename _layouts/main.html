@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/assets/img/{% if site.author-img %}{{site.author-img}}{% endif %}" alt="{{site.author}}"></a>
+      </div>
+      <div class="author-name">{{site.author}}</div>
+      <p>{{site.about-author}}</p>
+    </div>
+  </header> <!-- End Header -->
+  <!-- Contact 화면-->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+        {% if site.email %}
+        <li><a href="mailto:{{site.email}}/"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/email.svg" alt="{{site.email}}"></a></li>{% endif %}
+        {% if site.github %}
+        <li><a href="https://github.com/{{ site.github }}"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/github.svg" alt="{{site.github}}"></a></li>{% endif %}
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>{{site.time | date: '%Y'}} &copy; YaHwang</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+<div class="content-box clearfix">
+  {{ content }}
+</div>
