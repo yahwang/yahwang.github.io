@@ -2,6 +2,7 @@ _site/
 .sass-cache/
 .jekyll-metadata
 .jekyll
+.ipynb_checkpoints/
 .Gemfile
 .Gemfile.lock
 .README.md
