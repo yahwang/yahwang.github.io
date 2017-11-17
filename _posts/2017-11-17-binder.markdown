@@ -1,6 +1,6 @@
 ---
 layout: post
-title: binder(beta) - Github 내 Jupyter notebook을 설치없이 보는 사이트
+title: binder - Github 내 Jupyter notebook을 설치없이 보는 사이트
 date: 2017-11-17 04:30:00 pm
 description: # Add post description (optional)
 img: binder.png # Add image post (optional)
