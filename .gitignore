@@ -5,6 +5,7 @@ _site/
 .Gemfile
 .Gemfile.lock
 .README.md
+*/.ipynb_checkpoints/
 
 ### macOS ###
 *.DS_Store
