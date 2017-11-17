@@ -1,5 +1,6 @@
 ---
 layout: default
+# 메인 왼쪽 레이아웃
 ---
 
 <aside class="sidebar">
@@ -10,6 +11,8 @@ layout: default
       </div>
       <div class="author-name">{{site.author}}</div>
       <p>{{site.about-author}}</p>
+      <p>데이터와 친해지자</p>  
+      <p>R | Python | Tableau</p> 
     </div>
   </header> <!-- End Header -->
   <!-- Contact 화면-->
@@ -21,7 +24,9 @@ layout: default
         <li><a href="mailto:{{site.email}}/"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/email.svg" alt="{{site.email}}"></a></li>{% endif %}
         {% if site.github %}
         <li><a href="https://github.com/{{ site.github }}"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/github.svg" alt="{{site.github}}"></a></li>{% endif %}
-      </ul>
+        {% if site.googledrive %}
+        <li><a href="{{ site.googledrive }}"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/googledrive.svg" alt="{{site.googledrive}}"></a></li>{% endif %}
+        </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
       <p>{{site.time | date: '%Y'}} &copy; YaHwang</p>

@@ -11,11 +11,12 @@ timezone: Asia/Seoul # 지역 시간 설정
 # Author Settings
 author: 황 태 식 # add your name
 author-img: yahwang_logo.png # add your photo
-about-author: 데이터와 친해지자 # add description
+about-author: Be Ambitious! # add description
 twitter: # add your Twitter handle
 facebook: # add your Facebook handle
 github: yahwang # add your Github handle
 linkedin: # add your Linkedin handle
+googledrive: https://drive.google.com/open?id=0B2_nxDdvAlcXN3J6ZTczelVfejg
 email: hts911kr@gmail.com # add your Email address
 
 # Disqus
