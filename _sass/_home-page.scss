@@ -200,3 +200,15 @@ a.older-posts:hover {
 a.newer-posts:hover {
   transform: translateX(-5px);
 }
+
+.page-tag {
+   a {
+    text-decoration: none;
+    font-size: 12px;
+    padding: 5px 10px;
+    margin-left: 5px;
+    color: $dark-blue;
+    border: 1px solid $dark-blue;
+    &:hover {text-decoration: underline;}
+  }
+}
