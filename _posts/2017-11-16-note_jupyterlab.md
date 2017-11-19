@@ -14,8 +14,8 @@ tags: [Note, Jupyter] # add tag
 ### 기본 기능
 
 * 화면 분할
-* codefolding
-* 코드 block drag&drop
+* notebook 내 code block 숨기기
+* code block drag&drop
 
 ### 대용량 파일 Load 가능
 
