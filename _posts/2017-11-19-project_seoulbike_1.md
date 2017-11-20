@@ -7,7 +7,7 @@ img: seoulbike.png  # Add image post (optional)
 tags: [Project, Python] # add tag
 ---
 
-> Selenium 라이브러리를 활용한 따릉이 대여소 크롤링
+> Selenium 라이브러리를 활용한 따릉이 대여소 크롤링 --
 
 서울 열린 데이터 광장에 업로드된 파일은 업데이트가 되지 않아 활용할 수 없다.
 

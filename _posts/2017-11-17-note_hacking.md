@@ -7,7 +7,7 @@ img: hacked.jpg # Add image post (optional)
 tags: [Note, Trend] # add tag
 ---
 
-> 국내 공공기관 해킹 시도가 1초에 16건, 하루 140만 건 정도 이루어진다고 한다.
+> 국내 공공기관 해킹 시도가 1초에 16건, 하루 140만 건 정도 이루어진다고 한다. -- 
 
 ## 악성코드(Malware)
 
