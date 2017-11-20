@@ -29,9 +29,11 @@ driver = webdriver.Chrome('chromedriver(win).exe')
 ``` python
 # 대여소 정보를 담을 List
 locations=[]
+# 기본 url (페이지 넘버링만 추가하면 된다)
+base_url = 'https://www.bikeseoul.com/app/station/moveStationSearchView.do?currentPageNo='
 # 총 187페이지
 for num in range(1,188):
-    driver.get('https://www.bikeseoul.com/app/station/moveStationSearchView.do?currentPageNo=' + str(num))
+    driver.get( base_url + str(num))
     soup = bs(driver.page_source, 'html.parser')
     # 페이지 로딩을 위한 wait time 설정 (여기서는 불필요할 수도)
     driver.implicitly_wait(3)
@@ -63,7 +65,8 @@ for num in range(1,188):
 
 ``` python
 # List를 데이터프레임으로 변환
-df = pd.DataFrame.from_records(locations, columns=['대여소','상태','주소','위도','경도'])
+header = ['대여소','상태','주소','위도','경도']
+df = pd.DataFrame.from_records(locations, columns = header)
 # csv파일로 추출
 df.to_csv('seoulbike.csv', index=False)
 ```
