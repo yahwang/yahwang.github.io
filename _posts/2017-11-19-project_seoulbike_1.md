@@ -24,6 +24,8 @@ import time
 
 ``` python
 driver = webdriver.Chrome('chromedriver(win).exe')
+# 페이지 로딩을 위한 최대 wait time 설정 (여기서는 불필요할 수도)
+driver.implicitly_wait(3)
 ```
 
 ``` python
@@ -35,8 +37,6 @@ base_url = 'https://www.bikeseoul.com/app/station/moveStationSearchView.do?curre
 for num in range(1,188):
     driver.get( base_url + str(num))
     soup = bs(driver.page_source, 'html.parser')
-    # 페이지 로딩을 위한 wait time 설정 (여기서는 불필요할 수도)
-    driver.implicitly_wait(3)
     # 데이터가 있는 table 태그에 접근
     loc_table = soup.find('table', class_='psboard1').find('tbody').find_all('tr')
     for row in loc_table:

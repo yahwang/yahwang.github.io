@@ -7,6 +7,7 @@ _site/
 .Gemfile.lock
 .README.md
 */.ipynb_checkpoints/
+chromedriver(win).exe
 
 ### macOS ###
 *.DS_Store
