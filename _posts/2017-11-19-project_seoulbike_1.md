@@ -38,7 +38,7 @@ for num in range(1,188):
     driver.get( base_url + str(num))
     soup = bs(driver.page_source, 'html.parser')
     # 데이터가 있는 table 태그에 접근
-    loc_table = soup.find('table', class_='psboard1').find('tbody').find_all('tr')
+    loc_table = soup.select('table.psboard1 > tbody')[0].find_all('tr')
     for row in loc_table:
         loc_info = []
         # <번호. 대여소명>에서 번호를 지우고 대여소명만 추출
