@@ -61,7 +61,7 @@ tags: [Project, Tableau] # add tag
 
 ![tableau_bike]({{site.baseurl}}/assets/img/tableau_bike/tableau_bike_9.png)
 
-> 도봉구, 용산구, 양천구에는 아직 대여소가 많이 부족하고 다른 구에서도 아직은 비어있는 공간을 발견할 수 있다.
+> 대여소가 점점 늘어날 계획이지만 아직은 특정 지역에 몰려 있고 비어 있는 공간을 확인할 수 있다.
 
 ![tableau_bike]({{site.baseurl}}/assets/img/tableau_bike/tableau_bike_10.png)
 
