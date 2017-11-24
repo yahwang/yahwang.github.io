@@ -7,7 +7,7 @@ img: seoulbike.png  # Add image post (optional)
 tags: [Project, Python] # add tag
 ---
 
-> Selenium 라이브러리를 활용한 따릉이 대여소 크롤링 --
+> Selenium 라이브러리를 활용한 따릉이 대여소 크롤링(Windows) --
 
 서울 열린 데이터 광장에 업로드된 파일은 업데이트가 되지 않아 활용할 수 없다.
 
@@ -33,44 +33,48 @@ driver.implicitly_wait(3)
 locations=[]
 # 기본 url (페이지 넘버링만 추가하면 된다)
 base_url = 'https://www.bikeseoul.com/app/station/moveStationSearchView.do?currentPageNo='
-# 총 187페이지
-for num in range(1,188):
-    driver.get( base_url + str(num))
-    soup = bs(driver.page_source, 'html.parser')
-    # 데이터가 있는 table 태그에 접근
-    loc_table = soup.select('table.psboard1 > tbody')[0].find_all('tr')
-    for row in loc_table:
-        loc_info = []
-        # <번호. 대여소명>에서 번호를 지우고 대여소명만 추출
-        loc_name = row.select('td.pl10')[0].get_text(strip=True)
-        if '.' in loc_name:
-            loc_info.append(loc_name.split('.')[-1].lstrip())
-        else:
-            loc_info.append(loc_name)
-        # 상태
-        loc_info.append(row.select('td.pl10')[1].get_text(strip=True))
-        # 주소
-        loc_info.append(row.select('td.mhid')[0].get_text(strip=True))
-        # 위도, 경도 좌표
-        loc_geo = row.find('a')['param-data'].split(',')
-        loc_info.append(loc_geo[0])
-        loc_info.append(loc_geo[1])
-        # 리스트에 location 추가
-        locations.append(loc_info)
-    # 트래픽 속도 조절을 위한 random time 설정    
-    time.sleep(random.randint(1,3))   
+# 크롤링 함수 선언
+def crawling_bike(start, end):
+    for num in range(start,end+1):
+        driver.get( base_url + str(num))
+        soup = bs(driver.page_source, 'html.parser')
+        # 데이터가 있는 table 태그에 접근
+        loc_table = soup.select('table.psboard1 > tbody')[0].find_all('tr')
+        for row in loc_table:
+            loc_info = []
+            # <번호. 대여소명>에서 번호를 지우고 대여소명만 추출
+            loc_name = row.select('td.pl10')[0].get_text(strip=True)
+            if '.' in loc_name:
+                loc_info.append(loc_name.split('.')[-1].lstrip())
+            else:
+                loc_info.append(loc_name)
+            # 상태
+            loc_info.append(row.select('td.pl10')[1].get_text(strip=True))
+            # 주소
+            loc_info.append(row.select('td.mhid')[0].get_text(strip=True))
+            # 위도, 경도 좌표
+            loc_geo = row.find('a')['param-data'].split(',')
+            loc_info.append(loc_geo[0])
+            loc_info.append(loc_geo[1])
+            # 리스트에 location 추가
+            locations.append(loc_info)
+        # 트래픽 속도 조절을 위한 random time 설정    
+        time.sleep(random.randint(1,3))
 ```
 
-### Tableau로 분석을 하기 위해 CSV파일로 추출한다.
+### Tableau로 분석하기 위해 CSV파일로 저장한다.
 
 ``` python
+# 총 187페이지
+crawling_bike(1,3)
+driver.quit()
 # List를 데이터프레임으로 변환
 header = ['대여소','상태','주소','위도','경도']
 df = pd.DataFrame.from_records(locations, columns = header)
 # csv파일로 추출
 df.to_csv('seoulbike.csv', index=False)
 ```
-### 935개의 row를 추출하였다.
+> 따릉이 대여소 935 곳의 정보를 추출했다.
 
 ![df_seoulbike]({{site.baseurl}}/assets/img/df_seoulbike.png)
 

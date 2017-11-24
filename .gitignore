@@ -2,12 +2,13 @@ _site/
 .sass-cache/
 .jekyll-metadata
 .jekyll
+.ipynb
 .ipynb_checkpoints/
 .Gemfile
 .Gemfile.lock
 .README.md
 */.ipynb_checkpoints/
-chromedriver(win).exe
+chromedriver.exe
 
 ### macOS ###
 *.DS_Store
