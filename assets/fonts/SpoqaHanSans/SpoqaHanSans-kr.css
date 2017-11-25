@@ -29,7 +29,7 @@ local에 파일이 없으면 url을 통해 파일을 불러온다.
 @font-face {
     font-family: 'Spoqa Han Sans';
     font-weight: 700;
-    src: local('Spoqa Han Sans Bold'),
+    src: 
     url('SpoqaHanSansBold.woff2') format('woff2'),
     url('SpoqaHanSansBold.woff') format('woff'),
     url('SpoqaHanSansBold.ttf') format('truetype');
@@ -38,7 +38,7 @@ local에 파일이 없으면 url을 통해 파일을 불러온다.
 @font-face {
     font-family: 'Spoqa Han Sans';
     font-weight: 400;
-    src: local('Spoqa Han Sans Regular'),
+    src: 
     url('SpoqaHanSansRegular.woff2') format('woff2'),
     url('SpoqaHanSansRegular.woff') format('woff'),
     url('SpoqaHanSansRegular.ttf') format('truetype');
@@ -47,7 +47,7 @@ local에 파일이 없으면 url을 통해 파일을 불러온다.
 @font-face {
     font-family: 'Spoqa Han Sans';
     font-weight: 200;
-    src: local('Spoqa Han Sans Thin'),
+    src: 
     url('SpoqaHanSansThin.woff2') format('woff2'),
     url('SpoqaHanSansThin.woff') format('woff'),
     url('SpoqaHanSansThin.ttf') format('truetype');

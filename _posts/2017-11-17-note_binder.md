@@ -6,7 +6,7 @@ description: # Add post description (optional)
 img: binder.png # Add image post (optional)
 tags: [Note, Jupyter] # add tag
 ---
-> jupyter notebook이 Docker 이미지로 생성되어서 github 내 존재하는 .ipynb 파일들을  열어볼 수 있다.
+> jupyter notebook이 Docker 이미지로 생성되어서 github 내 존재하는 .ipynb 파일들을  열어볼 수 있다. -- 
 
 **링크 : <https://mybinder.org>**
 
