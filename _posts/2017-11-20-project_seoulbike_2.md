@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 서울 자전거 따릉이 지도 시각화
+title: 서울자전거 따릉이 지도 시각화
 date: 2017-11-20 05:30:00 pm
 description: # Add post description (optional)
 img: tableau_bike.png # Add image post (optional)

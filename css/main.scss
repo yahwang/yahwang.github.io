@@ -11,12 +11,13 @@
 }
 
 html {
-  line-height: 1.5;
+  line-height: 1.1;
 }
 
 body {
   font-family: 'Spoqa Han Sans', sans-serif;
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: 400;
   color: $body-color;
   background-color: #fbfbfb;
   margin: 0;
@@ -24,8 +25,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-  font-weight: 400;
+p {
+    strong{
+        font-weight:800;
+}
 }
 
 img {
@@ -41,7 +44,7 @@ blockquote {
   margin-left: 1rem;
   font-style: italic;
   font-weight: 400;
-  font-size:18px;
+  font-size: 20px;
   color: $medium-blue;
 }
 
