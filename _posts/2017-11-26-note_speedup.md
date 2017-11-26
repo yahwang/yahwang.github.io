@@ -1,13 +1,15 @@
 ---
 layout: post
 title: for 반복문 성능을 올리는 법
-date: 2017-11-24 03:30:00 pm
+date: 2017-11-26 05:30:00 pm
 description: # Add post description (optional)
-img: news_wordcloud.png  # Add image post (optional)
+img: r_note.png   # Add image post (optional)
 tags: [Note, R] # add tag
 ---
 
-> 2016년 1월 작성된 R-bloggers의 글을 정리해본다. -- 
+> 2016년 1월 작성된 R-bloggers의 글을 정리한다. -- 
+
+약간의 코드 변화만으로도 성능을 매우 높일 수 있다.
 
 ``` r
 # Raw Code
@@ -18,9 +20,9 @@ for( i in 1:nrow(df) ){
         df[i, 5] <- "False" }
 ```
 
-**df** : 4개의 컬럼을 가진 dataframe
+`df` : 4개의 컬럼을 가진 dataframe
 
-**condition** : df값을 활용한 조건문
+`condition` : df값을 활용한 조건문
 
 ## Output 벡터 선언(Vectorization)
 
@@ -100,11 +102,12 @@ Rcpp는 C++을 이용하는 방법으로 매우 빠른 속도를 보여준다.
 
 * Parallel Processing
 
-* 반복문 끝에 garbage collector를 실행하는 **gc()**를 사용
+* 반복문 끝에 garbage collector를 실행하는 `gc()`를 사용
 
-* 코드 중간 필요없는 object를 삭제하는 **rm()** 활용
+* 코드 중간 필요없는 object를 삭제하는 `rm()` 활용
 
-* data.frame 대신 **data.table** 사용
+* data.frame 대신 `data.table` 사용
 
-**링크 :**
+`Link` : 
+
 * [Strategies to Speedup R Code](https://www.r-bloggers.com/strategies-to-speedup-r-code/)

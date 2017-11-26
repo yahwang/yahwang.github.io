@@ -78,5 +78,6 @@ df.to_csv('seoulbike.csv', index=False)
 
 ![df_seoulbike]({{site.baseurl}}/assets/img/python/df_seoulbike.png)
 
-**링크 :**
+`Link` : 
+
 * [따릉이 대여소 조회](https://www.bikeseoul.com/app/station/moveStationSearchView.do?currentPageNo=1)

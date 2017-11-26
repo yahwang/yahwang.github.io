@@ -9,7 +9,7 @@ tags: [Note, Jupyter] # add tag
 
 > Jupyter notebook이 발전한 Jupyter Lab -- 
 
-#### PyData Seattle 2017 유튜브 영상을 바탕으로 작성한 노트
+`PyData Seattle 2017 유튜브 영상을 바탕으로 작성한 노트`
 
 ### 기본 기능
 
@@ -48,5 +48,6 @@ tags: [Note, Jupyter] # add tag
 
 ![jupyterlab_json]({{site.baseurl}}/assets/img/jupyterlab(geojson).png)
 
-**링크 :**
+`Link` : 
+
 * [PyData Seattle 2017](https://www.youtube.com/watch?v=u3gU2brTaVI)

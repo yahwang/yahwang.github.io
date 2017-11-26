@@ -17,11 +17,11 @@ tags: [Project, Tableau] # add tag
 
 ![tableau_bike]({{site.baseurl}}/assets/img/tableau/tableau_bike_1.png)
 
-자치구명 / 위도 / 경도에 **지리적 역할**을 지정한다.
+자치구명 / 위도 / 경도에 `지리적 역할`을 지정한다.
 
 ![tableau_bike]({{site.baseurl}}/assets/img/tableau/tableau_bike_2.png)
 
-**데이터 정제가 완료된 형태**
+`데이터 정제가 완료된 형태`
 
 ![tableau_bike]({{site.baseurl}}/assets/img/tableau/tableau_bike_3.png)
 
@@ -39,32 +39,33 @@ tags: [Project, Tableau] # add tag
 
 이 때, 인식을 못하는 자치구가 생길 수 있다.
 
-![tableau_bike]({{site.baseurl}}/assets/img/tableau_bike/tableau_bike_5.png)
+![tableau_bike]({{site.baseurl}}/assets/img/tableau/tableau_bike_5.png)
 
-알 수 없음을 클릭해서 **위치편집**에 들어가 시/도를 서울시로 변경하면 지도에 반영된다.
+알 수 없음을 클릭해서 `위치편집`에 들어가 시/도를 서울시로 변경하면 지도에 반영된다.
 
-![tableau_bike]({{site.baseurl}}/assets/img/tableau_bike/tableau_bike_6.png)
+![tableau_bike]({{site.baseurl}}/assets/img/tableau/tableau_bike_6.png)
 
-좌측 측정값 메뉴 아래 **레코드 수**를 색상에 올리면 대여소 개수를 기준으로 색상의 농도가 정해진다.
+좌측 측정값 메뉴 아래 `레코드 수`를 색상에 올리면 대여소 개수를 기준으로 색상의 농도가 정해진다.
 
-![tableau_bike]({{site.baseurl}}/assets/img/tableau_bike/tableau_bike_7.png)
+![tableau_bike]({{site.baseurl}}/assets/img/tableau/tableau_bike_7.png)
 
 ### 두 가지 방식으로 표현하는 이중 축
 
-행에 위치한 **위도**를 Ctrl+Drag로 추가하고 우클릭 - **이중 축**을 선택한다.
+행에 위치한 `위도`를 Ctrl+Drag로 추가하고 우클릭 - `이중 축`을 선택한다.
 
-![tableau_bike]({{site.baseurl}}/assets/img/tableau_bike/tableau_bike_8.png)
+![tableau_bike]({{site.baseurl}}/assets/img/tableau/tableau_bike_8.png)
 
 2개의 Layer가 생기게 되는데 2번째 Layer를 수정하면 또 다른 표시를 할 수 있다.
 
 대여소를 세부정보에 올려 대여소 위치를 점으로 시각화했다.
 
-![tableau_bike]({{site.baseurl}}/assets/img/tableau_bike/tableau_bike_9.png)
+![tableau_bike]({{site.baseurl}}/assets/img/tableau/tableau_bike_9.png)
 
 > 대여소가 점점 늘어날 계획이지만 아직은 특정 지역에 몰려 있고 비어 있는 공간을 확인할 수 있다.
 
-![tableau_bike]({{site.baseurl}}/assets/img/tableau_bike/tableau_bike_10.png)
+![tableau_bike]({{site.baseurl}}/assets/img/tableau/tableau_bike_10.png)
 
 
-**링크 :**
+`Link` : 
+
 * [Tableau Public에서 확인](https://public.tableau.com/profile/.7794#!/vizhome/_16418/sheet0)

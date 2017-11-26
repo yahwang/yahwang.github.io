@@ -1,6 +1,12 @@
 /* Monokai.css*/
+p .highlighter-rouge { background-color: #f3f5f6;
+    font-family: 'Spoqa Han Sans';  
+    font-weight: 400; 
+    border: 0.5px solid #607D8B; 
+    border-radius: 3px;
+    padding: 0.1rem 0.3rem;}
 .highlight {
-    font-family: 'D2Coding', serif;
+    font-family: 'D2Coding';
     border-radius: 3px; width: 100%;
     -webkit-transition: -webkit-transform 0.35s;
     transition: -webkit-transform 0.35s;

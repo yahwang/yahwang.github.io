@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 뉴스 데이터를 활용한 워드클라우드(with BigKinds)
-date: 2017-11-24 03:30:00 pm
+date: 2017-11-24 05:30:00 pm
 description: # Add post description (optional)
 img: news_wordcloud.png  # Add image post (optional)
 tags: [Project, R] # add tag
@@ -11,15 +11,15 @@ tags: [Project, R] # add tag
 
 자체적인 분석서비스도 갖추고 있지만 직접 데이터를 다운받아 활용할 수 있다.
 
-뉴스검색을 통해 **최대 2만건의 기사데이터**를 xlsx파일로 한 번에 다운로드 받을 수 있다.
+뉴스검색을 통해 `최대 2만건의 기사데이터`를 xlsx파일로 한 번에 다운로드 받을 수 있다.
 
-파일 안에는 기사 원문의 일부만 포함되어 있지만, **원문에서 추출한 키워드는 제공해준다.**
+파일 안에는 기사 원문의 일부만 포함되어 있지만, `원문에서 추출한 키워드는 제공해준다.`
 
-**KoNLP를 활용해서 단어 추출을 하지 않아도 되는 점이 매우 유용하다.**
+`KoNLP를 활용해서 단어 추출을 하지 않아도 되는 점이 매우 유용하다.`
 
 ![BigKinds_뉴스검색]({{site.baseurl}}/assets/img/bigkinds.png)
 
-2017년 1월부터 10월까지의 **청년실업** 관련 2485건의 뉴스 데이터를 사용했다.
+2017년 1월부터 10월까지의 `청년실업` 관련 2485건의 뉴스 데이터를 사용했다.
 
 ## 데이터 로딩
 
@@ -34,9 +34,9 @@ news_vec <- news_df %>% select('키워드') %>% unlist(use.names = F)
 
 ## 데이터 가공
 
-한 기사의 키워드 셀은 하나의 character로 존재하기 때문에 **, 단위**로 분리해주어야 한다.
+한 기사의 키워드 셀은 하나의 character로 존재하기 때문에 `, 단위`로 분리해주어야 한다.
 
-**{키워드1,키워드2,키워드3,...}**
+`{키워드1,키워드2,키워드3,...}`
 
 ``` r
 # 키워드를 담을 list 생성
@@ -68,5 +68,6 @@ wordcloud2(top_50, size=0.5, color='random-light', backgroundColor = 'black', fi
 
 ![Top50_워드클라우드]({{site.baseurl}}/assets/img/news_wordcloud.png)
 
-**링크 :**
+`Link` :
+
 * [BigKinds 뉴스 빅데이터](https://www.kinds.or.kr/)
