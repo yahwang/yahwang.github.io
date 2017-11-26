@@ -54,7 +54,7 @@ word_count <- word_count[rm_cond,]
 ```
 > 2485건의 기사에서 중복 제외 398448개의 단어를 추출하고 정리했다.
 
-![뉴스별 단어]({{site.baseurl}}/assets/img/word_count.png)
+![뉴스별 단어]({{site.baseurl}}/assets/img/r/word_count.png)
 
 ## 워드 클라우드 만들기 with wordcloud2
 

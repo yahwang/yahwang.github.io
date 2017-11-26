@@ -15,15 +15,15 @@ tags: [Project, Tableau] # add tag
 
 주소에서 자치구명만을 추출하기 위해 사용자 분할을 사용했다. (구분기호는 스페이스로 설정)
 
-![tableau_bike]({{site.baseurl}}/assets/img/tableau_bike/tableau_bike_1.png)
+![tableau_bike]({{site.baseurl}}/assets/img/tableau/tableau_bike_1.png)
 
 자치구명 / 위도 / 경도에 **지리적 역할**을 지정한다.
 
-![tableau_bike]({{site.baseurl}}/assets/img/tableau_bike/tableau_bike_2.png)
+![tableau_bike]({{site.baseurl}}/assets/img/tableau/tableau_bike_2.png)
 
 **데이터 정제가 완료된 형태**
 
-![tableau_bike]({{site.baseurl}}/assets/img/tableau_bike/tableau_bike_3.png)
+![tableau_bike]({{site.baseurl}}/assets/img/tableau/tableau_bike_3.png)
 
 ## 데이터 시각화
 
@@ -31,7 +31,7 @@ tags: [Project, Tableau] # add tag
 
 대여소 : 세부정보 / 자치구 : 색상에 Drag & Drop 하면 자치구별로 색상이 다르게 대여소 위치가 표시된다.
 
-![tableau_bike]({{site.baseurl}}/assets/img/tableau_bike/tableau_bike_4.png)
+![tableau_bike]({{site.baseurl}}/assets/img/tableau/tableau_bike_4.png)
 
 ### 지도 시각화
 

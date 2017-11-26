@@ -14,15 +14,15 @@ tags: [Note, Jupyter] # add tag
 
 사용 방법은 **Github주소**를 넣고 launch를 누르면 자동으로 Jupyter로 연결된다.
 
-![binder_sample]({{site.baseurl}}/assets/img/binder_sample.png)
+![binder_sample]({{site.baseurl}}/assets/img/python/binder_sample.png)
 
 > 공유한 링크로 접속 시 token 문제 해결방법
 
-![binder_token]({{site.baseurl}}/assets/img/binder(token).png)
+![binder_token]({{site.baseurl}}/assets/img/python/binder(token).png)
 
 최초 생성자가 **크롬 개발자도구(F12)**를 활용해 token 값을 알아내고 그 값을 입력한다.
 
-![binder_find_token]({{site.baseurl}}/assets/img/binder(token2).png)
+![binder_find_token]({{site.baseurl}}/assets/img/python/binder(token2).png)
 
 ### 장점
 * 링크 공유를 통해 다른 PC, 핸드폰에서도 볼 수가 있다.
