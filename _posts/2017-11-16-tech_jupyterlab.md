@@ -4,7 +4,7 @@ title: JupyterLab
 date: 2017-11-16 05:30:00 pm
 description: # Add post description (optional)
 img: jupyterlab.png  # Add image post (optional)
-tags: [Note, Jupyter] # add tag
+tags: [Tech, Jupyter] # add tag
 ---
 
 > Jupyter notebook이 발전한 Jupyter Lab -- 

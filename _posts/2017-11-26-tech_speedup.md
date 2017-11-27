@@ -1,15 +1,17 @@
 ---
 layout: post
-title: for 반복문 성능을 올리는 법
+title: for - if 반복문 성능을 올리는 법
 date: 2017-11-26 05:30:00 pm
 description: # Add post description (optional)
 img: r_note.png   # Add image post (optional)
-tags: [Note, R] # add tag
+tags: [Tech, R] # add tag
 ---
 
 > 2016년 1월 작성된 R-bloggers의 글을 정리한다. -- 
 
 약간의 코드 변화만으로도 성능을 매우 높일 수 있다.
+
+모든 그래프는 `Mac OS X with 2.6GHz & 8GB RAM`에서 테스트한 기록이다.
 
 ``` r
 # Raw Code

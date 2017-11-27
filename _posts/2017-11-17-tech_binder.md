@@ -4,7 +4,7 @@ title: binder - Github 내 Jupyter notebook을 설치없이 보는 사이트
 date: 2017-11-17 04:30:00 pm
 description: # Add post description (optional)
 img: binder.png # Add image post (optional)
-tags: [Note, Jupyter] # add tag
+tags: [Tech, Jupyter] # add tag
 ---
 > jupyter notebook이 Docker 이미지로 생성되어서 github 내 존재하는 .ipynb 파일들을  열어볼 수 있다. -- 
 

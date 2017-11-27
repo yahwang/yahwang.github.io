@@ -1,13 +1,15 @@
 ---
 layout: post
-title: 다큐 비욘드, 해킹 30초전
+title: 해킹 30초 전
 date: 2017-11-17 09:30:00 pm
 description: # Add post description (optional)
 img: hacked.jpg # Add image post (optional)
-tags: [Note, Trend] # add tag
+tags: [TV, Trend] # add tag
 ---
 
-> 국내 공공기관 해킹 시도가 1초에 16건, 하루 140만 건 정도 이루어진다고 한다. -- 
+`과학다큐 비욘드 시청 노트 --`
+
+> 국내 공공기관 해킹 시도가 1초에 16건, 하루 140만 건 정도 이루어진다고 한다.
 
 ## 악성코드(Malware)
 
@@ -59,4 +61,4 @@ ransom은 몸값이라는 뜻
 
 * [웹 공격에 대한 기사](http://www.zdnet.co.kr/news/news_view.asp?artice_id=20170522162444)
 
-* [해킹 30초전 다시보기](http://www.ebs.co.kr/tv/show?prodId=124333&lectId=10784084)
+* [다시보기](http://www.ebs.co.kr/tv/show?prodId=124333&lectId=10784084)
