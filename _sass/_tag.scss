@@ -48,3 +48,14 @@
     }
   }
 }
+
+.main-tag{
+    font-size:20px;
+    text-decoration: none;
+    padding: 2px 5px;
+    border: 1px solid $gray;
+    background-color: $lightgray;
+    &:hover {
+        text-decoration: underline;
+        opacity: .8;
+    }}
