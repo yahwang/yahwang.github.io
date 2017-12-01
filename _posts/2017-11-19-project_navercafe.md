@@ -99,7 +99,7 @@ for article in article_urls:
     title = soup.select('div.tit-box span.b')[0].get_text()
     # 게시글을 띄어쓰기 단위로 합친다.
     content_tags = soup.select('#tbody')[0].select('p')
-    content = ' '.join([ tag.get_text() for tags in content_tags ])
+    content = ' '.join([ tags.get_text() for tags in content_tags ])
     # dict형태로 만들어 결과 list에 저장
     res_list.append({'title' : title, 'content' : content})
     # time.sleep 작업도 필요하다.
