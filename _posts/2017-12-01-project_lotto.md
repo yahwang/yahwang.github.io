@@ -1,10 +1,10 @@
----
+﻿---
 layout: post
 title: 연금복권 당첨번호를 확인하는 프로그램 만들기
 date: 2017-12-01 05:30:00 pm
 description: # Add post description (optional)
 img: lotto_main.png # Add image post (optional)
-tags: [Project, python] # add tag
+tags: [Project, Python] # add tag
 ---
 
 > cx_Freeze를 활용하여 exe실행파일을 만든다. with python3.6 --  
