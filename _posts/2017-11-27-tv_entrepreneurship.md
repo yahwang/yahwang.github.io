@@ -31,4 +31,4 @@ tags: [TV, Trend] # add tag
 
 `Link` : 
 
-* [다시보기](http://allvod.sbs.co.kr/allvod/vodEndPage.do?mdaId=22000253253&btn=free)
+* [다시보기](http://allvod.sbs.co.kr/allvod/vodEndPage.do?mdaId=22000253253&btn=free){:target="_blank"}

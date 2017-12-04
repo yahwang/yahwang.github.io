@@ -112,4 +112,4 @@ Rcpp는 C++을 이용하는 방법으로 매우 빠른 속도를 보여준다.
 
 `Link` : 
 
-* [Strategies to Speedup R Code](https://www.r-bloggers.com/strategies-to-speedup-r-code/)
+* [Strategies to Speedup R Code](https://www.r-bloggers.com/strategies-to-speedup-r-code/){:target="_blank"}

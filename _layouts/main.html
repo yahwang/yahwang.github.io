@@ -22,11 +22,11 @@ layout: default
       <h3 class="contact-title">Contact me</h3>
       <ul>
         {% if site.email %}
-        <li><a href="mailto:{{site.email}}/"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/email.svg" alt="{{site.email}}"></a></li>{% endif %}
+        <li><a href="mailto:{{site.email}}/" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/email.svg" alt="{{site.email}}"></a></li>{% endif %}
         {% if site.github %}
-        <li><a href="https://github.com/{{ site.github }}"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/github.svg" alt="{{site.github}}"></a></li>{% endif %}
-        {% if site.googledrive %}
-        <li><a href="{{ site.googledrive }}"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/googledrive.svg" alt="{{site.googledrive}}"></a></li>{% endif %}
+        <li><a href="https://github.com/{{ site.github }}" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/github.svg" alt="{{site.github}}"></a></li>{% endif %}
+        {% if site.dropbox %}
+        <li><a href="{{ site.dropbox }}" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/dropbox.svg" alt="{{site.dropbox}}"></a></li>{% endif %}
         </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">

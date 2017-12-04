@@ -27,7 +27,7 @@ tags: [Tech, Jupyter] # add tag
 
 ### 구글 드라이브와 연동 가능 (설치 필요)
 * 구글 Docs처럼 여러 사용자와 Live 코딩도 가능하다. (아직 해보지는 않음)
-* [@jupyterlab/google-drive](https://github.com/jupyterlab/jupyterlab-google-drive)
+* [@jupyterlab/google-drive](https://github.com/jupyterlab/jupyterlab-google-drive){:target="_blank"}
 
 ### Markdown
 
@@ -40,14 +40,14 @@ tags: [Tech, Jupyter] # add tag
 
 ### JSON 파일 실행 및 수정
 
-* .plotly [@jupyterlab/plotly-extension](https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/plotly-extension)
+* .plotly [@jupyterlab/plotly-extension](https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/plotly-extension){:target="_blank"}
 
 ![jupyterlab_json]({{site.baseurl}}/assets/img/jupyterlab(plotly).png)
 
-* .geojson [@jupyterlab/geojson-extension](https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/geojson-extension)
+* .geojson [@jupyterlab/geojson-extension](https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/geojson-extension){:target="_blank"}
 
 ![jupyterlab_json]({{site.baseurl}}/assets/img/jupyterlab(geojson).png)
 
 `Link` : 
 
-* [PyData Seattle 2017](https://www.youtube.com/watch?v=u3gU2brTaVI)
+* [PyData Seattle 2017](https://www.youtube.com/watch?v=u3gU2brTaVI){:target="_blank"}

@@ -80,4 +80,4 @@ df.to_csv('seoulbike.csv', index=False)
 
 `Link` : 
 
-* [따릉이 대여소 조회](https://www.bikeseoul.com/app/station/moveStationSearchView.do?currentPageNo=1)
+* [따릉이 대여소 조회](https://www.bikeseoul.com/app/station/moveStationSearchView.do?currentPageNo=1){:target="_blank"}

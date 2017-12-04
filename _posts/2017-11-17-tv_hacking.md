@@ -59,6 +59,6 @@ ransom은 몸값이라는 뜻
 
 `Link` : 
 
-* [웹 공격에 대한 기사](http://www.zdnet.co.kr/news/news_view.asp?artice_id=20170522162444)
+* [웹 공격에 대한 기사](http://www.zdnet.co.kr/news/news_view.asp?artice_id=20170522162444){:target="_blank"}
 
-* [다시보기](http://www.ebs.co.kr/tv/show?prodId=124333&lectId=10784084)
+* [다시보기](http://www.ebs.co.kr/tv/show?prodId=124333&lectId=10784084){:target="_blank"}

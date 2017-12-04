@@ -68,4 +68,4 @@ tags: [Project, Tableau] # add tag
 
 `Link` : 
 
-* [Tableau Public에서 확인](https://public.tableau.com/profile/.7794#!/vizhome/_16418/sheet0)
+* [Tableau Public에서 확인](https://public.tableau.com/profile/.7794#!/vizhome/_16418/sheet0){:target="_blank"}

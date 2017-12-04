@@ -70,4 +70,4 @@ wordcloud2(top_50, size=0.5, color='random-light', backgroundColor = 'black', fi
 
 `Link` :
 
-* [BigKinds 뉴스 빅데이터](https://www.kinds.or.kr/)
+* [BigKinds 뉴스 빅데이터](https://www.kinds.or.kr/){:target="_blank"}

@@ -32,5 +32,5 @@ tags: [Tech, Jupyter] # add tag
 
 `Link` : 
 
-* <https://mybinder.org>
+* <https://mybinder.org>{:target="_blank"}
 

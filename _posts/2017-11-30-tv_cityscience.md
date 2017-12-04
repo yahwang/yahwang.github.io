@@ -71,4 +71,4 @@ tags: [TV, Trend] # add tag
 
 `Link` : 
 
-* [다시보기](http://www.ebs.co.kr/tv/show?prodId=124333&lectId=10695623)
+* [다시보기](http://www.ebs.co.kr/tv/show?prodId=124333&lectId=10695623){:target="_blank"}

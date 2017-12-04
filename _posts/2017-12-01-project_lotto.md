@@ -9,7 +9,7 @@ tags: [Project, Python] # add tag
 
 > cx_Freeze를 활용하여 exe실행파일을 만든다. with python3.6 --  
 
-[cx_Freeze 다운로드](https://pypi.python.org/pypi/cx_Freeze)
+[cx_Freeze 다운로드](https://pypi.python.org/pypi/cx_Freeze){:target="_blank"}
 
 windows 10에서 실행오류가 해결된 최신버전을 활용한다. (5 버전은 문제가 있는 듯)
 
@@ -107,4 +107,4 @@ while True:
 
 `Link` :
 
-* [연금복권](http://nlotto.co.kr/gameResult.do?method=win520)
+* [연금복권](http://nlotto.co.kr/gameResult.do?method=win520){:target="_blank"}
