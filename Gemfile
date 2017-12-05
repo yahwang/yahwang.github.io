@@ -17,14 +17,14 @@ gem "minima", "~> 2.0"
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 # gem "github-pages", group: :jekyll_plugins
 
-# 새로  추가
-gem "jekyll-sitemap"
-gem "jekyll-paginate"
-gem "jemoji"
-
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.6"
+  gem "jekyll-feed"
+  gem "jekyll-sitemap"
+  gem "jekyll-paginate"
+  gem "jemoji"
+  gem "rouge"
+  gem "kramdown"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

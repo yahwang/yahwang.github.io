@@ -14,7 +14,24 @@ tags: [Tech, Jupyter] # add tag
 
 ![binder_sample]({{site.baseurl}}/assets/img/python/binder_sample.png)
 
-> 공유한 링크로 접속 시 token 문제 해결방법
+### 모듈 설치환경 만들기
+
+`environment.yml` 을 만들어 리스트를 작성하면 모듈 설치환경을 만들 수 있다.
+
+conda에서 지원하지 않는 모듈을 사용하려면 -pip 옵션으로 활용하면 된다.
+
+``` python
+name : 설치환경 이름
+channels:
+ - conda-forge
+dependencies:
+ - python
+ - numpy
+ - pip:
+  - pandas
+```
+
+### 공유한 링크로 접속 시 token 문제 해결방법
 
 ![binder_token]({{site.baseurl}}/assets/img/python/binder(token).png)
 
@@ -27,10 +44,10 @@ tags: [Tech, Jupyter] # add tag
 
 ### 단점
 * 파일이 많으면 실행하는 데 오래 걸린다.
-* custom 모듈을 설치할 수가 없어서 재실행을 할 수 없다.
 * 아직 python 언어만 지원하는 듯하다.
 
 `Link` : 
 
 * <https://mybinder.org>{:target="_blank"}
+* [설치환경 docs](https://mybinder.readthedocs.io/en/latest/preparing.html)
 

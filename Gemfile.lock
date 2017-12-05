@@ -79,11 +79,13 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 3.6.2)
-  jekyll-feed (~> 0.6)
+  jekyll-feed
   jekyll-paginate
   jekyll-sitemap
   jemoji
+  kramdown
   minima (~> 2.0)
+  rouge
   tzinfo-data
 
 BUNDLED WITH

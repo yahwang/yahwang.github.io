@@ -19,7 +19,7 @@ conda는 아직 python3.6버전을 지원하지 않는 듯 하다.
 
 `setup.py를 구성한 후 build를 하면 python을 설치하지 않아도 실행가능한 exe파일을 만들 수 있다.`
 
-![lotto]({{site.baseurl}}/assets/img/lotto.png)
+![lotto]({{site.baseurl}}/assets/img/python/lotto.png)
 
 ### setup.py
 

@@ -214,3 +214,49 @@ a.newer-posts:hover {
     &:hover {text-decoration: underline;}
   }
 }
+
+#pagination {
+    margin: 0;
+    padding: 33px 0;
+    text-align: center;
+}
+
+#pagination > li {
+    list-style: none;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    color: #1e1e1e;
+    font-size: 22px;
+    line-height: 28px; /* 18px = 20(height) - 2(border) */
+    vertical-align: middle;
+}
+
+/* pagination */
+
+#pagination > li + li {
+    margin-left: 10px;
+}
+
+#pagination > li.active, #pagination > li:hover {
+    background-color: #e6e6e6;
+    border-radius: 4px;
+}
+
+#pagination > li > a {
+    color: #1e1e1e;
+    width: 100%;
+    height: 100%;
+    display:block;
+    text-decoration: none;
+}
+
+#page-prev {
+    background: url(../assets/img/icon/left-arrow.png) no-repeat center;
+    background-size: 16px 21px;
+}
+
+#page-next {
+    background: url(../assets/img/icon/right-arrow.png) no-repeat center;
+    background-size: 16px 21px;
+}
