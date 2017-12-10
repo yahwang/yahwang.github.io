@@ -139,7 +139,7 @@ footer {
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  min-height: 11rem;
+  max-height: 11rem;
   border-radius: 10px;
   overflow: hidden;
   transition: all .3s ease;
@@ -152,7 +152,8 @@ footer {
   .post-thumbnail {
     width: 30%;
     max-width: 100%;
-    min-height: 11rem;
+    min-height: 6rem;
+    max-height: 11rem;
     background-size: cover;
     background-position: center;
   }

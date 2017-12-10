@@ -37,6 +37,8 @@
 }
 
 .tag-list {
+  line-height: 1.5;  
+  font-size: 1.2rem;
   span {
     a {
       text-decoration: none;
@@ -52,7 +54,7 @@
 .main-tag{
     font-size:20px;
     text-decoration: none;
-    padding: 2px 5px;
+    padding: 0px 5px;
     border: 1px solid $gray;
     background-color: $lightgray;
     &:hover {

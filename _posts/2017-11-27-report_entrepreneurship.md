@@ -4,7 +4,7 @@ title: 4차 산업혁명 시대, 기업가 정신으로 무장하라
 date: 2017-11-27 05:30:00 pm
 description: # Add post description (optional)
 img: entrepreneurship.jpg  # Add image post (optional)
-tags: [TV, Trend] # add tag
+tags: [Report] # add tag
 ---
 
 `일요특선 다큐멘터리 시청 노트 --`

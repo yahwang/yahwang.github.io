@@ -16,7 +16,6 @@ twitter: # add your Twitter handle
 facebook: # add your Facebook handle
 github: yahwang # add your Github handle
 linkedin: # add your Linkedin handle
-googledrive: 
 dropbox: https://www.dropbox.com/sh/h8vq5tnmur3922n/AAAK4lgPY7rgkot60WwSksfWa?dl=0
 email: hts911kr@gmail.com # add your Email address
 
@@ -32,13 +31,17 @@ analytics: # Google Analytics
 
 # Build Settings
 markdown: kramdown
-kramdown:
 highlighter: rouge
 plugins:
   - jekyll-sitemap
   - jekyll-paginate
-  - jemoji
+  - jekyll/tagging
 
+# tagging
+tag_page_layout: tag_page
+tag_page_dir: tag
+
+# pagination
 paginate: 10
 paginate_path: "/page/:num"
 

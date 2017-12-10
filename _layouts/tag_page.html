@@ -1,8 +1,8 @@
 ---
 layout: main
-# 홈페이지 게시글 리스트 레이아웃
 ---
-{% for post in paginator.posts %}
+
+{% for post in site.tags[page.tag] %}
 <article class="post">
   {% if post.img %}
     <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>

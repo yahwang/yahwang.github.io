@@ -4,7 +4,7 @@ title: 해킹 30초 전
 date: 2017-11-17 09:30:00 pm
 description: # Add post description (optional)
 img: hacked.jpg # Add image post (optional)
-tags: [TV, Trend] # add tag
+tags: [Report] # add tag
 ---
 
 `과학다큐 비욘드 시청 노트 --`
