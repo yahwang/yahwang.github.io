@@ -3,7 +3,7 @@ layout: post
 title: 연금복권 당첨번호를 확인하는 프로그램 만들기
 date: 2017-12-01 05:30:00 pm
 description: # Add post description (optional)
-img: lotto_main.png # Add image post (optional)
+img: thumbnail/lotto_main.png # Add image post (optional)
 tags: [Project, Python] # add tag
 ---
 

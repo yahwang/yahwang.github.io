@@ -3,7 +3,7 @@ layout: post
 title: JupyterLab
 date: 2017-11-16 05:30:00 pm
 description: # Add post description (optional)
-img: jupyterlab.png  # Add image post (optional)
+img: thumbnail/jupyterlab.png  # Add image post (optional)
 tags: [Tech, Jupyter] # add tag
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: 해킹 30초 전
 date: 2017-11-17 09:30:00 pm
 description: # Add post description (optional)
-img: hacked.jpg # Add image post (optional)
+img: thumbnail/hacked.jpg # Add image post (optional)
 tags: [Report] # add tag
 ---
 

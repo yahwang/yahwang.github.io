@@ -3,7 +3,7 @@ layout: post
 title: for - if 반복문 성능을 올리는 법
 date: 2017-11-26 05:30:00 pm
 description: # Add post description (optional)
-img: r_note.png   # Add image post (optional)
+img: thumbnail/r_note.png   # Add image post (optional)
 tags: [Tech, R] # add tag
 ---
 

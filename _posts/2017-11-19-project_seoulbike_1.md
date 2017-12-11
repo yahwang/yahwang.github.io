@@ -3,7 +3,7 @@ layout: post
 title: 서울자전거 따릉이 대여소 크롤링
 date: 2017-11-19 05:30:00 pm
 description: # Add post description (optional)
-img: seoulbike.png  # Add image post (optional)
+img: thumbnail/seoulbike.png  # Add image post (optional)
 tags: [Project, Python] # add tag
 ---
 

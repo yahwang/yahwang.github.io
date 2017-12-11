@@ -3,7 +3,7 @@ layout: post
 title: 뉴스 데이터를 활용한 워드클라우드(with BigKinds)
 date: 2017-11-24 05:30:00 pm
 description: # Add post description (optional)
-img: news_wordcloud.png  # Add image post (optional)
+img: thumbnail/news_wordcloud.png  # Add image post (optional)
 tags: [Project, R] # add tag
 ---
 

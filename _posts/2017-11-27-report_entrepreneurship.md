@@ -3,7 +3,7 @@ layout: post
 title: 4차 산업혁명 시대, 기업가 정신으로 무장하라
 date: 2017-11-27 05:30:00 pm
 description: # Add post description (optional)
-img: entrepreneurship.jpg  # Add image post (optional)
+img: thumbnail/entrepreneurship.jpg  # Add image post (optional)
 tags: [Report] # add tag
 ---
 
