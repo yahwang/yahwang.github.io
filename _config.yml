@@ -2,7 +2,7 @@ title: YaHwang 기술 블로그
 description: 데이터를 공부합니다. 빅데이터, r, python, tableau 등의 기술을 배우고 4차 산업혁명 시대를 준비한다.
 permalink: ':year/:month/:day/:title'
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://yahwang.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 timezone: Asia/Seoul # 지역 시간 설정
 
 # Author Settings
