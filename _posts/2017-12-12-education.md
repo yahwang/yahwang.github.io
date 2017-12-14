@@ -3,8 +3,8 @@ layout: post
 title: 4차 산업혁명, 교육 패러다임의 대전환
 date: 2017-12-12 05:30:00 pm
 description: # Add post description (optional)
-img: thumbnail/education.png  # Add image post (optional)
-tags: [Report] # add tag
+img: thumbnail/tvreport.png  # Add image post (optional)
+tags: [Report, TV, Trend] # add tag
 ---
 
 `EBS 다큐프라임 시청 노트 --`

@@ -3,8 +3,8 @@ layout: post
 title: 네트워크, 연결되어 있습니까 (도시과학)
 date: 2017-11-30 05:30:00 pm
 description: # Add post description (optional)
-img: thumbnail/network.jpg   # Add image post (optional)
-tags: [Report] # add tag
+img: thumbnail/tvreport.png   # Add image post (optional)
+tags: [Report, TV, Network] # add tag
 ---
 
 `과학다큐 비욘드 시청 노트 --`
