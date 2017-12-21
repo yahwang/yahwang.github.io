@@ -36,7 +36,7 @@ benchmark(
  1  data.table   28.95     1.000      50        
 ```
 
-> readr보다 fread(data.table)가 약 1.5배 정도 빠른 것으로 나타난다.
+> fread(data.table)가 readr보다 약 1.5배 정도 빠른 것으로 나타난다.
 
 ## Subsetting 
 
@@ -71,7 +71,7 @@ benchmark(
 6        DT.dplyr    1.00    4.545          100
 ```
 
-> dplyr보다 data.table이 약 4배 정도 빠르다.
+> data.table이 dplyr보다 약 4배 정도 빠르다.
 
 ### 다양한 조건을 걸 때
 
@@ -100,7 +100,7 @@ benchmark(
 6     DT.setkey.J    1.45    4.028          100
 ```
 
-> dplyr보다 data.table이 약 2배 정도 빠르다. J는 다양한 조건식에선 오히려 느리다.
+> data.table이 dplyr보다 약 2배 정도 빠르다. J는 다양한 조건식에선 오히려 느리다.
 
 ### data.table:: [ , by] ㅣVSㅣ dplyr:: group_by & summarise
 
@@ -157,6 +157,30 @@ benchmark(
 ```
 
 > dplyr보다 data.table이 약 2배 정도 빠르다.
+
+## Sampling
+
+13만 개의 row에서 50%를 샘플링해보는 테스트를 진행했다.
+
+```r
+benchmark(
+  DF = wine_df[sample(nrow(wine_df), nrow(wine_df)*0.5),],
+  DF.dplyr = wine_df %>% sample_n(nrow(wine_df)*0.5),
+  DT = wine_dt[sample(nrow(wine_df),nrow(wine_df)*0.5),],
+  DT.dplyr = wine_df %>% sample_n(nrow(wine_dt)*0.5),
+  replications = 100, columns = c('test','elapsed','relative','replications'))
+```
+
+```r
+결과
+      test elapsed relative replications
+1       DF    3.10    1.455          100
+2 DF.dplyr    3.47    1.629          100
+3       DT    2.13    1.000          100
+4 DT.dplyr    3.32    1.559          100
+```
+
+> data.table이 data.frame보다 약 1.5배 빠르다.
 
 `Link` : 
 
