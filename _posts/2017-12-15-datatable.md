@@ -174,13 +174,17 @@ benchmark(
 ```r
 결과
       test elapsed relative replications
-1       DF    3.10    1.455          100
-2 DF.dplyr    3.47    1.629          100
-3       DT    2.13    1.000          100
-4 DT.dplyr    3.32    1.559          100
+1       DT    2.16    1.000          100
+2       DF    3.24    1.500          100
+3 DF.dplyr    3.55    1.644          100
+4 DT.dplyr    4.99    2.310          100
 ```
 
 > data.table이 data.frame보다 약 1.5배 빠르다.
+
+### 주의사항
+
+> data.table 자체는 속도가 빠르지만 dplyr과 결합하면 매우 느려진다는 점을 주의해야 한다.
 
 `Link` : 
 
