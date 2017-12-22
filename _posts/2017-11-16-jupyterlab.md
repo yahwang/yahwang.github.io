@@ -2,7 +2,7 @@
 layout: post
 title: JupyterLab
 date: 2017-11-16 05:30:00 pm
-description: # Add post description (optional)
+description: Jupyter Notebook에서 한단계 발전한 Jupyterlab Alpha단계이다. # Add post description (optional)
 img: thumbnail/jupyterlab.png  # Add image post (optional)
 tags: [Tech, Jupyter] # add tag
 ---
