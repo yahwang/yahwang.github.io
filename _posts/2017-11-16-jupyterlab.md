@@ -26,6 +26,7 @@ tags: [Tech, Jupyter] # add tag
 영상에서는 trillion rows & cols 로드가 가능함을 보여주었다.
 
 ### 구글 드라이브와 연동 가능 (설치 필요)
+* 파일을 실행하면 왼쪽에 Chat 메뉴가 생기며 여러 사용자와 채팅을 할 수 있다.
 * 구글 Docs처럼 여러 사용자와 Live 코딩도 가능하다. (아직 해보지는 않음)
 * [@jupyterlab/google-drive](https://github.com/jupyterlab/jupyterlab-google-drive){:target="_blank"}
 
