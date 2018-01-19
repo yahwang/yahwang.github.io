@@ -57,7 +57,7 @@
   }
 }
 .content-box {
-  padding: 20px;
+  padding: 5px;
   padding-left: 260px;
 
   display: flex;
@@ -135,11 +135,11 @@ footer {
 .post {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  max-height: 11rem;
+  max-height: 6.5rem;
   border-radius: 10px;
   overflow: hidden;
   transition: all .3s ease;
@@ -150,24 +150,24 @@ footer {
   }
 
   .post-thumbnail {
-    width: 30%;
+    width: 25%;
     max-width: 100%;
     min-height: 6rem;
-    max-height: 11rem;
+    max-height: 6.5rem;
     background-size: cover;
     background-position: center;
   }
 
   .post-content {
-    padding: 1rem;
-    width: 70%;
+    padding: 0.5rem;
+    width: 75%;
     .post-date,
     .post-words {
-      font-size: 12px;
+      font-size: 11px;
     }
     .post-title {
-      margin: 0 0 10px;
-      font-size: 23px;
+      margin: 0 0 5px;
+      font-size: 19px;
       font-weight: 400;
       a {
         font-family: 'Spoqa Han Sans', serif;
@@ -176,8 +176,8 @@ footer {
       }
     }
     p {
-      margin-top: 0;
-      font-size: 17px;
+      margin: 0 0 5px;
+      font-size: 14px;
       line-height: 1.3;
     }
   }
