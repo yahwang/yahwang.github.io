@@ -1,6 +1,6 @@
 title: YaHwang 기술 블로그
 description: 데이터 분석을 위한 포트폴리오
-permalink: ':year/:month/:day/:title'
+permalink: 'posts/'
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yahwang.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 timezone: Asia/Seoul # 지역 시간 설정
@@ -31,11 +31,10 @@ analytics: # Google Analytics
 markdown: kramdown
 highlighter: rouge
 plugins:
-  - jekyll-sitemap
   - jekyll-paginate
 
 # pagination
 paginate: 10
-paginate_path: "/page/:num"
+paginate_path: "posts/page/:num"
 
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]

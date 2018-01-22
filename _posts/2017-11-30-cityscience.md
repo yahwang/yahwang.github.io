@@ -2,6 +2,7 @@
 layout: post
 title: 네트워크, 연결되어 있습니까 (도시과학)
 date: 2017-11-30 05:30:00 pm
+permalink: posts/11
 description: # Add post description (optional)
 img: thumbnail/tvreport.png   # Add image post (optional)
 tags: [Report, TV, Network] # add tag

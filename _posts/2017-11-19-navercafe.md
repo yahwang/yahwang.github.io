@@ -2,6 +2,7 @@
 layout: post
 title: 네이버 카페 게시글 크롤링
 date: 2017-11-29 05:30:00 pm
+permalink: posts/4
 description: # Add post description (optional)
 img: thumbnail/navercafe.jpg  # Add image post (optional)
 tags: [Project, Python] # add tag
