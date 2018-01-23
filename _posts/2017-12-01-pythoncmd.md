@@ -1,14 +1,15 @@
 ---
 layout: post
-title: 연금복권 당첨번호를 확인하는 프로그램 만들기
+title: Python으로 cmd.exe 실행파일 만들기 with 연금복권
 date: 2017-12-01 05:30:00 pm
 permalink: posts/12
 description: # Add post description (optional)
 img: thumbnail/lotto_main.png # Add image post (optional)
-tags: [Project, Python] # add tag
+categories: [Tech, Python]
+tags: [cmd] # add tag
 ---
 
-> cx_Freeze를 활용하여 exe실행파일을 만든다. with python3.6 --  
+> cx_Freeze를 활용하여 Python cmd.exe 실행파일을 만든다. --  
 
 [cx_Freeze 다운로드](https://pypi.python.org/pypi/cx_Freeze){:target="_blank"}
 

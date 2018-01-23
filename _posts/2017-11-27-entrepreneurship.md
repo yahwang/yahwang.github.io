@@ -5,7 +5,8 @@ date: 2017-11-27 05:30:00 pm
 permalink: posts/10
 description: # Add post description (optional)
 img: thumbnail/tvreport.png  # Add image post (optional)
-tags: [Report, TV, Trend] # add tag
+categories: [Report]
+tags: [다큐, 4차 산업혁명] # add tag
 ---
 
 `일요특선 다큐멘터리 시청 노트 --`

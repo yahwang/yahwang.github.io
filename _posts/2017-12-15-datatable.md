@@ -6,7 +6,8 @@ lastmod:
 permalink: posts/15
 description: 빠른 속도가 강점인 data.table과 dplyr을 활용하여 데이터 가공 속도를 비교한다.# Add post description (optional)
 img: thumbnail/r_note.png   # Add image post (optional)
-tags: [Tech, R] # add tag
+categories: [Tech, R]
+tags: [data.table, dplyr] # add tag
 ---
 
 > 대용량 처리가 뛰어나다고 알려진 data.table을 dplyr과 테스트 및 비교해본다. -- 

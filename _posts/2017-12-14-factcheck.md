@@ -5,7 +5,8 @@ date: 2017-12-14 03:30:00 pm
 permalink: posts/14
 description: # Add post description (optional)
 img: thumbnail/newsreport.png # Add image post (optional)
-tags: [Report, News, Analysis] # add tag
+categories: [Report]
+tags: [News, Analysis] # add tag
 ---
 
 `CIO korea 기사 노트 --`

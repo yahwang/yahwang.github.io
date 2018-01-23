@@ -5,7 +5,8 @@ date: 2017-11-29 05:30:00 pm
 permalink: posts/4
 description: # Add post description (optional)
 img: thumbnail/navercafe.jpg  # Add image post (optional)
-tags: [Project, Python] # add tag
+categories: [Tech, Python]
+tags: [Crawling, Selenium] # add tag
 ---
 
 > Selenium 라이브러리를 활용하여 로그인 session을 유지한다. --

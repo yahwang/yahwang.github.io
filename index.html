@@ -13,8 +13,11 @@ layout: main
     <p>{{ post.content | strip_html | truncatewords: 13 }}</p>
     <span class="post-date">{{post.date | date: '%Y/%m/%d'}}&nbsp;&nbsp;&nbsp;</span>
     <span class="page-tag">
+    {% for category in post.categories %}
+        <a href="{{site.baseurl}}/categories/{{category}}" class="category">&#35; {{ category }}</a>
+    {% endfor %}
     {% for tag in post.tags %}
-        <a href="{{site.baseurl}}/tag/{{tag | downcase}}" class="tag">&#35; {{ tag }}</a>
+        <span class="tag">{{ tag }}</span>
     {% endfor %}</span>
     </div>
 </article>

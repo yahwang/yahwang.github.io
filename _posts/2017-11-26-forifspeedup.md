@@ -5,7 +5,8 @@ date: 2017-11-26 05:30:00 pm
 permalink: posts/8
 description: 조건문이 필요한 계산의 처리속도를 높인다.# Add post description (optional)
 img: thumbnail/r_note.png   # Add image post (optional)
-tags: [Tech, R] # add tag
+categories: [Tech, R]
+tags: [] # add tag
 ---
 
 > 2016년 1월 작성된 R-bloggers의 글을 정리한다. -- 

@@ -5,7 +5,8 @@ date: 2017-11-30 05:30:00 pm
 permalink: posts/11
 description: # Add post description (optional)
 img: thumbnail/tvreport.png   # Add image post (optional)
-tags: [Report, TV, Network] # add tag
+categories: [Report]
+tags: [다큐, Network] # add tag
 ---
 
 `과학다큐 비욘드 시청 노트 --`
