@@ -17,7 +17,7 @@
     {% endif %}
     
     {% if post.sitemap.changefreq == null %}
-    <changefreq>weakly</changefreq>
+    <changefreq>weekly</changefreq>
     {% else %}
     <changefreq>{{ post.sitemap.changefreq }}</changefreq>
     {% endif %}
