@@ -35,6 +35,6 @@ plugins:
 
 # pagination
 paginate: 10
-paginate_path: "posts/page/:num"
+paginate_path: "/posts/page/:num"
 
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]

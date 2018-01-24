@@ -7,7 +7,7 @@
     flex-direction: column;
 
     .post-thumbnail {
-      width: 100%;
+      display: none;
     }
 
     .post-content {
@@ -15,8 +15,11 @@
       .post-title {
         margin: 0 0 5px;
         a {
-          font-size: 21px;
+          font-size: 17px;
         }
+      }
+      p{
+        display: none;
       }
     }
   }
