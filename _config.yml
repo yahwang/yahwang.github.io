@@ -33,8 +33,18 @@ highlighter: rouge
 plugins:
   - jekyll-paginate
 
-# pagination
+# pagination settings
 paginate: 10
 paginate_path: "/posts/page/:num"
 
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
+
+# Search settings
+tipue_search:
+  include:
+    pages: false
+    collections: []
+  exclude:
+    files: [search.html, index.html, tags.html]
+    categories: []
+    tags: []
