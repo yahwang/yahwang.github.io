@@ -5,7 +5,7 @@ date: 2017-12-14 03:30:00 pm
 permalink: posts/14
 description: # Add post description (optional)
 img: thumbnail/newsreport.png # Add image post (optional)
-categories: [Report]
+categories: [Note]
 tags: [News, Analysis] # add tag
 ---
 

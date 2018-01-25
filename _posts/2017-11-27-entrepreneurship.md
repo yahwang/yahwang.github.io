@@ -5,7 +5,7 @@ date: 2017-11-27 05:30:00 pm
 permalink: posts/10
 description: # Add post description (optional)
 img: thumbnail/tvreport.png  # Add image post (optional)
-categories: [Report]
+categories: [Note]
 tags: [다큐, 4차 산업혁명] # add tag
 ---
 

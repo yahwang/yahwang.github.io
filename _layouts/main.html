@@ -33,16 +33,16 @@ layout: default
             <li><a href="{{site.baseurl}}/categories/tableau"><span class="list-mark">▶</span> Tableau </a> <span class="num">({{site.categories.Tableau.size}})</span></li>
         </ul>    
         <li><a href="{{site.baseurl}}/categories/project"><span class="list-mark">▶</span> Project </a> <span class="num">({{site.categories.Project.size}})</span></li>
-        <li><a href="{{site.baseurl}}/categories/report"><span class="list-mark">▶</span> Report </a> <span class="num">({{site.categories.Report.size}})</span></li>
+        <li><a href="{{site.baseurl}}/categories/note"><span class="list-mark">▶</span> Note </a> <span class="num">({{site.categories.Note.size}})</span></li>
     </ul>      
     </section>
     <!-- TAG CLOUD -->  
     <section class="tag-cloud">
             <h3 class="title">TAG Cloud</h3>     
         {% for tag in site.tags %}
-            {% assign tag_word = tag | first | slugize %}
+            {% assign tag_word = tag | first %}
         {% if site.tags[tag_word].size > 1 %}
-                <span style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 70  }}%">{{ tag_word}}&nbsp;&nbsp;</span>  
+                <span style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 70  }}%">{{tag_word}}&nbsp;</span>  
         {% endif %}
         {% endfor %}
     </section>  

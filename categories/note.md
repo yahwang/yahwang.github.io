@@ -1,6 +1,6 @@
 ---
 layout: category
-category: Report
+category: Note
 sitemap: false
 ---
 

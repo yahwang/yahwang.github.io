@@ -5,7 +5,7 @@ date: 2017-11-30 05:30:00 pm
 permalink: posts/11
 description: # Add post description (optional)
 img: thumbnail/tvreport.png   # Add image post (optional)
-categories: [Report]
+categories: [Note]
 tags: [다큐, Network] # add tag
 ---
 

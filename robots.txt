@@ -2,4 +2,4 @@ User-agent:*
 
 Allow:/
 
-Sitemap: http://yahwang.tk/sitemap.xml
+Sitemap: http://yahwang.github.io/sitemap.xml
