@@ -24,9 +24,6 @@ sass:
   sass_dir: _sass
   style: compressed
 
-# Tracker
-analytics: # Google Analytics
-
 # Build Settings
 markdown: kramdown
 highlighter: rouge

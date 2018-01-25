@@ -17,8 +17,6 @@ gem "jekyll", "~> 3.7.0"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-paginate"
-  gem "listen", "~> 3.0"
-  gem "rouge", "<4"
   gem "eventmachine"
   gem "wdm", ">= 0.1.0"
 end
