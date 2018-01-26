@@ -13,7 +13,7 @@ tags: [ 블로그, Jekyll, Githubpages] # add tag
 
 Tipue search는 내부 JS 알고리즘을 통해 검색결과를 보여주는 기술이다. 검색은 내부 글을 포함한 모든 텍스트를 대상으로 이루어진다.
 
-[tipue search 공식 데모](http://www.tipue.com/search/demos/static/){:target="_blank"} - 박스 안에 검색하면 결과가 화면에 나온다.
+[tipue search 데모 SearchBox](http://www.tipue.com/search/demos/static/){:target="_blank"} - 박스 안에 검색하면 결과가 화면에 나온다.
 
 ![tipue_ex]({{site.baseurl}}/assets/img/note/tipue_ex.png)
 
@@ -50,7 +50,22 @@ Github 블로그에 적용시키기 위해 잘 정리된 [jekyll-tipue-search](h
 <script src="/assets/tipuesearch/tipuesearch.min.js"></script>
 "{"% endif %"}"
 ```
-### search.html 구성
+
+### 검색 도구 search box 구성
+
+form 태그를 search.html이든 다른 원하는 레이아웃에 삽입하면 된다.
+
+``` python
+<!-- search box -->
+<form action="{{ site.baseurl }}/search">
+  <div class="tipue_search_box">
+    <img src="{{ "/assets/tipuesearch/search.png" | relative_url }}" class="tipue_search_icon">
+    <input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="최소 3글자 이상" required></div>
+  <div style="clear: both;"></div>
+</form>
+```
+
+### 검색 결과 search.html 구성
 
 ``` python
 ---
