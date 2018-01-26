@@ -20,7 +20,6 @@ var tipuesearch_stop_words = ["a", "about", "above", "after", "again", "against"
 var tipuesearch_replace = {'words': [
      {'word': 'tip', 'replace_with': 'tipue'},
      {'word': 'javscript', 'replace_with': 'javascript'},
-     {'word': 'jqeury', 'replace_with': 'jquery'}
 ]};
 
 
@@ -47,8 +46,6 @@ var tipuesearch_stem = {'words': [
 var tipuesearch_related = {'searches': [
      {'search': 'tipue', 'related': 'Tipue Search'},
      {'search': 'tipue', 'before': 'Tipue Search', 'related': 'Getting Started'},
-     {'search': 'tipue', 'before': 'Tipue', 'related': 'jQuery'},
-     {'search': 'tipue', 'before': 'Tipue', 'related': 'Blog'}
 ]};
 
 
