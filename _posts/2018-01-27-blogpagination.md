@@ -2,7 +2,7 @@
 layout: post
 title: github 블로그에 페이지 나누기 설정(Pagination)
 date: 2018-01-27 02:00:00 am
-permalink: posts/21
+permalink: posts/22
 description: Jekyll Template을 활용하여 Github pages 블로그를 만든다. # Add post description (optional)
 img: thumbnail/githubpage.png  # Add image post (optional)
 categories: [Note]
