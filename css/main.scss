@@ -11,7 +11,7 @@
 }
 
 html {
-  line-height: 1.25;
+  line-height: 1.5;
 }
 
 body {
@@ -25,8 +25,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h2, h3{
+  margin-top: 1rem;
+  margin-bottom: 1rem; 
+}
+
 p {
-    strong{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  strong{
         font-weight:800;
 }
 }
