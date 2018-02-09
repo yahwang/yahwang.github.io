@@ -12,7 +12,7 @@ layout: main
   {% endif %}
   <div class="post-content">
     <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
-    <p>{{ post.content | strip_html | truncatewords: 13 }}</p>
+    <p>{{ post.content | strip_html | truncatewords: 12 }}</p>
     <span class="post-date">{{post.date | date: '%Y/%m/%d'}}&nbsp;&nbsp;&nbsp;</span>
     <span class="page-tag">
     {% for category in post.categories %}
