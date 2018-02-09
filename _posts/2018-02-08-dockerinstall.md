@@ -9,7 +9,7 @@ categories: [Tech]
 tags: [Docker]
 ---
 
-> Docker For Windows 초기 설치할 때 생기는 오류(Windows 10 기준)를 정리한다.
+> Docker For Windows 초기 설치할 때 생기는 오류를 정리한다.
 
 ### 처음 실행했을 때 발생하는 오류
 
