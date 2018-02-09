@@ -11,6 +11,8 @@ tags: [Docker]
 
 > Docker For Windows 초기 설치할 때 생기는 오류를 정리한다.
 
+참고 : Docker For Windows는 Hyper-V(가상머신)를 지원하는 Windows 10 pro에서 설치가 가능하다. Home 또는 이하 버전은 Docker Toolbox를 설치해야 한다.
+
 ### 처음 실행했을 때 발생하는 오류
 
 Docker를 설치 후 처음 실행할 때 다음과 같은 오류가 발생할 수 있다.
