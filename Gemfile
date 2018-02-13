@@ -14,11 +14,11 @@ gem "jekyll", "~> 3.7.0"
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 # gem "github-pages", group: :jekyll_plugins
 
+# 윈도우에만 gem "wdm", ">= 0.1.0"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-paginate"
   gem "eventmachine"
-  gem "wdm", ">= 0.1.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
