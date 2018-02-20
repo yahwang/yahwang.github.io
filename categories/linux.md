@@ -1,6 +1,5 @@
 ---
 layout: category
-category: Tableau
+category: Linux
 sitemap: false
 ---
-

@@ -7,7 +7,8 @@ layout: main
     <div class="wrap-content">
       <header class="header-page">
         <h1 class="page-title">{{page.title}}</h1>
-          <a href="{{page.next.url}}">다음 페이지</a>
+        <a href="{{page.previous.url}}">이전 페이지</a>
+        <a href="{{page.next.url}}">다음 페이지</a>
         <div class="page-date"><span>{{page.date | date: '%Y년 %m월 %d일'}}&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
       </header>
       {{page.content | markdownify}}
