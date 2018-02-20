@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linux Mint 듀얼부팅 구현을 위한 LVM 활용기
+title: 윈도우10 & Mint 듀얼부팅 구현을 위한 LVM 활용기
 date: 2018-02-20 02:00:00 pm
 permalink: posts/25
 description: 리눅스 공부를 위해 Ubuntu를 기반으로 한 Linux Mint를 활용한다.  # Add post description (optional)
