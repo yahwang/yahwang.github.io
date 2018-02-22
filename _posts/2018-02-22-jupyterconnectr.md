@@ -30,17 +30,15 @@ conda install r-irkernel
 
 ### R을 개별적으로 설치
 
-R에서 실행해야할 코드 (Rstudio가 아닌 R 자체에서 사용해야 한다.)
+R에서 실행해야할 코드는 Rstudio가 아닌 R 자체에서 사용해야 한다.
+
+#### Windows 10
 
 ``` r
 install.packages('devtools')
 devtools::install_github('IRkernel/IRkernel')
 IRkernel::installspec()
 ```
-
-코드를 실행하는 데 생길 수 있는 오류가 있다.
-
-#### Windows 10
 
 IRkernel::installspec() 실행 시 다음과 같은 오류가 생길 수 있다.
 
@@ -70,6 +68,7 @@ sudo apt-get install libzmq3-dev # pbdZMq 설치를 위해
 ```
 
 그 후에 터미널에서 R을 실행하고 다음 코드를 입력한다.
+
 ``` r
 install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 
 'devtools', 'uuid', 'digest'))
