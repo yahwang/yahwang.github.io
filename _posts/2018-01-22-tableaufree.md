@@ -17,17 +17,17 @@ tags: [Tableau] # add tag
 
 [학생용 Tableau](https://www.tableau.com/ko-kr/academic/students){:target="_blank"}
 
-![tableau_free_1]({{site.baseurl}}/assets/img/tableau/tableau_free_1.png)
+![tableau_free_1]({{site.baseurl}}/assets/img/tableau/tableau_free_1.jpg)
 
 무료로 TABLEAU 받기를 클릭 후 영어로 인적사항을 입력합니다.
 
 이메일이 학교 메일 주소가 아니어도 상관없습니다.
 
-![tableau_free_2]({{site.baseurl}}/assets/img/tableau/tableau_free_2.png)
+![tableau_free_2]({{site.baseurl}}/assets/img/tableau/tableau_free_2.jpg)
 
 이제 CONTINUE 버튼을 클릭하면 파일 업로드 창이 나타납니다.
 
-![tableau_free_4]({{site.baseurl}}/assets/img/tableau/tableau_free_3.png)
+![tableau_free_4]({{site.baseurl}}/assets/img/tableau/tableau_free_3.jpg)
 
 준비하신 파일을 업로드 후 제출하시면 끝
 

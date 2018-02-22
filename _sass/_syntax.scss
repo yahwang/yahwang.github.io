@@ -5,10 +5,12 @@ p .highlighter-rouge { background-color: #f3f5f6;
     border: 0.5px solid #607D8B; 
     border-radius: 3px;
     padding: 0rem 0.2rem;}
-.highlight {
+pre.highlight {
     font-family: 'D2Coding';
     line-height: 1.2;
-    border-radius: 3px; width: 100%;
+    border-radius: 3px; 
+    max-width: 100%;
+    padding: 5px;margin-top: 10px;margin-bottom: 10px;
     -webkit-transition: -webkit-transform 0.35s;
     transition: -webkit-transform 0.35s;
     -o-transition: transform 0.35s;
