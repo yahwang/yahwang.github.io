@@ -21,6 +21,7 @@ tags: [Crawling, Selenium] # add tag
 from selenium import webdriver
 from bs4 import BeautifulSoup as bs
 import pandas as pd
+# chromedriver는 다운로드 후 경로 지정을 해줘야 한다.
 driver = webdriver.Chrome('chromedriver.exe')
 driver.implicitly_wait(3)
 ```
