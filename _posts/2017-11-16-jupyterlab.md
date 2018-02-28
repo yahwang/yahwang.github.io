@@ -19,6 +19,8 @@ tags: [Jupyter] # add tag
 * notebook 내 code block 숨기기
 * code block drag&drop
 
+**추천영상** - [기본 기능 소개](https://www.youtube.com/watch?v=70sRgL42c1w&list=PLaTc2c6yEwmpjDpPeVo2JoVHmtiS8qUqC){:target="_blank"}
+
 ### 대용량 파일 Load 가능
 
 엑셀에서 소화하지 못하는 파일을 볼 수 있다.
