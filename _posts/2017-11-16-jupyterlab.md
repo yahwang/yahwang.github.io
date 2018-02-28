@@ -51,7 +51,7 @@ tags: [Jupyter] # add tag
 
 * .geojson [@jupyterlab/geojson-extension](https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/geojson-extension){:target="_blank"}
 
-![jupyterlab_json]({{site.baseurl}}/assets/img/jupyterlab(geojson).png)
+![jupyterlab_json]({{site.baseurl}}/assets/img/jupyterlab(geojson).jpg)
 
 `Link` : 
 
