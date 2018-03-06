@@ -70,6 +70,22 @@ Attached는 터미널에서 현재 실행된 상태, Detached는 background로 �
 
 screen 세션을 종료하려면 Attached 상태에서 작업을 종료하면 된다.
 
+### cron
+
+cron은 특정 시간 또는 주기로 실행할 수 있는 job을 실행시킬 수 있게 해준다.
+
+* crontab : 특정 시간에 실행해야 할 기본 프로그램 [crontab 쉬운 사용법](https://zetawiki.com/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4_%EB%B0%98%EB%B3%B5_%EC%98%88%EC%95%BD%EC%9E%91%EC%97%85_cron,_crond,_crontab){:target="_blank"}
+
+에디터로 시간과 command를 입력하면 시스템 시간에 맞춰 자동으로 실행해준다.
+
+date를 1분마다 기록하는 스케줄을 설정하여 확인하는 모습
+
+![crontab]({{site.baseurl}}/assets/img/linux/crontab.jpg)
+
+* anacron : 주기적으로 반드시 실행해야 할 job에 적합
+
+(오류로 인해 실행이 안 되었을 경우를 체크해 시스템이 정상일 때 못했던 작업을 다시 수행한다는 장점)
+
 
 
 
