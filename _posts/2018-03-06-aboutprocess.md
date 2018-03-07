@@ -15,9 +15,11 @@ tags: [process, job, screen, cron] # add tag
 
 `process`는 큰 개념으로 실행되고 있는 프로그램을 의미한다.
 
-process를 간단히 확인하려면 ps를 활용하고 자세히 실시간으로 보려면 top을 활용할 수 있다.
+process를 간단히 확인하려면 ps를 활용하고 자세히 실시간으로 보려면 top 또는 htop을 활용할 수 있다.
 
-![process_top]({{site.baseurl}}/assets/img/linux/ps_top.jpg)
+htop은 top보다 개선된 기능을 가지고 있다.
+
+![process_htop]({{site.baseurl}}/assets/img/linux/ps_htop.jpg)
 
 `job`은 터미널 명령을 통한 작업만을 의미한다. 
 
