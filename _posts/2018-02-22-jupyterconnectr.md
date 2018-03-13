@@ -5,7 +5,7 @@ date: 2018-02-22 02:00:00 pm
 permalink: posts/27
 description: Jupyter(notebook & Lab)에 R 커널(kernel)을 설정하여 R을 실행한다.  # Add post description (optional)
 img: thumbnail/r_note.png  # Add image post (optional)
-categories: [R]
+categories: [Tech, R]
 tags: [Jupyter, IRkernel] # add tag
 ---
 

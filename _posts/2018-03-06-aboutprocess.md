@@ -5,7 +5,7 @@ date: 2018-03-06 05:00:00 pm
 permalink: posts/28
 description: 리눅스(Linux)의 한 종류인 Ubuntu에서 Process와 jobs에 대해 알아본다.  # Add post description (optional)
 img: thumbnail/ubuntu.jpg  # Add image post (optional)
-categories: [Linux]
+categories: [Tech, Linux]
 tags: [process, job, screen, cron] # add tag
 ---
 
