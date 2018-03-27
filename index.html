@@ -1,7 +1,8 @@
 ---
-layout: main
+layout: default
 # 홈페이지 게시글 리스트 레이아웃
 ---
+<div class="content-box clearfix">
 {% for post in paginator.posts %}
 <article class="post">
   {% if post.img %}
@@ -24,3 +25,4 @@ layout: main
 {% endfor %}
 
 {% include pagination.html %}
+</div>

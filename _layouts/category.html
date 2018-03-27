@@ -1,26 +1,44 @@
 ---
-layout: main
 # 카테고리 필터링 레이아웃
 ---
-
-<p class="category" style="margin:5px;">CATEGORY : <span class="selected">{{page.category}}</span></p>
-{% for post in site.categories[page.category] %}
-<article class="post">
-  {% if post.img %}
-    <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
-  {% else %}
-  {% endif %}
-  <div class="post-content">
-    <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
-    <p>{{ post.content | strip_html | truncatewords: 12 }}</p>
-    <span class="post-date">{{post.date | date: '%Y/%m/%d'}}&nbsp;&nbsp;&nbsp;</span>
-    <span class="page-tag">
-    {% for category in post.categories %}
-        <a href="{{site.baseurl}}/categories/{{category}}" class="category">&#35; {{ category }}</a>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+{% include google.html %}  
+{% include head.html %}
+<title>{% if page.category %}{{page.category}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
+<meta name="description" content="{{ page.description }}">
+<meta property="og:title" content="{% if page.category %}{{page.category}} - {{site.title}}{% else %}{{site.title}}{% endif %}"/>
+<meta property="og:url" content="{{ page.url | prepend: site.baseurl }}"/>
+<meta property="og:description" content="데이터를 공부합니다"/>
+<meta property="og:image" content="http://yahwang.github.io/assets/img/yahwang_logo.png">
+</head>  
+<body>
+<div class="wrapper">
+{% include main.html %}
+    <div class="content-box clearfix">
+    <p class="category" style="margin:5px;">CATEGORY : <span class="selected">{{page.category}}</span></p>
+    {% for post in site.categories[page.category] %}
+    <article class="post">
+    {% if post.img %}
+        <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
+    {% else %}
+    {% endif %}
+    <div class="post-content">
+        <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
+        <p>{{ post.content | strip_html | truncatewords: 12 }}</p>
+        <span class="post-date">{{post.date | date: '%Y/%m/%d'}}&nbsp;&nbsp;&nbsp;</span>
+        <span class="page-tag">
+        {% for category in post.categories %}
+            <a href="{{site.baseurl}}/categories/{{category}}" class="category">&#35; {{ category }}</a>
+        {% endfor %}
+        {% for tag in post.tags %}
+            <span class="tag"> {{ tag }}</span>
+        {% endfor %}</span>
+        </div>
+    </article>
     {% endfor %}
-    {% for tag in post.tags %}
-        <span class="tag"> {{ tag }}</span>
-    {% endfor %}</span>
     </div>
-</article>
-{% endfor %}
+</div>
+</body>
+</html>
