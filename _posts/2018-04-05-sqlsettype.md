@@ -1,12 +1,12 @@
 ---
 layout: post
-title: SQL에서 SET type 활용하기
+title: MySQL에서 SET type 활용하기
 date: 2018-04-05 01:00:00 am
 permalink: posts/32
-description: SQL에서 String type 중 하나인 SET type에 대해 알아본다.  # Add post description (optional)
+description: MySQL에서 String type 중 하나인 SET type에 대해 알아본다.  # Add post description (optional)
 img: thumbnail/sql.jpg  # Add image post (optional)
 categories: [Tech]
-tags: [SQL, SET, FIND_IN_SET] # add tag
+tags: [MySQL, SET, FIND_IN_SET] # add tag
 ---
 
 > SET type은 정해진 리스트 내에서 중복되지 않는 여러 값을 가질 수 있는 string object이다.
