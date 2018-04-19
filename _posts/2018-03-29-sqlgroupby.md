@@ -5,7 +5,7 @@ date: 2018-03-29 10:00:00 pm
 permalink: posts/31
 description: MySQL에서 GROUP BY를 더 유용하게 활용할 수 있는 방법을 알아본다.  # Add post description (optional)
 img: thumbnail/sql.jpg  # Add image post (optional)
-categories: [Tech]
+categories: [Tech, SQL]
 tags: [MySQL, GROUP BY, ROLLUP, GROUP_CONCAT] # add tag
 ---
 

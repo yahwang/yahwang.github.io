@@ -5,7 +5,7 @@ date: 2018-04-05 01:00:00 am
 permalink: posts/32
 description: MySQL에서 String type 중 하나인 SET type에 대해 알아본다.  # Add post description (optional)
 img: thumbnail/sql.jpg  # Add image post (optional)
-categories: [Tech]
+categories: [Tech, SQL]
 tags: [MySQL, SET, FIND_IN_SET] # add tag
 ---
 
