@@ -5,8 +5,8 @@ date: 2018-04-19 03:00:00 pm
 permalink: posts/34
 description: Excel에서 여러 시트를 통합하는 데이터모델링에 대해 알아본다.  # Add post description (optional)
 img: thumbnail/excel.jpg  # Add image post (optional)
-categories: [Tech]
-tags: [Excel, 피벗테이블, 데이터모델링] # add tag
+categories: [Tech, Excel]
+tags: [피벗테이블, 데이터모델링] # add tag
 ---
 
 > 여러 시트에 존재하는 테이블들을 JOIN하여 하나의 피벗테이블에서 처리할 수 있다.
