@@ -82,7 +82,7 @@ kernelspec list를 보면 R이 추가된 것을 확인할 수 있다. 이제 Jup
 
 ![kernelspec]({{site.baseurl}}/assets/img/r/kernelspec.jpg)
 
-`Link` : 
+`References` : 
 
 * [IRkernel Github](https://github.com/IRkernel/IRkernel){:target="_blank"}
 

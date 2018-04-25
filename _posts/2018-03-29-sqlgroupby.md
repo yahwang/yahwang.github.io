@@ -4,7 +4,7 @@ title: MySQL에서 GROUP BY + @ 활용하기
 date: 2018-03-29 10:00:00 pm
 permalink: posts/31
 description: MySQL에서 GROUP BY를 더 유용하게 활용할 수 있는 방법을 알아본다.  # Add post description (optional)
-img: thumbnail/sql.jpg  # Add image post (optional)
+img: thumbnail/mysql.jpg  # Add image post (optional)
 categories: [Tech, SQL]
 tags: [MySQL, GROUP BY, ROLLUP, GROUP_CONCAT] # add tag
 ---
@@ -135,7 +135,7 @@ SELECT IFNULL(country,"ALL country") as country,
 | USA         | **ALL product** |        4575 |
 | **ALL country** | **ALL product** |        7535 |
 
-`Link` : 
+`References` : 
 
 * [MYSQL ROLLUP 레퍼런스](https://dev.mysql.com/doc/refman/5.7/en/group-by-modifiers.html){:target="_blank"}
 * [MYSQL GROUP_CONCAT 레퍼런스](https://www.w3resource.com/mysql/aggregate-functions-and-grouping/aggregate-functions-and-grouping-group_concat.php){:target="_blank"}

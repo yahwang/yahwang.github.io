@@ -87,7 +87,7 @@ Mint의 gparted를 통해 살펴보면 sda2는 윈도우가 설치되어 있고 
 
 듀얼 부팅 설치는 아래 [링크](http://deneb21.tistory.com/349){:target="_blank"}를 참고해서 마운트 위치를 각각 /(root)와 /home으로 지정해서 설치를 하면 된다.
 
-`Link` : 
+`References` : 
 
 * [fdisk로 파티션 생성하기](https://chrismckee.co.uk/creating-mounting-new-drives-in-ubuntu-azure/){:target="_blank"}
 

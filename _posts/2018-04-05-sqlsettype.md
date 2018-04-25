@@ -4,7 +4,7 @@ title: MySQL에서 SET type 활용하기
 date: 2018-04-05 01:00:00 am
 permalink: posts/32
 description: MySQL에서 String type 중 하나인 SET type에 대해 알아본다.  # Add post description (optional)
-img: thumbnail/sql.jpg  # Add image post (optional)
+img: thumbnail/mysql.jpg  # Add image post (optional)
 categories: [Tech, SQL]
 tags: [MySQL, SET, FIND_IN_SET] # add tag
 ---
@@ -94,6 +94,6 @@ SELECT * FROM students WHERE interests & 4(or 0100) and interests & 16(or 10000)
 |  4 | James  | cooking,videogaming         |
 |  5 | Dennis | cooking,dancing,videogaming |
 
-`Link` : 
+`References` : 
 
 * [MYSQL SET type 레퍼런스](https://dev.mysql.com/doc/refman/5.7/en/set.html){:target="_blank"}

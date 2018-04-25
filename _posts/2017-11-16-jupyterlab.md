@@ -53,6 +53,6 @@ tags: [Jupyter] # add tag
 
 ![jupyterlab_json]({{site.baseurl}}/assets/img/jupyterlab(geojson).jpg)
 
-`Link` : 
+`References` : 
 
 * [PyData Seattle 2017](https://www.youtube.com/watch?v=u3gU2brTaVI){:target="_blank"}

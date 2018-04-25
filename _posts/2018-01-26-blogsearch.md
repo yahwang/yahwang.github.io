@@ -110,6 +110,6 @@ tipue_search:
 
 공식사이트에서 다양한 설정에 대해 더 알아볼 수 있다.
 
-`Link` : 
+`References` : 
 
 * [Tipue search](http://www.tipue.com/search/){:target="_blank"}

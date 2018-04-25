@@ -64,6 +64,6 @@ selenium을 사용했다면 모든 웹페이지의 요소를 불러와야 하기
 * header 설정에 관한 팁(Referer, User-Agent, Accept-Language)
 * Django에 크롤링한 데이터를 저장하는 방법(국회의원 명단)
 
-`Link` : 
+`References` : 
 
 * [공감토크 유튜브](https://www.youtube.com/watch?v=7oywlTwAe0A){:target="_blank"}
