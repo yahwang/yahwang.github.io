@@ -2,7 +2,7 @@
 A blog for learning data science
 
 ## About
-- See : http://yahwang.github.io
+- See : http://yahwang.tk
 - Author : Taeshik Hwang
 
 ## Tech
