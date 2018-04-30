@@ -17,7 +17,7 @@ email: ts.yahwang@gmail.com # add your Email address
 evernoter: https://www.evernote.com/pub/hts911kr/r
 evernotepy: https://www.evernote.com/pub/hts911kr/python
 # Disqus
-discus-identifier: YA-Hwang # add your discus identifier
+discus-identifier: yahwang # add your discus identifier
 
 sass:
   sass_dir: _sass
