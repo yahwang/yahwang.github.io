@@ -2,11 +2,11 @@
 A blog for learning data science
 
 ## About
-- See : http://yahwang.tk
+- See : https://taeshik.github.io
 - Author : Taeshik Hwang
 
 ## Tech
 - Python3
 - R
-- SQL
+- MySQL
 - Ubuntu
