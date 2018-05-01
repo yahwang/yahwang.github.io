@@ -3,5 +3,3 @@ User-agent:*
 Allow:/
 
 Sitemap: https://yahwang.github.io/sitemap.xml
-
-Redirect 301 / https://yahwang.github.io/
