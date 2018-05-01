@@ -9,37 +9,49 @@
 <priority>0.2</priority>
 </url>
 <url>
-    <loc>http://yahwang.github.io/categories/r</loc>
+    <loc>https://yahwang.github.io/categories/r</loc>
     <lastmod>2018-01-23T18:00:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
 </url>
 <url>
-    <loc>http://yahwang.github.io/categories/python</loc>
+    <loc>https://yahwang.github.io/categories/python</loc>
     <lastmod>2018-01-23T18:00:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
 </url>
 <url>
-    <loc>http://yahwang.github.io/categories/tech</loc>
+    <loc>https://yahwang.github.io/categories/tech</loc>
     <lastmod>2018-01-23T18:00:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
 </url>
 <url>
-    <loc>http://yahwang.github.io/categories/tableau</loc>
-    <lastmod>2018-01-23T18:00:00Z</lastmod>
+    <loc>https://yahwang.github.io/categories/sql</loc>
+    <lastmod>2018-04-23T18:00:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
 </url>
 <url>
-    <loc>http://yahwang.github.io/categories/report</loc>
-    <lastmod>2018-01-23T18:00:00Z</lastmod>
+    <loc>https://yahwang.github.io/categories/excel</loc>
+    <lastmod>2018-04-23T18:00:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
 </url>
 <url>
-    <loc>http://yahwang.github.io/categories/project</loc>
+    <loc>https://yahwang.github.io/categories/linux</loc>
+    <lastmod>2018-04-23T18:00:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+</url>
+<url>
+    <loc>https://yahwang.github.io/categories/note</loc>
+    <lastmod>2018-04-23T18:00:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+</url>
+<url>
+    <loc>https://yahwang.github.io/categories/project</loc>
     <lastmod>2018-01-23T18:00:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
