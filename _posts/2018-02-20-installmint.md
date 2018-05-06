@@ -53,11 +53,13 @@ Terminal에서 `sudo fdisk /dev/sda(logical name)`를 실행 후 n을 입력하�
 
 Mint의 gparted를 통해 살펴보면 sda2는 윈도우가 설치되어 있고 sda1과 sda3은 윈도우 복구용으로 총 3개의 primary partition이 이미 생성되어 있다.
 
-따라서 하나의 primary partition만 만들 수 있다. 이를 해결하기 위해서는 `extended partition`을 먼저 생성하면 primary partition을 여러 개 만들 수 있다.
+따라서 하나의 primary partition만 만들 수 있다. 이를 해결하기 위해서는 `extended partition`을 먼저 생성해야 한다. 
+
+그 후에 다시 partition 생성을 하면 logical partition을 여러 개 만들 수 있다. logical partition은 primary partition처럼 사용할 수 있다.
 
 [extended partition 설명](https://www.symantec.com/ko/kr/security_response/glossary/define.jsp?letter=e&word=extended-partition){:target="_blank"}
 
-**sda4를 extended partition으로 생성하고 sda5와 sda6를 primary 파티션으로 생성하였다.**
+**sda4를 extended partition으로 생성하고 sda5와 sda6를 logical 파티션으로 생성하였다.**
 
 ### LVM 적용
 
