@@ -98,9 +98,9 @@ for article in article_urls:
     # article도 switch_to_frame이 필수
     driver.switch_to_frame('cafe_main')
     soup = bs(driver.page_source, 'html.parser')
-    # 제목 검색
+    # 게시글에서 제목 추출
     title = soup.select('div.tit-box span.b')[0].get_text()
-    # 게시글을 띄어쓰기 단위로 합친다.
+    # 내용을 하나의 텍스트로 만든다. (띄어쓰기 단위)
     content_tags = soup.select('#tbody')[0].select('p')
     content = ' '.join([ tags.get_text() for tags in content_tags ])
     # dict형태로 만들어 결과 list에 저장
