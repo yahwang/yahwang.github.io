@@ -26,7 +26,7 @@
 }
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 800px) {
   .sidebar {
     position: relative;
     display: flex;
@@ -65,7 +65,10 @@
 .tag-cloud, .contact, .copyright{
   display: none;
 }
-    
+.notelist{
+  display:none;
+}
+
 }
 
 /* Extra Small Devices, Phones */
