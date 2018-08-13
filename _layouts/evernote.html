@@ -20,29 +20,7 @@
 {% include main.html %}
   <div class="content-box clearfix">
     <div class ="notelist" style="width:30%">
-        <h2>Note List</h2>
-        <h3>Python</h3>
-        Basic
-        <ul>
-          <li><a href="{{site.baseurl}}/portfolio/evernote/py-basic">기본</a></li>
-          <li><a href="{{site.baseurl}}/portfolio/evernote/py-basic-func">기초 함수</a></li>
-          <li><a href="{{site.baseurl}}/portfolio/evernote/py-class">Class (+ 캡슐화, 상속, 추상화)</a></li>
-          <li><a href="{{site.baseurl}}/portfolio/evernote/py-iterator">Iterator ( + Generator)</a></li>
-        </ul>
-        DataPrep
-        <ul>
-          <li><a href="{{site.baseurl}}/portfolio/evernote/py-numpy">Numpy</a></li>
-          <li><a href="{{site.baseurl}}/portfolio/evernote/py-data-load-save">Data Load & Save</a></li>
-          <li><a href="{{site.baseurl}}/portfolio/evernote/py-pandas-dataframe">Pandas_DataFrame</a></li>
-          <li><a href="{{site.baseurl}}/portfolio/evernote/py-pandas-df-func">Pandas_DataFrame_함수</a></li>
-          <li><a href="{{site.baseurl}}/portfolio/evernote/py-pandas-series">Pandas_Series</a></li>
-        </ul>  
-        Settings         
-        <ul>
-            <li><a href="{{site.baseurl}}/portfolio/evernote/py-jupyter">Jupyter & JupyterLab</a></li>
-            <li><a href="{{site.baseurl}}/portfolio/evernote/py-conda">Anaconda & Pycharm</a></li>
-        </ul>
-        <h3>R</h3>
+      {% include notelist.html %}
     </div>
     <div class="postach" style="width:70%">
         <iframe src="{{page.note}}" style="height:100vh;width:70vw" frameborder="0" scrolling="yes" ></iframe>
