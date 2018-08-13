@@ -31,7 +31,7 @@
           <li><a href="{{site.baseurl}}/categories/linux"><span class="list-mark">▶</span> Linux </a> <span class="num">({{site.categories.Linux.size}})</span></li>
         </ul>    
         <li><a href="{{site.baseurl}}/categories/project"><span class="list-mark">▶</span> Project </a> <span class="num">({{site.categories.Project.size}})</span></li>
-        <li><a href="{{site.baseurl}}/categories/note" target="_self"><span class="list-mark">▶</span> Note </a> <span class="num">({{site.categories.Note.size}})</span></li>
+        <li><a href="{{site.baseurl}}/categories/note"><span class="list-mark">▶</span> Note </a> <span class="num">({{site.categories.Note.size}})</span></li>
         <ul>
           <li><a href="{{site.baseurl}}/categories/blog"><span class="list-mark">▶</span> Blog </a> <span class="num">({{site.categories.Blog.size}})</span></li>
         </ul>
@@ -56,7 +56,7 @@
         {% if site.dropbox %}
         <li><a href="{{ site.dropbox }}" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/dropbox.svg" alt="{{site.dropbox}}"></a></li>{% endif %}
         {% if site.evernote %}
-        <li><a href="{{site.baseurl}}/portfolio/evernote" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/evernote.svg" alt="{{site.evernote}}"></a></li>{% endif %}
+        <li><a href="{{site.baseurl}}/portfolio/evernote" target="_self"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/evernote.svg" alt="{{site.evernote}}"></a></li>{% endif %}
         {% if site.codesignal %}
         <li><a href="{{ site.codesignal }}" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/code.svg" alt="{{site.codesignal}}"></a></li>{% endif %}  
       </ul>
