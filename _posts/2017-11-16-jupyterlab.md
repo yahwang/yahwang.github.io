@@ -33,6 +33,7 @@ tags: [Jupyter] # add tag
 * 파일을 실행하면 왼쪽에 Chat 메뉴가 생기며 여러 사용자와 채팅을 할 수 있다.
 * 구글 Docs처럼 여러 사용자와 Live 코딩도 가능하다. (아직 해보지는 않음)
 * [@jupyterlab/google-drive](https://github.com/jupyterlab/jupyterlab-google-drive){:target="_blank"}
+* [구글 드라이브와 연동하는 법 게시글로 이동](https://yahwang.github.io/posts/38){:target="_blank"}
 
 ### Markdown
 
