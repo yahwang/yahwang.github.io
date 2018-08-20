@@ -19,6 +19,15 @@ Jekyll을 PC에 설치하면 github에 업로드하기 전에 생성된 사이�
 
 ### ruby 설치
 
+#### 참고사항
+
+sudo apt-get install rvm 방식을 사용하면 안 된다. 했다면 삭제를 하고 다음 단계를 진행한다.
+
+``` python
+sudo apt-get --purge remove rvm
+sudo rm -rf /usr/share/rvm /etc/rvmrc /etc/profile.d/rvm.sh
+```
+
 먼저, rvm을 통해 ruby를 설치해야 한다. (rvm = ruby version manager)
 
 [https://rvm.io/](https://rvm.io/)에 접속하여 첫번째 gpg 명령을 복사하여 실행한다.
