@@ -48,9 +48,14 @@ ubuntu에 기본으로 ruby가 설치되어 있다. 하지만, jekyll 최신버�
 
 시스템의 기본 ruby를 방금 설치한 최신버전으로 변경해야 한다.
 
+``` python
+source /usr/local/rvm/scripts/rvm # rvm 명령어 실행이 가능하도록 설정
+rvm --default 2.5
+```
+
 ![rvmdefault]({{site.baseurl}}/assets/img/note/rvmdefault.png)
 
-`rvm is not a function error`가 발생하는 경우, 터미널에서 Edit - Preferences을 실행하고 
+`rvm is not a function error`가 발생하는 경우, 터미널에서 Profiles - Preferences을 실행하고 
 
 `run command as a login shell`을 체크한다.
 
