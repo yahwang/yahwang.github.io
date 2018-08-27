@@ -55,9 +55,9 @@ rvm --default 2.5
 
 ![rvmdefault]({{site.baseurl}}/assets/img/note/rvmdefault.png)
 
-`rvm is not a function error`가 발생하는 경우, 터미널에서 Profiles - Preferences을 실행하고 
+#### rvm is not a function error 오류 해결
 
-`run command as a login shell`을 체크한다.
+터미널에서 화면 우클릭 - Profiles - Preferences을 실행하고, `run command as a login shell`을 체크한다.
 
 ![rvmerror]({{site.baseurl}}/assets/img/note/rvmerror.png)
 
@@ -66,6 +66,10 @@ rvm --default 2.5
 ``` python
 gem install jekyll bundler
 ```
+
+#### write permissions for the /usr/local/rvm/gems/ruby-2.5.x 오류 해결
+
+터미널에서 `sudo chmod -R 777 /usr/local/rvm/gems/ruby-2.5.x`를 실행한다.
 
 jekyll template을 새로 생성하고 실행해보았다.
 

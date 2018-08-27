@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+	 id="레이어_1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:version="0.91 r13725" sodipodi:docname="code.svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+	 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<sodipodi:namedview  showguides="true" inkscape:cy="19.720734" inkscape:cx="41.962343" inkscape:zoom="14.301235" showgrid="false" guidetolerance="10" gridtolerance="10" objecttolerance="10" bordercolor="#666666" pagecolor="#ffffff" borderopacity="1" id="namedview3488" inkscape:current-layer="레이어_1" inkscape:window-maximized="1" inkscape:window-y="28" inkscape:window-x="0" inkscape:window-width="1920" inkscape:window-height="1015" inkscape:pageshadow="2" inkscape:pageopacity="0">
+	<inkscape:grid  type="xygrid" id="grid3516"></inkscape:grid>
+</sodipodi:namedview>
+<path fill="#006BC0" d="M40.042,20.125c0,11.138-8.973,20.167-20.042,20.167S-0.042,31.263-0.042,20.125
+	C-0.042,8.987,8.932-0.042,20-0.042c10.217,0,18.646,7.692,19.883,17.635c0.092,0.718,0.143,1.447,0.154,2.188
+	C40.042,19.896,40.042,20.01,40.042,20.125z"/>
+<g>
+	<path fill="#F2F2F2" d="M40.038,19.782c-1.711,2.096-5.063,1.933-5.063,1.933c-2.067,8.964-14.557,13.526-23.229,11.286
+		c-8.67-2.24-7.478-12.646-7.478-12.646h25.376c2.095,0,2.254-0.641,2.254-0.641c-1.856-4.43,1.009-6.805,1.009-6.805
+		c2.227,0.401,2.783,4.243,2.783,4.243c1.828-0.33,3.296,0.063,4.193,0.441C39.976,18.312,40.026,19.041,40.038,19.782z"/>
+	<rect x="6.972" y="16.299" fill="#F2F2F2" width="3.554" height="3.254"/>
+	<rect x="11.439" y="16.299" fill="#F2F2F2" width="3.553" height="3.254"/>
+	<rect x="24.834" y="16.299" fill="#F2F2F2" width="3.554" height="3.254"/>
+	<rect x="20.368" y="16.299" fill="#F2F2F2" width="3.553" height="3.254"/>
+	<rect x="20.368" y="7.974" fill="#F2F2F2" width="3.553" height="3.255"/>
+	<rect x="15.903" y="16.299" fill="#F2F2F2" width="3.553" height="3.254"/>
+	<rect x="11.439" y="12.137" fill="#F2F2F2" width="3.553" height="3.254"/>
+	<rect x="20.368" y="12.137" fill="#F2F2F2" width="3.553" height="3.254"/>
+	<rect x="15.903" y="12.137" fill="#F2F2F2" width="3.553" height="3.254"/>
+</g>
+<ellipse fill="none" stroke="#006BC0" stroke-width="0.5" stroke-miterlimit="10" cx="10.892" cy="27.492" rx="1.485" ry="1.494"/>
+</svg>
