@@ -64,7 +64,7 @@ driver.find_element_by_css_selector('#frmNIDLogin > fieldset > input').click()
 iframe 구조로 된 게시판 내부 태그에 접근하기 위해서는 `switch_to_frame`이 필수이다.
 
 ``` python
-base_url = 'cafe.naver.com/카페명/ArticleList.nhn?search.clubid=***'
+base_url = 'https://cafe.naver.com/카페명/ArticleList.nhn?search.clubid=***'
 driver.get(base_url + '&search.menuid=***&search.page=***')
 # iframe으로 프레임 전환
 driver.switch_to_frame('cafe_main')
