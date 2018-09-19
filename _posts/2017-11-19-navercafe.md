@@ -17,14 +17,19 @@ tags: [Crawling, Selenium] # add tag
 
 ### 크롤링에 필요한 라이브러리
 
+chromedriver를 사용하여 chrome으로 크롤링을 진행한다. chromedriver는 구글에서 검색해 쉽게 다운받을 수 있다.
+
+참고 : chromedriver는 chrome이 설치된 상태에서 진행해야 한다. ( cannot find binary 오류 관련 )
+
 ``` python
 from selenium import webdriver
 from bs4 import BeautifulSoup as bs
 import pandas as pd
-# chromedriver는 다운로드 후 경로 지정을 해줘야 한다. (현재는 같은 폴더 
+# chromedriver는 다운로드 후 경로 지정을 해줘야 한다. (현재는 같은 폴더 )
 driver = webdriver.Chrome('./chromedriver')
 driver.implicitly_wait(3)
 ```
+
 ### 네이버 로그인
 
 로그인 버튼은 css selector로 쉽게 찾을 수 있다.
