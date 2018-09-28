@@ -6,7 +6,7 @@ permalink: posts/42
 description: jupyter에서 kernel관련 발생할 수 있는 오류와 다중커널에 대해 다룬다.
 img: thumbnail/jupyterlab.png
 categories: [Tech, Linux]
-tags: [Jupyter] 
+tags: [Jupyter, Python] 
 ---
 
 > Jupyter에서 kernel이라 부르는 환경에 대해 알아본다.
