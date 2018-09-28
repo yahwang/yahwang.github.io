@@ -1,6 +1,6 @@
 ---
 layout: post
-title: docker에서 실행한 Jupyter PC 브라우저와 연동하기
+title: docker에서 실행한 Jupyter를 PC 브라우저와 연동하기
 date: 2018-09-28 02:00:00 pm
 permalink: posts/41
 description: docker에서 실행한 jupyter를 로컬 PC 브라우저와 연동할 수 있다.
