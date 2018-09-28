@@ -30,7 +30,7 @@ sudo rm -rf /usr/share/rvm /etc/rvmrc /etc/profile.d/rvm.sh
 
 먼저, rvm을 통해 ruby를 설치해야 한다. (rvm = ruby version manager)
 
-[https://rvm.io/](https://rvm.io/)에 접속하여 첫번째 gpg 명령을 복사하여 실행한다.
+[https://rvm.io/](https://rvm.io/){:target="_blank"}에 접속하여 첫번째 gpg 명령을 복사하여 실행한다. ( 앞에 sudo 추가 )
 
 ![rvm]({{site.baseurl}}/assets/img/note/rvm.jpg)
 
