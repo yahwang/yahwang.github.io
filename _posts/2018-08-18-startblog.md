@@ -67,7 +67,7 @@ rvm --default 2.5
 gem install jekyll bundler
 ```
 
-#### write permissions for the /usr/local/rvm/gems/ruby-2.5.x 오류 해결
+#### you don't have write permissions for the /usr/local/rvm/gems/ruby-2.5.x 오류 해결
 
 터미널에서 `sudo chmod -R 777 /usr/local/rvm/gems/ruby-2.5.x`를 실행한다.
 
