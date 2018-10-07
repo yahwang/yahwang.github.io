@@ -110,4 +110,4 @@ while True:
 `Link` :
 
 * [연금복권](http://nlotto.co.kr/gameResult.do?method=win520){:target="_blank"}
-* [프로그램 다운로드](https://www.dropbox.com/sh/h8vq5tnmur3922n/AAAK4lgPY7rgkot60WwSksfWa?preview=연금복권_당첨번호_추출기.zip){:target="_blank"}
+* [프로그램 다운로드](https://drive.google.com/file/d/1V44-7Z0_M3Bg1KWR01BeF_J91wgNJBZz/view){:target="_blank"}
