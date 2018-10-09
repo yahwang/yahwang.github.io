@@ -98,4 +98,6 @@ install.packages(c("curl", "httr"))
 
 * [IRkernel Github](https://github.com/IRkernel/IRkernel){:target="_blank"}
 
-* [Install IRkernel](https://irkernel.github.io/installation/){:target="_blank"}
+* [Install IRkernel Windows](https://irkernel.github.io/installation/){:target="_blank"}
+
+* [Install IRkernel Linux](https://irkernel.github.io/installation/#linux-panel){:target="_blank"}
