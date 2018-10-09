@@ -16,7 +16,7 @@ Jupyter를 설치한 경우 파이썬만 kernel로 설정되어 있다. Jupyter�
 R을 실행하기 위해서 두 가지의 경우로 생각해 볼 수 있다.
 
 * Anaconda를 통해 R 설치
-* R을 개별적으로 설치한 경우
+* R을 따로 설치한 경우
 
 ### Anaconda 환경에서 R 설치
 
@@ -28,9 +28,9 @@ conda install r-irkernel
 
 이 설치만으로 R을 바로 Jupyter에서 사용할 수 있다.
 
-### R을 개별적으로 설치
+### R을 따로 설치한 경우
 
-R에서 실행해야할 코드는 Rstudio가 아닌 R 자체에서 사용해야 한다.
+R에서 실행해야할 코드는 Rstudio가 아닌 **R 자체**에서 사용해야 한다.
 
 #### Windows 10
 
@@ -58,7 +58,7 @@ Anaconda(Miniconda) 설치 경로 + @ 총 3가지를 지정해준다.
 
 참고 : 환경변수를 지정하고 나면 anaconda prompt가 아닌 cmd에서도 conda 명령어를 사용할 수 있다.
 
-#### Ubuntu(Mint 18.3을 사용)
+#### Ubuntu(16.04 기준)
 
 우분투에서는 먼저 터미널을 활용해 다음 명령어를 실행한다.
 
@@ -67,7 +67,7 @@ sudo apt-get install libcurl4-openssl-dev # curl 설치를 위해
 sudo apt-get install libzmq3-dev # pbdZMq 설치를 위해
 ```
 
-그 후에 터미널에서 R을 실행하고 다음 코드를 입력한다.
+그 후에 **터미널**에서 R을 실행하고 다음 코드를 입력한다.
 
 ``` r
 install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 
