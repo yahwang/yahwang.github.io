@@ -82,6 +82,18 @@ kernelspec list를 보면 R이 추가된 것을 확인할 수 있다. 이제 Jup
 
 ![kernelspec]({{site.baseurl}}/assets/img/r/kernelspec.jpg)
 
+#### 참고
+
+다음과 같은 오류가 생길 경우, 
+
+![jupyter_fail]({{site.baseurl}}/assets/img/r/install_github_fail.jpg)
+
+``` r
+# 패키지가 없다고 나올 경우, install만 
+remove.packages(c("curl","httr")) 
+install.packages(c("curl", "httr"))
+```
+
 `References` : 
 
 * [IRkernel Github](https://github.com/IRkernel/IRkernel){:target="_blank"}
