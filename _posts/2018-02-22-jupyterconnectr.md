@@ -74,6 +74,7 @@ install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ',
 'devtools', 'uuid', 'digest'))
 devtools::install_github('IRkernel/IRkernel')
 IRkernel::installspec()
+#IRkernel::installspec(user=FALSE)  # 시스템 전체 설치
 ```
 
 #### 설정 완료 시 
