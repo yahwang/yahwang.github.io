@@ -46,6 +46,23 @@ driver.find_element_by_name('pw').send_keys('비밀번호')
 driver.find_element_by_css_selector('#frmNIDLogin > fieldset > input').click()
 ```
 
+#### 참고 : 최근 크롤링으로 로그인 할 때 CAPCHA를 요구하기 시작했다. 이를 피하기 위해서는 time.sleep을 활용할 수 있다.
+
+``` python
+import time
+import random
+# 네이버 메인에 최초 한 번 접근 후에 로그인 페이지로 접속하는 방법이다. (다른 분의 글에서 도움을 받았다)
+driver.get("http://www.naver.com/") 
+time.sleep(random.randrange(2,4))
+driver.get('https://nid.naver.com/nidlogin.login')
+time.sleep(random.randrange(3,5))
+driver.find_element_by_name('id').send_keys('아이디')
+time.sleep(random.randrange(1,3))
+driver.find_element_by_name('pw').send_keys('비밀번호')
+time.sleep(random.randrange(2,4)) 
+driver.find_element_by_css_selector('#frmNIDLogin > fieldset > input').click()
+```
+
 ## 네이버 카페 크롤링
 
 네이버 카페 게시판은 `iframe`으로 운영되어 주소창에는 아무런 변화가 없다.
