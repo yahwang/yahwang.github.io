@@ -2,6 +2,7 @@
 layout: post
 title: 네이버 카페 게시글 크롤링
 date: 2017-11-19 05:30:00 pm
+update: 2018-10-14 06:00:00 pm
 permalink: posts/4
 description: # Add post description (optional)
 img: thumbnail/navercafe.png  # Add image post (optional)
@@ -56,7 +57,7 @@ import random
 # 네이버 메인에 최초 한 번 접근 후에 로그인 페이지로 접속하는 방법이다. (다른 분의 글에서 도움을 받았다)
 driver.get("http://www.naver.com/") 
 time.sleep(random.randrange(2,5))
-driver.find_element_by_css_selector('#account > div > a > i').click()
+driver.find_element_by_css_selector('#account > div > a > i').click() # 로그인 페이지 접속
 time.sleep(random.randrange(3,6))
 # 아이디와 비밀번호도 키보드가 입력한 것처럼 하나하나씩 입력한다.
 for id in '아이디':
