@@ -36,6 +36,8 @@ driver.implicitly_wait(3)
 
 ![naver_login]({{site.baseurl}}/assets/img/python/naver_login.png)
 
+로그인을 위한 기본 방식은 다음과 같다.
+
 ``` python
 # 로그인 전용 화면
 driver.get('https://nid.naver.com/nidlogin.login')
@@ -53,13 +55,18 @@ import time
 import random
 # 네이버 메인에 최초 한 번 접근 후에 로그인 페이지로 접속하는 방법이다. (다른 분의 글에서 도움을 받았다)
 driver.get("http://www.naver.com/") 
-time.sleep(random.randrange(2,4))
-driver.get('https://nid.naver.com/nidlogin.login')
-time.sleep(random.randrange(3,5))
-driver.find_element_by_name('id').send_keys('아이디')
+time.sleep(random.randrange(2,5))
+driver.find_element_by_css_selector('#account > div > a > i').click()
+time.sleep(random.randrange(3,6))
+# 아이디와 비밀번호도 키보드가 입력한 것처럼 하나하나씩 입력한다.
+for id in '아이디':
+    time.sleep(0.02)
+    driver.find_element_by_name('id').send_keys(id)
 time.sleep(random.randrange(1,3))
-driver.find_element_by_name('pw').send_keys('비밀번호')
-time.sleep(random.randrange(2,4)) 
+for pw in '비밀번호':
+    time.sleep(0.02)
+    driver.find_element_by_name('pw').send_keys(pw)
+time.sleep(random.randrange(1,3)) 
 driver.find_element_by_css_selector('#frmNIDLogin > fieldset > input').click()
 ```
 
