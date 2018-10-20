@@ -16,9 +16,10 @@ pre.highlight {
     -o-transition: transform 0.35s;
     transition: transform 0.35s;
     transition: transform 0.35s, -webkit-transform 0.35s;}
-.highlight pre { background-color: #272822;}
+.highlight pre { background-color: #002240;}
+.highlight a { color: lightblue; text-decoration: none; pointer-events: none; cursor: default;}
 .highlight .hll { background-color: #272822; }
-.highlight .c { color: #75715e } /* Comment */
+.highlight .c { color:lightgray } /* Comment */
 .highlight .err { color: #66d9ef; } /* Error */
 .highlight .k { color: #66d9ef } /* Keyword */
 .highlight .l { color: #ae81ff } /* Literal */

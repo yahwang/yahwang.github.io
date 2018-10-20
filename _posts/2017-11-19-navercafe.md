@@ -51,25 +51,7 @@ driver.find_element_by_css_selector('#frmNIDLogin > fieldset > input').click()
 
 #### 참고 : 최근 크롤링으로 로그인 할 때 CAPCHA를 요구하기 시작했다. 이를 피하기 위해서는 time.sleep을 활용할 수 있다.
 
-``` python
-import time
-import random
-# 네이버 메인에 최초 한 번 접근 후에 로그인 페이지로 접속하는 방법이다. (다른 분의 글에서 도움을 받았다)
-driver.get("http://www.naver.com/") 
-time.sleep(random.randrange(2,5))
-driver.find_element_by_css_selector('#account > div > a > i').click() # 로그인 페이지 접속
-time.sleep(random.randrange(3,6))
-# 아이디와 비밀번호도 키보드가 입력한 것처럼 하나하나씩 입력한다.
-for id in '아이디':
-    time.sleep(0.02)
-    driver.find_element_by_name('id').send_keys(id)
-time.sleep(random.randrange(1,3))
-for pw in '비밀번호':
-    time.sleep(0.02)
-    driver.find_element_by_name('pw').send_keys(pw)
-time.sleep(random.randrange(1,3)) 
-driver.find_element_by_css_selector('#frmNIDLogin > fieldset > input').click()
-```
+<script src="https://gist.github.com/yahwang/6453705ccc9551ec83e70ea5baf336f3.js"></script>
 
 ## 네이버 카페 크롤링
 
