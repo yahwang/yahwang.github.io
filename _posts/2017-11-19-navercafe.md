@@ -2,7 +2,7 @@
 layout: post
 title: 네이버 카페 게시글 크롤링
 date: 2017-11-19 05:30:00 pm
-update: 2018-10-14 06:00:00 pm
+update: 2018-11-20 12:00:00 pm
 permalink: posts/4
 description: # Add post description (optional)
 img: thumbnail/navercafe.png  # Add image post (optional)
@@ -79,7 +79,7 @@ iframe 구조로 된 게시판 내부 태그에 접근하기 위해서는 `switc
 base_url = 'https://cafe.naver.com/카페명/ArticleList.nhn?search.clubid=***'
 driver.get(base_url + '&search.menuid=***&search.page=***')
 # iframe으로 프레임 전환
-driver.switch_to_frame('cafe_main')
+driver.switch_to.frame('cafe_main')
 ```
 
 게시글 크롤링 하는 방법으로는 두 가지를 생각해 볼 수 있다.
@@ -94,6 +94,7 @@ driver.switch_to_frame('cafe_main')
 
 ``` python
 # href 속성을 찾아 url을 리스트로 저장한다.
+## 각 카페마다 태그의 형식이 다를 수 있으니 확인해야 한다. ( 태그.클래스명 )
 article_list = driver.find_elements_by_css_selector('span.aaa > a.m-tcol-c')
 article_urls = [ i.get_attribute('href') for i in article_list ]
 ```
@@ -108,7 +109,7 @@ res_list = []
 for article in article_urls:
     driver.get(article)
     # article도 switch_to_frame이 필수
-    driver.switch_to_frame('cafe_main')
+    driver.switch_to.frame('cafe_main')
     soup = bs(driver.page_source, 'html.parser')
     # 게시글에서 제목 추출
     title = soup.select('div.tit-box span.b')[0].get_text()
