@@ -108,7 +108,7 @@ res_list = []
 # Beautifulsoup 활용
 for article in article_urls:
     driver.get(article)
-    # article도 switch_to_frame이 필수
+    # article도 switch_to.frame이 필수
     driver.switch_to.frame('cafe_main')
     soup = bs(driver.page_source, 'html.parser')
     # 게시글에서 제목 추출
