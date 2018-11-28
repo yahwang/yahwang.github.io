@@ -74,7 +74,7 @@ SELECT * FROM students WHERE interests & 2(or 0010);
 
 ``` sql
  SELECT FIND_IN_SET('cooking',interests) FROM students;
- => swimming은 SET에서 3번째로 정의한 값이므로 3,0,0,3,3,0 이 출력된다.
+ => cooking은 SET에서 3번째로 정의한 값이므로 3,0,0,3,3,0 이 출력된다.
 ```
 
 ### Multiple member를 찾는 방법
