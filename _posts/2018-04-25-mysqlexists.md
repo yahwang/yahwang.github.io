@@ -39,9 +39,17 @@ tags: [MySQL, EXISTS, JOIN, IN (Subquery)] # add tag
 
 EXISTS는 두 개의 테이블에서 같은 값을 가진 컬럼끼리 활용하여 한 테이블 내에서 조건을 걸 수 있다.
 
+W3schools에서는 The EXISTS operator is used to test for the existence of any record in a subquery 로 표현한다.
+
+메인 쿼리의 테이블이 다른 테이블과 FK 같은 관계가 있을 때, 그 테이블에서 확인가능한 조건을 기반으로 
+
+메인 쿼리의 각 ROW마다 TRUE / FALSE를 판단하고 원하는 결과를 추출한다. 
+
 다음 예는 주문 전체에서 VIP 고객의 주문내역만 찾는 쿼리이다.
 
-VIP 고객을 찾기 위해서 고객 ID 컬럼(c_id)을 활용한다.
+여기서는 order 테이블이 FK인 c_id 컬럼을 가지고 있다. 
+
+주문 테이블에서 VIP 고객의 주문만을 찾기 위해서 고객 ID 컬럼(c_id)을 활용한다.
 
 ``` sql
 SELECT * FROM order WHERE EXISTS 
@@ -85,7 +93,9 @@ SELECT o_id,o_date,order.c_id,p_id, o_volume FROM study.order JOIN customer
 
 JOIN의 경우에는, 일반적으로 EXISTS보다 속도가 빠르다고 한다. 단, 중복된 값이 많이 나올 경우에는 EXISTS가 더 빠르다고 한다.
 
-EXISTS는 기존 테이블의 변형없이 ROW마다 계산된 TRUE/FALSE에만 따르기 때문에 중복되지 않는 값이 나오는 듯하다.
+EXISTS는 만족하는 결과가 최소 하나가 나오면 바로 TRUE로 판단하기 때문인 듯 하다.
+
+(The EXISTS operator returns true if the subquery returns one or more records.)
 
 자세한 내용은 References에 링크된 연재글을 참고하면 이해할 수 있다.
 
