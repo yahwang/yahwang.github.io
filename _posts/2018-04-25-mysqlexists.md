@@ -2,6 +2,7 @@
 layout: post
 title: MySQL에서 연관 서브쿼리 연산자 EXISTS 활용하기 
 date: 2018-04-25 04:00:00 pm
+update: 2018-12-04 03:00:00 pm
 permalink: posts/35
 description: MySQL에서 EXISTS 사용법에 대해 알아본다.  # Add post description (optional)
 img: thumbnail/mysql.jpg  # Add image post (optional)

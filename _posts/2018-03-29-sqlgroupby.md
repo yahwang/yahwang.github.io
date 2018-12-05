@@ -2,11 +2,12 @@
 layout: post
 title: MySQL에서 GROUP BY + @ 활용하기
 date: 2018-03-29 10:00:00 pm
+update: 2018-12-05 11:00:00 am
 permalink: posts/31
 description: MySQL에서 GROUP BY를 더 유용하게 활용할 수 있는 방법을 알아본다.  # Add post description (optional)
 img: thumbnail/mysql.jpg  # Add image post (optional)
 categories: [Tech, SQL]
-tags: [MySQL, GROUP BY, ROLLUP, GROUP_CONCAT] # add tag
+tags: [MySQL, GROUP BY, ROLLUP, GROUP_CONCAT, GROUPING] # add tag
 ---
 
 > GROUP BY와 함께 사용하면 유용한 GROUP_CONCAT과 ROLLUP 활용법에 대해 알아본다.
@@ -116,24 +117,36 @@ ROLLUP 적용 전 (왼쪽) VS ROLLUP을 적용한 모습(오른쪽)
 ROLLUP은 집계한 기준값을 NULL값으로 대체한다. **IFNULL**을 활용하면 원하는 텍스트를 넣을 수 있다.
 
 ``` sql
-SELECT IFNULL(country,"ALL country") as country, 
-       IFNULL(product,"ALL product") as product, 
-       sum(profit) FROM sales GROUP BY country, product with ROLLUP;
+SELECT IFNULL(country,"ALL countries") as country, 
+       IFNULL(product,"ALL products") as product, 
+       sum(profit) FROM sales GROUP BY country, product WITH ROLLUP;
 ```
 
 | country     | product     | sum(profit) |
 |-------------|-------------|-------------|
 | Finland     | Computer    |        1500 |
 | Finland     | Phone       |         110 |
-| Finland     | **ALL product** |        1610 |
+| Finland     | **ALL products** |        1610 |
 | India       | Calculator  |         150 |
 | India       | Computer    |        1200 |
-| India       | **ALL product** |        1350 |
+| India       | **ALL products** |        1350 |
 | USA         | Calculator  |         125 |
 | USA         | Computer    |        4200 |
 | USA         | TV          |         250 |
-| USA         | **ALL product** |        4575 |
-| **ALL country** | **ALL product** |        7535 |
+| USA         | **ALL products** |        4575 |
+| **ALL countries** | **ALL products** |        7535 |
+
+참고로, mysql 8.0부터는 Oracle처럼 GROUPING 함수를 사용할 수 있다. 결과는 IFNULL을 적용한 쿼리와 같다. 
+
+GROUPING(컬럼) 값은 집계가 위치해야 할 ROW(NULL이 표시되는 지점)에서 1 아니면 0을 리턴한다.
+
+IF문을 통해 그 지점을 다른 문자로 대체할 수 있다.
+
+``` sql
+SELECT IF(GROUPING(country),'ALL countries',country), 
+       IF(GROUPING(product),'ALL products',country), SUM(profit) 
+FROM sales GROUP BY country, product WITH ROLLUP;
+```
 
 `References` : 
 
