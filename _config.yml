@@ -25,6 +25,8 @@ sass:
   style: compressed
 
 # Build Settings
+livereload: true
+
 markdown: kramdown
 highlighter: rouge
 plugins:
