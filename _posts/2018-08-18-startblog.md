@@ -30,14 +30,14 @@ sudo rm -rf /usr/share/rvm /etc/rvmrc /etc/profile.d/rvm.sh
 
 먼저, rvm을 통해 ruby를 설치해야 한다. (rvm = ruby version manager)
 
-[https://rvm.io/](https://rvm.io/){:target="_blank"}에 접속하여 첫번째 gpg 명령을 복사하여 실행한다. ( 앞에 sudo 추가 )
+[https://rvm.io/](https://rvm.io/rvm/install){:target="_blank"}에 접속하여 첫번째 gpg 명령을 복사하여 실행한다. ( 앞에 sudo 추가 )
 
 ![rvm]({{site.baseurl}}/assets/img/note/rvm.jpg)
 
 다음 명령어를 실행하면 rvm과 ruby가 최신버전으로 자동 설치된다.
 
 ``` python
-curl -L https://get.rvm.io | sudo bash -s stable --ruby
+curl -sSL https://get.rvm.io | bash -s stable --ruby
 ## --ruby==버전 지정 가능
 # ruby install 버전으로 설치도 가능하다.
 ```

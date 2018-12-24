@@ -48,7 +48,7 @@ local에 파일이 없으면 url을 통해 파일을 불러온다.
     font-family: 'Spoqa Han Sans';
     font-weight: 200;
     src: 
-    url('SpoqaHanSansThin.woff2') format('woff2'),
-    url('SpoqaHanSansThin.woff') format('woff'),
-    url('SpoqaHanSansThin.ttf') format('truetype');
+    url('SpoqaHanSansLight.woff2') format('woff2'),
+    url('SpoqaHanSansLight.woff') format('woff'),
+    url('SpoqaHanSansLight.ttf') format('truetype');
 }

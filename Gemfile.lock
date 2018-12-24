@@ -61,7 +61,6 @@ DEPENDENCIES
   eventmachine
   jekyll (~> 3.7.4)
   jekyll-paginate
-  tzinfo-data
 
 BUNDLED WITH
    1.17.2
