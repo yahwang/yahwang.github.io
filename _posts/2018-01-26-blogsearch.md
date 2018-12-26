@@ -13,7 +13,7 @@ tags: [Jekyll, Githubpages] # add tag
 
 Tipue search는 내부 JS 알고리즘을 통해 검색결과를 보여주는 기술이다. 검색은 내부 글을 포함한 모든 텍스트를 대상으로 이루어진다.
 
-[tipue search 데모 SearchBox](http://www.tipue.com/search/demos/static/){:target="_blank"} - 박스 안에 검색하면 결과가 화면에 나온다.
+[tipue search 데모 SearchBox](http://www.tipue.com/search/demo){:target="_blank"} - 박스 안에 검색하면 결과가 화면에 나온다.
 
 ![tipue_ex]({{site.baseurl}}/assets/img/note/tipue_ex.png)
 
