@@ -41,13 +41,14 @@ postgresql://[유저]:[비밀번호]@[네트워크]
 
 ![superset_postgres_4]({{site.baseurl}}/assets/img/tech/superset_postgres_4.jpg)
 
-차트를 만들어 활용하려면 Sources-tables에서 테이블을 만들어야 한다.
-
-![superset_postgres_6]({{site.baseurl}}/assets/img/tech/superset_postgres_6.jpg)
-
-데이터베이스를 연결 후, superset의 유용한 기능인 **SQL Lab**에서 활용할 수도 있다.
+데이터베이스 연결을 설정할 때 다양한 옵션이 존재한다. 그 중, superset의 유용한 기능인 **SQL Lab**을 활용할 수도 있다.
 
 SQL Lab에서 옵션 설정을 통해 csv 업로드 방식이나 직접 SQL문으로 테이블을 만들 수도 있고 UPDATE, DELETE 같은 DML을 활용할 수도 있다.
 
 ![superset_postgres_5]({{site.baseurl}}/assets/img/tech/superset_postgres_5.jpg)
+
+차트를 만들어 활용하려면 Sources-tables에서 테이블을 만들어야 한다.
+
+![superset_postgres_6]({{site.baseurl}}/assets/img/tech/superset_postgres_6.jpg)
+
 
