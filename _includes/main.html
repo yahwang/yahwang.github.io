@@ -13,7 +13,7 @@
     <!-- search box -->
     <form action="{{ site.baseurl }}/search">
           <div class="tipue_search_box">
-            <img src="{{ "/assets/tipuesearch/search.png" | relative_url }}" class="tipue_search_icon">
+            <img style="margin-left:30px;" src="{{ "/assets/tipuesearch/search.png" | relative_url }}" class="tipue_search_icon">
             <input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="최소 3글자 이상" required></div>
           <div style="clear: both;"></div>
     </form>
@@ -30,9 +30,6 @@
           <li><a href="{{site.baseurl}}/categories/linux"><span class="list-mark">▶</span> Linux </a> <span class="num">({{site.categories.Linux.size}})</span></li>
         </ul>    
         <li><a href="{{site.baseurl}}/categories/note"><span class="list-mark">▶</span> Note </a> <span class="num">({{site.categories.Note.size}})</span></li>
-        <ul>
-          <li><a href="{{site.baseurl}}/categories/blog"><span class="list-mark">▶</span> Blog </a> <span class="num">({{site.categories.Blog.size}})</span></li>
-        </ul>
     </ul>      
     </section>
     <!-- TAG CLOUD -->  
@@ -51,6 +48,8 @@
       <ul>
         {% if site.github %}
         <li><a href="https://github.com/{{ site.github }}" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/github.svg" alt="{{site.github}}"></a></li>{% endif %}
+        {% if site.dockerhub %}
+        <li><a href="{{ site.dockerhub }}" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/docker.svg" alt="{{site.dockerhub}}"></a></li>{% endif %}
       </ul>
     </section> 
     <!-- copyright -->  

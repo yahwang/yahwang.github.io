@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   bottom: 0;
-  width: 250px;
+  width: 220px;
   height: 100%;
   padding: 5px 0px;
   background-color: $light-gray;
@@ -59,7 +59,7 @@
 
 .content-box {
   padding: 5px;
-  padding-left: 260px;
+  padding-left: 230px;
 
   display: flex;
   flex-direction: row;
@@ -226,7 +226,7 @@ footer {
 }
 
 .post {
-  width: 100%;
+  width: 85%;
   max-width: 100%;
   margin-bottom: 0.5rem;
   display: flex;
@@ -253,7 +253,7 @@ footer {
 
   .post-content {
     padding: 0.5rem;
-    width: 75%;
+    width: 100%;
     .post-date,
     .post-words {
       font-size: 12px;

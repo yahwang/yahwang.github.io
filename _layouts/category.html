@@ -18,15 +18,12 @@
 {% include main.html %}
     <div class="content-box clearfix">
     <p class="category" style="margin:5px;">CATEGORY : <span class="selected">{{page.category}}</span></p>
+    <p>&nbsp;</p>
     {% for post in site.categories[page.category] %}
     <article class="post">
-    {% if post.img %}
-        <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
-    {% else %}
-    {% endif %}
     <div class="post-content">
         <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
-        <p>{{ post.content | strip_html | truncate: 77 }}</p>
+        <p>{{ post.content | strip_html | truncate: 90 }}</p>
         <span class="post-date">{{post.date | date: '%Y/%m/%d'}}&nbsp;&nbsp;&nbsp;</span>
         <span class="page-tag">
         {% for category in post.categories %}

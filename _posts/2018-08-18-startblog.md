@@ -5,8 +5,8 @@ date: 2018-08-18 10:00:00 pm
 permalink: posts/39
 description: Githubpages 블로그를 위해 Jekyll 설치 후 로컬에서 구동하는 법을 알아본다.
 img: thumbnail/githubpage.png 
-categories: [Note, Blog]
-tags: [Jekyll, Githubpages] 
+categories: [Note]
+tags: [Blog, Jekyll, Githubpages] 
 ---
 
 > github 블로그(Github pages)를 위한 Jekyll을 설치하고 로컬에서 실행해본다.
