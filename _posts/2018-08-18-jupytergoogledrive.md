@@ -86,7 +86,13 @@ jupyterlab이 verified되지 않았다는 오류인데 advanced를 눌러 무시
 
 ![googleapi9]({{site.baseurl}}/assets/img/python/googleapi9.jpg)
 
-#### notebook을 포함하여 일반적인 파일들은 모두 읽을 수 있다. 다만, 한글은 읽지 못하는 단점이 있다.
+### 기능
+
+* 직접 파일 생성 및 수정 가능
+* 드래그를 통한 파일 업로드 가능
+* 우클릭으로 로컬환경에 파일 다운로드 가능
+
+#### 다만, ipynb 파일에서 한글을 읽지 못하는 단점이 있다.
 
 `References` : 
 
