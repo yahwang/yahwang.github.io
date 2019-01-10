@@ -4,7 +4,7 @@ title: Superset 활용기(2) - postgresql과 연동(docker 활용)
 date: 2019-01-07 01:00:00 am
 permalink: posts/45
 description: docker로 만든 apache superset container에 postgresql container를 연동한다.
-categories: [Tech]
+categories: [Tech, DataViz]
 tags: [Superset, DB, Postgresql]
 ---
 

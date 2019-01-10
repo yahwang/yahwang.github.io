@@ -1,6 +1,5 @@
 ---
 layout: category
-category: R
+category: DataViz
 sitemap: false
 ---
-

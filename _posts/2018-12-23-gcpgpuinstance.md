@@ -4,7 +4,6 @@ title: GCP에서 GPU VM Instance 생성하기
 date: 2018-12-23 02:00:00 am
 permalink: posts/43
 description: google cloud console에서 GPU를 포함한 VM instance 생성하는 법을 알아본다.
-img: thumbnail/gcp.png
 categories: [Tech]
 tags: [GCP, GPU]
 ---
