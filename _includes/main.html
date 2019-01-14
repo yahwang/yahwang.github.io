@@ -56,7 +56,9 @@
     <div class="copyright">
     <p>{{site.time | date: '%Y'}} &copy; YaHwang 
         {% if site.email %}
-        <a href="mailto:{{site.email}}/" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/email.svg" alt="{{site.email}}"></a>{% endif %}
+        <a href="mailto:{{site.email}}" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/email.svg" alt="{{site.email}}"></a>{% endif %}
+        {% if site.rss %}
+        <a href="{{site.rss}}" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/rss.svg" alt="{{site.rss}}"></a>{% endif %}
     </p>
     </div>
   </footer> <!-- End Footer -->

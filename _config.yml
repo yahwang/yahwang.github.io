@@ -9,7 +9,7 @@ timezone: Asia/Seoul # 지역 시간 설정
 author: YA-Hwang # add your name
 author-img: yahwang_logo.png # add your photo
 about-author: Yes to Ambition! # add description
-facebook: # add your Facebook handle
+rss: http://yahwang.tk/feed.xml
 github: yahwang # add your Github handle
 linkedin: # add your Linkedin handle
 email: ts.yahwang@gmail.com # add your Email address
