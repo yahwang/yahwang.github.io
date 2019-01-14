@@ -2,7 +2,7 @@ title: YA-Hwang 기술 블로그
 description: 데이터 분석을 위한 포트폴리오
 permalink: 'posts/'
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://yahwang.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://yahwang.tk" # the base hostname & protocol for your site, e.g. http://example.com
 timezone: Asia/Seoul # 지역 시간 설정
 
 # Author Settings
@@ -13,7 +13,6 @@ facebook: # add your Facebook handle
 github: yahwang # add your Github handle
 linkedin: # add your Linkedin handle
 email: ts.yahwang@gmail.com # add your Email address
-evernote: http://yahwang.postach.io
 codesignal: https://app.codesignal.com/profile/yahwang
 dockerhub: https://hub.docker.com/u/yahwang
 # Disqus
