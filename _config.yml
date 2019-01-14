@@ -30,6 +30,7 @@ markdown: kramdown
 highlighter: rouge
 plugins:
   - jekyll-paginate
+  - jekyll-feed
 
 # pagination settings
 paginate: 10

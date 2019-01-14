@@ -18,6 +18,7 @@ gem "jekyll", "~> 3.7.4"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-paginate"
+  gem "jekyll-feed"
   gem "eventmachine"
 end
 
