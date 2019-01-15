@@ -2,14 +2,14 @@ title: YA-Hwang 기술 블로그
 description: 데이터 분석을 위한 포트폴리오
 permalink: 'posts/'
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://yahwang.tk" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://yahwang.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 timezone: Asia/Seoul # 지역 시간 설정
 
 # Author Settings
 author: YA-Hwang # add your name
 author-img: yahwang_logo.png # add your photo
 about-author: Yes to Ambition! # add description
-rss: https://yahwang.tk/feed.xml
+rss: https://yahwang.github.io/feed.xml
 github: yahwang # add your Github handle
 linkedin: # add your Linkedin handle
 email: ts.yahwang@gmail.com # add your Email address
