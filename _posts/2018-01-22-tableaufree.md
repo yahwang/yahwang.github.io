@@ -4,7 +4,6 @@ title: 태블로(Tableau) 대학생 1년간 무료로 사용하기
 date: 2018-01-22 05:30:00 pm
 permalink: posts/19
 description: 태블로(Tableau)를 대학생 인증을 통해 1년간 무료로 사용할 수 있다. (연장 가능) # Add post description (optional)
-img: thumbnail/tableau.png  # Add image post (optional)
 categories: [Tech]
 tags: [Tableau] # add tag
 ---

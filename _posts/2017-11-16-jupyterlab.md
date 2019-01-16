@@ -4,7 +4,6 @@ title: JupyterLab
 permalink: posts/1
 date: 2017-11-16 05:30:00 pm
 description: Jupyter Notebook에서 한단계 발전한 Jupyterlab Alpha단계이다. # Add post description (optional)
-img: thumbnail/jupyterlab.png  # Add image post (optional)
 categories : [Tech]
 tags: [Jupyter] # add tag
 ---
@@ -55,5 +54,3 @@ tags: [Jupyter] # add tag
 ![jupyterlab_json]({{site.baseurl}}/assets/img/jupyterlab(geojson).jpg)
 
 `References` : 
-
-* [PyData Seattle 2017](https://www.youtube.com/watch?v=u3gU2brTaVI){:target="_blank"}

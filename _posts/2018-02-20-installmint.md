@@ -4,7 +4,6 @@ title: 윈도우10 & Mint 듀얼부팅 구현을 위한 LVM 활용기
 date: 2018-02-20 02:00:00 pm
 permalink: posts/25
 description: 리눅스 공부를 위해 Ubuntu를 기반으로 한 Linux Mint를 활용한다.  # Add post description (optional)
-img: thumbnail/mint.png  # Add image post (optional)
 categories: [Tech, Linux]
 tags: [LVM, fdisk] # add tag
 ---
@@ -56,8 +55,6 @@ Mint의 gparted를 통해 살펴보면 sda2는 윈도우가 설치되어 있고 
 따라서 하나의 primary partition만 만들 수 있다. 이를 해결하기 위해서는 `extended partition`을 먼저 생성해야 한다. 
 
 그 후에 다시 partition 생성을 하면 logical partition을 여러 개 만들 수 있다. logical partition은 primary partition처럼 사용할 수 있다.
-
-[extended partition 설명](https://www.symantec.com/ko/kr/security_response/glossary/define.jsp?letter=e&word=extended-partition){:target="_blank"}
 
 **sda4를 extended partition으로 생성하고 sda5와 sda6를 logical 파티션으로 생성하였다.**
 

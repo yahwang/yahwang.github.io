@@ -4,7 +4,6 @@ title: Docker For Windows 설치할 때 생기는 오류 대처하기
 date: 2018-02-08 10:00:00 pm
 permalink: posts/23
 description: Docker For Windows를 설치할 때 생길 수 있는 오류(error)를 정리한다.
-img: thumbnail/docker.png
 categories: [Tech]
 tags: [Docker]
 ---

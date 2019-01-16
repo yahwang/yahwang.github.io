@@ -4,7 +4,6 @@ title: 데이터 분석에 관한 12가지 팩트체크
 date: 2017-12-14 03:30:00 pm
 permalink: posts/14
 description: # Add post description (optional)
-img: thumbnail/newsreport.png # Add image post (optional)
 categories: [Note]
 tags: [News, Analysis] # add tag
 ---

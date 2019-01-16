@@ -4,7 +4,6 @@ title: JupyterLab과 GoogleDrive 연동하기 (Ubuntu 기준)
 date: 2018-08-18 09:00:00 pm
 permalink: posts/38
 description: JupyterLab에서 GoogleDrive와 연동가능한 모듈을 설치한다.
-img: thumbnail/jupyterlab.png
 categories: [Tech]
 tags: [Jupyter, googledrive]
 ---
@@ -40,7 +39,7 @@ jupyter labextension install @jupyterlab/google-drive
 
 ![driveerror]({{site.baseurl}}/assets/img/python/driveerror.jpg)
 
-[Google API Console](https://console.cloud.google.com/apis)에 접속한다.
+[Google API Console](https://console.cloud.google.com/apis){:target="_blank"}에 접속한다.
 
 먼저, 프로젝트를 만들어야 한다.
 
@@ -56,7 +55,7 @@ jupyter labextension install @jupyterlab/google-drive
 
 그 다음, OAuth 클라이언트 ID를 만든다.
 
-제한사항 - 자바스크립트에 `http://localhost:8888`을 입력해야 한다. ( jupyterlab 기본 서버 주소 )
+제한사항 - 자바스크립트에 `localhost:8888`을 입력해야 한다. ( jupyterlab 기본 서버 주소 )
 
 ![googleapi4]({{site.baseurl}}/assets/img/python/googleapi4.jpg)
 

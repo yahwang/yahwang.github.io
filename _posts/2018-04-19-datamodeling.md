@@ -4,7 +4,6 @@ title: 여러 시트를 통합한 피벗테이블 생성하기 feat.데이터모
 date: 2018-04-19 03:00:00 pm
 permalink: posts/34
 description: Excel에서 여러 시트를 통합하는 데이터모델링에 대해 알아본다.  # Add post description (optional)
-img: thumbnail/excel.jpg  # Add image post (optional)
 categories: [Tech]
 tags: [피벗테이블, 데이터모델링] # add tag
 ---

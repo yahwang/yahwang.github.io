@@ -4,7 +4,6 @@ title: github 블로그를 위한 Jekyll 설치 및 실행 ( Ubuntu 기준)
 date: 2018-08-18 10:00:00 pm
 permalink: posts/39
 description: Githubpages 블로그를 위해 Jekyll 설치 후 로컬에서 구동하는 법을 알아본다.
-img: thumbnail/githubpage.png 
 categories: [Note]
 tags: [Blog, Jekyll, Githubpages] 
 ---
@@ -79,7 +78,7 @@ jekyll serve --livereload
 # 또는 bundle exec jekyll serve --livereload
 ```
 
-`http://localhost:4000`을 실행하면 사이트가 생성된 것을 확인할 수 있다.
+`localhost:4000`을 실행하면 사이트가 생성된 것을 확인할 수 있다.
 
 `--livereload`는 jekyll template 내 파일을 수정하고 저장하면 실시간으로 반영되는 것을 브라우저에서 확인할 수 있다.
 

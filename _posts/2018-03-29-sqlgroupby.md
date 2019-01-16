@@ -5,12 +5,11 @@ date: 2018-03-29 10:00:00 pm
 update: 2018-12-05 11:00:00 am
 permalink: posts/31
 description: MySQL에서 GROUP BY를 더 유용하게 활용할 수 있는 방법을 알아본다.  # Add post description (optional)
-img: thumbnail/mysql.jpg  # Add image post (optional)
 categories: [Tech, SQL]
-tags: [MySQL, GROUP BY, ROLLUP, GROUP_CONCAT, GROUPING] # add tag
+tags: [MySQL, GROUP BY, ROLLUP, GROUPING] # add tag
 ---
 
-> GROUP BY와 함께 사용하면 유용한 GROUP_CONCAT과 ROLLUP 활용법에 대해 알아본다.
+> GROUP BY와 함께 사용하면 유용한 ROLLUP 활용법에 대해 알아본다.
 
 사용할 데이터는 [MySQL reference](https://dev.mysql.com/doc/refman/5.7/en/group-by-modifiers.html){:target="_blank"}에서 가져왔다.
 
@@ -26,66 +25,6 @@ tags: [MySQL, GROUP BY, ROLLUP, GROUP_CONCAT, GROUPING] # add tag
 | 2001 | USA     | Calculator |     50 |
 | 2001 | USA     | Computer   |   2700 |
 | 2001 | USA     | TV         |    250 |
-
-###  GROUP_CONCAT
-
-GROUP_CONCAT은 **컬럼값들을 하나의 값으로 이어주는 역할**을 한다.
-
-연도, 나라별 각각 다른 profit을 product별로 합쳐본다.
-
-``` sql
-SELECT product, GROUP_CONCAT(profit) FROM sales GROUP BY product;
-```
-
-| product    | GROUP_CONCAT(profit) |
-|------------|----------------------|
-| Calculator | 150,75,50            |
-| Computer   | 1500,1200,1500,2700  |
-| Phone      | 100,10               |
-| TV         | 250                  |
-
-GROUP_CONCAT은 함수 내 **DISTINCT**와 **정렬**을 지원한다.
-
-country별 product를 판매량이 높은 순으로 정렬한다.
-
-``` sql
-SELECT country, GROUP_CONCAT(DISTINCT product ORDER BY profit DESC) as products 
-FROM sales GROUP BY country;
-```
-
-| country |        products        |
-|---------|------------------------|
-| Finland | Computer,Phone         |
-| India   | Computer,Calculator    |
-| USA     | Computer,TV,Calculator |
-
-또한, **SEPARATOR** 설정도 가능하다.
-
-``` sql
-SELECT country, GROUP_CONCAT(DISTINCT product ORDER BY profit DESC SEPARATOR "_") as products 
-FROM sales GROUP BY country;
-```
-
-| country |        products        |
-|---------|------------------------|
-| Finland | Computer_Phone         |
-| India   | Computer_Calculator    |
-| USA     | Computer_TV_Calculator |
-
-**응용편 )** 연도별 판매한 product를 판매량이 높은 순으로 정렬한다.
-
-``` sql
-# 먼저 product별 profit 합계를 구한 후 GROUP_CONCAT을 적용했다.
-
-SELECT year, GROUP_CONCAT(product ORDER BY profit DESC) as products
-FROM (SELECT year, product, sum(profit) as profit FROM sales GROUP BY product, year) a 
-GROUP BY year;
-```
-
-| year | products |
-|------|-------------------------------|
-| 2000 | Computer,Calculator,Phone     |
-| 2001 | Computer,TV,Calculator,Phone  |
 
 ### ROLLUP 그룹별 집계
 
@@ -151,5 +90,3 @@ FROM sales GROUP BY country, product WITH ROLLUP;
 `References` : 
 
 * [MYSQL ROLLUP 레퍼런스](https://dev.mysql.com/doc/refman/5.7/en/group-by-modifiers.html){:target="_blank"}
-* [MYSQL GROUP_CONCAT 레퍼런스](https://www.w3resource.com/mysql/aggregate-functions-and-grouping/aggregate-functions-and-grouping-group_concat.php){:target="_blank"}
-

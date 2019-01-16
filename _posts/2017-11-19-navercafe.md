@@ -5,7 +5,6 @@ date: 2017-11-19 05:30:00 pm
 update: 2018-11-20 12:00:00 pm
 permalink: posts/4
 description: # Add post description (optional)
-img: thumbnail/navercafe.png  # Add image post (optional)
 categories: [Tech, Python]
 tags: [Crawling, Selenium] # add tag
 ---

@@ -4,14 +4,13 @@ title: docker에서 실행한 Jupyter를 PC 브라우저와 연동하기
 date: 2018-09-28 02:00:00 pm
 permalink: posts/41
 description: docker에서 실행한 jupyter를 로컬 PC 브라우저와 연동할 수 있다.
-img: thumbnail/docker.png
 categories: [Tech, Linux]
 tags: [Docker, Jupyter] 
 ---
 
 > docker에서 실행한 jupyter를 로컬 PC 브라우저와 연동할 수 있다.
 
-[anaconda3 docker image](https://hub.docker.com/r/continuumio/anaconda3/){:target="_blank"}를 활용하여 테스트하였다.
+[anaconda3 docker image](https://hub.docker.com/r/continuumio/anaconda3){:target="_blank"}를 활용하여 테스트하였다.
 
 container 생성 시, jupyter 실행 포트와 로컬 PC의 포트를 이어주는 설정을 반드시 해야 한다.
 

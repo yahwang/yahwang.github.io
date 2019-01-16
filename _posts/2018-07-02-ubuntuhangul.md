@@ -4,7 +4,6 @@ title: Ubuntu에 한글 입력기 설치하기 (uim-byeoru)
 date: 2018-07-03 00:00:00 am
 permalink: posts/36
 description: 리눅스 공부를 위해 Ubuntu에 한글을 설치한다.  # Add post description (optional)
-img: thumbnail/ubuntu.jpg  # Add image post (optional)
 categories: [Tech, Linux]
 tags: [uim-byeoru, 한글] # add tag
 ---

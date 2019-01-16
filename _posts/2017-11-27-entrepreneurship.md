@@ -4,7 +4,6 @@ title: 4차 산업혁명 시대, 기업가 정신으로 무장하라
 date: 2017-11-27 05:30:00 pm
 permalink: posts/10
 description: # Add post description (optional)
-img: thumbnail/tvreport.png  # Add image post (optional)
 categories: [Note]
 tags: [다큐, 4차 산업혁명] # add tag
 ---

@@ -4,7 +4,6 @@ title: 4차 산업혁명, 교육 패러다임의 대전환
 date: 2017-12-12 05:30:00 pm
 permalink: posts/13
 description: # Add post description (optional)
-img: thumbnail/tvreport.png  # Add image post (optional)
 categories: [Note]
 tags: [다큐, 4차 산업혁명] # add tag
 ---

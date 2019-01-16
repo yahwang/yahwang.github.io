@@ -4,7 +4,6 @@ title: github 블로그에 검색 도구 만들기(TipueSearch)
 date: 2018-01-26 05:00:00 pm
 permalink: posts/21
 description: Jekyll Template을 활용하여 Github pages 블로그를 만든다. # Add post description (optional)
-img: thumbnail/githubpage.png  # Add image post (optional)
 categories: [Note]
 tags: [Blog, Jekyll, Githubpages] # add tag
 ---

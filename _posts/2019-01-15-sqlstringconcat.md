@@ -10,7 +10,7 @@ tags: [MySQL, GROUP_CONCAT, PostgreSQL, STRING_AGG] # add tag
 
 > GROUP BY와 함께 사용하면 유용한 GROUP_CONCAT과 STRING_AGG 활용법에 대해 알아본다.
 
-사용할 데이터는 [MySQL reference](https://dev.mysql.com/doc/refman/5.7/en/group-by-modifiers.html){:target="_blank"}에서 가져왔다.
+데이터 출처 : [MySQL reference](https://dev.mysql.com/doc/refman/5.7/en/group-by-modifiers.html){:target="_blank"}
 
 | year | country | product    | profit |
 |------|---------|------------|--------|
