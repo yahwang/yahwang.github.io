@@ -5,7 +5,7 @@ date: 2019-01-18 01:00:00 am
 permalink: posts/48
 description: SQL에서 WINDOW FUNCTION을 활용하여 TOP N, 상위 퍼센트 데이터를 구해본다.
 categories: [Tech, SQL]
-tags: [MySQL, PostgreSQL, ROW_NUMBER, PERCENT_RANK] # add tag
+tags: [MySQL, PostgreSQL, ROW_NUMBER, PERCENT_RANK, FIRST_VALUE] # add tag
 ---
 
 > SQL에서 WINDOW FUNCTION을 활용하여 TOP N, 상위 퍼센트 데이터를 구해본다.
@@ -57,7 +57,7 @@ FROM tips LIMIT 3;
 
 ``` sql
 SELECT total_bill, sex, 
-    ROW_NUMBER() OVER (PARTITION BY sex ORDER BY total_bill DESC) as ranking 
+       ROW_NUMBER() OVER (PARTITION BY sex ORDER BY total_bill DESC) as ranking 
 FROM tips;
 ```
 그룹별로 **TOP N**을 구하기 위해서는 **서브쿼리**를 활용해야 한다. ROW_NUMBER로 만든 ranking 컬럼에서 조건을 걸어주어야 한다.
@@ -78,6 +78,21 @@ WHERE a.ranking <= 3;
 |48.33       | Male  | 2       |
 |48.27       | Male  | 3       |
 
+### FIRST_VALUE 활용
+
+TOP 1을 구할 경우에는 FIRST_VALUE 활용도 가능하다. **DISTINCT**를 활용하여 값이 중복되는 것을 방지한다.
+
+``` sql
+SELECT DISTINCT sex, 
+       FIRST_VALUE(total_bill) OVER (PARTITION BY sex ORDER BY total_bill DESC) as top_1 
+FROM tips;
+```
+
+| sex   | top_1   |
+|-------|---------|
+| Female|   44.3  |
+| Male  |  50.81  |
+
 ## 상위 퍼센트 구하기
 
 PERCENT_RANK 함수를 활용하면 구할 수 있다. PERCENT_RANK는 누적백분율을 계산해준다.
@@ -90,7 +105,7 @@ LIMIT는 정수만 입력 가능하기 때문에 서브쿼리를 활용여 조�
 
 ``` sql
 SELECT * FROM (SELECT total_bill, 
-    PERCENT_RANK() OVER (ORDER BY total_bill DESC) as per_rank FROM tips) a
+       PERCENT_RANK() OVER (ORDER BY total_bill DESC) as per_rank FROM tips) a
 WHERE a.per_rank <= 0.01;
 ```
 총 295명 중 1퍼센트에 속하는 사람은 3명이다.
@@ -106,7 +121,7 @@ WHERE a.per_rank <= 0.01;
 ``` sql
 SELECT *
 FROM (SELECT total_bill, sex, 
-    PERCENT_RANK() OVER (PARTITION BY sex ORDER BY total_bill DESC) as per_rank FROM tips) a
+      PERCENT_RANK() OVER (PARTITION BY sex ORDER BY total_bill DESC) as per_rank FROM tips) a
 WHERE a.per_rank <= 0.02;
 ```
 Female 87명 중 2퍼센트는 2명, Male 157명 중 2퍼센트는 4명이다.  
