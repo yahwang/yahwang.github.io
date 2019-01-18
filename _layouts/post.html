@@ -28,18 +28,15 @@
           <span>수정일 : {{page.update | date: '%Y년 %m월 %d일'}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
           {% endif %}
           </div>
+          <div class="page-tag">
+            {% for tag in page.tags %}
+              <span class="tag">&#35; {{ tag }}</span>
+            {% endfor %}
+          </div>
         </header>
         {{page.content | markdownify}}
         <div class="page-footer">
-          <div class="page-share">
-            <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-            <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
-          </div>
-          <div class="page-tag">
-            {% for tag in page.tags %}
-              <a href="{{site.baseurl}}/tag/{{tag | downcase}}" class="tag">&#35; {{ tag }}</a>
-            {% endfor %}
-          </div>
+
         </div>
         {% include disqus.html %}
       </div> <!-- End Wrap Content -->

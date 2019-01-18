@@ -76,6 +76,9 @@
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
+  .page-tag{
+    display:none;
+  }
   .sidebar{
     .tipue_search_box{
         margin-left:75px;

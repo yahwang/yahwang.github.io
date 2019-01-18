@@ -18,6 +18,16 @@
   }
 }
 
+.page-tag {
+  span {
+    font-size: 12px;
+    padding: 5px 10px;
+    margin-left: 5px;
+    color: $dark-blue;
+    border: 1px solid $dark-blue;
+  }
+}
+
 .page-footer {
   display: flex;
   justify-content: space-between;
@@ -43,19 +53,6 @@
       }
       &:hover {
         background-color: $gray;
-      }
-    }
-  }
-  .page-tag {
-    a {
-      text-decoration: none;
-      font-size: 12px;
-      padding: 5px 10px;
-      margin-left: 5px;
-      color: $dark-blue;
-      border: 1px solid $dark-blue;
-      &:hover {
-        text-decoration: underline;
       }
     }
   }
