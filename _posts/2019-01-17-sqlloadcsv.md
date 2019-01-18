@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SQL에서 CSV 파일 업로드해 테이블로 만들기
+title: SQL로 CSV 파일 업로드해 테이블로 만들기
 date: 2019-01-17 11:00:00 pm
 permalink: posts/47
 description: SQL에서 CSV 파일을 업로드해 테이블로 만드는 방법을 알아본다.
