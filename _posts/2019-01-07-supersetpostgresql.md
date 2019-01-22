@@ -2,13 +2,14 @@
 layout: post
 title: Superset 활용기(2) - postgresql과 연동(docker 활용)
 date: 2019-01-07 01:00:00 am
+update: 2019-01-22 10:00:00 pm
 permalink: posts/45
 description: docker로 만든 apache superset container에 postgresql container를 연동한다.
 categories: [Tech, DataViz]
 tags: [Superset, DB, Postgresql]
 ---
 
-> apache superset container에 postgresql container를 연동해본다.
+> apache superset **container에** postgresql container를 연동해본다.
 
 기본적으로 container를 생성하면 bridge라는 네트워크에 연결이 되어있다. 하지만, 이 네트워크에는 이름이 따로 없어서 할당받은 IP를 확인한 후 사용해야 해서 불편하다.
 
@@ -34,7 +35,7 @@ superset에서는 **SQLAlchemy** 라이브러리를 사용하며, 기본적으�
 
 ``` python
 # 연결방법
-postgresql://[유저]:[비밀번호]@[네트워크]
+postgresql://[유저]:[비밀번호]@[네트워크]/[데이터베이스]
 ```
 
 참고 : psycopg2-binary 라이브러리가 설치되어 있어야 postgresql 연결이 가능하다. (pip로 설치)
