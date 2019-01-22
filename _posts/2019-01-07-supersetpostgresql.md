@@ -52,4 +52,9 @@ SQL Lab에서 옵션 설정을 통해 csv 업로드 방식이나 직접 SQL문�
 
 ![superset_postgres_6]({{site.baseurl}}/assets/img/tech/superset_postgres_6.jpg)
 
+#### 시리즈
+
+* [Superset 활용기(1) - mapbox를 활용한 지도 mapping]({{ site.url }}/posts/44)
+* Superset 활용기(2) - postgresql과 연동(docker 활용)
+* [Superset 활용기(3) - SQL Lab 활용]({{ site.url }}/posts/50)
 

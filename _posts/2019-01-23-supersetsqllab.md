@@ -25,3 +25,9 @@ SQL문을 실행하면 처리시간을 확인할 수 있고 쿼리결과 내에�
 ![sqllab_2]({{site.baseurl}}/assets/img/sql/sqllab_2.jpg)
 
 또한, 쿼리에 대한 **history(log)** 기록이 남고 **save query** 기능으로 자주 사용하는 쿼리를 저장하여 활용할 수도 있다.
+
+#### 시리즈
+
+* [Superset 활용기(1) - mapbox를 활용한 지도 mapping]({{ site.url }}/posts/44)
+* [Superset 활용기(2) - postgresql과 연동(docker 활용)]({{ site.url }}/posts/45)
+* Superset 활용기(3) - SQL Lab 활용
