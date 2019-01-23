@@ -2,7 +2,7 @@
   <header>
     <div class="about">
       <div class="cover-author-image">
-        <a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/assets/img/{% if site.author-img %}{{site.author-img}}{% endif %}" alt="{{site.author}}"></a>
+        <a href="{{site.url}}/"><img src="{{site.url}}/assets/img/{% if site.author-img %}{{site.author-img}}{% endif %}" alt="{{site.author}}"></a>
       </div>
       <div class="author-name">{{site.author}}</div>
       <p><strong>Y</strong>es to <strong>A</strong>mbition!</p>
@@ -11,7 +11,7 @@
   </header> <!-- End Header -->
   <footer>
     <!-- search box -->
-    <form action="{{ site.baseurl }}/search">
+    <form action="{{ site.url }}/search">
           <div class="tipue_search_box">
             <img style="margin-left:30px;" src="{{ "/assets/tipuesearch/search.png" | relative_url }}" class="tipue_search_icon">
             <input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="최소 3글자 이상" required></div>
@@ -21,15 +21,15 @@
     <section class="main-category">
     <h3 class="title">CATEGORY</h3>
     <ul>
-        <li><a href="{{site.baseurl}}/"> All posts </a> <span class="num">({{site.posts.size}})</span></li>
-        <li><a href="{{site.baseurl}}/categories/tech"><span class="list-mark">▶</span> Tech </a> <span class="num">({{site.categories.Tech.size}})</span></li>
+        <li><a href="{{site.url}}/"> All posts </a> <span class="num">({{site.posts.size}})</span></li>
+        <li><a href="{{site.url}}/categories/tech"><span class="list-mark">▶</span> Tech </a> <span class="num">({{site.categories.Tech.size}})</span></li>
         <ul>
-          <li><a href="{{site.baseurl}}/categories/python"><span class="list-mark">▶</span> Python </a> <span class="num">({{site.categories.Python.size}})</span></li>
-          <li><a href="{{site.baseurl}}/categories/sql"><span class="list-mark">▶</span> SQL </a> <span class="num">({{site.categories.SQL.size}})</span></li>
-          <li><a href="{{site.baseurl}}/categories/linux"><span class="list-mark">▶</span> Linux </a> <span class="num">({{site.categories.Linux.size}})</span></li>
-          <li><a href="{{site.baseurl}}/categories/dataviz"><span class="list-mark">▶</span> DataViz </a> <span class="num">({{site.categories.DataViz.size}})</span></li>
+          <li><a href="{{site.url}}/categories/python"><span class="list-mark">▶</span> Python </a> <span class="num">({{site.categories.Python.size}})</span></li>
+          <li><a href="{{site.url}}/categories/sql"><span class="list-mark">▶</span> SQL </a> <span class="num">({{site.categories.SQL.size}})</span></li>
+          <li><a href="{{site.url}}/categories/linux"><span class="list-mark">▶</span> Linux </a> <span class="num">({{site.categories.Linux.size}})</span></li>
+          <li><a href="{{site.url}}/categories/dataviz"><span class="list-mark">▶</span> DataViz </a> <span class="num">({{site.categories.DataViz.size}})</span></li>
         </ul>    
-        <li><a href="{{site.baseurl}}/categories/note"><span class="list-mark">▶</span> Note </a> <span class="num">({{site.categories.Note.size}})</span></li>
+        <li><a href="{{site.url}}/categories/note"><span class="list-mark">▶</span> Note </a> <span class="num">({{site.categories.Note.size}})</span></li>
     </ul>      
     </section>
     <!-- TAG CLOUD -->  
@@ -47,18 +47,18 @@
       <h3 class="contact-title">Portfolio</h3>
       <ul>
         {% if site.github %}
-        <li><a href="https://github.com/{{ site.github }}" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/github.svg" alt="{{site.github}}"></a></li>{% endif %}
+        <li><a href="https://github.com/{{ site.github }}" target="_blank"><img class="svg-icon" src="{{site.url}}/assets/img/svg/github.svg" alt="{{site.github}}"></a></li>{% endif %}
         {% if site.dockerhub %}
-        <li><a href="{{ site.dockerhub }}" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/docker.svg" alt="{{site.dockerhub}}"></a></li>{% endif %}
+        <li><a href="{{ site.dockerhub }}" target="_blank"><img class="svg-icon" src="{{site.url}}/assets/img/svg/docker.svg" alt="{{site.dockerhub}}"></a></li>{% endif %}
       </ul>
     </section> 
     <!-- copyright -->  
     <div class="copyright">
     <p>{{site.time | date: '%Y'}} &copy; YaHwang 
         {% if site.email %}
-        <a href="mailto:{{site.email}}" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/email.svg" alt="{{site.email}}"></a>{% endif %}
+        <a href="mailto:{{site.email}}" target="_blank"><img class="svg-icon" src="{{site.url}}/assets/img/svg/email.svg" alt="{{site.email}}"></a>{% endif %}
         {% if site.rss %}
-        <a href="{{site.rss}}" target="_blank"><img class="svg-icon" src="{{site.baseurl}}/assets/img/svg/rss.svg" alt="{{site.rss}}"></a>{% endif %}
+        <a href="{{site.rss}}" target="_blank"><img class="svg-icon" src="{{site.url}}/assets/img/svg/rss.svg" alt="{{site.rss}}"></a>{% endif %}
     </p>
     </div>
   </footer> <!-- End Footer -->
