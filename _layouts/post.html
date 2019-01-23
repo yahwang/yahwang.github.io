@@ -9,9 +9,9 @@
 <title>{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
 <meta name="description" content="{{ page.description }}">
 <meta property="og:title" content="{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}"/>
-<meta property="og:url" content="{{ page.url | prepend: site.baseurl }}"/>
+<meta property="og:url" content="{{ page.url | prepend: site.url }}"/>
 <meta property="og:description" content="{{page.description}}"/>
-<meta property="og:image" content="{{site.baseurl}}/assets/img/{{site.author-img}}">
+<meta property="og:image" content="{{site.url}}/assets/img/{{site.author-img}}">
 </head>  
 
 <body>
