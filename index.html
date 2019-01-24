@@ -11,7 +11,7 @@ layout: default
     <span class="post-date">{{post.date | date: '%Y/%m/%d'}}&nbsp;&nbsp;</span>
     <span class="page-tag">
     {% for category in post.categories %}
-        <a href="{{site.url}}/categories/{{category | downcase}}" class="category">&#35; {{ category }}</a>
+        <span class="category">&#35; {{ category }}</span>
     {% endfor %}
     {% for tag in post.tags %}
         <span class="tag">{{ tag }}</span>
