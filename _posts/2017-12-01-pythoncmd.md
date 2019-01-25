@@ -67,7 +67,7 @@ import requests
 def info(soup, tag):
     return soup.select('h3.result_title')[0].find(tag).get_text()
 
-baseUrl = "http://nlotto.co.kr/gameResult.do?method=win520"
+baseUrl = "https://m.dhlottery.co.kr/gameResult.do?method=win520"
 soup = bs(requests.get(baseUrl).content, 'html.parser')
 
 recent = info(soup, 'strong')
