@@ -4,7 +4,6 @@ title: Python으로 cmd.exe 실행파일 만들기 with 연금복권
 date: 2017-12-01 05:30:00 pm
 permalink: posts/12
 description: # Add post description (optional)
-img: thumbnail/lotto_main.png # Add image post (optional)
 categories: [Tech, Python]
 tags: [cmd] # add tag
 ---
