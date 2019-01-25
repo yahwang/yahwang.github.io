@@ -10,7 +10,7 @@ tags: [피벗테이블, 데이터모델링] # add tag
 
 > 여러 시트에 존재하는 테이블들을 JOIN하여 하나의 피벗테이블에서 처리할 수 있다.
 
-`실습을 위해 활용할 xlsx 파일 내 시트 별 데이터` [파일 다운로드](http://yahwang.github.io/assets/files/orders.xlsx){:target="_blank"}
+`실습을 위해 활용할 xlsx 파일 내 시트 별 데이터` [파일 다운로드](https://yahwang.github.io/assets/files/orders.xlsx){:target="_blank"}
 
 `주문서 시트`
 
