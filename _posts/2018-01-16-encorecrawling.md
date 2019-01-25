@@ -36,8 +36,6 @@ tags: [Crawling, Requests, Selenium] # add tag
 
 ![melon_ajax]({{site.baseurl}}/assets/img/python/ajax_ex1.png)
 
-[성시경 검색 index.json](http://www.melon.com/search/keyword/index.json?jscallback=jQuery1910956013151085803_1516101909685&query=%25EC%2584%25B1%25EC%258B%259C%25EA%25B2%25BD){:target="_blank"}
-
 이 json을 활용하여 selenium 대신 requests로 크롤링을 할 수 있다.
 
 Chrome의 JSON VIEWER 확장도구를 사용하여 본 모습(왼쪽) ㅣ Python으로 JSON을 추출한 모습(오른쪽)
