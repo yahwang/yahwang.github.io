@@ -1,15 +1,15 @@
 ---
 layout: post
-title: MySQL에서 GROUP BY + @ 활용하기
+title: SQL에서 소계, 합계를 계산하는 ROLLUP 활용하기
 date: 2018-03-29 10:00:00 pm
-update: 2018-12-05 11:00:00 am
+update: 2019-01-29 06:00:00 pm
 permalink: posts/31
-description: MySQL에서 GROUP BY를 더 유용하게 활용할 수 있는 방법을 알아본다.  # Add post description (optional)
+description: SQL에서 소계, 합계를 계산하는 ROLLUP 활용할 수 있는 방법을 알아본다.  # Add post description (optional)
 categories: [Tech, SQL]
-tags: [MySQL, GROUP BY, ROLLUP, GROUPING] # add tag
+tags: [MySQL, PostgreSQL, GROUP BY, ROLLUP, GROUPING] # add tag
 ---
 
-> GROUP BY와 함께 사용하면 유용한 ROLLUP 활용법에 대해 알아본다.
+> SQL에서 소계, 합계 계산에 유용한 ROLLUP 활용법에 대해 알아본다.
 
 사용할 데이터는 [MySQL reference](https://dev.mysql.com/doc/refman/5.7/en/group-by-modifiers.html){:target="_blank"}에서 가져왔다.
 
@@ -26,15 +26,26 @@ tags: [MySQL, GROUP BY, ROLLUP, GROUPING] # add tag
 | 2001 | USA     | Computer   |   2700 |
 | 2001 | USA     | TV         |    250 |
 
-### ROLLUP 그룹별 집계
+## ROLLUP 그룹별 집계
 
 ROLLUP을 활용하면 **GROUP BY에서 선택한 기준에 따라 합계**가 구해진다.
 
 모든 product의 profit 합계와 모든 country의 profit 합계(총합)가 구해진다.
 
+### PostgreSQL
+
+PostgreSQL에서는 **ROLLUP(컬럼1, 컬럼2)**  방식을 사용한다.
+
 ``` sql
-SELECT country, product, sum(profit) FROM sales GROUP BY country, product;
-SELECT country, product, sum(profit) FROM sales GROUP BY country, product with ROLLUP;
+SELECT country, product, sum(profit) FROM sales GROUP BY ROLLUP(country, product);
+```
+
+### MySQL
+
+MySQL에서는 ROLLUP 대신 **WITH ROLLUP**을 사용한다.
+
+``` sql
+SELECT country, product, sum(profit) FROM sales GROUP BY country, product WITH ROLLUP;
 ```
 
 ROLLUP 적용 전 (왼쪽) VS ROLLUP을 적용한 모습(오른쪽)
@@ -53,11 +64,13 @@ ROLLUP 적용 전 (왼쪽) VS ROLLUP을 적용한 모습(오른쪽)
 ||||| **USA**     | **NULL**       |        **4575** |
 ||||| **NULL**    | **NULL**       |        **7535** |
 
-ROLLUP은 집계한 기준값을 NULL값으로 대체한다. **IFNULL**을 활용하면 원하는 텍스트를 넣을 수 있다.
+ROLLUP은 집계한 기준값을 NULL값으로 대체한다. **COALESCE**을 활용하면 원하는 텍스트를 넣을 수 있다. 
+
+( MySQL에서는 IFNULL로 대체 가능)
 
 ``` sql
-SELECT IFNULL(country,"ALL countries") as country, 
-       IFNULL(product,"ALL products") as product, 
+SELECT COALESCE(country,"ALL countries") as country, 
+       COALESCE(product,"ALL products") as product, 
        sum(profit) FROM sales GROUP BY country, product WITH ROLLUP;
 ```
 
@@ -75,7 +88,9 @@ SELECT IFNULL(country,"ALL countries") as country,
 | USA         | **ALL products** |        4575 |
 | **ALL countries** | **ALL products** |        7535 |
 
-참고로, mysql 8.0부터는 Oracle처럼 GROUPING 함수를 사용할 수 있다. 결과는 IFNULL을 적용한 쿼리와 같다. 
+**참고:**
+
+mysql 8.0부터는 Oracle처럼 **GROUPING** 함수를 사용할 수 있다. 결과는 IFNULL을 적용한 쿼리와 같다. 
 
 GROUPING(컬럼) 값은 집계가 위치해야 할 ROW(NULL이 표시되는 지점)에서 1 아니면 0을 리턴한다.
 
