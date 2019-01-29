@@ -95,13 +95,13 @@ FROM tips;
 
 ## 상위 퍼센트 구하기
 
-PERCENT_RANK 함수를 활용하면 구할 수 있다. PERCENT_RANK는 누적백분율을 계산해준다.
+PERCENT_RANK 함수를 활용하면 구할 수 있다. PERCENT_RANK는 RANK 결과값을 백분율 순위를 계산해준다. 해석하자면, 자신보다 아래 전체의 몇 퍼센트가 있다는 의미이다.(less than)
+
+CUME_DIST()와 비슷해서 헷갈릴 수 있는데 CUME_DIST는 누적분포를 의미한다. 자신을 포함하여 전체의 몇 퍼센트가 있다는 뜻이다. ( less or equal )
+
+참고 : 상위 퍼센트 계산식은 (RANK값-1) / (전체row 수 -1)이다. [PERCENT_RANK 계산식](https://docs.aws.amazon.com/ko_kr/redshift/latest/dg/r_WF_PERCENT_RANK.html){:target="_blank"}
 
 ### 단순 기준 상위 퍼센트
-
-LIMIT는 정수만 입력 가능하기 때문에 서브쿼리를 활용여 조건을 걸어야 한다.
-
-물론, 미리 퍼센트가 몇 명인지 계산하여 LIMIT를 활용할 수도 있다.
 
 ``` sql
 SELECT * FROM (SELECT total_bill, 
