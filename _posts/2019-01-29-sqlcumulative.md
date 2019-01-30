@@ -10,7 +10,7 @@ tags: [PostgreSQL, MySQL, WINDOW FUNCTION, ABC analysis]
 
 > SQL에서 누적합, 누적백분율을 활용하여 분석에 활용한다.
 
-데이터는 Kaggle의 [Big Mart Sales](https://www.kaggle.com/brijbhushannanda1979/bigmart-sales-data#Test.csv)를 활용하였다. (일부 컬럼만)
+데이터는 Kaggle의 [Big Mart Sales](https://www.kaggle.com/brijbhushannanda1979/bigmart-sales-data#Test.csv){:target="_blank"}를 활용하였다. (일부 컬럼만)
 
 이 데이터는 16가지 종류로 분류되는 물건들의 판매량을 포함하고 있다.
 
