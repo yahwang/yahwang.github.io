@@ -4,7 +4,7 @@ title: Jupyter에서 Scala 실행하기 (Ubuntu 기준)
 date: 2019-02-02 15:00:00 pm
 permalink: posts/56
 description: Jupyter에서 almond를 활용해 scala 커널을 설치하고 실행하는 법을 알아본다.
-categories: [Tech]
+categories: [Tech, Linux]
 tags: [Jupyter, Scala, almond] # add tag
 ---
 
