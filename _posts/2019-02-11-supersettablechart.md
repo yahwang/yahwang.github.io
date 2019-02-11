@@ -45,3 +45,10 @@ superset에는 **Table View**라는 이름으로 시각화 방법이 있다.
 이렇게 하면 연도별로 정렬되지 않는 결과가 나온다. SQL처럼 컬럼이름만으로 정렬이 되지 않는다. 일종의 트릭(??)으로 **COUNT_DISTINCT** 함수를 활용한다.
 
 ![superset_table_4]({{site.baseurl}}/assets/img/viz/superset_table_4.jpg)
+
+#### 시리즈
+
+* [Superset 활용기(1) - mapbox를 활용한 지도 mapping]({{ site.url }}/posts/44)
+* [Superset 활용기(2) - postgresql과 연동(docker 활용)]({{ site.url }}/posts/45)
+* [Superset 활용기(3) - SQL Lab 활용]({{ site.url }}/posts/50)
+* Superset 활용기(4) - 요약 테이블 만들기
