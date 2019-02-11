@@ -31,3 +31,4 @@ SQL문을 실행하면 처리시간을 확인할 수 있고 쿼리결과 내에�
 * [Superset 활용기(1) - mapbox를 활용한 지도 mapping]({{ site.url }}/posts/44)
 * [Superset 활용기(2) - postgresql과 연동(docker 활용)]({{ site.url }}/posts/45)
 * Superset 활용기(3) - SQL Lab 활용
+* [Superset 활용기(4) - 요약 테이블 만들기]({{ site.url }}/posts/58)
