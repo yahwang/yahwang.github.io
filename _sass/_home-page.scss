@@ -12,6 +12,11 @@
   padding: 5px 0px;
   background-color: $light-gray;
 }
+.rightsidebar {
+  float:right;
+  display:flex;
+  flex-direction: column;
+}
 .about {
   margin: 0 0 40px;
   text-align: center;
