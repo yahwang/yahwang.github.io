@@ -14,8 +14,7 @@
 }
 .rightsidebar {
   float:right;
-  display:flex;
-  flex-direction: column;
+  max-width:350px;
 }
 .about {
   margin: 0 0 40px;
