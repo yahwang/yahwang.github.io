@@ -29,11 +29,13 @@
 }
 
 .page-footer {
-  display: flex;
+
+  height:100%;
+  max-height: 100px;
+  text-align: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding-bottom: 30px;
-  margin: 30px 0  ;
+  margin: 10px 0  ;
   border-bottom: 1px solid $dark-gray;
   .page-share {
     margin-bottom: 10px;
