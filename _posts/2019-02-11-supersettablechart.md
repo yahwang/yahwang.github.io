@@ -52,3 +52,4 @@ superset에는 **Table View**라는 이름으로 시각화 방법이 있다.
 * [Superset 활용기(2) - postgresql과 연동(docker 활용)]({{ site.url }}/posts/45)
 * [Superset 활용기(3) - SQL Lab 활용]({{ site.url }}/posts/50)
 * Superset 활용기(4) - 요약 테이블 만들기
+* [Superset 활용기(5) - 라인 차트 만들기]({{ site.url }}/posts/59)
