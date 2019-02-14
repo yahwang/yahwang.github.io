@@ -31,7 +31,7 @@ SELECT FLOOR( (CAST(REPLACE(CURRENT_DATE,'-','') AS UNSIGNED) -
 
 ### PostgreSQL - age function
 
-PostgreSQL에는 나이 계산에 유용한 age function이 존재한다.
+PostgreSQL에는 나이 계산에 유용한 age function이 존재한다. age function은 기간을 INTERVAL 단위로 알려준다. 여기에 EXTRACT 함수만 사용하면 쉽게 만 나이를 계산할 수 있다.
 
 **SELECT age( 계산할 시점, 기준 시점(생일) );**
 
@@ -47,4 +47,4 @@ SELECT (CAST(REPLACE(CAST(CURRENT_DATE AS TEXT),'-','') AS INTEGER) -
        CAST(REPLACE(CAST('1995-06-24' AS TEXT),'-','') AS INTEGER)) / 10000;
 ```
 
-age function은 기간을 INTERVAL 단위로 알려준다. 여기에 EXTRACT 함수만 사용하면 쉽게 만 나이를 계산할 수 있다.
+
