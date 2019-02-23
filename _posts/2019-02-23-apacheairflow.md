@@ -1,5 +1,5 @@
 ---
-layout: test_post
+layout: post
 title: Airflow 기본 정보 (상시 업데이트)
 date: 2019-02-23 10:00:00 pm
 permalink: posts/airflow
