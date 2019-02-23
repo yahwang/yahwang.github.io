@@ -1,0 +1,46 @@
+---
+# 게시글 레이아웃
+---
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+{% include google.html %}  
+{% include head.html %}
+<title>{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
+<meta name="description" content="{{ page.description }}">
+<meta property="og:title" content="{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}"/>
+<meta property="og:url" content="{{ page.url | prepend: site.url }}"/>
+<meta property="og:description" content="{{page.description}}"/>
+<meta property="og:image" content="{{site.url}}/assets/img/{{site.author-img}}">
+</head>  
+<body>
+<div class="wrapper">
+{% include main.html %}
+  <div class="content-box clearfix">
+  <article class="article-page">
+    <div class="page-content">
+      <div class="wrap-content">
+        <header class="header-page">
+          <h1 class="page-title">{{page.title}}</h1>
+          <div class="page-date"><span>게시일 : {{page.date | date: '%Y년 %m월 %d일'}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          {% if page.update %}
+          <span>수정일 : {{page.update | date: '%Y년 %m월 %d일'}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          {% endif %}
+          </div>
+          <div class="page-tag">
+            {% for tag in page.tags %}
+              <span class="tag">&#35; {{ tag }}</span>
+            {% endfor %}
+          </div>
+        </header>
+        {{page.content | markdownify}}
+        <div class="page-footer">
+        </div>
+        {% include disqus.html %}
+      </div> <!-- End Wrap Content -->
+    </div> <!-- End Page Content -->
+  </article> <!-- End Article Page -->
+  </div>
+</div>
+</body>
+</html>
