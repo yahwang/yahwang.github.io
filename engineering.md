@@ -18,12 +18,17 @@ description: 데이터 엔지니어링 공부를 위한 자료 모음
 ### 파이프라인
 
 - [빅데이터 파이프라인 기술 이해](https://www.youtube.com/watch?v=UJ_NWhsFPXo&list=PL9mhQYIlKEhdj7yUc5WsQHOJ1RwwEdBGj){:target="_blank"}
+    - 파이프라인에 대한 전반적인 구성방법 설명
+    - NBT(캐시슬라이드)에서 활용하는 데이터 파이프라인 실무 내용
 - [빅데이터 파이프라인 구성 실습](https://www.youtube.com/watch?v=0xwM_PG_DEc&list=PL9mhQYIlKEhfgzvxjzWCRYJ80yeyeii5O){:target="_blank"}
 - [Spark, Flintrock, Airflow로 구현하는 탄력적이고 유연한 데이터 분산 처리 자동화 인프라 구축](https://www.youtube.com/watch?v=hVamSQogEuk){:target="_blank"}
 
 ### Airflow
 - [슬라이드 - airfow를 이용한 데이터 workflow 관리](https://www.slideshare.net/YoungHeonKim1/airflow-workflow?fbclid=IwAR2_MKUq7uTZOeYVKCLVj_xRpflmXFJoi2adnAqSvSO4MMB9NoRP68fYKSM){:target="_blank"}
 - [airflow tutorial - Apply Data Science](https://www.applydatascience.com/page2/){:target="_blank"}
+    - 자막없는 영어 강의, 자체적인 docker image로 airflow 생성
+    - 기초적인 설명과 bash 파이프라인 예제 유용
+    - Google Composer, Bigquery 예제 있음
 
 참고: [pycon2018 - Luigi 기본 설명](https://www.youtube.com/watch?v=UOunv9V14cA){:target="_blank"}
 

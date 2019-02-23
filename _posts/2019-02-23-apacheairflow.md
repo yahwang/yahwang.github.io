@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: test_post
 title: Airflow 기본 정보 (상시 업데이트)
 date: 2019-02-23 10:00:00 pm
 permalink: posts/airflow
@@ -11,6 +11,7 @@ tags: [Engineering, Airflow]
 - [옵션 설정](#옵션설정)
 - [airflow 내부 DB](#airflow_DB)
 - [시간정보](#시간정보)
+- [Variables](#Variables)
 - [JINJA 템플릿]([#JINJA템플릿])
 
 ### 옵션설정
@@ -70,6 +71,27 @@ local_tz = pendulum.timezone("Asia/Seoul")
 default_args=dict(
     start_date=datetime(2016, 1, 1, tzinfo=local_tz)
 ...
+```
+
+### Variables
+
+변수를 미리 사용자가 지정하여 DAG를 생성할 때 사용 가능하다.
+
+![airflow_var]({{site.baseurl}}/assets/img/tech/airflow_var.jpg)
+
+
+Variable은 메타DB에 저장되고 .get 함수를 사용할 때마다 매번 접속을 시도한다. 따라서, 변수를 따로따로 만드는 것은 비효율적이다.
+
+JSON 파일에 수많은 변수들을 저장한 뒤에 사용하는 것이 효율적이다.
+
+``` python
+from airflow.models import Variable
+
+test = Variable.get("test")
+# JSON 파일에서 변수 사용하기
+config = Variable.get("config파일명", deserialize_json=True)
+var1 = config["var1"]
+var2 = config["var2"]
 ```
 
 ### JINJA템플릿
