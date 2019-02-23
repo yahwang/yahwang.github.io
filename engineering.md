@@ -23,6 +23,7 @@ description: 데이터 엔지니어링 공부를 위한 자료 모음
 
 ### Airflow
 - [슬라이드 - airfow를 이용한 데이터 workflow 관리](https://www.slideshare.net/YoungHeonKim1/airflow-workflow?fbclid=IwAR2_MKUq7uTZOeYVKCLVj_xRpflmXFJoi2adnAqSvSO4MMB9NoRP68fYKSM){:target="_blank"}
+- [airflow tutorial - Apply Data Science](https://www.applydatascience.com/page2/){:target="_blank"}
 
 참고: [pycon2018 - Luigi 기본 설명](https://www.youtube.com/watch?v=UOunv9V14cA){:target="_blank"}
 
