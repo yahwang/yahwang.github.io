@@ -2,17 +2,33 @@
 layout: post
 title: Airflow 기본 정보 (상시 업데이트)
 date: 2019-02-23 10:00:00 pm
+update: 2019-02-26 05:00:00 pm
 permalink: posts/airflow
 description: Airflow에 대해 정리한 자료
 categories: [Tech]
 tags: [Engineering, Airflow]
 ---
 
+- [DAG란](#DAG란)
 - [옵션 설정](#옵션설정)
-- [airflow 내부 DB](#airflow_DB)
+- [airflow 내부 DB](#airflow_db)
 - [시간정보](#시간정보)
 - [Variables](#Variables)
 - [JINJA 템플릿]([#JINJA템플릿])
+
+### DAG란
+
+참고 : [airflow concept - Apply Data Science](https://www.applydatascience.com/airflow/airflow-concept){:target="_blank"}
+
+DAG는 Directed Acyclic Graph의 줄임말이다.
+
+Graph : edge와 node로 이루어진 자료구조
+
+Undirected VS **Directed** : edge가 한 방향으로만 가리킨다.
+
+**Acyclic** VS Cyclic : 한 번 통과한 노드로 다시 돌아오지 않는 Graph
+
+![dag_img]({{site.baseurl}}/assets/img/tech/dag_img.jpg)
 
 ### 옵션설정
 
@@ -74,6 +90,8 @@ default_args=dict(
 ```
 
 ### Variables
+
+참고 : [airflow variables - Apply Data Science](https://www.applydatascience.com/airflow/airflow-variables/){:target="_blank"}
 
 변수를 미리 사용자가 지정하여 DAG를 생성할 때 사용 가능하다.
 
