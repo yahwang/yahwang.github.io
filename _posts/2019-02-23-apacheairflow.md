@@ -14,7 +14,9 @@ tags: [Engineering, Airflow]
 - [airflow 내부 DB](#airflow_db)
 - [시간정보](#시간정보)
 - [Variables](#Variables)
-- [JINJA 템플릿]([#JINJA템플릿])
+- [JINJA 템플릿](#JINJA템플릿)
+- [기타](#기타)
+- [주의할점](#주의할점)
 
 ### DAG란
 
@@ -43,7 +45,7 @@ Undirected VS **Directed** : edge가 한 방향으로만 가리킨다.
 Docker로 설치할 경우, bash에서 printenv를 통해 환경변수 확인가능
 
 - Executor의 종류
-    - SequentialExector: 기본 설정, 한 서버에서 task를 순차처리할 수 있음
+    - SequentialExector: 기본 설정, 한 서버에서 task를 순차처리할 수 있음 / task마다 python interpreter가 실행되어 process를 생성한다.
     - LocalExecutor : 한 서버에서 task들을 병렬처리할 수 있음
     - CeleryExecutor : task를 여러 서버(worker)에 할당하여 처리할 수 있음
 
@@ -111,5 +113,18 @@ config = Variable.get("config파일명", deserialize_json=True)
 var1 = config["var1"]
 var2 = config["var2"]
 ```
-
 ### JINJA템플릿
+
+### [기타](#기타)
+
+- SLA : Service Level Agreements로 제한 시간 내에 task를 수행하는 지에 대한 확인을 하는 용도, default_args에서 설정 가능
+
+참고 : https://airflow.apache.org/concepts.html#slas
+
+
+### 주의할점
+
+1. upstream의 task가 제대로 수행되었는 지에 대해 reliable하지 않다. (오류는 downstream에서 발견되는 경우가 많음) 따라서, 데이터를 check하는 task가 필요할 수 있다.
+
+2. sensor는 일을 하지 않아도 계속 시스템 자원을 차지한다. 많은 sensor가 사용될 경우, 시스템 자원이 낭비되어 다른 스케줄링에 차질이 생길 수 있다.
+
