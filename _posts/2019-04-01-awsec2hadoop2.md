@@ -8,6 +8,8 @@ categories: [Tech]
 tags: [AWS, EC2, Hadoop]
 ---
 
+> Hadoop 2.9 Cluster를 AWS EC2 Instance로 구축해본다.
+
 ## NameNode와 DataNode 각각 설정하기
 
 ### Local PC에서 모든 instance와 SSH 연결

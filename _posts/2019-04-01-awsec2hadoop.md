@@ -8,6 +8,10 @@ categories: [Tech]
 tags: [AWS, EC2, Hadoop]
 ---
 
+**[Deploying a Hadoop Cluster](https://www.udacity.com/course/deploying-a-hadoop-cluster--ud1000){:target="_blank"} Lesson 1을 기반으로 작성하였다. **
+
+> Hadoop 2.9 Cluster를 AWS EC2 Instance로 구축해본다.
+
 ## 구축환경
 
 - Local PC : Ubuntu 18.04
@@ -152,3 +156,5 @@ DataNode를 생성하기 위해 현재 Instance를 Image로 만들어서 사용�
 ![aws_AMI]({{site.baseurl}}/assets/img/aws/aws_hadoop_2.png)
 
 AMI 메뉴에서 launch를 선택하고 Instance를 3개 생성한다. Security Group과 key pair는 만들어 둔 값과 연결한다.
+
+### [이어서, 다음 글로 이동]({{ site.url }}/posts/63)
