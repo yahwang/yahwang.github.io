@@ -17,6 +17,7 @@ description: 데이터 엔지니어링 공부를 위한 자료 모음
 
 ### 파이프라인
 
+- [데이터 인프라 구축 - 드라마앤컴퍼니](http://blog.dramancompany.com/2017/08/%EB%B9%85%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%9D%B8%ED%94%84%EB%9D%BC-%EA%B5%AC%EC%B6%95/){:target="_blank"}
 - [빅데이터 파이프라인 기술 이해](https://www.youtube.com/watch?v=UJ_NWhsFPXo&list=PL9mhQYIlKEhdj7yUc5WsQHOJ1RwwEdBGj){:target="_blank"}
     - 파이프라인에 대한 전반적인 구성방법 설명
     - NBT(캐시슬라이드)에서 활용하는 데이터 파이프라인 실무 내용
