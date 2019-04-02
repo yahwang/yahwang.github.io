@@ -5,8 +5,8 @@ date: 2019-02-23 10:00:00 pm
 update: 2019-02-26 05:00:00 pm
 permalink: posts/airflow
 description: Airflow에 대해 정리한 자료
-categories: [Tech]
-tags: [Engineering, Airflow]
+categories: [Dev, DevOps]
+tags: [Airflow]
 ---
 
 - [DAG란](#DAG란)

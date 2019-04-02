@@ -5,7 +5,7 @@ date: 2018-04-25 04:00:00 pm
 update: 2018-12-04 03:00:00 pm
 permalink: posts/35
 description: MySQL에서 EXISTS 사용법에 대해 알아본다.  # Add post description (optional)
-categories: [Tech, SQL]
+categories: [Data, SQL]
 tags: [MySQL, EXISTS, JOIN, IN (Subquery)] # add tag
 ---
 

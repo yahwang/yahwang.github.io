@@ -4,7 +4,7 @@ title: SQL로 TOP N, 상위 퍼센트 데이터 검색하기
 date: 2019-01-18 01:00:00 am
 permalink: posts/48
 description: SQL에서 WINDOW FUNCTION을 활용하여 TOP N, 상위 퍼센트 데이터를 구해본다.
-categories: [Tech, SQL]
+categories: [Data, SQL]
 tags: [MySQL, PostgreSQL, ROW_NUMBER, PERCENT_RANK, FIRST_VALUE] # add tag
 ---
 

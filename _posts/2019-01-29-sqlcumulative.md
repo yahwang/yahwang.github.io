@@ -4,7 +4,7 @@ title: SQL에서 누적합, 누적백분율 활용하기
 date: 2019-01-29 21:00:00 pm
 permalink: posts/54
 description: SQL에서 누적합, 누적백분율 활용하여 분석에 활용한다.
-categories: [Tech, SQL]
+categories: [Data, SQL]
 tags: [PostgreSQL, MySQL, WINDOW FUNCTION, ABC analysis]
 ---
 

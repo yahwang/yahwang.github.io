@@ -4,7 +4,7 @@ title: SQL로 CUSTOM 값 기준으로 정렬하기
 date: 2019-01-24 02:00:00 am
 permalink: posts/51
 description: SQL로 유저가 정한 CUSTOM한 값을 기준으로 정렬하는 법을 알아본다.
-categories: [Tech, SQL]
+categories: [Data, SQL]
 tags: [MySQL, FIELD, PostgreSQL, array_position] # add tag
 ---
 

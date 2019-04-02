@@ -25,6 +25,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+ul {
+  padding-left:50px;
+  ul{
+  padding-left:20px;
+  }
+}
 h2, h3{
   margin-top: 1rem;
   margin-bottom: 1rem; 

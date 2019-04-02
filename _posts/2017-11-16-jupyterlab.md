@@ -4,7 +4,7 @@ title: JupyterLab
 permalink: posts/1
 date: 2017-11-16 05:30:00 pm
 description: Jupyter Notebook에서 한단계 발전한 Jupyterlab Alpha단계이다. # Add post description (optional)
-categories : [Tech]
+categories : [Dev, DevOps]
 tags: [Jupyter] # add tag
 ---
 

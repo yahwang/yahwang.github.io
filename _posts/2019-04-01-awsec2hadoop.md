@@ -4,11 +4,11 @@ title: AWS EC2로 Hadoop Cluster 구축하기 - (1)
 date: 2019-04-01 05:00:00 pm
 permalink: posts/62
 description: Hadoop 2.9 Cluster를 AWS EC2 Instance로 구축해본다.
-categories: [Tech]
+categories: [Dev, DevOps]
 tags: [AWS, EC2, Hadoop]
 ---
 
-**[Deploying a Hadoop Cluster](https://www.udacity.com/course/deploying-a-hadoop-cluster--ud1000){:target="_blank"} Lesson 1을 기반으로 작성하였다. **
+**[Deploying a Hadoop Cluster](https://www.udacity.com/course/deploying-a-hadoop-cluster--ud1000){:target="_blank"} Lesson 1을 기반으로 작성하였다.**
 
 > Hadoop 2.9 Cluster를 AWS EC2 Instance로 구축해본다.
 
@@ -157,4 +157,8 @@ DataNode를 생성하기 위해 현재 Instance를 Image로 만들어서 사용�
 
 AMI 메뉴에서 launch를 선택하고 Instance를 3개 생성한다. Security Group과 key pair는 만들어 둔 값과 연결한다.
 
-### [이어서, 다음 글로 이동]({{ site.url }}/posts/63)
+#### [이어서, 다음 글로 이동]({{ site.url }}/posts/63)
+
+`References` : 
+
+* [멀티노드 설치 AWS EC2 - codethief](https://codethief.io/ko/hadoop101/){:target="_blank"}

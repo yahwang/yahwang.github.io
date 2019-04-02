@@ -6,6 +6,7 @@ permalink: posts/14
 description: # Add post description (optional)
 categories: [Note]
 tags: [News, Analysis] # add tag
+published: false # 비공개
 ---
 
 `CIO korea 기사 노트 --`

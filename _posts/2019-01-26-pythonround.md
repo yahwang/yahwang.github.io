@@ -4,8 +4,8 @@ title: Python에서 round 함수 사용 시 주의할 점
 date: 2019-01-26 01:00:00 am
 permalink: posts/53
 description: Python에서 round 함수 사용 시 주의할 점에 대해 알아본다.
-categories: [Tech, Python]
-tags: [Round] # add tag
+categories: [Dev, Language]
+tags: [Python] # add tag
 ---
 
 > Python에서 round 함수 사용 시 주의할 점에 대해 알아본다.

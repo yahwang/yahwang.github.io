@@ -4,7 +4,7 @@ title: Java에 내장된 정렬 함수 사용하기
 date: 2019-02-19 09:00:00 pm
 permalink: posts/61
 description: Java에 내장된 정렬 함수 사용법을 간단하게 알아본다.
-categories: [Tech]
+categories: [Dev, Language]
 tags: [Java, Arrays, Collections]
 ---
 

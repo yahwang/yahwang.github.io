@@ -4,8 +4,8 @@ title: 파이썬 크롤링 활용팁 by 엔코아
 date: 2018-01-16 04:30:00 pm
 permalink: posts/17
 description: 엔코아 공감토크에서 진행한 파이썬 크롤링 강의를 정리한다. # Add post description (optional)
-categories: [Tech, Python]
-tags: [Crawling, Requests, Selenium] # add tag
+categories: [Data, ETL]
+tags: [Crawling, Python, Requests, Selenium] # add tag
 ---
 
 > 엔코아 공감토크에서 진행한 웹페이지 크롤링 강연 노트 -- 

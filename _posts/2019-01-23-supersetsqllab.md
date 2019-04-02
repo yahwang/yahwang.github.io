@@ -4,7 +4,7 @@ title: Superset 활용기(3) - SQL Lab 활용
 date: 2019-01-23 00:00:00 am
 permalink: posts/50
 description: docker로 만든 apache superset container에 postgresql container를 연동한다.
-categories: [Tech, SQL]
+categories: [Data, SQL]
 tags: [Superset, DB, Postgresql, SQL Lab]
 ---
 

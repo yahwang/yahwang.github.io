@@ -4,7 +4,7 @@ title: Jupyter(notebook & Lab)에서 R 실행하기(Windows10 & Ubuntu)
 date: 2018-02-22 02:00:00 pm
 permalink: posts/27
 description: Jupyter(notebook & Lab)에 R 커널(kernel)을 설정하여 R을 실행한다.  # Add post description (optional)
-categories: [Tech]
+categories: [Dev, DevOps]
 tags: [R, Jupyter, IRkernel] # add tag
 ---
 

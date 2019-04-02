@@ -4,7 +4,7 @@ title: for - if 반복문 성능을 올리는 법
 date: 2017-11-26 05:30:00 pm
 permalink: posts/8
 description: 조건문이 필요한 계산의 처리속도를 높인다.# Add post description (optional)
-categories: [Tech]
+categories: [Dev, Language]
 tags: [R] # add tag
 ---
 

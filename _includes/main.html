@@ -6,7 +6,7 @@
       </div>
       <div class="author-name">{{site.author}}</div>
       <p><strong>Y</strong>es to <strong>A</strong>mbition!</p>
-      <p>취준생의 <br> 데이터 분석 및 <br> 엔지니어링 도전기</p>
+      <p>Start as <br> Data Engineer </p>
     </div>
   </header> <!-- End Header -->
   <footer>
@@ -21,14 +21,18 @@
     <section class="main-category">
     <h3 class="title">CATEGORY</h3>
     <ul>
-        <li><a href="{{site.url}}/"> All posts </a> <span class="num">({{site.posts.size}})</span></li>
-        <li><a href="{{site.url}}/categories/tech"><span class="list-mark">▶</span> Tech </a> <span class="num">({{site.categories.Tech.size}})</span></li>
+        <li><a href="{{site.url}}/"> All Posts </a> <span class="num">({{site.posts.size}})</span></li>
+        <li><a href="{{site.url}}/categories/data"><span class="list-mark">▶</span> Data </a> <span class="num">({{site.categories.Data.size}})</span></li>
         <ul>
-          <li><a href="{{site.url}}/categories/python"><span class="list-mark">▶</span> Python </a> <span class="num">({{site.categories.Python.size}})</span></li>
+          <li><a href="{{site.url}}/categories/etl"><span class="list-mark">▶</span> ETL </a> <span class="num">({{site.categories.ETL.size}})</span></li>
           <li><a href="{{site.url}}/categories/sql"><span class="list-mark">▶</span> SQL </a> <span class="num">({{site.categories.SQL.size}})</span></li>
-          <li><a href="{{site.url}}/categories/linux"><span class="list-mark">▶</span> Linux </a> <span class="num">({{site.categories.Linux.size}})</span></li>
           <li><a href="{{site.url}}/categories/dataviz"><span class="list-mark">▶</span> DataViz </a> <span class="num">({{site.categories.DataViz.size}})</span></li>
-        </ul>    
+        </ul>
+        <li><a href="{{site.url}}/categories/dev"><span class="list-mark">▶</span> Dev </a> <span class="num">({{site.categories.Dev.size}})</span></li>  
+        <ul>
+          <li><a href="{{site.url}}/categories/devops"><span class="list-mark">▶</span> DevOps </a> <span class="num">({{site.categories.DevOps.size}})</span></li>
+          <li><a href="{{site.url}}/categories/language"><span class="list-mark">▶</span> Language </a> <span class="num">({{site.categories.Language.size}})</span></li>
+        </ul>  
         <li><a href="{{site.url}}/categories/note"><span class="list-mark">▶</span> Note </a> <span class="num">({{site.categories.Note.size}})</span></li>
     </ul>      
     </section>
@@ -37,7 +41,7 @@
             <h3 class="title">TAG Cloud</h3>     
         {% for tag in site.tags %}
             {% assign tag_word = tag | first %}
-        {% if site.tags[tag_word].size > 2 %}
+        {% if site.tags[tag_word].size > 4 %}
                 <span style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 70  }}%">{{tag_word}}&nbsp;</span>  
         {% endif %}
         {% endfor %}
@@ -50,7 +54,6 @@
         <li><a href="https://github.com/{{ site.github }}" target="_blank"><img class="svg-icon" src="{{site.url}}/assets/img/svg/github.svg" alt="{{site.github}}"></a></li>{% endif %}
         {% if site.dockerhub %}
         <li><a href="{{ site.dockerhub }}" target="_blank"><img class="svg-icon" src="{{site.url}}/assets/img/svg/docker.svg" alt="{{site.dockerhub}}"></a></li>{% endif %}
-        <li><a href="{{ site.url}}/engineering"><img class="svg-icon" src="{{site.url}}/assets/img/svg/engineering.svg" alt="engineering"></a></li>
       </ul>
     </section> 
     <!-- copyright -->  

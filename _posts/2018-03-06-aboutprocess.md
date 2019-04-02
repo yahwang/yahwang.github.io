@@ -4,8 +4,8 @@ title: Ubuntu에서 Process와 job에 대한 이해
 date: 2018-03-06 05:00:00 pm
 permalink: posts/28
 description: 리눅스(Linux)의 한 종류인 Ubuntu에서 Process와 jobs에 대해 알아본다.  # Add post description (optional)
-categories: [Tech, Linux]
-tags: [process, job, screen, cron] # add tag
+categories: [Dev, DevOps]
+tags: [Ubuntu, process, job, screen, cron] # add tag
 ---
 
 > Ubuntu Terminal(CLI)을 통해 process와 job을 관리할 수 있다.

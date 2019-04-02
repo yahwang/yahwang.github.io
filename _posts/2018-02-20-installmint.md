@@ -4,8 +4,8 @@ title: 윈도우10 & Mint 듀얼부팅 구현을 위한 LVM 활용기
 date: 2018-02-20 02:00:00 pm
 permalink: posts/25
 description: 리눅스 공부를 위해 Ubuntu를 기반으로 한 Linux Mint를 활용한다.  # Add post description (optional)
-categories: [Tech, Linux]
-tags: [LVM, fdisk] # add tag
+categories: [Dev, DevOps]
+tags: [Ubuntu, LVM, fdisk] # add tag
 ---
 
 > LVM(Local Volume Management)는 디스크나 대용량 저장장치를 유연하고 확장이 가능하게 다룰 수 있는 기술이다.

@@ -4,8 +4,8 @@ title: Superset 활용기(4) - 요약 테이블 만들기
 date: 2019-02-11 10:00:00 am
 permalink: posts/58
 description: apache superset을 활용하여 요약 테이블 차트를 만들어본다.
-categories: [Tech, DataViz]
-tags: [Superset, Visualization]
+categories: [Data, DataViz]
+tags: [Superset]
 ---
 
 > apache superset을 활용하여 요약 테이블 차트를 만들어본다.

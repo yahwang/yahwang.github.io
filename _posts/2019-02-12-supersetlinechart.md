@@ -4,8 +4,8 @@ title: Superset 활용기(5) - 라인 차트 만들기
 date: 2019-02-12 02:00:00 pm
 permalink: posts/59
 description: apache superset을 활용하여 라인 차트(line chart)를 만들어본다.
-categories: [Tech, DataViz]
-tags: [Superset, Visualization]
+categories: [Data, DataViz]
+tags: [Superset]
 ---
 
 > apache superset을 활용하여 라인 차트를 만들어본다.

@@ -4,7 +4,7 @@ title: SQL에서 집합 연산자(SET OPERATOR) 활용하기
 date: 2019-01-25 01:00:00 am
 permalink: posts/52
 description: SQL로 집합 연산자(SET OPERATOR) 활용하는 법을 알아본다.
-categories: [Tech, SQL]
+categories: [Data, SQL]
 tags: [PostgreSQL, UNION, EXCEPT, INTERSECT, MySQL]
 ---
 

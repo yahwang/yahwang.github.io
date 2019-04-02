@@ -4,7 +4,7 @@ title: Superset 활용기(1) - mapbox를 활용한 지도 mapping
 date: 2019-01-02 03:00:00 pm
 permalink: posts/44
 description: apache superset을 활용하여 데이터를 시각화해본다.
-categories: [Tech, DataViz]
+categories: [Data, DataViz]
 tags: [Superset, Visualization, Mapbox]
 ---
 

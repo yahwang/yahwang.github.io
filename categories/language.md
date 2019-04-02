@@ -1,6 +1,5 @@
 ---
 layout: category
-category: Tech
+category: Language
 sitemap: false
 ---
-

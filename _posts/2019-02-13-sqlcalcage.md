@@ -4,7 +4,7 @@ title: SQL에서 나이(age) 계산하기
 date: 2019-02-13 11:00:00 am
 permalink: posts/60
 description: SQL로 나이(age) 계산하는 법을 알아본다.
-categories: [Tech, SQL]
+categories: [Data, SQL]
 tags: [PostgreSQL, age, MySQL]
 ---
 

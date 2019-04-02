@@ -1,5 +1,5 @@
 ---
 layout: category
-category: Linux
+category: Data
 sitemap: false
 ---

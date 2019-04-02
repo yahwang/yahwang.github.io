@@ -6,6 +6,7 @@ permalink: posts/11
 description: # Add post description (optional)
 categories: [Note]
 tags: [다큐, Network] # add tag
+published: false # 비공개
 ---
 
 `과학다큐 비욘드 시청 노트 --`

@@ -4,8 +4,8 @@ title: 논리 연산자인 and(&&), or(||)에서 short-circuit evaluation 방식
 date: 2019-02-01 01:00:00 pm
 permalink: posts/55
 description: 논리 연산자인 and(&&), or(||)에서 short-circuit evaluation에 대해 알아본다.
-categories: [Tech, Python]
-tags: [Short-circuit, Python, Java]
+categories: [Dev, Language]
+tags: [Python, Java, Short-circuit]
 ---
 
 > 논리 연산자인 and(&&), or(ll)에서 short-circuit evaluation에 대해 알아본다.

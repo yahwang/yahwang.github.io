@@ -9,25 +9,37 @@
 <priority>0.2</priority>
 </url>
 <url>
-    <loc>https://yahwang.github.io/categories/tech</loc>
-    <lastmod>2019-01-14T21:00:00Z</lastmod>
+    <loc>https://yahwang.github.io/categories/data</loc>
+    <lastmod>2019-04-03T00:00:00Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
 </url>
 <url>
-    <loc>https://yahwang.github.io/categories/python</loc>
-    <lastmod>2019-01-14T21:00:00Z</lastmod>
+    <loc>https://yahwang.github.io/categories/etl</loc>
+    <lastmod>2019-04-03T00:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+</url>
+<url>
+    <loc>https://yahwang.github.io/categories/dev</loc>
+    <lastmod>2019-04-03T00:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+</url>
+<url>
+    <loc>https://yahwang.github.io/categories/devops</loc>
+    <lastmod>2019-04-03T00:00:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+</url>
+<url>
+    <loc>https://yahwang.github.io/categories/language</loc>
+    <lastmod>2019-04-03T00:00:00Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
 </url>
 <url>
     <loc>https://yahwang.github.io/categories/sql</loc>
-    <lastmod>2019-01-14T21:00:00Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-</url>
-<url>
-    <loc>https://yahwang.github.io/categories/linux</loc>
     <lastmod>2019-01-14T21:00:00Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>

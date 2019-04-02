@@ -5,7 +5,7 @@ date: 2018-03-29 10:00:00 pm
 update: 2019-01-29 06:00:00 pm
 permalink: posts/31
 description: SQL에서 소계, 합계를 계산하는 ROLLUP 활용할 수 있는 방법을 알아본다.  # Add post description (optional)
-categories: [Tech, SQL]
+categories: [Data, SQL]
 tags: [MySQL, PostgreSQL, GROUP BY, ROLLUP, GROUPING] # add tag
 ---
 

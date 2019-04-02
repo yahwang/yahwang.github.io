@@ -6,6 +6,7 @@ permalink: posts/10
 description: # Add post description (optional)
 categories: [Note]
 tags: [다큐, 4차 산업혁명] # add tag
+published: false # 비공개
 ---
 
 `일요특선 다큐멘터리 시청 노트 --`

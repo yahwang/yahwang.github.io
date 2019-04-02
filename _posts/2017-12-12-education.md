@@ -6,6 +6,7 @@ permalink: posts/13
 description: # Add post description (optional)
 categories: [Note]
 tags: [다큐, 4차 산업혁명] # add tag
+published: false # 비공개
 ---
 
 `EBS 다큐프라임 시청 노트 --`

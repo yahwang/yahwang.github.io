@@ -4,8 +4,8 @@ title: JupyterLab과 GoogleDrive 연동하기 (Ubuntu 기준)
 date: 2018-08-18 09:00:00 pm
 permalink: posts/38
 description: JupyterLab에서 GoogleDrive와 연동가능한 모듈을 설치한다.
-categories: [Tech]
-tags: [Jupyter, googledrive]
+categories: [Dev, DevOps]
+tags: [Ubuntu, Jupyter, googledrive]
 ---
 
 > jupyterlab에서 작업한 파일들을 Google Drive에 저장하기 위해 만들어진 모듈이다.

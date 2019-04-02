@@ -4,7 +4,7 @@ title: SQL로 한 컬럼의 값들을 하나의 값으로 합치기
 date: 2019-01-15 10:00:00 am
 permalink: posts/46
 description: SQL에서 GROUP BY를 더 유용하게 활용할 수 있는 방법을 알아본다.  # Add post description (optional)
-categories: [Tech, SQL]
+categories: [Data, SQL]
 tags: [MySQL, GROUP_CONCAT, PostgreSQL, STRING_AGG] # add tag
 ---
 
