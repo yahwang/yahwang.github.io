@@ -85,6 +85,8 @@ Failed :(
   NotEmptyValidator failed 177 time(s) (19.9%) on field: 'Age'
   IntValidator failed 202 time(s) (22.7%) on field: 'Age'
     Invalid fields: ['', '34.5', '40.5', '36.5', '20.5', ... ]
+
+# 오류가 없으면 Passed! :) 라는 문구가 나온다.
 ```
 
 ### 직접 함수로 실행하는 방법
