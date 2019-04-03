@@ -111,3 +111,5 @@ Vlad(source=source, validators=validators).validate()
 `References` : 
 
 * [vladiate Github](https://github.com/di/vladiate){:target="_blank"}
+
+* [JSON 데이터 검증하는 방법 cerberus](http://docs.python-cerberus.org/en/stable/usage.html){:target="_blank"}
