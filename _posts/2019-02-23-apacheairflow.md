@@ -2,7 +2,7 @@
 layout: post
 title: Airflow 기본 정보 (상시 업데이트)
 date: 2019-02-23 10:00:00 pm
-update: 2019-04-06 08:00:00 pm
+update: 2019-04-07 01:00:00 am
 permalink: posts/airflow
 description: Airflow에 대해 정리한 자료
 categories: [Dev, DevOps]
@@ -13,6 +13,7 @@ tags: [Airflow]
 - [옵션 설정](#옵션설정)
 - [airflow 내부 DB](#airflow_db)
 - [시간정보](#시간정보)
+- [Scheduling](#Scheduling)
 - [Variables](#Variables)
 - [JINJA 템플릿](#JINJA템플릿)
 - [기타](#기타)
@@ -90,6 +91,29 @@ default_args=dict(
     start_date=datetime(2019, 1, 1, tzinfo=local_tz)
 ...
 ```
+
+### Scheduling
+
+참고 : https://airflow.apache.org/scheduler.html
+
+DAG 생성 시에 사용하는 schedule_interval 변수에 넣는 value를 통해 스케줄링을 수행
+
+가능한 Value : cron preset / cron expression / datetime.timedelta
+
+참고 : 
+cron expression : * * * * * (분, 시간, 일, 월, 요일)
+
+timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
+
+|preset |expression |timedelta |
+|-------|-----------|---------------|
+|None |||
+|@Once|||
+|@hourly|'0 * * * *'|tmedelta(hours=1)|
+|@daily|'0 0 * * *'|tmedelta(days=1)|
+|@weekly|'0 0 * * 0'|tmedelta(weeks=1)|
+|@monthly|'0 0 1 * *'||
+|@yearly|'0 0 1 1 *'||
 
 ### Variables
 
