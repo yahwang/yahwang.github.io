@@ -2,7 +2,7 @@
 layout: post
 title: Airflow 기본 정보 (상시 업데이트)
 date: 2019-02-23 10:00:00 pm
-update: 2019-02-26 05:00:00 pm
+update: 2019-04-06 08:00:00 pm
 permalink: posts/airflow
 description: Airflow에 대해 정리한 자료
 categories: [Dev, DevOps]
@@ -56,7 +56,6 @@ airflow는 접속한 비밀번호를 메타데이터에서 그대로 저장하�
 
 참고 : FERNET 방식은 encode와 decode가 같은 대칭키이다.
 
-
 ### airflow_DB
 
 참고 : [
@@ -84,10 +83,11 @@ airflow에서는 **UTC** 시간을 사용한다. time zone 설정을 지원하�
 
 ``` python
 import pendulum
+from datetime import datetime
 
 local_tz = pendulum.timezone("Asia/Seoul")
 default_args=dict(
-    start_date=datetime(2016, 1, 1, tzinfo=local_tz)
+    start_date=datetime(2019, 1, 1, tzinfo=local_tz)
 ...
 ```
 
@@ -114,6 +114,8 @@ var1 = config["var1"]
 var2 = config["var2"]
 ```
 ### JINJA템플릿
+
+[Default Variables](https://airflow.apache.org/code.html#macros){:target="_blank"}
 
 ### [기타](#기타)
 
