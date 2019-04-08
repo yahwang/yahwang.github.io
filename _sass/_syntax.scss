@@ -7,6 +7,8 @@ p .highlighter-rouge {
     border: 0.5px solid #607D8B; 
     border-radius: 3px;
     padding: 0rem 0.2rem;}
+
+
 pre.highlight {
     font-family: 'D2Coding';
     line-height: 1.2;
@@ -18,6 +20,8 @@ pre.highlight {
     -o-transition: transform 0.35s;
     transition: transform 0.35s;
     transition: transform 0.35s, -webkit-transform 0.35s;}
+
+div .language-python.highlighter-rouge {
 .highlight pre { background-color: #002240;}
 .highlight a { color: lightblue; text-decoration: none; pointer-events: none; cursor: default;}
 .highlight .hll { background-color: #272822; }
@@ -79,8 +83,13 @@ pre.highlight {
 .highlight .vg { color: #f8f8f2 } /* Name.Variable.Global */
 .highlight .vi { color: #f8f8f2 } /* Name.Variable.Instance */
 .highlight .il { color: #ae81ff } /* Literal.Number.Integer.Long */
-
 .highlight .gh { } /* Generic Heading & Diff Header */
 .highlight .gu { color: #75715e; } /* Generic.Subheading & Diff Unified/Comment? */
 .highlight .gd { color: #f92672; } /* Generic.Deleted & Diff Deleted */
 .highlight .gi { color: #a6e22e; } /* Generic.Inserted & Diff Inserted */
+}
+
+/* jupyter template */
+div .highlighter-rouge pre.highlight{
+    background-color:white;
+}

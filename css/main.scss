@@ -3,8 +3,8 @@
 ---
 
 @import "normalize";
-@import 'syntax';
 @import 'variables';
+@import 'syntax';
 
 *, *::after, *::before {
   box-sizing: border-box;
@@ -160,3 +160,4 @@ table tfoot .links a{
 
 /* - - - - - - - - - - Media Styles - - - - - - - - - - */
 @import 'gist-style';
+
