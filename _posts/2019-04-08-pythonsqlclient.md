@@ -1,5 +1,5 @@
 ---
-layout: test_post
+layout: post
 title: pymysql(MySQL)과 psycopg2(PostgreSQL) 사용하기
 date: 2019-04-08 10:00:00 pm
 permalink: posts/66
@@ -7,6 +7,8 @@ description: Python에서 SQL client 라이브러리인 pymysql(MySQL)과 psycop
 categories: [Data, SQL]
 tags: [pymysql, psycopg2, Python]
 ---
+
+> Python에서 SQL client 라이브러리인 pymysql(MySQL)과 psycopg2(PostgreSQL) 사용법을 알아본다.
 
 ## pymysql - mysql client for python
 
