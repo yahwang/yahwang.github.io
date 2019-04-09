@@ -34,11 +34,11 @@ ROW_NUMBER는 같은 순위인 경우 특정한 기준없이 위에 있는 ROW�
 
 ## TOP N 구하기
 
-TOP N을 구할 때 보통 RANK보다는 ROW_NUMBER를 사용한다. (값이 같은 것보다는 개수가 의미가 더 있어서??)
+TOP N을 구할 때 보통 RANK보다는 **ROW_NUMBER**를 사용한다. (값이 같은 것보다는 개수가 의미가 더 있어서??)
 
 ### 단순 기준 TOP N
 
-``` sql
+``` SQL
 SELECT total_bill, ROW_NUMBER() OVER (ORDER BY total_bill DESC) as ranking 
 FROM tips LIMIT 3;
 ```
@@ -55,14 +55,14 @@ FROM tips LIMIT 3;
 
 이렇게 하면 ROW마다 자기가 MALE, FEMALE 인 지에 따라 순위가 정해진다. 하지만, TOP N이라는 조건을 걸 수가 없다.
 
-``` sql
+``` SQL
 SELECT total_bill, sex, 
        ROW_NUMBER() OVER (PARTITION BY sex ORDER BY total_bill DESC) as ranking 
 FROM tips;
 ```
 그룹별로 **TOP N**을 구하기 위해서는 **서브쿼리**를 활용해야 한다. ROW_NUMBER로 만든 ranking 컬럼에서 조건을 걸어주어야 한다.
 
-``` sql
+``` SQL
 SELECT *
 FROM (SELECT total_bill, sex, 
       ROW_NUMBER() OVER (PARTITION BY sex ORDER BY total_bill DESC) as ranking FROM tips) a
@@ -82,7 +82,7 @@ WHERE a.ranking <= 3;
 
 TOP 1을 구할 경우에는 FIRST_VALUE 활용도 가능하다. **DISTINCT**를 활용하여 값이 중복되는 것을 방지한다.
 
-``` sql
+``` SQL
 SELECT DISTINCT sex, 
        FIRST_VALUE(total_bill) OVER (PARTITION BY sex ORDER BY total_bill DESC) as top_1 
 FROM tips;
@@ -103,7 +103,7 @@ CUME_DIST()와 비슷해서 헷갈릴 수 있는데 CUME_DIST는 누적분포를
 
 ### 단순 기준 상위 퍼센트
 
-``` sql
+``` SQL
 SELECT * FROM (SELECT total_bill, 
        PERCENT_RANK() OVER (ORDER BY total_bill DESC) as per_rank FROM tips) a
 WHERE a.per_rank <= 0.01;
@@ -118,7 +118,7 @@ WHERE a.per_rank <= 0.01;
 
 ### 그룹별 상위 퍼센트
 
-``` sql
+``` SQL
 SELECT *
 FROM (SELECT total_bill, sex, 
       PERCENT_RANK() OVER (PARTITION BY sex ORDER BY total_bill DESC) as per_rank FROM tips) a

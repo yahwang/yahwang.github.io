@@ -24,7 +24,7 @@ SQL에는 집합 개념을 활용한 **UNION(합집합), UNION ALL(중복 포함
 
 ### PostgreSQL
 
-``` sql
+``` SQL
 SELECT col1, col2 FROM table1
 UNION
 SELECT col1, col2 FROM table2;
@@ -44,7 +44,7 @@ UNION과 UNION ALL 활용은 PostgreSQL과 같다.
 
 모든 컬럼을 key로 INNER JOIN을 실행하면 간단히 해결할 수 있다.
 
-``` sql
+``` SQL
 SELECT a.col1, a.col2, 
 FROM table1 a JOIN table2 b
     ON a.col1 = b.col1 AND a.col2 = B.col2
@@ -61,7 +61,7 @@ LEFT(RIGHT) JOIN을 실행하면 한쪽 테이블에 존재하지 않는 ROW에 
 |   C    |  300   |   C    |  300   |
 |   D    |  400   |   D    |  400   |
 
-``` sql
+``` SQL
 SELECT a.col1, a.col2, 
 FROM table1 a LEFT JOIN table2 b
     ON a.col1 = b.col1 AND a.col2 = b.col2

@@ -36,7 +36,7 @@ ROLLUP을 활용하면 **GROUP BY에서 선택한 기준에 따라 합계**가 �
 
 PostgreSQL에서는 **ROLLUP(컬럼1, 컬럼2)**  방식을 사용한다.
 
-``` sql
+``` SQL
 SELECT country, product, sum(profit) FROM sales GROUP BY ROLLUP(country, product);
 ```
 
@@ -44,7 +44,7 @@ SELECT country, product, sum(profit) FROM sales GROUP BY ROLLUP(country, product
 
 MySQL에서는 ROLLUP 대신 **WITH ROLLUP**을 사용한다.
 
-``` sql
+``` SQL
 SELECT country, product, sum(profit) FROM sales GROUP BY country, product WITH ROLLUP;
 ```
 
@@ -68,7 +68,7 @@ ROLLUP은 집계한 기준값을 NULL값으로 대체한다. **COALESCE**을 활
 
 ( MySQL에서는 IFNULL로 대체 가능)
 
-``` sql
+``` SQL
 SELECT COALESCE(country,"ALL countries") as country, 
        COALESCE(product,"ALL products") as product, 
        sum(profit) FROM sales GROUP BY country, product WITH ROLLUP;
@@ -96,7 +96,7 @@ GROUPING(컬럼) 값은 집계가 위치해야 할 ROW(NULL이 표시되는 지�
 
 IF문을 통해 그 지점을 다른 문자로 대체할 수 있다.
 
-``` sql
+``` SQL
 SELECT IF(GROUPING(country),'ALL countries',country), 
        IF(GROUPING(product),'ALL products',country), SUM(profit) 
 FROM sales GROUP BY country, product WITH ROLLUP;

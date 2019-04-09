@@ -60,10 +60,12 @@ blockquote {
   color: $medium-blue;
 }
 
-pre {
-  padding: 1rem 2rem;
-  overflow-x: auto;
 
+pre {
+  background-color: #002240;
+  color: #ffffff;
+  padding: 5px;
+  overflow-x: auto;
   code {
     border: 0;
     padding-right: 0;

@@ -28,7 +28,7 @@ MySQL에서는 FIELD라는 function을 지원한다.
 
 사용법 : ORDER BY + **FIELD(Col, val1, val2, ...)**
 
-``` sql
+``` SQL
 SELECT * FROM tips 
 ORDER BY FIELD(day, 'Thur','Fri','Sat','Sun'), FIELD(time, 'Dinner','Lunch');
 ```
@@ -47,7 +47,7 @@ PostgreSQL에서는 ARRAY 기능을 활용하여 정렬할 수 있다.
 
 컬럼이름 옆에 타입지정을 해야 실행이 된다.
 
-``` sql
+``` SQL
 SELECT * FROM tips 
 ORDER BY array_position(ARRAY['Thur','Fri','Sat','Sun'],day::TEXT), 
         array_position(ARRAY['Dinner','Lunch'],time::TEXT);
@@ -59,7 +59,7 @@ PostgreSQL에서는 MySQL과 다르게 모든 Unique한 값을 사용하지 않�
 
 PostgreSQL에서는 간단하게 **col=val1, col=val2, ...** 방식으로도 활용이 가능하다. 단, 이 방식은 **ASC** 기준으로 마지막값부터 정렬된다.
 
-``` sql
+``` SQL
 SELECT * FROM tips ORDER BY time='Dinner', time='Lunch';
 # 기준 : Lunch -> Dinner
 ```

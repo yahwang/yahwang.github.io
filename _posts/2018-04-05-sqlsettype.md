@@ -28,7 +28,7 @@ SET type은 하나의 값마다 순서대로 **Binary Value**가 부여된다.
 
 실습을 위한 students 테이블을 생성해보았다.
 
-``` sql
+``` SQL
 CREATE TABLE students (id int not null auto_increment primary key, 
     name VARCHAR(10) not null, 
     interests SET('swimming','drawing','cooking','dancing','videogaming'));
@@ -58,7 +58,7 @@ Multiple value는 각 Member의 합으로 계산된다.
 
 ### 하나의 Member를 찾는 방법
 
-``` sql
+``` SQL
 SELECT * FROM students WHERE interests LIKE '%drawing%';
 SELECT * FROM students WHERE FIND_IN_SET('drawing',interests) > 0;
 # 비트연산 활용 (자기 자신 Decimal 값)
@@ -71,7 +71,7 @@ SELECT * FROM students WHERE interests & 2(or 0010);
 
 0보다 큰 값으로 조건을 걸면 해당 Member가 존재함을 파악할 수 있다.
 
-``` sql
+``` SQL
  SELECT FIND_IN_SET('cooking',interests) FROM students;
  => cooking은 SET에서 3번째로 정의한 값이므로 3,0,0,3,3,0 이 출력된다.
 ```
@@ -82,7 +82,7 @@ AND를 활용해 중복으로 각각의 Member를 선택해야 한다.
 
 참고 : LIKE와 interest='Member1,Member2'와 같은 방법은 실제 value의 순서가 다를 경우 못 찾을 수 있는 경우가 생긴다.
 
-``` sql
+``` SQL
 SELECT * FROM students WHERE FIND_IN_SET('cooking',interests) > 0 
     and FIND_IN_SET('videogaming', interests);
 SELECT * FROM students WHERE interests & 4(or 0100) and interests & 16(or 10000);
