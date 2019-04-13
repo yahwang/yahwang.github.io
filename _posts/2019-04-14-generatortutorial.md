@@ -1,5 +1,5 @@
 ---
-layout: test_post
+layout: post
 title: Python의 Generator 활용하기
 date: 2019-04-14 01:00:00 am
 permalink: posts/69
