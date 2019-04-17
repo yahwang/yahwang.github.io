@@ -139,9 +139,11 @@ var2 = config["var2"]
 ```
 ### JINJA템플릿
 
-[Default Variables](https://airflow.apache.org/code.html#macros){:target="_blank"}
+[Default Variables](https://airflow.apache.org/macros.html){:target="_blank"}
 
-### [기타](#기타)
+[템플릿 사용 예시](https://diogoalexandrefranco.github.io/about-airflow-date-macros-ds-and-execution-date/){:target="_blank"}
+
+### 기타
 
 - SLA : Service Level Agreements로 제한 시간 내에 task를 수행하는 지에 대한 확인을 하는 용도, default_args에서 설정 가능
 
