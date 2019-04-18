@@ -5,7 +5,7 @@ date: 2019-04-19 02:00:00 am
 permalink: posts/71
 description: Python에서 Thread에 대해 알아본다.
 categories: [Dev, Language]
-tags: [Python, Thread] # add tag
+tags: [Python, Thread, threading] # add tag
 ---
 
 > Python에서 Thread에 대해 알아본다.
@@ -17,6 +17,27 @@ tags: [Python, Thread] # add tag
 Thread는 프로그램 내에서, 특히 프로세스 내에서 실행되는 흐름의 단위를 말한다. (a separate flow of execution)
 
 파이썬에서 Multi-Threading은 GIL때문에 I/O bound Program에 사용하기 적합하다.
+
+Python에서는 기본으로 **threading**이라는 라이브러리를 활용할 수 있다.
+
+```python
+import threading
+
+def add(res, num):
+    print("start add func")
+    for i in range(num):
+        res +=i
+    print("end add func")
+
+# target : 실행할 함수
+thread = threading.Thread( target=add, args=(0,1000) )
+thread.start() # 스레드 시작
+```
+
+    start add func
+    end add func
+
+args : tuple 타입 ( parameter가 1개라면 (,) 형태를 사용해야 한다. )
 
 ## Non-daemon VS Daemon Threads
 
@@ -111,11 +132,9 @@ for index, thread in enumerate(threads):
 
 참고 : 스레드가 실행되는 순서는 운영 체제에 의해 결정되기 때문에 실행순서가 코드와 같음을 보장할 수 없다.
 
-### ThreadPoolExecutor
+### ThreadPoolExecutor - 코드 실행 순서가 곧 Thread 실행순서
 
-코드 실행 순서가 Thread 실행순서로 정할 수 있다.
-
-ThreadPoolExecutor, and it’s part of the standard library in concurrent.futures (as of Python 3.2).
+ThreadPoolExecutor은 concurrent.futures 라이브러리의 일부이다. (Python 3.2 부터 사용가능)
 
 max_worker : thread의 개수
 
