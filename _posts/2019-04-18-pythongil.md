@@ -1,5 +1,5 @@
 ---
-layout: test_post
+layout: post
 title: CPython의 GIL에 대한 이해
 date: 2019-04-18 01:00:00 am
 permalink: posts/70
