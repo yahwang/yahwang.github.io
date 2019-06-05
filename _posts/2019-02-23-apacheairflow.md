@@ -2,7 +2,7 @@
 layout: post
 title: Airflow 기본 정보 (상시 업데이트)
 date: 2019-02-23 10:00:00 pm
-update: 2019-04-07 01:00:00 am
+update: 2019-06-06 03:00:00 am
 permalink: posts/airflow
 description: Airflow에 대해 정리한 자료
 categories: [Dev, DevOps]
@@ -13,9 +13,9 @@ tags: [Airflow]
 - [옵션 설정](#옵션설정)
 - [airflow 내부 DB](#airflow_db)
 - [시간정보](#시간정보)
-- [Scheduling](#Scheduling)
-- [Variables](#Variables)
-- [JINJA 템플릿](#JINJA템플릿)
+- [Scheduling](#scheduling)
+- [Variables](#variables)
+- [JINJA 템플릿](#jinja템플릿)
 - [기타](#기타)
 - [주의할점](#주의할점)
 
@@ -74,13 +74,28 @@ Docker로 설치할 경우, docker-compose를 통해 PostgreSQL을 새로 구축
 
 ### 시간정보
 
-참고 : [Time Zone](https://airflow.readthedocs.io/en/stable/timezone.html?highlight=pendulum#){:target="_blank"}
+참고 : [Time Zone](https://airflow.apache.org/timezone.html){:target="_blank"}
 
-airflow에서는 **UTC** 시간을 사용한다. time zone 설정을 지원하기는 하지만 실제 내부에서는 UTC로 다시 변환하여 처리한다. 
+airflow에서는 **UTC** 시간을 사용한다. time zone에 관계없이 실제 내부에서는 UTC로 다시 변환하여 처리한다. 
 
 현재 UI에서는 UTC만 보이도록 설정되어 있다(?)...
 
-타임존을 설정하기 위해 **pendulum** 라이브러리를 활용할 수 있다. 
+    default 타임존 설정방법 ( airflow.cfg 수정 )
+
+``` python
+# airflow.cfg
+...
+# default_timezone = utc
+default_timezone = Asia/Seoul
+## Pendulum 라이브러리에서 지원하는 timezone 형태
+...
+```
+
+timezone.datetime을 활용하여 바로 확인 가능하다.
+
+![airflow_var]({{site.baseurl}}/assets/img/tech/airflow_timezone.jpg)
+
+    타임존을 DAG에서 명시하기 위해 **pendulum** 라이브러리를 활용할 수 있다. 
 
 ``` python
 import pendulum
@@ -91,6 +106,8 @@ default_args=dict(
     start_date=datetime(2019, 1, 1, tzinfo=local_tz)
 ...
 ```
+
+참고 : tzinfo없이 datetime 라이브러리를 사용하더라도 default_timezone을 기반으로 내부적으로 처리된다고 한다.
 
 ### Scheduling
 
