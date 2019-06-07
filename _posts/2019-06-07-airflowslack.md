@@ -46,10 +46,7 @@ connection에 설정한 정보를 가져오는 부분에서 문제가 생기는�
 
 직접 수정하기 번거로워서 새로 파일을 만들어 import해서 사용했다.
 
-``` python
-# super(SlackWebhookHook, self).__init__(*args, **kwargs)
-super().__init__(http_conn_id=http_conn_id, *args, **kwargs)
-```
+![airflow_slack_4]({{site.baseurl}}/assets/img/devops/airflow_slack_4.png)
 
 [GitHub Gist - slack_webhook_hook_fixed.py](https://gist.github.com/yahwang/2fd79ca74aceafacc92a9c9d631e7c59){:target="_blank"}
 
