@@ -157,24 +157,10 @@ print( sum(my_gen) )
 출처 : python-generators-tutorial by dataquest
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-algin: center;
-    }
-</style>
-<table border="1" class="dataframe">
+<div class="dataframe">
+<table border="1">
   <thead>
-    <tr style="text-algin: center;">
-      <th></th>
+    <tr style="text-align: center;">
       <th>BeerID</th>
       <th>Name</th>
       <th>URL</th>
@@ -184,7 +170,6 @@ print( sum(my_gen) )
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
       <td>1</td>
       <td>Vanilla Cream Ale</td>
       <td>/homebrew/recipe/view/1633/vanilla-cream-ale</td>
@@ -192,7 +177,6 @@ print( sum(my_gen) )
       <td>45</td>
     </tr>
     <tr>
-      <th>1</th>
       <td>2</td>
       <td>Southern Tier Pumking clone</td>
       <td>/homebrew/recipe/view/16367/southern-tier-pumk...</td>
@@ -200,7 +184,6 @@ print( sum(my_gen) )
       <td>85</td>
     </tr>
     <tr>
-      <th>2</th>
       <td>3</td>
       <td>Zombie Dust Clone - EXTRACT</td>
       <td>/homebrew/recipe/view/5920/zombie-dust-clone-e...</td>

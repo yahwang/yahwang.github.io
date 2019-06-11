@@ -40,7 +40,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 99%;
+    width: 97%;
     margin: 1%;
     max-width: 800px;
     padding: 10px;
@@ -66,7 +66,6 @@
   }
   
   .page-content{
-    width: 99%;
     margin: 1%;
     max-width: 800px;
   }
@@ -94,8 +93,11 @@
     display:none;
   }
   .sidebar{
-    margin: 1%;
+    padding: 0;
     max-width: 480px;
+    header, footer{
+      max-width: 97%;
+    }
     .tipue_search_box{
         margin-left:25%;
     }
@@ -118,7 +120,7 @@
     max-width: 480px;
     .article-page{
       line-height:1.5;
-      max-width: 480px;
+      max-width: 97%;
       .wrap-content{
         padding:1%;
       }
@@ -153,4 +155,14 @@
       }
     }
   }
+  
+  .dataframe{
+    table thead th{
+      font-size: 12px;
+    }
+    table tbody td{
+      font-size: 11px;
+    }
+  }
+
 }
