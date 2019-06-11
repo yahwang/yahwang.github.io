@@ -1,5 +1,5 @@
 /* Medium Devices, Desktops */
-@media only screen and (max-width : 1200px) {
+@media only screen and (max-width : 1600px) {
   .post {
     width: 98%;
     max-width: 100%;
@@ -40,13 +40,15 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
+    width: 99%;
+    margin: 1%;
+    max-width: 100%;
     padding: 10px;
     background-color: #ffffff;
     box-shadow: 0 1px 1px 0 rgba(31, 35, 46, .15);
     .tipue_search_box{
-      margin-left:170px;
-    }
+      margin-left:30%;
+  }
     footer {
       margin-bottom: 10px;
     }
@@ -61,7 +63,12 @@
       border-radius: 10%;
       margin-bottom: 10px;
     }
-}
+  }
+  .page-content{
+    width: 99%;
+    margin: 1%;
+    max-width: 100%;
+  }
 
   .content-box {
     padding: 20px 10px;
@@ -86,8 +93,11 @@
     display:none;
   }
   .sidebar{
+    width: 99%;
+    margin: 1%;
+    max-width: 100%;
     .tipue_search_box{
-        margin-left:75px;
+        margin-left:25%;
     }
     .author-name{
       font-size:14px;
@@ -99,10 +109,15 @@
   .content-box {
     padding: 10px;
   }
-  .post {
-    width: 98%;
+  .page-content{
+    width: 99%;
+    margin: 1%;
     max-width: 100%;
-    margin: 2%;
+  }
+  .post {
+    width: 99%;
+    max-width: 100%;
+    margin: 1%;
     flex-direction: column;
 
     .post-thumbnail {
