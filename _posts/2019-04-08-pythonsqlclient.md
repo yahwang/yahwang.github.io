@@ -406,6 +406,8 @@ conn = psycopg2.connect(database="expert",
                         host="localhost", 
                         user="yahwang", 
                         password="", 
-                        cursor_factory=RealDictCursor) # return 값을 dict로
-psql_cursor=conn.cursor()
+                        ) # return 값을 dict로
+psql_cursor=conn.cursor(cursor_factory=RealDictCursor)
 ```
+
+참고 : [psycopg2 cursor class](http://initd.org/psycopg/docs/extras.html#connection-and-cursor-subclasses){:target="_blank"}

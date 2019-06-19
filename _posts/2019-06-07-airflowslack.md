@@ -63,7 +63,7 @@ connection에 설정한 정보를 가져오는 부분에서 문제가 생기는�
 
 ### DAG 파일에 적용하기
 
-default_args에서 **on_fail_callback**에 적용하면 DAG 실패 시 메세지가 전달된다. on_success_callback은 성공 시에 전달
+default_args에서 **on_failure_callback**에 적용하면 DAG 실패 시 메세지가 전달된다. on_success_callback은 성공 시에 전달
 
 ``` python
 from utils.slack_alert import SlackAlert
@@ -78,7 +78,7 @@ default_args = {
     "retries": 0,
     "retry_delay": timedelta(minutes=5),
     "provide_context": True,
-    "on_fail_callback": alert.slack_fail_alert
+    "on_failure_callback": alert.slack_fail_alert
 }
 
 dag = DAG("DAG_TEST", default_args=default_args, schedule_interval='@once')
