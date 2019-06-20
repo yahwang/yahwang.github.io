@@ -44,17 +44,17 @@ Airflow에서 제공하는 Hook과 Operator를 활용하기 위해서 코드를 
 
 connection에 설정한 정보를 가져오는 부분에서 문제가 생기는데 이 부분만 수정하면 된다. 
 
-직접 수정하기 번거로워서 새로 파일을 만들어 import해서 사용했다.
+여기서는, 필요한 부분만 수정해서 활용하기 위해 새로운 Hook을 상속받아 만들고 HttpHook.__init__ ... 으로 수정하였다.
 
 ![airflow_slack_4]({{site.baseurl}}/assets/img/devops/airflow_slack_4.png)
 
-[GitHub Gist - slack_webhook_hook_fixed.py](https://gist.github.com/yahwang/2fd79ca74aceafacc92a9c9d631e7c59){:target="_blank"}
+<script src="https://gist.github.com/yahwang/2fd79ca74aceafacc92a9c9d631e7c59.js"></script>
 
 #### slack_alert.py
 
 아래 두번째 reference에 친절하게 클래스를 생성한 예시를 참고해서 다음처럼 만들었다.
 
-차이점은 여기서는 SlackWebhookOperator를 사용했다는 점이다.
+차이점은 여기서는 Operator 대신 Hook을 바로 사용했다는 점이다.
 
 참고 : message에서 사용된 context에 대한 설명은 아래 두번째 reference에 자세히 설명되어 있다.
 
@@ -63,7 +63,11 @@ connection에 설정한 정보를 가져오는 부분에서 문제가 생기는�
 
 ### DAG 파일에 적용하기
 
-default_args에서 **on_failure_callback**에 적용하면 DAG 실패 시 메세지가 전달된다. on_success_callback은 성공 시에 전달
+default_args에서 **on_failure_callback**에 적용하면 DAG 실패 시 메세지가 전달된다. on_success_callback은 성공할 때를 의미한다.
+
+참고 : on_failure_callback에서 설정된 함수에는 context가 dict 타입으로 arg로 전달된다.
+
+( context에는 실패한 DAG에 대한 정보가 담겨 있음)
 
 ``` python
 from utils.slack_alert import SlackAlert
