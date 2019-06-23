@@ -48,9 +48,9 @@ driver.find_element_by_name('pw').send_keys('비밀번호')
 driver.find_element_by_css_selector('#frmNIDLogin > fieldset > input').click()
 ```
 
-#### 참고 : 최근 크롤링으로 로그인 할 때 CAPCHA를 요구하기 시작했다. 이를 피하기 위해서는 time.sleep을 활용할 수 있다.
+#### 참고 : 이제는 크롤링으로 로그인 할 때 CAPCHA를 요구하기 시작했다. 
 
-<script src="https://gist.github.com/yahwang/6453705ccc9551ec83e70ea5baf336f3.js"></script>
+구글에 네이버 로그인 캡차를 검색하면 여러 방법이 나오니 참고하기 바란다.
 
 ## 네이버 카페 크롤링
 
