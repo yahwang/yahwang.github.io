@@ -14,7 +14,7 @@ tags: [Airflow]
 - [airflow 내부 DB](#airflow_db)
 - [시간정보](#시간정보)
 - [Scheduling](#scheduling)
-- [Delay Between Tasks](#Delay_Between_Tasks)
+- [Delay Between Tasks](#delay_between_tasks)
 - [Variables](#variables)
 - [JINJA 템플릿](#jinja템플릿)
 - [기타](#기타)
