@@ -2,7 +2,7 @@
 layout: post
 title: Airflow 기본 정보 (상시 업데이트)
 date: 2019-02-23 10:00:00 pm
-update: 2019-06-06 03:00:00 am
+update: 2019-06-30 08:00:00 pm
 permalink: posts/airflow
 description: Airflow에 대해 정리한 자료
 categories: [Dev, DevOps]
@@ -14,6 +14,7 @@ tags: [Airflow]
 - [airflow 내부 DB](#airflow_db)
 - [시간정보](#시간정보)
 - [Scheduling](#scheduling)
+- [Delay Between Tasks](#Delay_Between_Tasks)
 - [Variables](#variables)
 - [JINJA 템플릿](#jinja템플릿)
 - [기타](#기타)
@@ -131,6 +132,24 @@ timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0,
 |@weekly|'0 0 * * 0'|tmedelta(weeks=1)|
 |@monthly|'0 0 1 * *'||
 |@yearly|'0 0 1 1 *'||
+
+### Delay_Between_Tasks
+
+Airflow는 여러 task로 구성된 DAG에서 task 별로 모니터링할 수 있다.
+
+airflow는 DAG 실행 스케줄은은 정확하게 따르지만 세부 task 사이에는 **delay**가 존재한다.
+
+defeault 설치 후 Sample DAG를 실행할 경우에는 task 간 20초 이상의 delay가 생겼다.
+
+옵션 변경을 통해 최적화를 해도 몇 초의 delay는 생길 수 밖에 없다. (airflow의 설계와 관련??)
+
+오래 걸리는 task에서 몇 초는 큰 의미가 없기 때문에 이런 task들을 활용할 때 유용한 도구이다.
+
+따라서, task 설계도 주의해야 한다.
+
+아래 참고 외에도 여러 방법이 존재하는 듯하다. (webserver, ...)
+
+참고 : [How to reduce airflow dag scheduling latency in production?](https://airflow.apache.org/faq.html#how-to-reduce-airflow-dag-scheduling-latency-in-production){:target="_blank"}
 
 ### Variables
 
