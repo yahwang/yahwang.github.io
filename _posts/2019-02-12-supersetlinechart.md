@@ -2,6 +2,7 @@
 layout: post
 title: Superset 활용기(5) - 라인 차트 만들기
 date: 2019-02-12 02:00:00 pm
+update: 2019-07-03 06:00:00 pm
 permalink: posts/59
 description: apache superset을 활용하여 라인 차트(line chart)를 만들어본다.
 categories: [Data, DataViz]
@@ -30,9 +31,7 @@ superset에는 Time Series 타입을 위한 차트를 지원한다. Time 메뉴�
 
 #### 월별 시각화
 
-1-12월까지 연도를 제외한 월별로만 집계하는 것을 superset에서 아직 지원하지 않는다. 다른 기준들도 마찬가지다. 보통, 요일별 월별 일별 이런 차트를 만드는 경우가 있는데 superset에서는 아직 그런 차트를 만들기 어렵다.
-
-superset에서는 Time Grain에 따라 시간을 확장하거나 축소해서 표현만 할 수 있다. 예로, Month를 선택해도 연도는 항상 포함되어 시간의 흐름을 보여주는 차트를 만든다. 
+superset에서는 Time Grain에 따라 시간단위를 확장하거나 축소해서 표현만 할 수 있다. 예로, Month를 선택하면 월 단위로 집계가 되어 시간의 흐름을 보여주는 차트를 만든다. 
 
 ![superset_line_3]({{site.baseurl}}/assets/img/viz/superset_line_3.jpg)
 
