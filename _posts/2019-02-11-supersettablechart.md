@@ -10,6 +10,8 @@ tags: [Superset]
 
 > apache superset을 활용하여 요약 테이블 차트를 만들어본다.
 
+    superset 0.28.1 기준
+
 superstore sales sample 데이터를 활용하여 작성하였다.
 
 superset으로 tableau처럼 시각화할 수 있다는 생각에 tableau에서 지원하는 기본 시각화 중 테이블 차트를 구현해 보았다.

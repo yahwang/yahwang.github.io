@@ -11,6 +11,8 @@ tags: [Superset, DB, Postgresql]
 
 > apache superset **container에** postgresql container를 연동해본다.
 
+    superset 0.28.1 기준
+
 기본적으로 container를 생성하면 bridge라는 네트워크에 연결이 되어있다. 하지만, 이 네트워크에는 이름이 따로 없어서 할당받은 IP를 확인한 후 사용해야 해서 불편하다.
 
 docker network를 새로 만들어 사용하면 **IP주소 대신 컨테이너 이름으로** 네트워크를 사용할 수 있다. 

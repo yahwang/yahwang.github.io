@@ -10,6 +10,8 @@ tags: [Superset, Visualization, Mapbox]
 
 > Ubuntu에서 apache superset을 활용하여 위경도 데이터를 시각화해본다.
 
+    superset 0.28.1 기준
+
 superset은 여러 지도 시각화 기능을 지원하는데, 그 중 **위경도 좌표**를 기반으로 mapbox로 위치를 시각화하는 방법이 있다. 
 
 ### MAPBOX 사용 설정

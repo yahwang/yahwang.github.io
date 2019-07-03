@@ -11,6 +11,8 @@ tags: [Superset]
 
 > apache superset을 활용하여 라인 차트를 만들어본다.
 
+    superset 0.28.1 기준
+
 superstore sales sample 데이터를 활용하여 작성하였다.
 
 ![superset_line_1]({{site.baseurl}}/assets/img/viz/superset_line_1.jpg)

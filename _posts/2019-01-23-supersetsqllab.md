@@ -10,6 +10,8 @@ tags: [Superset, DB, Postgresql, SQL Lab]
 
 > Superset에는 workbench, pgAdmin같은 SQL Lab이라는 기능이 존재한다.
 
+    superset 0.28.1 기준
+
 ![sqllab_0]({{site.baseurl}}/assets/img/sql/sqllab_0.jpg)
 
 SQL Lab에서 superset에 등록한 테이블을 선택하면, 테이블의 메타데이터와 Preview를 확인할 수 있다.
