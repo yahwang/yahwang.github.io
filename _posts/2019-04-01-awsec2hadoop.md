@@ -34,8 +34,8 @@ EC2 생성할 때 AWS에서 제공하는 private key(**hadoop_cluster.pem**)를 
 
 ``` python
 # private key는 소유자만 사용하도록 권한 설정부터 해야 사용할 수 있다.
-sudo chmod 600 ~/hadoop_cluster.pem 
-## ls -l로 확인하면 -rw------ 로 변한다.
+sudo chmod 400 ~/hadoop_cluster.pem 
+## ls -l로 확인하면 -r------- 로 변한다.
 
 # private key를 Instance로 ssh를 통해 복사
 scp -i hadoop_cluster.pem hadoop_cluster.pem ubuntu@[Public DNS]:~/.ssh

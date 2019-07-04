@@ -84,4 +84,4 @@ superset init은 최초 실행 이후엔 config를 업데이트하는 용도로 
 
     Loaded your LOCAL configuration at [/ ... /superset_config.py]
 
-custom config 관련 참고 : https://superset.incubator.apache.org/installation.html#configuration
+custom config 관련 참고 : [superset configuration](https://superset.incubator.apache.org/installation.html#configuration){:target="_blank"}
