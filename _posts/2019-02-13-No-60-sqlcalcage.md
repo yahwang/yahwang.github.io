@@ -24,7 +24,7 @@ tags: [PostgreSQL, age, MySQL]
 
 MySQL에는 날짜타입을 자동으로 텍스트로 인식할 수 있다. CAST로 INT를 지정하기 위해 UNSIGNED(SIGNED)를 활용한다.
 
-``` SQL
+``` sql
 SELECT FLOOR( (CAST(REPLACE(CURRENT_DATE,'-','') AS UNSIGNED) - 
        CAST(REPLACE('1995-06-24','-','') AS UNSIGNED)) / 10000 ); => 23
 ```
@@ -35,14 +35,14 @@ PostgreSQL에는 나이 계산에 유용한 age function이 존재한다. age fu
 
 **SELECT age( 계산할 시점, 기준 시점(생일) );**
 
-``` SQL
+``` sql
 -- 날짜는 텍스트 타입, 날짜 타입 모두 가능
 SELECT age('2019-02-13','1995-06-24'); => 23 years 7 mons 19 days
 SELECT EXTRACT( year FROM age(CURRENT_DATE,'1995-06-24')); => 23
 ```
 계산식을 활용할 수도 있다. PostgreSQL에는 INT 계산끼리는 자동으로 floor 처리하고 날짜 타입을 TEXT로 타입지정을 반드시 해야 한다.
 
-``` SQL
+``` sql
 SELECT (CAST(REPLACE(CAST(CURRENT_DATE AS TEXT),'-','') AS INTEGER) - 
        CAST(REPLACE(CAST('1995-06-24' AS TEXT),'-','') AS INTEGER)) / 10000;
 ```

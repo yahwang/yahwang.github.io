@@ -30,7 +30,7 @@ SUM 함수는 OVER에 아무 조건을 걸지 않으면 **총합**을 의미하�
 
 **ORDER BY** 조건을 걸면 정렬된 순서대로 **누적합**을 계산한다. 백분율 계산식만 간단히 세우면 누적백분율도 계산할 수 있다.
 
-``` SQL
+``` sql
 WITH total_sales AS(
     SELECT Item_type, SUM(Item_outlet_sales) as sales 
     FROM martsales
@@ -69,7 +69,7 @@ WITH와 WINDOW FUNCTION이 없는 MySQL 5.x 버전에서는 variable을 활용�
 
 CROSS JOIN으로 0으로 초기화된 csum이라는 컬럼을 먼저 만들고 누적합을 계산한다. variable 자체를 테이블에 update를 통해 넣어서 자동으로 계산하는 방법도 있다.
 
-``` SQL
+``` sql
 SELECT a.Item_type, a.sales, (@csum := @csum + a.sales) as cum_sum
 FROM (SELECT Item_type, SUM(Item_outlet_sales) as sales 
 	  FROM martsales GROUP BY Item_type ORDER BY sales DESC) a, (SELECT @csum:=0) b;
@@ -81,7 +81,7 @@ FROM (SELECT Item_type, SUM(Item_outlet_sales) as sales
 
 상위 매출 기준으로 70%는 A등급, 25%는 B등급, 5%는 C등급으로 정의해보았다. 
 
-``` SQL
+``` sql
 WITH total_sales AS(
 	SELECT Item_type, SUM(Item_outlet_sales) as sales 
 	FROM martsales
