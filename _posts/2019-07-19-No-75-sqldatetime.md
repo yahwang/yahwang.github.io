@@ -2,6 +2,7 @@
 layout: post
 title: SQL로 Date / Time 데이터 다루기 (기초)
 date: 2019-07-19 01:00:00 am
+update: 2019-07-23 02:00:00 am
 permalink: posts/75
 description: SQL로 Date / Time 데이터 다루는 법을 알아본다.
 categories: [Data, SQL]
@@ -73,22 +74,6 @@ SELECT DATE_ADD('2019-01-01', INTERVAL 6 month); -- 날짜 단위에 ' '가 없�
 SELECT DATE_SUB('2019-01-01 18:00', INTERVAL 2 hour);
 ```
 
-#### 특정 단위(일, 월, ...) 추출
-
-`공통`
-
-``` sql
-SELECT EXTRACT(MONTH FROM '2019-01-01 18:00');
-```
-
-`PostgreSQL`
-
-EXTRACT는 호환을 위해 가능하고 실제로는 date_part를 통해 실행된다.
-
-```sql
-SELECT date_part('month', TIMESTAMP '2019-01-01 18:00');
-```
-
 #### 날짜 차이 계산
 
 `PostgreSQL`
@@ -108,3 +93,55 @@ SELECT DATEDIFF(CURDATE(), DATE('2019-01-01'));
 -- 특정 단위 차이 ( 2 - 1 )
 SELECT TIMESTAMPDIFF(DAY, TIMESTAMP('2019-01-01 13:00'), CURRENT_TIMESTAMP);
 ```
+
+### 특정 단위(일, 월, ...) 추출 또는 통합
+
+참고: week을 계산하는 방식이 달라 주의가 필요하다.
+
+``` sql
+-- PostgreSQL
+SELECT EXTRACT(WEEK FROM '2019-07-23'::date);
+-- result : 30
+-- MySQL
+SELECT EXTRACT(WEEK FROM '2019-07-23');
+-- result : 29
+```
+
+#### 단순 숫자로 추출하는 법
+
+`공통`
+
+``` sql
+SELECT EXTRACT(MONTH FROM '2019-01-01 18:00');
+-- result : 1
+```
+
+`PostgreSQL`
+
+EXTRACT는 호환을 위해 가능하고 실제로는 date_part를 통해 실행된다.
+
+```sql
+SELECT date_part('month', TIMESTAMP '2019-01-01 18:00');
+```
+
+#### TIMESTAMP 타입을 유지하는 법
+
+`PostgreSQL`
+
+**DATE_TRUNC**를 활용할 수 있다.
+
+``` sql
+SELECT DATE_TRUNC('week', '2019-07-23'::date);
+-- result : 2019-07-22
+```
+
+`MySQL`
+
+**STR_TO_DATE** 함수를 활용하여 구할 수 있다.
+
+``` sql
+-- 주의 : week에 1을 더해준다.
+SELECT STR_TO_DATE(CONCAT('2019',EXTRACT (week FROM '2019-07-23')+1,'Monday'), '%x %v %W');
+-- result : 2019-07-22
+```
+
