@@ -5,7 +5,7 @@ date: 2019-01-07 01:00:00 am
 update: 2019-01-22 10:00:00 pm
 permalink: posts/45
 description: docker로 만든 apache superset container에 postgresql container를 연동한다.
-categories: [Dev, DevOps]
+categories: [Dev, DataViz]
 tags: [Superset, DB, Postgresql]
 ---
 
