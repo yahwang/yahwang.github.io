@@ -96,3 +96,5 @@ docker run --rm -v ~/lambda_layer:/var/task -v ~/lambda_layer/opt:/opt
 * [Going Serverless with AWS Lambda Functions — 2](https://medium.com/@info.ankitp/going-serverless-with-aws-lambda-functions-2-51a1bd786547){:target="_blank"}
 
 * [AWS 람다(Lambda)로 Python 서버 API 구현하기](https://ndb796.tistory.com/279){:target="_blank"}
+
+* [AWS Lambda with Pandas and NumPy](https://medium.com/@korniichuk/lambda-with-pandas-fd81aa2ff25e){:target="_blank"}
