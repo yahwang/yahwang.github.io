@@ -51,8 +51,12 @@ AWS 상에서 Layer를 생성할 때는 zip파일을 사용하지만, docker에�
 # lambda 실행을 위한 폴더 내에서
 mkdir -p opt/python
 # 필요한 패키지 설치
-pip install 패키지 -t opt/python
+pip install 패키지 -t opt/python # ubuntu 환경
 ```
+
+참고 : 사용중인 OS환경에 따라서 라이브러리가 Lambda에서 실행되지 않을 수 있으므로
+
+빌드형 컨테이너에서 한 폴더에 모두 저장한 후 그 폴더를 활용하는 것이 안전하다.
 
     폴더 확인
 
