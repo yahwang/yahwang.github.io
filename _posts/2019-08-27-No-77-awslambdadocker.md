@@ -1,5 +1,5 @@
 ---
-layout: test_post
+layout: post
 title: AWS Lambda, Docker로 테스트하기 (with Python)
 date: 2019-08-27 01:00:00 am
 permalink: posts/77
