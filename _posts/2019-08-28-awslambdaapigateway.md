@@ -143,7 +143,6 @@ ANY에는 API KEY가 설정되어 있지만, 새로 method를 생성하면 기�
 
 ![lambda_api_5]({{site.baseurl}}/assets/img/devops/lambda_api_5.png)
 
-
 ``` python
 # api-key 없이 GET
 $ curl -X GET https://XXX.execute-api.XX.amazonaws.com/test/first_lambda_python?param1=hello&
@@ -151,3 +150,7 @@ param2=world!
 
 => {"param1": "Hello", "param2": "world!"}
 ```
+
+`References` : 
+
+* [API Gateway와 Lambda를 이용한 RestFul API 생성](https://galid1.tistory.com/398){:target="_blank"}
