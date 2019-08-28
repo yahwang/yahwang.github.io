@@ -154,3 +154,5 @@ param2=world!
 `References` : 
 
 * [API Gateway와 Lambda를 이용한 RestFul API 생성](https://galid1.tistory.com/398){:target="_blank"}
+
+* [Getting json body in aws Lambda via API gateway - stackoverflow](https://stackoverflow.com/questions/41648467/getting-json-body-in-aws-lambda-via-api-gateway){:target="_blank"}
