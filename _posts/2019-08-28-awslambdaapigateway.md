@@ -1,5 +1,5 @@
 ---
-layout: test_post
+layout: post
 title: AWS Lambda, API Gateway와 연동하기 (with Python)
 date: 2019-08-28 07:00:00 pm
 permalink: posts/78
@@ -92,7 +92,7 @@ event 변수는 dict 타입으로 바로 활용가능하다.
 
 여기서는 httpMethod를 활용하여 API METHOD를 구분하고 다른 처리를 구현했다.
 
-주의할 점은 POST로 보낸 데이터는 body에서 **\ 가 포함된 JSON 문자열**로 확인할 수 있다. 
+주의할 점은 POST로 보낸 데이터는 body에서 **\ 가 포함된 JSON 문자열**로 확인할 수 있다. (위에서 확인)
 
 따라서, json.loads를 활용하여 dict 타입으로 변환해야 한다.
 
