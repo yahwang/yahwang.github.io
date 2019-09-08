@@ -104,7 +104,8 @@ FROM contacts
 WHERE (first_name, last_name, email) IN ( SELECT DISTINCT first_name, last_name, email
                                           FROM contacts
                                           GROUP BY email, first_name, last_name
-                                          HAVING COUNT(email) > 1 AND COUNT(first_name) > 1 AND COUNT(last_name) > 1)
+                                          HAVING COUNT(email) > 1 AND COUNT(first_name) > 1 
+                                                 AND COUNT(last_name) > 1)
 ORDER BY first_name;
 
 -- JOIN 버전
@@ -134,7 +135,8 @@ WHERE id NOT IN ( SELECT *
                         WHERE (first_name,last_name,email) IN ( SELECT DISTINCT first_name, last_name, email
                                                                 FROM contacts
                                                                 GROUP BY email, first_name, last_name
-                                                                HAVING COUNT(email) > 1 AND COUNT(first_name) > 1 AND COUNT(last_name) > 1)
+                                                                HAVING COUNT(email) > 1 AND COUNT(first_name) > 1 
+                                                                       AND COUNT(last_name) > 1)
                         GROUP BY first_name, last_name, email) tmp);
 ```
 
