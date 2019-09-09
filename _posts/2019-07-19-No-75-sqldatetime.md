@@ -2,7 +2,7 @@
 layout: post
 title: SQL로 Date / Time 데이터 다루기 (기초)
 date: 2019-07-19 01:00:00 am
-update: 2019-07-23 02:00:00 am
+update: 2019-09-09 05:00:00 pm
 permalink: posts/75
 description: SQL로 Date / Time 데이터 다루는 법을 알아본다.
 categories: [Data, SQL]
@@ -43,7 +43,30 @@ PostgreSQL은 'YYYY-MM-DD hh:mm:ss**+09**'와 같은 형태로 직접 TIMEZONE �
 | 현재 날짜+시간(타임존 O) | CURRENT_TIMESTAMP또는 NOW() | CURRENT_TIMESTAMP 또는 NOW() |
 | 현재 날짜+시간(타임존 X) | CURRENT_TIMESTAMP | LOCALTIMESTAMP |
 
-### DATE / TIME 데이터 연산
+#### DATE FORMAT 변환
+
+각각의 함수가 존재하며, FORMAT 형식이 다른 것을 주의해야 한다.
+
+`MySQL`
+
+``` sql
+SELECT DATE_FORMAT("2019-09-09 13:00:00", "%Y-%m-%d");
+=> 2019-09-09
+```
+
+[MySQL DATE_FORMAT() Function - w3schools](https://www.w3schools.com/sql/func_mysql_date_format.asp){:target="_blank"}
+
+`PostgreSQL`
+
+``` sql
+-- PostgreSQL에서는 문자열 형식의 날짜를 바로 DATE로 인식하지 못하기 때문에 TYPE을 지정해야 한다.
+SELECT to_char('2019-09-09T13:00:00'::timestamp, 'YYYY-MM-DD');
+=> 2019-09-09
+```
+
+[Data Type Formatting - PostgreSQL](https://www.postgresql.org/docs/9.1/functions-formatting.html){:target="_blank"}
+
+### 1. DATE / TIME 데이터 연산
 
 날짜 단위에는 **INTERVAL**을 명시한다.
 
@@ -94,7 +117,7 @@ SELECT DATEDIFF(CURDATE(), DATE('2019-01-01'));
 SELECT TIMESTAMPDIFF(DAY, TIMESTAMP('2019-01-01 13:00'), CURRENT_TIMESTAMP);
 ```
 
-### 특정 단위(일, 월, ...) 추출 또는 통합
+### 2. 특정 단위(일, 월, ...) 추출 또는 통합
 
 참고: week을 계산하는 방식이 달라 주의가 필요하다.
 
