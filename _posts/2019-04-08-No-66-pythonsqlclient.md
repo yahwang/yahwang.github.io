@@ -2,10 +2,11 @@
 layout: post
 title: pymysql(MySQL)과 psycopg2(PostgreSQL) 사용하기
 date: 2019-04-08 10:00:00 pm
+update: 2019-09-14 07:00:00 pm
 permalink: posts/66
 description: Python에서 SQL client 라이브러리인 pymysql(MySQL)과 psycopg2(PostgreSQL) 사용법을 알아본다.
 categories: [Data, SQL]
-tags: [pymysql, psycopg2, Python]
+tags: [pymysql, psycopg2, copy_from, Python, StringIO]
 ---
 
 > Python에서 SQL client 라이브러리인 pymysql(MySQL)과 psycopg2(PostgreSQL) 사용법을 알아본다.
@@ -314,7 +315,7 @@ cursor.execute(insert_query, ("aaa@gmail.com","12345"))
 
 **한 번에 여러 데이터 INSERT**
 
-executemany는 multiple row를 insert할 때 성능이 좋다. ( 단순 query에 사용할 경우 반복문과 같은 효과 )
+executemany는 multiple row를 insert할 때 유용하다. 데이터를 하나씩 파라미터로 받아 INSERT 쿼리를 반복 실행한다.
 
 
 ```python
@@ -411,3 +412,33 @@ psql_cursor=conn.cursor(cursor_factory=RealDictCursor)
 ```
 
 참고 : [psycopg2 cursor class](http://initd.org/psycopg/docs/extras.html#connection-and-cursor-subclasses){:target="_blank"}
+
+
+#### executemany 대신 copy_from
+
+psycopg2에서는 PostgreSQL의 COPY 명령어를 활용하는 copy_from 함수가 존재한다.
+
+executemany는 INSERT를 반복하는 과정에서 소모되는 시간이 존재하는 반면, copy_from은 한 번의 쿼리로 해결가능하고 훨씬 빠르다.
+
+COPY는 파일 데이터를 업로드하는 용도로 사용되기 때문에 StringIO를 통해 데이터를 파일처럼 읽을 수 있게 만든다.
+
+``` python
+import io
+
+csv_file_like_object = io.StringIO()
+
+# 데이터를 파일처럼
+### List의 경우,
+for row in data:
+    csv_file_like_object.write(','.join(row) + '\n') # CSV 형태처럼 데이터 입력
+### DataFrame의 경우,
+df.to_csv(csv_file_like_object, header=False, index=False)
+
+# COPY 실행(공통)
+csv_file_like_object.seek(0) # 데이터의 첫 index를 가리킴
+cursor.copy_from(csv_file_like_object, TABLE명, sep=',', columns=[ ... ])
+```
+
+`References` : 
+
+* [Fastest Way to Load Data Into PostgreSQL Using Python](https://hakibenita.com/fast-load-data-python-postgresql#copy){:target="_blank"}
