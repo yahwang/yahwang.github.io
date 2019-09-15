@@ -2,19 +2,20 @@
 layout: post
 title: JupyterLab과 GoogleDrive 연동하기 (Ubuntu 기준)
 date: 2018-08-18 09:00:00 pm
+update: 2019-09-15 11:00:00 pm
 permalink: posts/38
 description: JupyterLab에서 GoogleDrive와 연동가능한 모듈을 설치한다.
 categories: [Dev, DevOps]
-tags: [Ubuntu, Jupyter, googledrive]
+tags: [Ubuntu, Jupyter, labextension, googledrive]
 ---
 
-> jupyterlab에서 작업한 파일들을 Google Drive에 저장하기 위해 만들어진 모듈이다.
+> jupyterlab에서 작업한 파일들을 Google Drive에서 관리할 수 있게 해주는 extension 모듈이다.
 
 `Github :` [jupyterlab-google-drive](https://github.com/jupyterlab/jupyterlab-google-drive){:target="_blank"}
 
 ### @jupyterlab/google-drive 기본 설치
 
-설치하기 위해서는 nodejs를 먼저 설치해야 한다.
+Jupyter에 extension을 설치하기 위해서는 nodejs를 먼저 설치해야 한다.
 
 ``` python
 sudo apt-get install npm
@@ -31,13 +32,13 @@ jupyter labextension install @jupyterlab/google-drive
 ```
 그 후 jupyterlab을 실행하면 google drive를 확인할 수 있다.
 
+오른쪽 그림처럼 SIGN IN 버튼이 보이기 위해서는 Google API 설정을 먼저 해야 한다.
+
 ![google-drive]({{site.baseurl}}/assets/img/python/drive.jpg)
 
 ### Google API 설정
 
-기존에는 로그인하면 바로 실행이 가능했지만 API 사용권한이 변경되어 추가로 작업이 필요하다.
-
-![driveerror]({{site.baseurl}}/assets/img/python/driveerror.jpg)
+먼저, Google Drive에 대한 API 사용권한을 요청하는 작업이 필요하다.
 
 [Google API Console](https://console.cloud.google.com/apis){:target="_blank"}에 접속한다.
 
@@ -55,7 +56,7 @@ jupyter labextension install @jupyterlab/google-drive
 
 그 다음, OAuth 클라이언트 ID를 만든다.
 
-제한사항 - 자바스크립트에 `localhost:8888`을 입력해야 한다. ( jupyterlab 기본 서버 주소 )
+제한사항 - 자바스크립트에 `localhost:8888`과 `127.0.0.1:8888`을 입력해야 한다. ( jupyterlab 기본 서버 주소 )
 
 ![googleapi4]({{site.baseurl}}/assets/img/python/googleapi4.jpg)
 
@@ -67,11 +68,9 @@ JupyterLab에서 Settings Editor를 선택하면 Google Drive 옵션을 설정�
 
 ![googleapi6]({{site.baseurl}}/assets/img/python/googleapi6.jpg)
 
-User Overrides에 복사한 clientID를 붙여넣고 realtime은 false로 설정 후 저장한다.
+User Overrides에 복사한 clientID를 붙여넣고 저장한다.
 
 오타가 나거나 제대로 입력하지 않으면 저장버튼이 활성화되지 않는다.
-
-(realtime 기능은 API가 바뀐 후로 현재 지원하지 않고 있다.)
 
 ![googleapi7]({{site.baseurl}}/assets/img/python/googleapi7.jpg)
 
@@ -91,7 +90,7 @@ jupyterlab이 verified되지 않았다는 오류인데 advanced를 눌러 무시
 * 드래그를 통한 파일 업로드 가능
 * 우클릭으로 로컬환경에 파일 다운로드 가능
 
-#### 다만, ipynb 파일에서 한글을 읽지 못하는 단점이 있다.
+참고 : JupyterLab 1.0 버전부터 ipynb 파일에서 한글을 읽을 수 있다.
 
 `References` : 
 
