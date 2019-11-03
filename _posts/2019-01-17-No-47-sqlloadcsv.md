@@ -33,9 +33,13 @@ SELECT @@GLOBAL.secure_file_priv;
 ![sql_csv_1]({{site.baseurl}}/assets/img/sql/sql_csv_1.jpg)
 
 경로가 설정되어 있는 경우, 파일의 업로드나 다운로드는 그 폴더에서만 가능하다.
-`/etc/mysql/my.cnf`에 접근하여 
+`/etc/mysql/mysql.conf.d/mysqld.cnf` 
 
-secure-file-priv에 ''를 입력하면 제약조건이 무시된다. ( NULL인 경우에도 제약조건이 걸려서 사용할 수 없으니 변경해야 한다.)
+또는 my.cnf를 이미 활용한 경우, `my.cnf` 파일 내 접근하여 [mysqld] 밑에 **secure-file-priv=' '**를 입력하면 제약조건이 무시된다. 
+
+( NULL인 경우에도 제약조건이 걸려서 사용할 수 없으니 변경해야 한다.)
+
+에 추가해주면 된다.
 
 ![sql_csv_2]({{site.baseurl}}/assets/img/sql/sql_csv_2.jpg)
 
@@ -43,12 +47,14 @@ MySQL을 다시 실행하면 ( service mysql restart ), SQL문으로 테이블�
 
 ``` sql
 LOAD DATA INFILE '/home/tips.csv' (파일명) INTO TABLE tips (테이블명)
-FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
+FIELDS TERMINATED BY ',' ENCLOSED BY '"' ESCAPED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
 -- IGNORE 1 ROWS는 컬럼명인 header를 무시한다는 의미
 ```
 MySQL에서는 Workbench를 활용해 쉽게 테이블을 업로드할 수 있다.
 
 docker를 활용해도 로컬에 있는 CSV파일을 제약조건에 관계없이 업로드할 수 있다.
+
+단, 용량이 클수록 매우 느리다는 단점이 있다.
 
 ![sql_csv_3]({{site.baseurl}}/assets/img/sql/sql_csv_3.jpg)
 
@@ -72,4 +78,7 @@ container 내부로 파일을 옮기고 SQL문으로 해야한다.
 `References` : 
 
 * [MySQL load_data](https://dev.mysql.com/doc/refman/8.0/en/load-data.html){:target="_blank"}
+
+* [Import CSV File Into MySQL Table](http://www.mysqltutorial.org/import-csv-file-mysql-table/){:target="_blank"}
+
 * [PostgreSQL load_data](http://www.postgresqltutorial.com/import-csv-file-into-posgresql-table){:target="_blank"}
