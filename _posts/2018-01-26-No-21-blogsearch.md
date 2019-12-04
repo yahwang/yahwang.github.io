@@ -2,6 +2,7 @@
 layout: post
 title: github 블로그에 검색 도구 만들기(TipueSearch)
 date: 2018-01-26 05:00:00 pm
+update: 2019-12-04 09:00:00 pm
 permalink: posts/21
 description: Jekyll Template을 활용하여 Github pages 블로그를 만든다. # Add post description (optional)
 categories: [Note]
@@ -59,7 +60,7 @@ form 태그를 search.html이든 다른 원하는 레이아웃에 삽입하면 �
 <form action="{{ site.baseurl }}/search">
   <div class="tipue_search_box">
     <img src="{{ "/assets/tipuesearch/search.png" | relative_url }}" class="tipue_search_icon">
-    <input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="최소 3글자 이상" required></div>
+    <input type="text" name="q" id="tipue_search_input" pattern=".{2,}" title="최소 2글자 이상" required></div>
   <div style="clear: both;"></div>
 </form>
 ```
@@ -80,7 +81,8 @@ exclude_from_search: true # tipuesearch 검색대상에서 제외하라는 의�
 $(document).ready(function() {
   $('#tipue_search_input').tipuesearch({
     'wholeWords' : false, 
-    'showTime' : false  });
+    'showTime' : false,
+    'minimumLength' : 2  });
 });
 </script>
 ```
@@ -88,6 +90,8 @@ $(document).ready(function() {
 `wholeWords` : 단어 검색 여부 한글 검색을 위해서는 false가 필수이다.
 
 `showTime` : 검색 결과에 걸린 시간 표시 여부
+
+`minimumLength` : 검색에 요구하는 최소 글자 수
 
 그 외에 다양한 속성은 Tipue search 메인 페이지에서 확인할 수 있다.
 
