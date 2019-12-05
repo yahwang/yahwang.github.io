@@ -20,7 +20,7 @@ Apache Arrow is a cross-language development platform for in-memory data.
 
 출처 : https://arrow.apache.org
 
-Apache Arrow의 핵심은 Coulmnar In-Memory 포맷과 pandas, spark 등 여러 시스템에서 같은 메모리 포맷을 공유한다는 점이다.
+Apache Arrow의 핵심은 Columnar In-Memory 포맷과 pandas, spark 등 여러 시스템에서 같은 메모리 포맷을 공유한다는 점이다.
 
 Arrow는 특히 **Parquet** 파일을 활용하는 것이 효과적이다.
 
