@@ -3,6 +3,7 @@ layout: post
 title: JupyterLab에서 유용한 extensions
 permalink: posts/81
 date: 2019-11-02 02:00:00 am
+update: 2019-12-31 02:00:00 am
 description: JupyterLab 1.0 버전 이후로 유용한 extension을 소개한다.
 categories : [Dev, DevOps]
 tags: [Jupyter, extensions]
@@ -34,7 +35,35 @@ Settings 설정을 해주면, 원하는 extension을 검색해서 간단히 설�
 
 ![jupyter_ext_1]({{site.baseurl}}/assets/img/devops/jupyter_ext_1.png)
 
-### 1. jupyterlab-googledrive
+### 1. jupyterlab-system-monitor
+
+[github.com/jtpio/jupyterlab-system-monitor](https://github.com/jtpio/jupyterlab-system-monitor){:target="_blank"}
+
+    0.4.1 기준
+
+jupyterlab에서 사용하는 메모리 사용량을 확인할 수 있다. 그냥 설치만 하면 단순 사용량만 숫자로 확인 가능하다.
+
+그래프를 보려면 메모리 사이즈 제한을 설정해야 한다. 현재, 실제로 작동하지는 않는다. 그냥 임의의 설정값일 뿐이다.
+
+jupyter_notebook_config.py에 아래 부분을 추가하면 된다.
+
+( config를 그동안 사용하지 않았다면 jupyter lab --generate-config로 먼저 생성한다. )
+
+기본값으로 5초(5000ms)마다 한 번씩 업데이트 되는데 Settings에서 값을 변경할 수 있다.
+
+``` python
+#-----------------------------------------------------------
+# NotebookApp(JupyterApp) configuration
+#----------------------------------------------------------
+
+c.NotebookApp.ResourceUseDisplay.mem_limit= (Size Of GB) *1024*1024*1024
+```
+
+![jupyter_ext_3]({{site.baseurl}}/assets/img/devops/jupyter_ext_5.png)
+
+
+
+### 2. jupyterlab-googledrive
 
 [github.com/jupyterlab/jupyterlab-google-drive](https://github.com/jupyterlab/jupyterlab-google-drive){:target="_blank"}
 
@@ -48,7 +77,7 @@ Settings 설정을 해주면, 원하는 extension을 검색해서 간단히 설�
 
 [Post - JupyterLab과 GoogleDrive 연동하기]({{site.baseurl}}/posts/38){:target="_blank"}
 
-### 2. jupyterlab-github
+### 3. jupyterlab-github
 
 [github.com/jupyterlab/jupyterlab-github](https://github.com/jupyterlab/jupyterlab-github){:target="_blank"}
 
@@ -62,7 +91,7 @@ github에 올린 노트북 파일을 참고하는 용도로 적합하다. github
 
 ![jupyter_ext_3]({{site.baseurl}}/assets/img/devops/jupyter_ext_3.png)
 
-### 3. lckr/jupyterlab_variableinspector
+### 4. lckr/jupyterlab_variableinspector
 
 [github.com/lckr/jupyterlab-variableInspector](https://github.com/lckr/jupyterlab-variableInspector){:target="_blank"}
 
@@ -80,7 +109,7 @@ Name을 클릭하면 array나 dataframe은 value를 테이블 형태로 확인�
 
 ![jupyter_ext_4]({{site.baseurl}}/assets/img/devops/jupyter_ext_4.png)
 
-### 4. pbugnion/jupyterlab-sql
+### 5. pbugnion/jupyterlab-sql
 
 [github.com/pbugnion/jupyterlab-sql](https://github.com/pbugnion/jupyterlab-sql){:target="_blank"}
 
@@ -121,7 +150,6 @@ Custom SQL query를 클릭하여 쿼리문을 입력하면(Ctrl+Enter) 결과를
 ![jupyter_sql_3]({{site.baseurl}}/assets/img/devops/jupyter_sql_3.png)
 
 DB의 데이터를 간단히 확인할 수 있는 정도인 것 같다. 노트북 파일에서 활용되는 **ipython-sql**이 아직은 더 유용해보인다.
-
 
 
 `References` : 
