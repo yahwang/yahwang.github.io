@@ -70,7 +70,7 @@ ORDER BY ord, name;
 
 ## EXCEPT와 INTERSECT
 
-EXCEPT와 INETSECT는 PostgreSQL에서만 활용가능하다.
+EXCEPT와 INTERSECT는 PostgreSQL에서만 활용가능하다.
 
 ### MySQL
 

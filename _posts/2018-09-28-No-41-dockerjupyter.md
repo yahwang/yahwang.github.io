@@ -2,6 +2,7 @@
 layout: post
 title: docker에서 실행한 Jupyter를 PC 브라우저와 연동하기
 date: 2018-09-28 02:00:00 pm
+update: 2020-01-02 02:00:00 am
 permalink: posts/41
 description: docker에서 실행한 jupyter를 로컬 PC 브라우저와 연동할 수 있다.
 categories: [Dev, DevOps]
@@ -36,16 +37,16 @@ jupyter lab(notebook) --generate-config
 
 생성한 파일을 docker에 맞게 수정해야 한다.
 
-``` python
-nano /root/.jupyter/jupyter_notebook_config.py
-```
-우리가 수정해야 할 부분은 크게 4가지이다.
+    .jupyter/jupyter_notebook_config.py 수정
+
+해당 부분을 찾아서 수정해도 되지만 그냥 추가해도 상관없다.
 
 ``` python
+c=get_config()
+
 c.NotebookApp.ip = '*' 또는 '0.0.0.0' # ip 설정
-c.NotebookApp.allow_root = True# root 계정에서 jupyter 사용 설정 ( 특히, docker의 경우)
+c.NotebookApp.allow_root = True # root 계정에서 jupyter 사용 설정 ( 특히, docker의 경우)
 c.NotebookApp.open_browser = False # jupyter 실행 시 브라우저 자동 실행 여부
-c.NotebookApp.password = 아래 설명 참고 # 비밀번호 설정
 ```
 
 ![docker_jupyter2]({{site.baseurl}}/assets/img/linux/docker_jupyter2.png)
@@ -56,7 +57,17 @@ docker의 jupyter는 그럴 수 없기 때문에 token 값을 터미널에서 �
 
 ![docker_jupyter5]({{site.baseurl}}/assets/img/linux/docker_jupyter5.png)
 
+### 비밀번호 설정 방법
+
 비밀번호 설정의 경우, 직접적으로 입력할 수 없고 해시 알고리즘을 통해 나온 값을 입력해야 한다.
+
+#### 1. jupyter notebook password
+
+jupyter_notebook_config.json에 입력되며 jupyter_notebook_config.py의 설정과 같이 적용되기 때문에 문제되지 않는다.
+
+![docker_jupyter6]({{site.baseurl}}/assets/img/linux/docker_jupyter6.png)
+
+#### 2. jupyter_notebook_config.py에 직접 추가
 
 터미널에서 python을 실행하여 passwd()를 실행하면 암호를 입력받고 hash결과를 출력해준다. 이를 복사해서 붙여넣으면 된다.
 
