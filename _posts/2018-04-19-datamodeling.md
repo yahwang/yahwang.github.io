@@ -110,11 +110,11 @@ O0001|20180105|79|C03|김진희|여|VIP|P004|마우스|15000|313
 
 데이터 모델링이 제대로 되었는지 확인하려면 데이터 탭 - 데이터 모델링 관리 창에서 다이어그램 뷰를 선택한다.
 
-![다이어그램 선택]({{site.baseurl}}/assets/img/excel/diagram.jpg)
+![다이어그램 선택]({{site.baseurl}}/assets/img/excel/diagram.png)
 
 관계선에 마우스를 올려주면 연결된 필드명이 각각 보인다.
 
-![다이어그램 화면]({{site.baseurl}}/assets/img/excel/diagramview.jpg)
+![다이어그램 화면]({{site.baseurl}}/assets/img/excel/diagramview.png)
 
 통합한 데이터 모델을 통해 고객별로 각각 주문한 상품명과 수량을 파악할 수 있다.
 
@@ -128,11 +128,11 @@ O0001|20180105|79|C03|김진희|여|VIP|P004|마우스|15000|313
 
 데이터 - 데이터모델링 화면 아래를 보면 데이터 모델에 추가한 테이블명이 보인다.
 
-![데이터모델링 관리 화면]({{site.baseurl}}/assets/img/excel/datamodelview.jpg)
+![데이터모델링 관리 화면]({{site.baseurl}}/assets/img/excel/datamodelview.png)
 
 원하는 필드끼리 클릭 앤 드래그를 통해 관계를 설정할 수 있다.
 
-![다이어그램을 통해 관계 설정]({{site.baseurl}}/assets/img/excel/diagramdrag.jpg)
+![다이어그램을 통해 관계 설정]({{site.baseurl}}/assets/img/excel/diagramdrag.png)
 
 현재 화면(데이터 모델링 관리) 창에서 피벗테이블 버튼을 클릭하면 통합된 피벗테이블을 생성할 수 있다.
 
