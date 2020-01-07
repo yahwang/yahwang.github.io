@@ -2,6 +2,7 @@
 layout: post
 title: Pandas에서 CSV 데이터를 빠르게 읽기 (with. Apache Arrow, Parquet)
 date: 2019-11-27 01:00:00 am
+update: 2020-01-08 01:00:00 am
 permalink: posts/83
 description: Pandas에서 CSV 데이터를 빠르게 읽는 법을 알아본다.
 categories: [Data, ETL]
@@ -30,9 +31,7 @@ pandas에서도 Arrow의 메모리 포맷을 활용하면 데이터를 읽고 �
 
     참고
 
-Pandas를 원활히 사용하기 위해서는 데이터 크기의 약 3배의 메모리가 필요하다는 의견이 있다. 
-
-Apache Arrow는 메모리 절약은 해결해주지는 못한다. 이 부분은 Spark와 같은 분산 처리를 고려해야 한다.
+Apache Arrow는 메모리 절약은 해결해주지는 못한다. 이 부분은 Spark, Dask 등을 고려해야 한다.
 
 ## 사용법
 
@@ -54,6 +53,8 @@ pip install pyarrow
 from pyarrow import csv
 pyarrow_table = csv.read_csv('data.csv')
 
+# 메타데이터 간단하게 확인가능
+
 pyarrow_table.schema
 #    Year: int64
 #    Month: int64
@@ -71,6 +72,28 @@ df = pyarrow_table.to_pandas()
 df_from_pyarrow = csv.read_csv('data.csv').to_pandas()
 ```
 
+#### 데이터 타입을 지정해서 읽기
+
+pandas는 데이터를 읽으면서 사용 메모리가 점점 증가하는 반면, Arrow는 짧은 순간 많은 메모리를 사용하기 때문에 
+
+데이터 크기가 클수록 데이터 타입을 지정해서 메모리 사용량을 줄이는 것이 필요하다.
+
+데이터 타입은 대부분 호환이 잘 되고 특히, pandas의 category 타입은 arrow의 dictionary 타입과 호환된다.
+
+``` python
+import pyarrow as pa
+from pyarrow import csv
+
+# 데이터 타입에 ()을 항상 명시
+convert_opts = csv.ConvertOptions(column_types={'st_cradle': pa.uint8(), 'st_id': pa.uint16()})
+
+df_typed = csv.read_csv('bike_data.csv', convert_options=convert_opts).to_pandas()
+```
+
+추가 파라미터 관련 : [pyarrow.csv.read_csv Parameter](https://arrow.apache.org/docs/python/generated/pyarrow.csv.read_csv.html){:target="_blank"}
+
+데이터 타입 관련 : [pandas <-> Arrow Data Type](https://arrow.apache.org/docs/python/pandas.html#type-differences){:target="_blank"}
+
 ### Parquet 데이터 타입으로 읽고 쓰기
 
 csv 데이터는 읽는 것보다 쓰는 데 매우 시간이 많이 걸린다. 
@@ -78,6 +101,8 @@ csv 데이터는 읽는 것보다 쓰는 데 매우 시간이 많이 걸린다.
 arrow에서는 csv 포맷 쓰기를 지원하지는 않기 때문에 parquet 타입 파일을 활용해야 한다.
 
 #### CSV를 바로 Parquet 파일로 저장
+
+위에서 설명한 데이터 타입을 지정해서 활용하면 더 효과적이다.
 
 ``` python
 import pyarrow.parquet as pq
@@ -95,7 +120,7 @@ pq.write_table(csv.read_csv('data.csv'), 'data.parquet')
 
 # 1. pandas 함수
 import pandas as pd
-df.to_parquet('data3.parquet',engine='pyarrow', index=False)
+df.to_parquet('data3.parquet', engine='pyarrow', index=False)
 
 # 2. 
 import pyarrow as pa
@@ -110,14 +135,16 @@ pq.write_table(table_from_pandas, 'data.parquet')
 
 #### Parquet 파일을 데이터프레임으로 읽기
 
-읽는 속도가 더 빨라지기 때문에 유용하다.
+읽는 속도가 빠르고 메타데이터로 설정한 데이터 타입이 유지되기 때문에 더 효과적이다.
+
+참고 : read_pandas는 read_table 함수에 pandas의 index 컬럼 읽기가 추가된 함수이다. 
 
 ``` python
 ### 속도는 비슷
 
 # 1. pandas 함수
 import pandas as pd
-df = pd.read_parquet('data.parquet',engine='pyarrow')
+df = pd.read_parquet('data.parquet', engine='pyarrow')
 
 # 2.
 import pyarrow.parquet as pq
