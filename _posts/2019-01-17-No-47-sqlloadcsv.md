@@ -77,7 +77,7 @@ PostgreSQL도 pgAdmin4를 활용하면 쉽게 업로드할 수 있다.
 
 ![sql_csv_4]({{site.baseurl}}/assets/img/sql/sql_csv_4.jpg)
 
-참고 : docker를 활용할 때는 pgAdmin을 활용해 로컬에 있는 파일이 업로드 되지 않아 먼저 컨테이너 내부로 데이터를 옮겨야 한다.
+참고 : docker를 활용할 때는 pgAdmin을 활용해도 로컬 파일이 업로드 되지 않아 먼저 컨테이너 내부로 데이터를 옮겨야 한다.
 
 `References` : 
 

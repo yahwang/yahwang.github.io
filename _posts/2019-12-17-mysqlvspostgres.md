@@ -2,6 +2,7 @@
 layout: post
 title: MySQL과 PostgreSQL Query 차이점 정리
 date: 2019-12-17 02:00:00 am
+update: 2020-01-10 04:00:00 am
 permalink: posts/mysql-vs-postgres
 description: MySQL과 PostgreSQL Query의 차이점을 정리해본다.
 categories: [Data, SQL]
@@ -22,14 +23,36 @@ PostgreSQL : database -> **schema** -> table
 
 테이블의 집합이라는 의미로 MySQL에서는 database, PostgreSQL에서는 schema가 사용된다.
 
-PostgreSQL에서 schema를 지정하지 않으면 public으로 기본 사용한다.
+#### PostgreSQL의 database
 
-``` sql
--- MySQL
-use [database명]
+PostgreSQL은 하나의 데이터베이스를 기준으로 접속한다. 접속한 데이터베이스명을 표시한다.
 
--- PostgreSQL
-SET search_path TO [스키마]
+![mysql-postgres-1]({{site.baseurl}}/assets/img/sql/mysql-postgres-1.png)
+
+#### PostgreSQL의 schema
+
+PostgreSQL에서 schema를 지정하지 않으면 public을 기본으로 사용한다.
+
+search_path는 schema 탐색 범위를 의미한다.
+
+![mysql-postgres-3]({{site.baseurl}}/assets/img/sql/mysql-postgres-3.png)
+
+### 기본 정보 확인 쿼리
+
+|     쿼리 설명     |      MySQL        |        PostgreSQL      |
+|--------------------|-----------------|--------------------|
+|데이터베이스(schema) 확인| show databases; | \dn |
+|테이블 확인 | show tables; | \dt |
+
+![mysql-postgres-2]({{site.baseurl}}/assets/img/sql/mysql-postgres-2.png)
+
+참고 : PostgreSQL에서 쿼리로 확인하려면 information_schema를 활용하면 된다.
+
+```sql
+-- \dt를 쿼리문으로 변환
+SELECT table_name, table_schema, table_type
+FROM information_schema.tables
+WHERE table_schema IN ('public');
 ```
 
 ### 테이블 생성 시 증가하는 컬럼 설정 방법
