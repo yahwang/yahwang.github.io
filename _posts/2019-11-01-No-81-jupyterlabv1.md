@@ -17,14 +17,14 @@ tags: [Jupyter, extensions]
 
 - [Awesome JupyterLab](https://github.com/mauhai/awesome-jupyterlab){:target="_blank"}
 
-### 0. extension 설치방법
+### extension 설치방법
 
 jupyterlab extension을 설치하기 위해서는 **nodejs**가 필수로 설치되어 있어야 한다.
 
 #### CLI를 통한 설치
 
-``` python
-jupyterlab extension install @jupyterlab/ extension명
+```bash
+jupyter labextension install [ extension 명]
 ```
 
 ![jupyter_ext_2]({{site.baseurl}}/assets/img/devops/jupyter_ext_2.png)
@@ -34,6 +34,13 @@ jupyterlab extension install @jupyterlab/ extension명
 Settings 설정을 해주면, 원하는 extension을 검색해서 간단히 설치할 수 있다.
 
 ![jupyter_ext_1]({{site.baseurl}}/assets/img/devops/jupyter_ext_1.png)
+
+### 0. 일반적인 용도의 extension
+
+| extension 명 |          설     명         |
+|--------------|----------------------------|
+| [jupyter-widgets/jupyterlab-manager](https://github.com/jupyter-widgets/ipywidgets/tree/master/packages/jupyterlab-manager){:target="_blank"} | ipywidget 실행을 위한 extension |
+| [jupyterlab/jupyterlab-toc](https://github.com/jupyterlab/jupyterlab-toc){:target="_blank"} | table of contents 기능을 위한 extension|
 
 ### 1. jupyterlab-system-monitor
 
@@ -59,9 +66,11 @@ jupyter_notebook_config.py에 아래 부분을 추가하면 된다.
 c.NotebookApp.ResourceUseDisplay.mem_limit= (Size Of GB) *1024*1024*1024
 ```
 
-![jupyter_ext_3]({{site.baseurl}}/assets/img/devops/jupyter_ext_5.png)
+![jupyter_ext_5]({{site.baseurl}}/assets/img/devops/jupyter_ext_5.png)
 
+참고 : open_browser=True (default option) 를 사용할 경우, 브라우저 실행 메모리가 포함될 수 있다.
 
+![jupyter_ext_6]({{site.baseurl}}/assets/img/devops/jupyter_ext_6.png)
 
 ### 2. jupyterlab-googledrive
 
@@ -97,7 +106,7 @@ github에 올린 노트북 파일을 참고하는 용도로 적합하다. github
 
     0.3 기준
 
-``` python
+```bash
 jupyter labextension install @lckr/jupyterlab_variableinspector
 ```
 
