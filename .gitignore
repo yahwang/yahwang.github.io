@@ -2,6 +2,7 @@ _site/
 .sass-cache/
 .jekyll-metadata
 .jekyll
+.ruby-version
 .ipynb
 .ipynb_checkpoints/
 .Gemfile
