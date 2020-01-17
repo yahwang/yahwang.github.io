@@ -2,7 +2,7 @@
 layout: post
 title: SQL로 Date / Time 데이터 다루기 (기초)
 date: 2019-07-19 01:00:00 am
-update: 2019-09-09 05:00:00 pm
+update: 2020-01-17 08:00:00 pm
 permalink: posts/75
 description: SQL로 Date / Time 데이터 다루는 법을 알아본다.
 categories: [Data, SQL]
@@ -31,23 +31,63 @@ DATE, DATETIME, TIMESTAMP(시스템 TIME ZONE 포함), ...
 
 #### MySQL의 TIMESTAMP와 PostgreSQL의 TIMESTAMPTZ 비교
 
-MySQL은 'YYYY-MM-DD hh:mm:ss' 데이터를 UTC로 저장 후 return 할 때 TIME ZONE에 따라 return하는 반면,
+MySQL은 'YYYY-MM-DD HH:MM:SS' 데이터를 UTC로 저장 후 TIME ZONE에 따라 변환 후 return하는 반면,
 
-PostgreSQL은 'YYYY-MM-DD hh:mm:ss**+09**'와 같은 형태로 직접 TIMEZONE 데이터를 INSERT할 수 있다.
+PostgreSQL은 'YYYY-MM-DD HH:MI:SS**+09**'와 같은 형태로 직접 TIMEZONE 데이터를 INSERT할 수 있다.
 
-### 유용한 함수
+TIMEZONE에 관계없는 데이터를 사용하려면 MySQL - DATETIME, PostgreSQL - TIMESTAMP 타입을 사용한다.
+
+#### TIMEZONE 설정
+
+`MySQL`
+
+```sql
+-- 현재 타임존 확인
+SELECT @@global.time_zone, @@session.time_zone;
+
+-- 타임존 변경
+SET TIME_ZONE = 'Asia/Seoul';
+SET GLOBAL TIME_ZONE = 'Asia/Seoul'; -- root 권한 유저의 경우,
+```
+
+영구적으로 적용하려면 my.conf에서 수정
+
+참고 : [mysql timezone 한국으로 설정하기](https://jwkim96.tistory.com/23){:target="_blank"}
+
+[DB Fiddle - MySQL 5에서 확인](https://www.db-fiddle.com/f/xiPc4YT72QgWQEHLan6KPA/0){:target="_blank"}
+
+`PostgreSQL`
+
+영구적으로 적용하려면 postgresql.conf에서 수정
+
+```sql
+-- 현재 타임존 확인
+SHOW TIMEZONE;
+-- GMT는 UTC와 같다.
+
+-- 타임존 변경 (현재 세션에서만 적용)
+SET TIME ZONE 'Asia/Seoul';
+```
+
+[DB Fiddle - PostgreSQL 에서 확인](https://www.db-fiddle.com/f/3qd8cc1aApg1jaZBr6tuWE/0){:target="_blank"}
+
+참고 : [PostgreSQL Set Time Zone](https://kb.objectrocket.com/postgresql/postgresql-set-time-zone-1064){:target="_blank"} - by ObjectRocket
+
+#### 유용한 함수
 
 |      함수    |     MySQL  |   PostgreSQL    |
 | ------------- | --------- |-----------------|
 | 오늘            | CURRENT_DATE 또는 CURDATE() |  CURRENT_DATE   |
-| 현재 날짜+시간(타임존 O) | CURRENT_TIMESTAMP또는 NOW() | CURRENT_TIMESTAMP 또는 NOW() |
-| 현재 날짜+시간(타임존 X) | CURRENT_TIMESTAMP | LOCALTIMESTAMP |
+| 현재 날짜+시간 ( 타임존 O ) | CURRENT_TIMESTAMP또는 NOW() | [CURRENT_TIMESTAMP / NOW()]::TIMESTAMP 또는 LOCALTIMESTAMP |
+| 현재 날짜+시간 ( 타임존 X ) | CURRENT_TIMESTAMP | CURRENT_TIMESTAMP 또는 NOW() |
 
 #### DATE FORMAT 변환
 
 각각의 함수가 존재하며, FORMAT 형식이 다른 것을 주의해야 한다.
 
 `MySQL`
+
+% + 글자 형식으로 사용
 
 ``` sql
 SELECT DATE_FORMAT("2019-09-09 13:00:00", "%Y-%m-%d");
