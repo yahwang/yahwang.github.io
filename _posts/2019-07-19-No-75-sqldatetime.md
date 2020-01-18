@@ -2,7 +2,7 @@
 layout: post
 title: SQL로 Date / Time 데이터 다루기 (기초)
 date: 2019-07-19 01:00:00 am
-update: 2020-01-17 08:00:00 pm
+update: 2020-01-19 06:00:00 am
 permalink: posts/75
 description: SQL로 Date / Time 데이터 다루는 법을 알아본다.
 categories: [Data, SQL]
@@ -24,16 +24,22 @@ DATE, TIMESTAMP, TIMESTAMP WITH TIME ZONE(TIMESTAMPTZ), ...
 `MySQL`
 
 ```
-DATE, DATETIME, TIMESTAMP(시스템 TIME ZONE 포함), ...
+DATE, DATETIME, TIMESTAMP, ...
 ```
+
+MySQL에서는 TIMESTAMP가 TIME ZONE이 포함된 시간을 의미하며, 
+
+'1970-01-01 00:00:01' UTC ~ '2038-01-19 03:14:07' UTC 까지 가능한 범위가 존재한다.
 
 참고 : [MySQL - Date/Time Types](https://dev.mysql.com/doc/refman/5.7/en/datetime.html){:target="_blank"} / [MYSQL DATETIME VS TIMESTAMP 차이](http://blog.daum.net/_blog/BlogTypeView.do?blogid=03aaf&articleno=12379936&_bloghome_menu=recenttext){:target="_blank"}
 
 #### MySQL의 TIMESTAMP와 PostgreSQL의 TIMESTAMPTZ 비교
 
-MySQL은 'YYYY-MM-DD HH:MM:SS' 데이터를 UTC로 저장 후 TIME ZONE에 따라 변환 후 return하는 반면,
+입력된 TIMESTAMP 데이터를 UTC로 저장 후 TIME ZONE에 따라 변환하는 방식은 같다.
 
-PostgreSQL은 'YYYY-MM-DD HH:MI:SS**+09**'와 같은 형태로 직접 TIMEZONE 데이터를 INSERT할 수 있다.
+MySQL은 UTC 시간으로 데이터를 INSERT해야 한다. TIME ZONE 설정에 따라 시간이 변경된다.
+
+단, PostgreSQL은 'YYYY-MM-DD HH:MI:SS**+09**'와 같은 형태로 직접 TIMEZONE이 포함된 데이터를 INSERT할 수 있다.
 
 TIMEZONE에 관계없는 데이터를 사용하려면 MySQL - DATETIME, PostgreSQL - TIMESTAMP 타입을 사용한다.
 
@@ -73,15 +79,46 @@ SET TIME ZONE 'Asia/Seoul';
 
 참고 : [PostgreSQL Set Time Zone](https://kb.objectrocket.com/postgresql/postgresql-set-time-zone-1064){:target="_blank"} - by ObjectRocket
 
-#### 유용한 함수
+#### 현재 시간 표시
 
 |      함수    |     MySQL  |   PostgreSQL    |
 | ------------- | --------- |-----------------|
 | 오늘            | CURRENT_DATE 또는 CURDATE() |  CURRENT_DATE   |
-| 현재 날짜+시간 ( 타임존 O ) | CURRENT_TIMESTAMP또는 NOW() | [CURRENT_TIMESTAMP / NOW()]::TIMESTAMP 또는 LOCALTIMESTAMP |
-| 현재 날짜+시간 ( 타임존 X ) | CURRENT_TIMESTAMP | CURRENT_TIMESTAMP 또는 NOW() |
+| 현재 날짜+시간 ( 타임존 O ) | CURRENT_TIMESTAMP 또는 NOW() | **LOCALTIMESTAMP** 또는 [CURRENT_TIMESTAMP / NOW()]::TIMESTAMP |
+| 현재 날짜+시간 ( UTC ) | UTC_TIMESTAMP | CURRENT_TIMESTAMP 또는 NOW() |
 
-#### DATE FORMAT 변환
+PostgreSQL에서는 ::TIMESTAMP 없이 CURRENT_TIMESTAMP나 NOW()를 출력하면 UTC로 출력된다. 
+
+그러나, 내부적으로는 LOCALTIMESTAMP와 같다고 인식한다.
+
+### 0. 입출력 형식
+
+둘 다 'YYYY-MM-DD HH:MM:SS' 과 'YYYY-MM-DD**T**HH:MM:SS' 형식을 지원한다.
+
+`MySQL`
+
+'YYYY-MM-DD HH:MM:SS' 문자열을 DATE 타입 선언없이도 자동으로 인식한다. TIMESTAMP 타입으로 따로 명시하는 방법은 없다.
+
+```sql
+SELECT DATE "2019-09-09";
+-- TIMESTAMP라고 표현하지만(SQL 표준 방식 적용) DATETIME 타입이다. 
+SELECT TIMESTAMP "2019-09-09 13:00:00";
+```
+
+`PostgreSQL`
+
+뒤에 ::을 붙이는 방식으로도 타입 표현이 가능하다. (주로 사용되는 패턴)
+
+```sql
+SELECT "2019-09-09"::DATE;
+-- 단위 변환 가능
+SELECT "2019-09-09T13:00:00"::DATE; 
+
+SELECT '2019-09-09 13:00:00'::TIMESTAMP;
+SELECT '2019-09-09 13:00:00'::TIMESTAMPTZ;
+```
+
+#### DATE FORMAT 변환 ( DATE => STRING )
 
 각각의 함수가 존재하며, FORMAT 형식이 다른 것을 주의해야 한다.
 
@@ -99,7 +136,6 @@ SELECT DATE_FORMAT("2019-09-09 13:00:00", "%Y-%m-%d");
 `PostgreSQL`
 
 ``` sql
--- PostgreSQL에서는 문자열 형식의 날짜를 바로 DATE로 인식하지 못하기 때문에 TYPE을 지정해야 한다.
 SELECT to_char('2019-09-09T13:00:00'::timestamp, 'YYYY-MM-DD');
 => 2019-09-09
 ```
@@ -126,8 +162,6 @@ SELECT TIMESTAMP '2019-01-01 18:00' - INTERVAL '2 hour';
 MySQL은 함수를 사용해서 계산해야 한다. +, -를 사용할 경우, 잘못된 결과가 나올 수 있기 때문이다.
 
 ( +,-로 정확한 계산을 하려면 UNIX_TIMESTAMP로 모두 변환해야 한다. )
-
-참고 : 'YYYY-MM-DD HH:MM:SS' 문자열을 DATE 타입 선언없이도 자동으로 인식한다.
 
 ``` sql
 -- 더하기
