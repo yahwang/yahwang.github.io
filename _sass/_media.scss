@@ -48,22 +48,16 @@
     box-shadow: 0 1px 1px 0 rgba(31, 35, 46, .15);
     .tipue_search_box{
       margin-left:30%;
+    }
     .about {
       text-align: center;
       max-width: 480px;
       margin: 10px auto auto;
-      img {
-        width: 100px;
-        height: 100px;
-        border-radius: 10%;
-        margin-bottom: 10px;
-      }
     }
   }
     footer {
       margin-bottom: 10px;
     }
-  }
   
   .page-content{
     margin: 1%;
@@ -78,18 +72,14 @@
     align-items: stretch;
   }
 
-.tag-cloud, .contact, .copyright{
-  display: none;
-}
-.notelist{
-  display:none;
-}
-
+  .tag-cloud, .contact, .copyright{
+    display: none;
+  }
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
-  .page-tag, .footer-ad{
+  .page-tag, .footer-ad, .main-category, .tipue_search_box{
     display:none;
   }
   .sidebar{
@@ -98,16 +88,18 @@
     header, footer{
       max-width: 97%;
     }
-    .tipue_search_box{
-        margin-left:25%;
-    }
     .author-name{
       font-size:14px;
     }
     .about {
+      .cover-author-image {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+      }
       img {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         margin-bottom: 5px;
       }
       

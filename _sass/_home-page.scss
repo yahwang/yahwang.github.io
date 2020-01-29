@@ -37,7 +37,7 @@
   }
 }
 .about {
-  margin: 0 0 40px;
+  margin: 0 0 20px;
   text-align: center;
   .cover-author-image {
     width: 90px;
@@ -58,22 +58,10 @@
     font-family: 'Spoqa Han Sans', serif;
     margin: 0 0 10px;
     position: relative;
-    padding-bottom: 15px;
     font-size: 30px;
     color: $dark;
     font-weight: 400;
-    &::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 0;
-      display: block;
-      width: 7px;
-      height: 7px;
-      border-radius: 100%;
-      background-color: $body-color;
-    }
+
   }
   p {
     font-size: 20px;
@@ -301,8 +289,8 @@ footer {
 }
 
 .svg-icon {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   display: inline-block;
 }
 
@@ -346,6 +334,60 @@ a.newer-posts:hover {
         font-size: 1.3rem;
         font-weight: bold;
     }
+}
+
+.toc{
+  margin-bottom: 10px;
+  h3 {
+    position: relative;
+    color: $dark;
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 0 0 0px;
+    text-align: center;
+    &::before {
+      content: "";
+      display: block;
+      height: 1.5px;
+      width: calc(50% - 75px);
+      transform: translateY(-50%);
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background-color: $body-color;
+    }
+    &::after {
+      content: "";
+      display: block;
+      height: 1.5px;
+      width: calc(50% - 75px);
+      transform: translateY(-50%);
+      position: absolute;
+      top: 50%;
+      right: 0;
+      background-color: $body-color;
+    }
+  }
+  ul {
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      margin-left: 10px;
+      margin-bottom: 3px;
+      a {
+        color: darkslategray;
+        display: block;
+        font-size: 0.9rem;
+        text-decoration: none;
+        &:hover {
+          color: $body-color;
+          background-color: $gray;
+        }
+      }
+    }
+  }
 }
 
 /* pagination */

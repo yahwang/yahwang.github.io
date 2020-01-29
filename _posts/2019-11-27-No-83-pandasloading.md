@@ -33,8 +33,6 @@ pandas에서도 Arrow의 메모리 포맷을 활용하면 데이터를 읽고 �
 
 Apache Arrow는 메모리 절약은 해결해주지는 못한다. 이 부분은 Spark, Dask 등을 고려해야 한다.
 
-## 사용법
-
 ### Apache Arrow 설치
 
 Python에서는 pyarrow라는 이름으로 간단히 설치할 수 있다.
@@ -94,7 +92,7 @@ df_typed = csv.read_csv('bike_data.csv', convert_options=convert_opts).to_pandas
 
 데이터 타입 관련 : [pandas <-> Arrow Data Type](https://arrow.apache.org/docs/python/pandas.html#type-differences){:target="_blank"}
 
-### Parquet 데이터 타입으로 읽고 쓰기
+### Parquet 타입으로 읽고 쓰기
 
 csv 데이터는 읽는 것보다 쓰는 데 매우 시간이 많이 걸린다. 
 

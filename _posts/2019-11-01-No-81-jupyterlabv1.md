@@ -21,7 +21,7 @@ tags: [Jupyter, extensions]
 
 jupyterlab extension을 설치하기 위해서는 **nodejs**가 필수로 설치되어 있어야 한다.
 
-#### CLI를 통한 설치
+`CLI를 통한 설치`
 
 ```bash
 jupyter labextension install [ extension 명]
@@ -29,7 +29,7 @@ jupyter labextension install [ extension 명]
 
 ![jupyter_ext_2]({{site.baseurl}}/assets/img/devops/jupyter_ext_2.png)
 
-#### JupyterLab에서 설치
+`JupyterLab에서 설치`
 
 Settings 설정을 해주면, 원하는 extension을 검색해서 간단히 설치할 수 있다.
 
@@ -126,7 +126,7 @@ Name을 클릭하면 array나 dataframe은 value를 테이블 형태로 확인�
 
     0.3.1 기준
 
-#### 설치방법
+    설치방법
 
 ``` python
 pip install jupyterlab_sql

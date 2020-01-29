@@ -67,7 +67,7 @@ Initializing a Database Backend](https://airflow.readthedocs.io/en/stable/howto/
 
 SQLite3는 동시 접근이 제한되어 DAG가 병렬처리되지 않고 순차처리(SequentialExecutor)가 되는 문제가 있다. 
 
-airflow 자체에서도 MySQL이나 PostgresSQL로 사용할 것을 권장한다.
+airflow 자체에서도 MySQL이나 PostgreSQL로 사용할 것을 권장한다.
 
 SequentialExecutor => Local(Celery)Executor로 변경하여 사용해야 한다.
 

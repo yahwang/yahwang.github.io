@@ -13,7 +13,7 @@ tags: [MySQL, PostgreSQL]
 
 참고 : 전문적인 내용보다는 참고 용도로 정리하고 있다.
 
-### MySQL의 database == PostgreSQL의 schema (유사 개념)
+### MySQL의 database == PostgreSQL의 schema
 
     데이터베이스 구조
 
@@ -23,13 +23,13 @@ PostgreSQL : database -> **schema** -> table
 
 테이블의 집합이라는 의미로 MySQL에서는 database, PostgreSQL에서는 schema가 사용된다.
 
-#### PostgreSQL의 database
+`PostgreSQL의 database`
 
 PostgreSQL은 하나의 데이터베이스를 기준으로 접속한다. 접속한 데이터베이스명을 표시한다.
 
 ![mysql-postgres-1]({{site.baseurl}}/assets/img/sql/mysql-postgres-1.png)
 
-#### PostgreSQL의 schema
+`PostgreSQL의 schema`
 
 PostgreSQL에서 schema를 지정하지 않으면 public을 기본으로 사용한다.
 
@@ -116,7 +116,7 @@ SELECT 'hello' = 'hello   '; -- => False
 
 ## MySQL 특정 함수
 
-### *MySQL* 에만 있는 IF 함수
+`IF 함수`
 
 CASE WHEN 대신 SELECT 절에 활용 가능 ( 쿼리문이 간결해지는 효과 )
 
@@ -128,7 +128,7 @@ SELECT IF(5-3 > 0, 'TRUE', 'FALSE');
 SELECT CASE WHEN 5-3 > 0 THEN 'TRUE' ELSE 'FALSE' END;
 ```
 
-### *MySQL* 에만 있는 IFNULL 함수
+`IFNULL 함수`
 
 IFNULL은 추가 인자로 한 개만 가능 / PostgreSQL에서는 COALESCE 함수로 사용
 

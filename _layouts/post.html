@@ -3,68 +3,64 @@
 ---
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-{% include google.html %}  
-{% include head.html %}
-<title>{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
-<meta name="description" content="{{ page.description }}">
-<meta property="og:title" content="{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}"/>
-<meta property="og:url" content="{{ page.url | prepend: site.url }}"/>
-<meta property="og:description" content="{{page.description}}"/>
-<meta property="og:image" content="{{site.url}}/assets/img/{{site.author-img}}">
-</head>  
+  {% include google.html %}
+  {% include head.html %}
+  <title>{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
+  <meta name="description" content="{{ page.description }}">
+  <meta property="og:title"
+    content="{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}" />
+  <meta property="og:url" content="{{ page.url | prepend: site.url }}" />
+  <meta property="og:description" content="{{page.description}}" />
+  <meta property="og:image" content="{{site.url}}/assets/img/{{site.author-img}}">
+</head>
+
 <body>
-<div class="wrapper">
-{% include main.html %}
-  <div class="content-box clearfix">
-  <article class="article-page">
-    <div class="page-content">
-      <div class="wrap-content">
-        <header class="header-page">
-          <h1 class="page-title">{{page.title}}</h1>
-          <div class="page-date"><span>게시일 : {{page.date | date: '%Y년 %m월 %d일'}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          {% if page.update %}
-          <span>수정일 : {{page.update | date: '%Y년 %m월 %d일'}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          {% endif %}
-          </div>
-          <div class="page-tag">
-            {% for tag in page.tags %}
-              <span class="tag">&#35; {{ tag }}</span>
-            {% endfor %}
-          </div>
-        </header>
-        {{page.content | markdownify}}
-        <div class="page-footer">
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- 페이지 내 광고 1 -->
-          <ins class="adsbygoogle"
-                style="display:block;"
-                data-ad-layout="in-article"
-                data-ad-format="fluid"
-                data-ad-client="ca-pub-7491803682573532"
-                data-ad-slot="1341706604"></ins>
-          <script>
+  <div class="wrapper">
+    {% include main.html %}
+    <div class="content-box clearfix">
+      <article class="article-page">
+        <div class="page-content">
+          <div class="wrap-content">
+            <header class="header-page">
+              <h1 class="page-title">{{page.title}}</h1>
+              <div class="page-date"><span>게시일 : {{page.date | date: '%Y년 %m월 %d일'}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                {% if page.update %}
+                <span>수정일 : {{page.update | date: '%Y년 %m월 %d일'}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                {% endif %}
+              </div>
+              <div class="page-tag">
+                {% for tag in page.tags %}
+                <span class="tag">&#35; {{ tag }}</span>
+                {% endfor %}
+              </div>
+            </header>
+            {{page.content | markdownify}}
+            <div class="page-footer">
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <!-- 페이지 내 광고 1 -->
+              <ins class="adsbygoogle" style="display:block;" data-ad-layout="in-article" data-ad-format="fluid"
+                data-ad-client="ca-pub-7491803682573532" data-ad-slot="1341706604"></ins>
+              <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-          <br>
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- 게시글 광고 2 -->
-          <ins class="adsbygoogle"
-              style="display:block"
-              data-ad-client="ca-pub-7491803682573532"
-              data-ad-slot="7941718714"
-              data-ad-format="auto"
-              data-full-width-responsive="true"></ins>
-          <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </div>
-        {% include disqus.html %}
-      </div> <!-- End Wrap Content -->
-    </div> <!-- End Page Content -->
-  </article> <!-- End Article Page -->
+              </script>
+              <br>
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <!-- 게시글 광고 2 -->
+              <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7491803682573532"
+                data-ad-slot="7941718714" data-ad-format="auto" data-full-width-responsive="true"></ins>
+              <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+            {% include disqus.html %}
+          </div> <!-- End Wrap Content -->
+        </div> <!-- End Page Content -->
+      </article> <!-- End Article Page -->
+    </div>
   </div>
-</div>
-{% include rightside.html %}
+  {% include rightside.html %}
 </body>
+
 </html>
