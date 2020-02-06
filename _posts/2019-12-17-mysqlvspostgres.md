@@ -2,7 +2,7 @@
 layout: post
 title: MySQL과 PostgreSQL Query 차이점 정리
 date: 2019-12-17 02:00:00 am
-update: 2020-01-10 04:00:00 am
+update: 2020-02-06 11:00:00 pm
 permalink: posts/mysql-vs-postgres
 description: MySQL과 PostgreSQL Query의 차이점을 정리해본다.
 categories: [Data, SQL]
@@ -113,6 +113,35 @@ SELECT 'hello' = 'hello   '; -- => True
 -- PostgreSQL
 SELECT 'hello' = 'hello   '; -- => False
 ```
+
+### *MySQL* 은 HAVING 절에 ALIAS를 허용한다.
+
+표준 SQL에서는 SELECT보다 GROUP BY, HAVING 연산이 먼저 수행한다. ( the logical order of processing )
+
+그래서, ALIAS를 허용하지 않는 것이 원칙이다. 그러나, GROUP BY 절에서는 둘 다 ALIAS를 사용할 수 있다. 
+
+단, HAVING 절은 MySQL만 사용 가능하다. ( MySQL에서는 HAVING 절의 ALIAS가 필수인 듯 )
+
+``` sql
+-- MySQL
+SELECT EXTRACT(MONTH FROM date) as month, SUM(sales) as total_sum
+FROM sample
+GROUP BY EXTRACT(MONTH FROM date)
+HAVING month > 2;
+-- HAVING EXTRACT(MONTH FROM date) > 2; 은 오류 발생
+
+-- PostgreSQL
+SELECT EXTRACT(MONTH FROM date) as month, SUM(sales) as total_sum
+FROM sample
+GROUP BY EXTRACT(MONTH FROM date)
+HAVING EXTRACT(MONTH FROM date) > 2;
+```
+
+주의할 점은 PostgreSQL의 HAVING 절을 MySQL에 사용하면 date 컬럼을 오히려 인식하지 못하는 오류가 생길 수 있다. ( 정확한 이유는 찾지 못함 )
+
+[db-fiddle에서 확인 - MySQL 5](https://www.db-fiddle.com/f/4QGXEPLuaVHpHb4JaKrxkK/0){:target="_blank"}
+
+참고 : [MySQL Handling of GROUP BY](https://dev.mysql.com/doc/refman/5.7/en/group-by-handling.html){:target="_blank"}
 
 ## MySQL 특정 함수
 
