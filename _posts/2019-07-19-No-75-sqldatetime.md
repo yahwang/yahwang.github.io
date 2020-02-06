@@ -118,9 +118,30 @@ SELECT '2019-09-09 13:00:00'::TIMESTAMP;
 SELECT '2019-09-09 13:00:00'::TIMESTAMPTZ;
 ```
 
-#### DATE FORMAT 변환 ( DATE => STRING )
+#### DATE FORMAT으로 변환 ( STRING => DATE )
 
-각각의 함수가 존재하며, FORMAT 형식이 다른 것을 주의해야 한다.
+문자열이 갖고 있는 표현방식을 입력해준다. 각각의 함수가 존재하며, FORMAT 형식이 다른 것을 주의해야 한다.
+
+`MySQL`
+
+``` sql
+SELECT STR_TO_DATE("2020/02/06", "%Y/%m/%d");
+=> 2020-02-06
+```
+
+`PostgreSQL`
+
+``` sql
+SELECT TO_DATE('2020/02/06', 'YYYY/MM/DD');
+=> 2020-02-06T00:00:00.000Z
+
+SELECT to_date('10 Feb 2020', 'DD Mon YYYY');
+=> 2020-02-10T00:00:00.000Z
+```
+
+[PostgreSQL TO_DATE Function](https://www.postgresqltutorial.com/postgresql-to_date/){:target="_blank"}
+
+#### DATE 표현 방식 변환 ( DATE => STRING )
 
 `MySQL`
 
