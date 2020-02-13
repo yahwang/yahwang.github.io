@@ -9,17 +9,6 @@ categories: [Dev, DataOps]
 tags: [Airflow]
 ---
 
-- [DAG란](#DAG란)
-- [옵션 설정](#옵션설정)
-- [airflow 내부 DB](#airflow_db)
-- [시간정보](#시간정보)
-- [Scheduling](#scheduling)
-- [Delay Between Tasks](#delay_between_tasks)
-- [Variables](#variables)
-- [JINJA 템플릿](#jinja템플릿)
-- [기타](#기타)
-- [주의할점](#주의할점)
-
 ### DAG란
 
 참고 : [airflow concept - Apply Data Science](https://www.applydatascience.com/airflow/airflow-concept){:target="_blank"}
