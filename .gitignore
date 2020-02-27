@@ -11,6 +11,7 @@ _site/
 .vscode/
 */.ipynb_checkpoints/
 chromedriver.exe
+drafts/
 
 ### macOS ###
 *.DS_Store

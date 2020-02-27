@@ -2,12 +2,18 @@
 layout: post
 title: Airflow 기본 정보 (상시 업데이트)
 date: 2019-02-23 10:00:00 pm
-update: 2019-06-30 08:00:00 pm
+update: 2020-02-27 00:00:00 am
 permalink: posts/airflow
 description: Airflow에 대해 정리한 자료
 categories: [Dev, DataOps]
 tags: [Airflow]
 ---
+
+`주요 개념`
+
+![](https://image.slidesharecdn.com/airflow-191017192342/95/airflow-for-beginners-4-1024.jpg)
+
+출처 : https://www.slideshare.net/varyakarpenko5/airflow-for-beginners/4
 
 ### DAG란
 
@@ -40,12 +46,13 @@ Docker로 설치할 경우, bash에서 printenv를 통해 환경변수 확인가
     - LocalExecutor : 한 서버에서 task들을 병렬처리할 수 있음
     - CeleryExecutor : task를 여러 서버(worker)에 할당하여 처리할 수 있음
 
+#### 보안 관련
 
-- [Securing Connections](https://airflow.apache.org/howto/secure-connections.html){:target="_blank"}
+[Securing Connections - Airflow document](https://airflow.apache.org/howto/secure-connections.html){:target="_blank"}
 
 airflow는 접속한 비밀번호를 메타데이터에서 그대로 저장하는데 보안을 위해 cryptography 라이브러리의 FERNET 방식을 사용자가 적용해야 한다. 
 
-참고 : FERNET 방식은 encode와 decode가 같은 대칭키이다.
+[Airflow 보안 설정하기 (with RBAC) - by yahwang]({{site.baseurl}}/posts/86){:target="_blank"}
 
 ### airflow_DB
 
@@ -64,40 +71,11 @@ Docker로 설치할 경우, docker-compose를 통해 PostgreSQL을 새로 구축
 
 ### 시간정보
 
-참고 : [Time Zone](https://airflow.apache.org/timezone.html){:target="_blank"}
+airflow에서는 **UTC** 시간을 사용한다. TIME ZONE을 설정할 수는 있지만 실제 내부에서는 UTC로 다시 변환하여 처리한다. 
 
-airflow에서는 **UTC** 시간을 사용한다. time zone에 관계없이 실제 내부에서는 UTC로 다시 변환하여 처리한다. 
+웹 UI나 로그에서도 UTC 시간으로만 확인 가능하다.
 
-현재 UI에서는 UTC만 보이도록 설정되어 있다(?)...
-
-    default 타임존 설정방법 ( airflow.cfg 수정 )
-
-``` python
-# airflow.cfg
-...
-# default_timezone = utc
-default_timezone = Asia/Seoul
-## Pendulum 라이브러리에서 지원하는 timezone 형태
-...
-```
-
-timezone.datetime을 활용하여 바로 확인 가능하다.
-
-![airflow_var]({{site.baseurl}}/assets/img/tech/airflow_timezone.jpg)
-
-    타임존을 DAG에서 명시하기 위해 **pendulum** 라이브러리를 활용할 수 있다. 
-
-``` python
-import pendulum
-from datetime import datetime
-
-local_tz = pendulum.timezone("Asia/Seoul")
-default_args=dict(
-    start_date=datetime(2019, 1, 1, tzinfo=local_tz)
-...
-```
-
-참고 : tzinfo없이 datetime 라이브러리를 사용하더라도 default_timezone을 기반으로 내부적으로 처리된다고 한다.
+[Airflow의 시간정보에 대한 정리 - by yahwang]({{site.baseurl}}/posts/87){:target="_blank"}
 
 ### Scheduling
 
@@ -174,10 +152,17 @@ var2 = config["var2"]
 
 참고 : https://airflow.apache.org/concepts.html#slas
 
-
 ### 주의할점
 
 1. upstream의 task가 제대로 수행되었는 지에 대해 reliable하지 않다. (오류는 downstream에서 발견되는 경우가 많음) 따라서, 데이터를 check하는 task가 필요할 수 있다.
 
 2. sensor는 일을 하지 않아도 계속 시스템 자원을 차지한다. 많은 sensor가 사용될 경우, 시스템 자원이 낭비되어 다른 스케줄링에 차질이 생길 수 있다.
 
+### Airflow 버전 업데이트 관리
+
+다음 링크에서 버전 업데이트 시 이전 버전과 호환되지 않는 점들에 대해 알 수 있다. 
+- [Updating Aiflow.md](https://github.com/apache/airflow/blob/master/UPDATING.md#updating-airflow){:target="_blank"}
+
+GCP의 Cloud Composer는 Open source 배포 버전보다 하위 버전으로 제공된다.
+
+- [GCP의 Cloud Composer Release Notes](https://cloud.google.com/composer/docs/release-notes){:target="_blank"}

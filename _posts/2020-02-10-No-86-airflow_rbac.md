@@ -1,10 +1,11 @@
 ---
 layout: post
 title: Airflow 보안 설정하기 (with RBAC)
-date: 2020-02-10 01:00:00 am
+date: 2020-02-10 03:00:00 am
+update: 2020-02-27 03:00:00 am
 permalink: posts/86
 description: FAB가 제공하는 기능을 통해 Airflow에 기본 보안을 설정한다.
-categories: [Dev, DataOps]
+categories: [Data, DataOps]
 tags: [Airflow, RBAC, FERNET_KEY]
 ---
 
@@ -47,6 +48,8 @@ fernet_key =
 참고 : [Airflow - Securing Connections](https://airflow.apache.org/docs/stable/howto/secure-connections.html#securing-connections){:target="_blank"}
 
 ### FAB 설정방법
+
+환경변수 **AIRFLOW__WEBSERVER__RBAC**를 True로 설정한다. 또는,
 
 $AIRFLOW_HOME( Default는 ~/airflow) 폴더에 있는 airflow.cfg의 **rbac** 옵션을 True로 설정한다.
 
