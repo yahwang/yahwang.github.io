@@ -50,6 +50,15 @@ img {
   display: block;
 }
 
+img + em { 
+  display: block; 
+  text-align: center; 
+  a {
+    color: $body-color;
+    text-decoration: none;
+  }
+}
+
 blockquote {
   border-left: 5px solid $body-color;
   padding-left: 1.1rem;

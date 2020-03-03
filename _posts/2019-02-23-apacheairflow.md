@@ -2,18 +2,17 @@
 layout: post
 title: Airflow 기본 정보 (상시 업데이트)
 date: 2019-02-23 10:00:00 pm
-update: 2020-02-27 00:00:00 am
+update: 2020-03-04 00:00:00 am
 permalink: posts/airflow
 description: Airflow에 대해 정리한 자료
-categories: [Dev, DataOps]
+categories: [Data, DataOps]
 tags: [Airflow]
 ---
 
-`주요 개념`
+`주요 용어`
 
 ![](https://image.slidesharecdn.com/airflow-191017192342/95/airflow-for-beginners-4-1024.jpg)
-
-출처 : https://www.slideshare.net/varyakarpenko5/airflow-for-beginners/4
+*출처 : https://www.slideshare.net/varyakarpenko5/airflow-for-beginners/4*
 
 ### DAG란
 
@@ -29,6 +28,71 @@ Undirected VS **Directed** : edge가 한 방향으로만 가리킨다.
 
 ![dag_img]({{site.baseurl}}/assets/img/tech/dag_img.jpg)
 
+### Variables
+
+참고 : [airflow variables - Apply Data Science](https://www.applydatascience.com/airflow/airflow-variables/){:target="_blank"}
+
+변수를 미리 사용자가 지정하여 DAG를 생성할 때 사용 가능하다.
+
+![airflow_var]({{site.baseurl}}/assets/img/tech/airflow_var.jpg)
+
+
+Variable은 메타 DB에 저장되고 .get 함수를 사용할 때마다 매번 접속을 시도한다. 따라서, 변수를 따로따로 만드는 것은 비효율적이다.
+
+JSON 파일에 수많은 변수들을 저장한 뒤에 사용하는 것이 효율적이다.
+
+``` python
+from airflow.models import Variable
+
+test = Variable.get("test")
+# JSON 파일에서 변수 사용하기
+config = Variable.get("config파일명", deserialize_json=True)
+var1 = config["var1"]
+var2 = config["var2"]
+```
+
+`실행 구조`
+
+![](https://miro.medium.com/proxy/1*CEojZqU4FWcbOwOTgwttDw.jpeg)
+*출처 : https://towardsdatascience.com/why-apache-airflow-is-a-great-choice-for-managing-data-pipelines-48effcce3e41*
+
+Scheduler는 Meta database에 저장된 task에 대한 정보(스케줄, 상태 등)를 관리하고 스케줄에 맞게 task를 Executor에 전달한다.
+
+Executor는 task 수행에 필요한 worker process를 실행한다.
+
+### Executor (worker)
+    
+    SequentialExector (default)
+
+task 순차 처리 / SQLite3를 backend로 설정 / TEST로 사용 권장
+
+    LocalExecutor
+    
+task 병렬 처리 가능 / MySQL이나 PostgreSQL을 backend로 설정 / task마다 subprocess를 생성
+    
+    CeleryExecutor
+
+task를 여러 서버(node)에 분산 처리 가능 (cluster) / Celery backend (RabbitMQ, Redis, …) 설정이 필요
+
+    DaskExecutor
+
+Celery와 같은 역할이지만 Dask로 처리
+
+    KubernetesExecutor
+
+Kubernetes로 cluster 자원을 효율적으로 관리 가능 / 1.10 버전부터 지원
+
+### Backend ( META DB )
+
+참고 : [
+Initializing a Database Backend](https://airflow.readthedocs.io/en/stable/howto/initialize-database.html){:target="_blank"}
+
+기본 DB는 SequentialExecutor에 따라 SQLite3로 설정되어 있다.
+
+SQLite3는 동시 접근이 제한되어 DAG가 병렬처리되지 않고 순차처리(SequentialExecutor)가 되는 문제가 있다. 
+
+airflow에서도 MySQL이나 PostgreSQL로 사용할 것을 권장한다. (LocalExecutor부터)
+
 ### 옵션설정
 
 참고 : [how to set config](https://airflow.readthedocs.io/en/stable/howto/set-config.html){:target="_blank"}
@@ -41,11 +105,6 @@ Undirected VS **Directed** : edge가 한 방향으로만 가리킨다.
 
 Docker로 설치할 경우, bash에서 printenv를 통해 환경변수 확인가능
 
-- Executor의 종류
-    - SequentialExector: 기본 설정, 한 서버에서 task를 순차처리할 수 있음 / task마다 python interpreter가 실행되어 process를 생성한다.
-    - LocalExecutor : 한 서버에서 task들을 병렬처리할 수 있음
-    - CeleryExecutor : task를 여러 서버(worker)에 할당하여 처리할 수 있음
-
 #### 보안 관련
 
 [Securing Connections - Airflow document](https://airflow.apache.org/howto/secure-connections.html){:target="_blank"}
@@ -53,21 +112,6 @@ Docker로 설치할 경우, bash에서 printenv를 통해 환경변수 확인가
 airflow는 접속한 비밀번호를 메타데이터에서 그대로 저장하는데 보안을 위해 cryptography 라이브러리의 FERNET 방식을 사용자가 적용해야 한다. 
 
 [Airflow 보안 설정하기 (with RBAC) - by yahwang]({{site.baseurl}}/posts/86){:target="_blank"}
-
-### airflow_DB
-
-참고 : [
-Initializing a Database Backend](https://airflow.readthedocs.io/en/stable/howto/initialize-database.html){:target="_blank"}
-
-기본 DB는 SQLite3로 설정되어 있다. 
-
-SQLite3는 동시 접근이 제한되어 DAG가 병렬처리되지 않고 순차처리(SequentialExecutor)가 되는 문제가 있다. 
-
-airflow 자체에서도 MySQL이나 PostgreSQL로 사용할 것을 권장한다.
-
-SequentialExecutor => Local(Celery)Executor로 변경하여 사용해야 한다.
-
-Docker로 설치할 경우, docker-compose를 통해 PostgreSQL을 새로 구축해 연동하여 서비스를 생성한다.
 
 ### 시간정보
 
@@ -118,28 +162,6 @@ defeault 설치 후 Sample DAG를 실행할 경우에는 task 간 20초 이상�
 
 참고 : [How to reduce airflow dag scheduling latency in production?](https://airflow.apache.org/faq.html#how-to-reduce-airflow-dag-scheduling-latency-in-production){:target="_blank"}
 
-### Variables
-
-참고 : [airflow variables - Apply Data Science](https://www.applydatascience.com/airflow/airflow-variables/){:target="_blank"}
-
-변수를 미리 사용자가 지정하여 DAG를 생성할 때 사용 가능하다.
-
-![airflow_var]({{site.baseurl}}/assets/img/tech/airflow_var.jpg)
-
-
-Variable은 메타DB에 저장되고 .get 함수를 사용할 때마다 매번 접속을 시도한다. 따라서, 변수를 따로따로 만드는 것은 비효율적이다.
-
-JSON 파일에 수많은 변수들을 저장한 뒤에 사용하는 것이 효율적이다.
-
-``` python
-from airflow.models import Variable
-
-test = Variable.get("test")
-# JSON 파일에서 변수 사용하기
-config = Variable.get("config파일명", deserialize_json=True)
-var1 = config["var1"]
-var2 = config["var2"]
-```
 ### JINJA템플릿
 
 [Default Variables](https://airflow.apache.org/macros.html){:target="_blank"}
@@ -166,3 +188,10 @@ var2 = config["var2"]
 GCP의 Cloud Composer는 Open source 배포 버전보다 하위 버전으로 제공된다.
 
 - [GCP의 Cloud Composer Release Notes](https://cloud.google.com/composer/docs/release-notes){:target="_blank"}
+
+`References` : 
+
+* [Apache Airflow with Kubernetes Executor and MiniKube](https://marclamberti.com/blog/airflow-kubernetes-executor/#Apache_Airflow_with_Kubernetes_Executor_Practice){:target="_blank"}
+
+* [Airflow Executors: Explained](https://www.astronomer.io/guides/airflow-executors-explained/){:target="_blank"} - by Astronomer
+
