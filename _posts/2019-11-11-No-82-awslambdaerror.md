@@ -58,11 +58,6 @@ def msg_to_slack(msg):
     response = requests.post(webhook_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
 
 def lambda_handler(event, context):
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging.DEBUG)
-    url = os.environ['webhook_url']
-    my_handler = SlackHandler(url)
-    logger.addHandler(my_handler)
     
     try:
         a = int('foo')
