@@ -2,19 +2,19 @@
 layout: post
 title: Airflow 기본 정보 (상시 업데이트)
 date: 2019-02-23 10:00:00 pm
-update: 2020-03-04 00:00:00 am
+update: 2020-03-13 09:00:00 pm
 permalink: posts/airflow
 description: Airflow에 대해 정리한 자료
 categories: [Data, DataOps]
 tags: [Airflow]
 ---
 
-`주요 용어`
+> 주요 용어
 
 ![](https://image.slidesharecdn.com/airflow-191017192342/95/airflow-for-beginners-4-1024.jpg)
 *출처 : https://www.slideshare.net/varyakarpenko5/airflow-for-beginners/4*
 
-### DAG란
+## DAG
 
 참고 : [airflow concept - Apply Data Science](https://www.applydatascience.com/airflow/airflow-concept){:target="_blank"}
 
@@ -26,9 +26,36 @@ Undirected VS **Directed** : edge가 한 방향으로만 가리킨다.
 
 **Acyclic** VS Cyclic : 한 번 통과한 노드로 다시 돌아오지 않는 Graph
 
-![dag_img]({{site.baseurl}}/assets/img/tech/dag_img.jpg)
+![dag_img]({{site.baseurl}}/assets/img/dataops/dag_img.jpg)
 
-### Variables
+### DagRun & TaskInstance
+
+DagRun과 TaskInstance는 실행중인 DAG의 상태정보를 가지고 있다. 
+
+JINJA 템플릿을 통해 상태정보를 활용할 수도 있고 task 간 데이터를 주고 받을 수도 있다.(xcom)
+
+    DagRun
+
+a DagRun is simply a DAG with **execution_date**.
+
+Dag스케줄러(or Trigger)가 DAG의 execution_date(실행시간)를 정의하고 DagRun이 시간에 맞게 생성된다. 
+
+    TaskInstance
+
+TaskInstance is a task that has been instantiated and has an **execution_date** context. 
+
+하나의 DagRun과 연관된 tasks 즉, 스케줄이 정의된 task를 TaskInstance라고 한다.
+
+![dag_run]({{site.baseurl}}/assets/img/dataops/dag_run.png)
+
+    JINJA 템플릿
+
+[Default Variables](https://airflow.apache.org/macros.html){:target="_blank"}
+
+[템플릿 사용 예시](https://diogoalexandrefranco.github.io/about-airflow-date-macros-ds-and-execution-date/){:target="_blank"}
+
+
+## Variables
 
 참고 : [airflow variables - Apply Data Science](https://www.applydatascience.com/airflow/airflow-variables/){:target="_blank"}
 
@@ -60,7 +87,7 @@ Scheduler는 Meta database에 저장된 task에 대한 정보(스케줄, 상태 
 
 Executor는 task 수행에 필요한 worker process를 실행한다.
 
-### Executor (worker)
+## Executor (worker)
     
     SequentialExector (default)
 
@@ -82,7 +109,7 @@ Celery와 같은 역할이지만 Dask로 처리
 
 Kubernetes로 cluster 자원을 효율적으로 관리 가능 / 1.10 버전부터 지원
 
-### Backend ( META DB )
+## Backend ( META DB )
 
 참고 : [
 Initializing a Database Backend](https://airflow.readthedocs.io/en/stable/howto/initialize-database.html){:target="_blank"}
@@ -93,7 +120,7 @@ SQLite3는 동시 접근이 제한되어 DAG가 병렬처리되지 않고 순차
 
 airflow에서도 MySQL이나 PostgreSQL로 사용할 것을 권장한다. (LocalExecutor부터)
 
-### 옵션설정
+## 옵션설정
 
 참고 : [how to set config](https://airflow.readthedocs.io/en/stable/howto/set-config.html){:target="_blank"}
 
@@ -103,9 +130,11 @@ airflow에서도 MySQL이나 PostgreSQL로 사용할 것을 권장한다. (Local
 3. command in airflow.cfg
 4. Airflow’s built in defaults
 
-Docker로 설치할 경우, bash에서 printenv를 통해 환경변수 확인가능
+- SLA : Service Level Agreements로 제한 시간 내에 task를 수행하는 지에 대한 확인을 하는 용도, default_args에서 설정 가능
 
-#### 보안 관련
+참고 : https://airflow.apache.org/concepts.html#slas
+
+### 보안 관련
 
 [Securing Connections - Airflow document](https://airflow.apache.org/howto/secure-connections.html){:target="_blank"}
 
@@ -113,7 +142,7 @@ airflow는 접속한 비밀번호를 메타데이터에서 그대로 저장하�
 
 [Airflow 보안 설정하기 (with RBAC) - by yahwang]({{site.baseurl}}/posts/86){:target="_blank"}
 
-### 시간정보
+## 시간정보
 
 airflow에서는 **UTC** 시간을 사용한다. TIME ZONE을 설정할 수는 있지만 실제 내부에서는 UTC로 다시 변환하여 처리한다. 
 
@@ -121,7 +150,7 @@ airflow에서는 **UTC** 시간을 사용한다. TIME ZONE을 설정할 수는 �
 
 [Airflow의 시간정보에 대한 정리 - by yahwang]({{site.baseurl}}/posts/87){:target="_blank"}
 
-### Scheduling
+## Scheduling
 
 참고 : https://airflow.apache.org/scheduler.html
 
@@ -144,43 +173,29 @@ timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0,
 |@monthly|'0 0 1 * *'||
 |@yearly|'0 0 1 1 *'||
 
-### Delay_Between_Tasks
+## Delay_Between_Tasks
 
 Airflow는 여러 task로 구성된 DAG에서 task 별로 모니터링할 수 있다.
 
-airflow는 DAG 실행 스케줄은은 정확하게 따르지만 세부 task 사이에는 **delay**가 존재한다.
+airflow는 DAG 실행 스케줄은 정확하게 따르지만 세부 task 사이에는 **delay**가 존재한다.
 
-defeault 설치 후 Sample DAG를 실행할 경우에는 task 간 20초 이상의 delay가 생겼다.
+default 설치 후 Sample DAG를 실행할 경우에는 task 간 20초 이상의 delay가 생겼다.
 
 옵션 변경을 통해 최적화를 해도 몇 초의 delay는 생길 수 밖에 없다. (airflow의 설계와 관련??)
 
-오래 걸리는 task에서 몇 초는 큰 의미가 없기 때문에 이런 task들을 활용할 때 유용한 도구이다.
+오래 걸리는 task에서 몇 초는 큰 의미가 없기 때문에 이런 task들을 활용할 때 유용한 도구이다. 
 
-따라서, task 설계도 주의해야 한다.
-
-아래 참고 외에도 여러 방법이 존재하는 듯하다. (webserver, ...)
+따라서, task 설계도 주의해야 한다. 아래 참고 외에도 여러 방법이 존재하는 듯하다. (webserver, ...)
 
 참고 : [How to reduce airflow dag scheduling latency in production?](https://airflow.apache.org/faq.html#how-to-reduce-airflow-dag-scheduling-latency-in-production){:target="_blank"}
 
-### JINJA템플릿
-
-[Default Variables](https://airflow.apache.org/macros.html){:target="_blank"}
-
-[템플릿 사용 예시](https://diogoalexandrefranco.github.io/about-airflow-date-macros-ds-and-execution-date/){:target="_blank"}
-
-### 기타
-
-- SLA : Service Level Agreements로 제한 시간 내에 task를 수행하는 지에 대한 확인을 하는 용도, default_args에서 설정 가능
-
-참고 : https://airflow.apache.org/concepts.html#slas
-
-### 주의할점
+## 주의할점
 
 1. upstream의 task가 제대로 수행되었는 지에 대해 reliable하지 않다. (오류는 downstream에서 발견되는 경우가 많음) 따라서, 데이터를 check하는 task가 필요할 수 있다.
 
 2. sensor는 일을 하지 않아도 계속 시스템 자원을 차지한다. 많은 sensor가 사용될 경우, 시스템 자원이 낭비되어 다른 스케줄링에 차질이 생길 수 있다.
 
-### Airflow 버전 업데이트 관리
+## Airflow 버전 업데이트 관리
 
 다음 링크에서 버전 업데이트 시 이전 버전과 호환되지 않는 점들에 대해 알 수 있다. 
 - [Updating Aiflow.md](https://github.com/apache/airflow/blob/master/UPDATING.md#updating-airflow){:target="_blank"}
@@ -194,4 +209,7 @@ GCP의 Cloud Composer는 Open source 배포 버전보다 하위 버전으로 제
 * [Apache Airflow with Kubernetes Executor and MiniKube](https://marclamberti.com/blog/airflow-kubernetes-executor/#Apache_Airflow_with_Kubernetes_Executor_Practice){:target="_blank"}
 
 * [Airflow Executors: Explained](https://www.astronomer.io/guides/airflow-executors-explained/){:target="_blank"} - by Astronomer
+
+* [Understanding Apache Airflow’s key concepts](https://medium.com/@dustinstansbury/understanding-apache-airflows-key-concepts-a96efed52b1a){:target="_blank"}
+
 
