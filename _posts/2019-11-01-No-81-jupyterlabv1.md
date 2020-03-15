@@ -43,6 +43,8 @@ Settings 설정을 해주면, 원하는 extension을 검색해서 간단히 설�
 | [jupyterlab/jupyterlab-toc](https://github.com/jupyterlab/jupyterlab-toc){:target="_blank"} | table of contents 기능을 위한 extension|
 | [krassowski/jupyterlab-go-to-definition](https://github.com/krassowski/jupyterlab-go-to-definition){:target="_blank"} | go to definition 기능을 위한 extension |
 |[dnanhkhoa/nb_black](https://github.com/dnanhkhoa/nb_black){:target="_blank"}| black formatter 자동적용을 위한 extension|
+|[hadim/jupyter-archive](https://github.com/hadim/jupyter-archive){:target="_blank"}| 작업중인 폴더 다운로드(zip) 기능을 위한 extension|
+
 
 ### 1. jupyterlab-system-monitor
 
