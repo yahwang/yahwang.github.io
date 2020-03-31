@@ -4,7 +4,7 @@ title: AWS EC2로 Hadoop Cluster 구축하기 - (1)
 date: 2019-04-01 05:00:00 pm
 permalink: posts/62
 description: Hadoop 2.9 Cluster를 AWS EC2 Instance로 구축해본다.
-categories: [Dev, DataOps]
+categories: [Data, DataOps]
 tags: [AWS, EC2, Hadoop]
 ---
 
