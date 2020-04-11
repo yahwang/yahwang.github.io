@@ -1,7 +1,7 @@
 ---
 layout: post
 title: AWS Data Wrangler(Pandas on AWS) 활용하기
-date: 2020-03-31 09:00:00 pm
+date: 2020-04-11 11:00:00 pm
 permalink: posts/90
 description: AWS 서비스의 데이터를 Pandas로 활용하는 AWS Data Wrangler에 대해 알아본다.
 categories: [Data, DataOps]
@@ -10,67 +10,54 @@ tags: [AWS, Pandas, Lambda]
 
 > AWS 서비스의 데이터를 Pandas로 활용하는 AWS Data Wrangler에 대해 알아본다.
 
-<img src="https://aws-data-wrangler.readthedocs.io/en/latest/_images/logo_transparent.png" width="150px">
+<img src="https://raw.githubusercontent.com/awslabs/aws-data-wrangler/1.0.0/docs/source/_static/logo_transparent_small.png">
 <div style="text-align:center;font-size:x-large;">AWS Data Wrangler</div>
 <div style="text-align:center;font-size:x-large;">( Pandas on AWS )</div>
 
 
 <div><i class="fa fa-github fa-lg" aria-hidden="true"></i> &nbsp;<a href="https://github.com/awslabs/aws-data-wrangler" target="_blank" style="font-size:1.3em">awslabs/aws-data-wrangler</a></div>
 
-참고 : 글 작성 기준으로 0.3.2 버전이지만 1.0 버전에 많은 변화가 생긴다고 한다.
-
-    IMPORTANT NOTE: Version 1.0.0 coming soon with several breaking changes.
+참고 : 1.0 버전으로 업그레이드되면서 코드가 전체적으로 변화했다.
 
 ## 사용 가능한 방법
 
-자세한 내용은 github와 공식문서를 통해 확인가능하다.
+추가로 boto3에서 제공하는 일부 API 기능도 제공하고 있다. 자세한 내용은 github와 공식문서를 통해 확인가능하다.
 
-| FROM                     | TO              |
-|--------------------------|-----------------|
-| Pandas        | S3       | 
-| S3                | Pandas |
-| Athena            | Pandas | 
-| Pandas         | Amazon Redshift | 
-| Redshift          | Pandas | 
-| Pandas        | Aurora   |
-| Aurora            | Pandas |  
-| CloudWatch Logs Insights | Pandas |
-| Glue Catalog             | Pandas | 
+![wr_pandas]({{site.baseurl}}/assets/img/dataops/wr_pandas.png)
 
 ### Pandas - S3 활용 예시
 
-boto3와 함께 사용하면 쉽게 사용할 수 있다.
+1.0 버전부터 boto3 session을 필수로 요구하고 있다. 
+
+custom session은 함수마다 지정해야 하며, 그냥 사용할 경우 default user session을 생성해서 처리한다.
 
 ``` python
 import boto3
 import awswrangler as wr
 
-boto_sess = boto3.Session(profile_name="yahwang")
+session = boto3.Session(profile_name="yahwang")
 
-wr_sess = wr.Session(boto3_session=boto_sess)
-
-df = wr_sess.pandas.read_csv("s3://.../csvs/tips.csv")
+df = wr.s3.read_csv("s3://.../csvs/tips.csv", boto3_session=session)
 
 # CSV로 저장
 ## 파일명을 따로 지정해야 하나의 파일로 저장된다.
-wr_sess.pandas.to_csv(df,'s3://yahwang-test/csvs',filename='XXX.csv', header=True, preserve_index=False)
+wr.s3.to_csv(df,path='s3://.../csvs/XXX.csv', header=True, index=False, boto3_session=session)
 
 # parquet로 변환해서 S3에 저장 가능 
-## 한 폴더에 multi-file 형태로 저장된다.
-wr_sess.pandas.to_parquet(df, "s3://.../parquets/tips_parquet", preserve_index=False)
+wr.s3.to_parquet(df, "s3://.../parquets/tips.parquet", index=False, boto3_session=session)
 ```
 
-메모리 제한으로 모든 데이터를 한 번에 읽을 수 없는 경우, pandas에서는 chunksize 옵션을 통해 row 개수로 제한하지만 
+#### Parquet Datasets
 
-AWS Data Wrangler에서는 max_result_size 옵션을 통해 사이즈로 제한할 수 있다.
+Parquet 타입을 활용할 경우, 컬럼 파티션 기능과 append, overwrite, overwrite_partitions (Partition Upsert) 기능을 제공한다.
 
-![wr_size_limit]({{site.baseurl}}/assets/img/dataops/wr_size.png)
+[AWS Data Wrangler - Parquet Datasets](https://github.com/awslabs/aws-data-wrangler/blob/1.0.0/tutorials/04%20-%20Parquet%20Datasets.ipynb){:target="_blank"} 
 
 ## Lambda layer 제공
 
 github releases에서 Lambda layer를 제공한다. layer 안에는 numpy, pandas, pyarrow 등이 들어있다.
 
-<i class="fa fa-github fa-sm" aria-hidden="true"> [aws-data-wrangler - Releases](https://github.com/awslabs/aws-data-wrangler/releases){:target="_blank"} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [Setting Up Lambda Layer](https://aws-data-wrangler.readthedocs.io/en/latest/install.html#setting-up-lambda-layer){:target="_blank"}
+<i class="fa fa-github fa-sm" aria-hidden="true"> [aws-data-wrangler - Releases](https://github.com/awslabs/aws-data-wrangler/releases){:target="_blank"} 
 
 
 ![wr_diagram]({{site.baseurl}}/assets/img/dataops/wr_lambda.png)
@@ -90,9 +77,9 @@ Kinesis Data Analytics에서 S3의 데이터를 reference 테이블 형태로 �
 ``` python
 # rent_api : API로 받은 데이터를 의미
 rent_df = pd.DataFrame(rent_api)
-st_df = wr.pandas.read_csv('s3://yahwang-test/csvs/st_info.csv')
+st_df = wr.s3.read_csv('s3://.../csvs/st_info.csv')
 # indicator 파라미터를 활용한다.
-broken = pd.merge(st_df, rent_df, how='outer', left_on='st_id',right_on='stationId', indicator=True) \
+broken = pd.merge(st_df, rent_df, how='outer', left_on='st_id', right_on='stationId', indicator=True) \
          .loc[:,['st_id','stationId','_merge']]
 ```
 
