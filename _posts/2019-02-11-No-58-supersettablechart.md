@@ -2,6 +2,7 @@
 layout: post
 title: Superset 활용기(4) - 요약 테이블 만들기
 date: 2019-02-11 10:00:00 am
+update: 2020-04-19 00:00:00 am
 permalink: posts/58
 description: apache superset을 활용하여 요약 테이블 차트를 만들어본다.
 categories: [Data, DataViz]
@@ -10,15 +11,14 @@ tags: [Superset]
 
 > apache superset을 활용하여 요약 테이블 차트를 만들어본다.
 
-    superset 0.28.1 기준
+    superset 0.36 기준
 
 superstore sales sample 데이터를 활용하여 작성하였다.
 
 superset으로 tableau처럼 시각화할 수 있다는 생각에 tableau에서 지원하는 기본 시각화 중 테이블 차트를 구현해 보았다.
 
 ![superset_table_1]({{site.baseurl}}/assets/img/viz/superset_table_1.jpg)
-
-이미지 출처 : [www.analyticsvidhya.com/blog/2017/07/data-visualisation-made-easy]()
+*이미지 출처 : [analyticsvidhya.com/blog/2017/07/data-visualisation-made-easy](https://www.analyticsvidhya.com/blog/2017/07/data-visualisation-made-easy/){:target="_blank"}*
 
 다음 그림처럼 연도별로 매출과 이익을 계산해야 한다.
 
@@ -48,10 +48,16 @@ superset에는 **Table View**라는 이름으로 시각화 방법이 있다.
 
 ![superset_table_4]({{site.baseurl}}/assets/img/viz/superset_table_4.jpg)
 
-#### 시리즈
+### 참고 : 컬럼 ALIAS 설정하는 법
 
-* [Superset 활용기(1) - mapbox를 활용한 지도 mapping]({{ site.url }}/posts/44)
-* [Superset 활용기(2) - postgresql과 연동(docker 활용)]({{ site.url }}/posts/45)
-* [Superset 활용기(3) - SQL Lab 활용]({{ site.url }}/posts/50)
-* Superset 활용기(4) - 요약 테이블 만들기
-* [Superset 활용기(5) - 라인 차트 만들기]({{ site.url }}/posts/59)
+기본적으로 Metrics 기능(집계 처리)을 사용할 때 컬럼이 계산식 그대로 노출된다.
+
+컬럼 ALIAS를 사용하기 위해서는 테이블 설정에서 미리 계산식(Metric)에 대해 정의가 필요하다.
+
+Metric과 Verbose Name(옵션)을 활용하고 SQL 계산식만 입력해주면 된다.
+
+![table_metrics_1]({{site.baseurl}}/assets/img/viz/table_metrics_1.png)
+
+`Custom Metric 적용 결과`
+
+![table_metrics_2]({{site.baseurl}}/assets/img/viz/table_metrics_2.png)

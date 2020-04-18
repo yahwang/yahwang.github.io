@@ -40,11 +40,3 @@ superset에서는 Time Grain에 따라 시간단위를 확장하거나 축소해
 특이한 점은 차트 속성에 **Range Filter**가 존재하는데 드래그를 통해 선택한 기간만 차트를 보여줄 수 있다.
 
 ![superset_line_4]({{site.baseurl}}/assets/img/viz/superset_line_4.jpg)
-
-#### 시리즈
-
-* [Superset 활용기(1) - mapbox를 활용한 지도 mapping]({{ site.url }}/posts/44)
-* [Superset 활용기(2) - postgresql과 연동(docker 활용)]({{ site.url }}/posts/45)
-* [Superset 활용기(3) - SQL Lab 활용]({{ site.url }}/posts/50)
-* [Superset 활용기(4) - 요약 테이블 만들기]({{ site.url }}/posts/58)
-* Superset 활용기(5) - 라인 차트 만들기

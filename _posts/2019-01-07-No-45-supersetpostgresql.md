@@ -53,11 +53,3 @@ csv 업로드 방식이나 직접 SQL문으로 테이블을 만들 수도 있고
 차트를 만들어 활용하려면 Sources - tables에서 테이블을 만들어야 한다.
 
 ![superset_postgres_6]({{site.baseurl}}/assets/img/tech/superset_postgres_6.jpg)
-
-#### 시리즈
-
-* [Superset 활용기(1) - mapbox를 활용한 지도 mapping]({{ site.url }}/posts/44)
-* Superset 활용기(2) - postgresql과 연동(docker 활용)
-* [Superset 활용기(3) - SQL Lab 활용]({{ site.url }}/posts/50)
-* [Superset 활용기(4) - 요약 테이블 만들기]({{ site.url }}/posts/58)
-* [Superset 활용기(5) - 라인 차트 만들기]({{ site.url }}/posts/59)

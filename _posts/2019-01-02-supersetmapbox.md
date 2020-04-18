@@ -77,11 +77,3 @@ MAPBOX 시각화의 주 설정은 다음과 같다.
 > mapbox로 단순 mapping에 대해서 살펴보았는데 다른 컬럼을 접목해서 버블 차트처럼 활용이 가능하다면 더 좋을 것 같다.
 
 (그런 예시를 아직 보지 못했다. GEOJSON을 활용하는 방법을 고려해봐야 할 것 같다.)
-
-#### 시리즈
-
-* Superset 활용기(1) - mapbox를 활용한 지도 mapping
-* [Superset 활용기(2) - postgresql과 연동(docker 활용)]({{ site.url }}/posts/45)
-* [Superset 활용기(3) - SQL Lab 활용]({{ site.url }}/posts/50)
-* [Superset 활용기(4) - 요약 테이블 만들기]({{ site.url }}/posts/58)
-* [Superset 활용기(5) - 라인 차트 만들기]({{ site.url }}/posts/59)
