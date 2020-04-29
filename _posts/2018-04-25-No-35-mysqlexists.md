@@ -128,3 +128,5 @@ SELECT * FROM orders WHERE NOT EXISTS
 * [MySQL EXISTS - MySQL Tutorial](https://www.mysqltutorial.org/mysql-exists/){:target="_blank"}
 
 * [EXISTS와 IN, JOIN 비교 블로그](http://mysqlguru.github.io/mysql/2014/05/22/avoid-mysql-in.html){:target="_blank"}
+
+* [SQL Optimizations in PostgreSQL: IN vs EXISTS vs ANY/ALL vs JOIN](https://www.percona.com/blog/2020/04/16/sql-optimizations-in-postgresql-in-vs-exists-vs-any-all-vs-join/){:target="_blank"}

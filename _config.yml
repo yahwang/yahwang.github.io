@@ -11,11 +11,9 @@ author-img: yahwang_logo.png # add your photo
 about-author: Yes to Ambition! # add description
 rss: https://yahwang.github.io/feed.xml
 github: yahwang # add your Github handle
-wiki: yahwang/Data-Engineering-Sources/wiki
+gitbook: https://yahwang.gitbook.io/awesome-data-engineering
 linkedin: # add your Linkedin handle
 email: ts.yahwang@gmail.com # add your Email address
-codesignal: https://app.codesignal.com/profile/yahwang
-dockerhub: https://hub.docker.com/u/yahwang
 notion: https://bit.ly/2OT8w49
 # Disqus
 discus-identifier: yahwang # add your discus identifier

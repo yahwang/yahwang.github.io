@@ -40,10 +40,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 97%;
-    margin: 1%;
     max-width: 800px;
-    padding: 10px;
+    width: auto;
+    margin: 1%;
     background-color: #ffffff;
     box-shadow: 0 1px 1px 0 rgba(31, 35, 46, .15);
     .tipue_search_box{
@@ -51,25 +50,34 @@
     }
     .about {
       text-align: center;
-      max-width: 480px;
       margin: 10px auto auto;
     }
   }
     footer {
       margin-bottom: 10px;
     }
-  
-  .page-content{
-    margin: 1%;
-    max-width: 800px;
-  }
 
   .content-box {
+    max-width: 800px;
     padding: 20px 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: stretch;
+    .article-page{
+      width: auto;
+      .wrap-content{
+        padding:1%;
+      }
+    }
+    .gist{
+      max-width: 800px;
+      width: auto;
+    }
+    .highlight{
+      max-width: 800px;
+      width: auto;
+    }
   }
 
   .tag-cloud, .contact, .copyright{
@@ -79,9 +87,10 @@
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
-  .page-tag, .footer-ad, .main-category, .tipue_search_box{
+  .page-tag, .footer-ad, .main-category {
     display:none;
   }
+  
   .sidebar{
     padding: 0;
     max-width: 480px;
@@ -102,7 +111,9 @@
         height: 60px;
         margin-bottom: 5px;
       }
-      
+    }
+    .tipue_search_box{
+      margin-left:25%;
     }
   }
   
@@ -112,16 +123,19 @@
     max-width: 480px;
     .article-page{
       line-height:1.5;
-      max-width: 97%;
-      .wrap-content{
-        padding:1%;
+      max-width: 99%;
+      .highlight{
+        max-width:480px;
       }
+    }
+    .gist{
+      max-width: 480px;
     }
   }
   
   .post {
     width: 99%;
-    max-width: 100%;
+    max-width: 480px;
     margin: 1%;
     flex-direction: column;
 
@@ -130,7 +144,6 @@
     }
 
     .post-content {
-      width: 100%;
       .post-title {
         margin: 0 0 10px;
         a {
