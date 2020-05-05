@@ -2,7 +2,7 @@
 layout: post
 title: Airflow 기본 정보 (상시 업데이트)
 date: 2019-02-23 10:00:00 pm
-update: 2020-03-13 09:00:00 pm
+update: 2020-05-05 09:00:00 pm
 permalink: posts/airflow
 description: Airflow에 대해 정리한 자료
 categories: [Data, DataOps]
@@ -53,30 +53,6 @@ TaskInstance is a task that has been instantiated and has an **execution_date** 
 [Default Variables](https://airflow.apache.org/macros.html){:target="_blank"}
 
 [템플릿 사용 예시](https://diogoalexandrefranco.github.io/about-airflow-date-macros-ds-and-execution-date/){:target="_blank"}
-
-
-## Variables
-
-참고 : [airflow variables - Apply Data Science](https://www.applydatascience.com/airflow/airflow-variables/){:target="_blank"}
-
-변수를 미리 사용자가 지정하여 DAG를 생성할 때 사용 가능하다.
-
-![airflow_var]({{site.baseurl}}/assets/img/tech/airflow_var.jpg)
-
-
-Variable은 메타 DB에 저장되고 .get 함수를 사용할 때마다 매번 접속을 시도한다. 따라서, 변수를 따로따로 만드는 것은 비효율적이다.
-
-JSON 파일에 수많은 변수들을 저장한 뒤에 사용하는 것이 효율적이다.
-
-``` python
-from airflow.models import Variable
-
-test = Variable.get("test")
-# JSON 파일에서 변수 사용하기
-config = Variable.get("config파일명", deserialize_json=True)
-var1 = config["var1"]
-var2 = config["var2"]
-```
 
 `실행 구조`
 
@@ -152,16 +128,27 @@ airflow에서는 **UTC** 시간을 사용한다. TIME ZONE을 설정할 수는 �
 
 ## Scheduling
 
-참고 : https://airflow.apache.org/scheduler.html
+### Scheduler
 
-DAG 생성 시에 사용하는 schedule_interval 변수에 넣는 value를 통해 스케줄링을 수행
+Scheduler는 interval을 두고 실행할 DAG를 Monitoring한다. ( Airflow는 Streaming 솔루션이 아니다. )
 
-가능한 Value : cron preset / cron expression / datetime.timedelta
+![airflow_heartbeat]({{site.baseurl}}/assets/img/dataops/airflow_heartbeat.png)
 
-참고 : 
+Production 환경에서는 **scheduler_hearbeat_sec**를 60초 이상으로 설정하는 것을 추천한다고 한다.
+
+자세한 정보는 아래 references에서 Airflow Schedule Interval 101을 보는 것을 추천한다.
+
+###  스케줄 설정
+
+`schedule_interval` 설정을 통해 스케줄링을 수행  **cron preset / cron expression / datetime.timedelta**
+
+```
 cron expression : * * * * * (분, 시간, 일, 월, 요일)
 
 timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
+```
+
+[crontab.guru - cron schedule expressions](https://crontab.guru/)
 
 |preset |expression |timedelta |
 |-------|-----------|---------------|
@@ -173,7 +160,21 @@ timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0,
 |@monthly|'0 0 1 * *'||
 |@yearly|'0 0 1 1 *'||
 
-## Delay_Between_Tasks
+참고 : https://airflow.apache.org/scheduler.html
+
+### execution_date와 start_date
+
+Browse - Task Instances에서 보면
+
+execution_date는 스케줄링 된 실행시간을 의미하고 start_date는 실제 task가 실행된 시간을 의미한다.
+
+두 시간에서 gap이 존재하는 이유는 scheduler의 interval 설정, 코드 실행 및 META DB 업데이트하는 데 시간이 필요하기 때문이다.
+
+( 아래 이미지는 interval이 5초로 default 값이 되어 있을 경우이다. )
+
+![airflow_ui_task]({{site.baseurl}}/assets/img/dataops/airflow_execution.png)
+
+### Delay_Between_Tasks
 
 Airflow는 여러 task로 구성된 DAG에서 task 별로 모니터링할 수 있다.
 
@@ -188,6 +189,29 @@ default 설치 후 Sample DAG를 실행할 경우에는 task 간 20초 이상의
 따라서, task 설계도 주의해야 한다. 아래 참고 외에도 여러 방법이 존재하는 듯하다. (webserver, ...)
 
 참고 : [How to reduce airflow dag scheduling latency in production?](https://airflow.apache.org/faq.html#how-to-reduce-airflow-dag-scheduling-latency-in-production){:target="_blank"}
+
+## Variables
+
+참고 : [airflow variables - Apply Data Science](https://www.applydatascience.com/airflow/airflow-variables/){:target="_blank"}
+
+변수를 미리 사용자가 지정하여 DAG를 생성할 때 사용 가능하다.
+
+![airflow_var]({{site.baseurl}}/assets/img/dataops/airflow_var.jpg)
+
+
+Variable은 메타 DB에 저장되고 .get 함수를 사용할 때마다 매번 접속을 시도한다. 따라서, 변수를 따로따로 만드는 것은 비효율적이다.
+
+JSON 파일에 수많은 변수들을 저장한 뒤에 사용하는 것이 효율적이다.
+
+``` python
+from airflow.models import Variable
+
+test = Variable.get("test")
+# JSON 파일에서 변수 사용하기
+config = Variable.get("config파일명", deserialize_json=True)
+var1 = config["var1"]
+var2 = config["var2"]
+```
 
 ## 주의할점
 
@@ -211,5 +235,7 @@ GCP의 Cloud Composer는 Open source 배포 버전보다 하위 버전으로 제
 * [Airflow Executors: Explained](https://www.astronomer.io/guides/airflow-executors-explained/){:target="_blank"} - by Astronomer
 
 * [Understanding Apache Airflow’s key concepts](https://medium.com/@dustinstansbury/understanding-apache-airflows-key-concepts-a96efed52b1a){:target="_blank"}
+
+* [Airflow Schedule Interval 101](https://towardsdatascience.com/airflow-schedule-interval-101-bbdda31cc463){:target="_blank"}
 
 
