@@ -4,7 +4,7 @@ title: AWS Lambda, Docker로 테스트하기 (with Python)
 date: 2019-08-27 01:00:00 am
 permalink: posts/77
 description: AWS Lambda를 사용하기 전 Docker로 테스트하는 법을 알아본다.
-categories: [Data, DevOps]
+categories: [Dev, DevOps]
 tags: [AWS, Lambda, Layer, Python]
 ---
 

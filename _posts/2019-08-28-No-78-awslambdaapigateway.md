@@ -4,7 +4,7 @@ title: AWS Lambda, API Gateway와 연동하기 (with Python)
 date: 2019-08-28 07:00:00 pm
 permalink: posts/78
 description: AWS Lambda와 API Gateway를 연동하는 법을 알아본다.
-categories: [Data, DevOps]
+categories: [Dev, DevOps]
 tags: [AWS, Lambda, API Gateway, Python]
 ---
 

@@ -4,7 +4,7 @@ title: AWS Lambda에서 Slack으로 오류메시지 보내기
 date: 2019-11-11 09:00:00 pm
 permalink: posts/82
 description: AWS Lambda에서 Slack으로 오류메시지를 보내는 법을 알아본다.
-categories: [Data, DevOps]
+categories: [Dev, DevOps]
 tags: [AWS, Lambda, Python, Slack]
 ---
 
