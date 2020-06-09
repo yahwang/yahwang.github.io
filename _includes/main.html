@@ -6,9 +6,7 @@
             src="{{site.url}}/assets/img/{% if site.author-img %}{{site.author-img}}{% endif %}"
             alt="{{site.author}}"></a>
       </div>
-      <div class="author-name">{{site.author}}</div>
 
-      <p style="color:dodgerblue">&laquo; <strong>Y</strong>es to <strong>A</strong>mbition! &raquo;</p>
       {% unless page.title %}
       &ldquo;
       <p>Start as <br> Data Engineer </p>
@@ -31,7 +29,7 @@
   </div>
   {% endif %}
   <footer>
-
+    {% unless page.title %}
     <!-- Category -->
     <section class="main-category">
       <h3 class="title">CATEGORY</h3>
@@ -61,6 +59,7 @@
             class="num">({{site.categories.Note.size}})</span></li>
       </ul>
     </section>
+    {% endunless %}
     <!-- TAG CLOUD 
     <section class="tag-cloud">
       <h3 class="title">TAG Cloud</h3>

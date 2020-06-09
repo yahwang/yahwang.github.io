@@ -2,7 +2,7 @@
 layout: post
 title: SQL로 CSV 파일 업로드해 테이블로 만들기
 date: 2019-01-17 11:00:00 pm
-update: 2019-11-04 10:00:00 pm
+update: 2020-05-15 00:00:00 am
 permalink: posts/47
 description: SQL에서 CSV 파일을 업로드해 테이블로 만드는 방법을 알아본다.
 categories: [Data, SQL]
@@ -47,8 +47,9 @@ SELECT @@GLOBAL.secure_file_priv;
 MySQL을 다시 실행하면 ( service mysql restart ), SQL문으로 테이블에 데이터를 업로드할 수 있다.
 
 ``` sql
-LOAD DATA INFILE '/home/tips.csv' (파일명) INTO TABLE tips (테이블명)
+LOAD DATA INFILE '/home/tips.csv' INTO TABLE tips
 FIELDS TERMINATED BY ',' ENCLOSED BY '"' ESCAPED BY '"' LINES TERMINATED BY '\n' IGNORE 1 ROWS;
+-- 컬럼 지정이 필요할 경우엔 제일 마지막에 ( col1, col2, ...) 입력한다.
 -- IGNORE 1 ROWS는 컬럼명인 header를 무시한다는 의미
 ```
 
@@ -69,7 +70,7 @@ docker를 활용해도 로컬에 있는 CSV파일을 제약조건에 관계없�
 PostgreSQL은 제약조건없이 바로 SQL문을 활용해 업로드할 수 있다.
 
 ``` sql
-COPY tips (테이블명) FROM '/home/tips.csv' DELIMITER ',' CSV HEADER;
+COPY tips FROM '/home/tips.csv' DELIMITER ',' CSV HEADER;
 -- CSV : 파일 포맷을 의미 / HEADER : HEADER LINE 제외한다는 의미
 ```
 
