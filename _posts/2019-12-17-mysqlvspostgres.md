@@ -2,7 +2,7 @@
 layout: post
 title: MySQL과 PostgreSQL Query 차이점 정리
 date: 2019-12-17 02:00:00 am
-update: 2020-02-06 11:00:00 pm
+update: 2020-07-09 11:00:00 pm
 permalink: posts/mysql-vs-postgres
 description: MySQL과 PostgreSQL Query의 차이점을 정리해본다.
 categories: [Data, SQL]
@@ -84,6 +84,17 @@ SELECT "HELLO"; -- => HELLO
 SELECT "HELLO"; -- => Syntax Error
 SELECT 'HELLO'; -- => HELLO
 SELECT 'HELLO' AS "Postgres String";
+```
+
+문자열 안에 작은 따옴표가 들어가야 할 경우, **''** 형태로 사용하면 된다.
+
+``` sql
+-- PostgreSQL
+SELECT 'yahwang''s blog'; -- => yahwang's blog
+
+-- MySQL - 큰 따옴표 활용 가능
+SELECT "yahwang's blog";
+SELECT 'yahwang''s blog';
 ```
 
 참고 : PostgreSQL은 기본적으로 모든 identifier(컬럼명 등)를 lower-case(소문자)로 인식한다.
