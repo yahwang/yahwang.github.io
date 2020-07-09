@@ -3,7 +3,7 @@ layout: post
 title: JupyterLab에서 유용한 extensions
 permalink: posts/81
 date: 2019-11-02 02:00:00 am
-update: 2019-12-31 02:00:00 am
+update: 2020-07-09 06:00:00 pm
 description: JupyterLab 1.0 버전 이후로 유용한 extension을 소개한다.
 categories : [Dev, DevOps]
 tags: [Jupyter, extensions]
@@ -90,7 +90,33 @@ c.NotebookApp.ResourceUseDisplay.mem_limit= (Size Of GB) *1024*1024*1024
 
 [Post - JupyterLab과 GoogleDrive 연동하기]({{site.baseurl}}/posts/38){:target="_blank"}
 
-### 3. jupyterlab-github
+### 3. nbdime - Diff and Merge tool
+
+[github.com/jupyter/nbdime](https://github.com/jupyter/nbdime){:target="_blank"}
+
+Notebook 파일로 Diff and Merge 기능을 제공해준다.
+
+    2.0.0 기준
+
+``` python
+pip install nbdime
+jupyter serverextension enable --py nbdime
+jupyter labextension install nbdime-jupyterlab
+```
+
+- nbdiff 명령어로 수정한 내용을 확인 가능
+
+![nbdime_1]({{site.baseurl}}/assets/img/devops/jupyter_nbdime_1.png)
+
+- git repo를 사용하면 git의 정보와 현재 저장한 노트북을 비교 가능
+
+![nbdime_2]({{site.baseurl}}/assets/img/devops/jupyter_nbdime_2.png)
+
+
+
+참고 : [Working with nbdime - in JupyterLab Quick Start Guide](https://books.google.co.kr/books?id=1HvGDwAAQBAJ&pg=PA135&lpg=PA135&dq=nbdime+jupyterlab&source=bl&ots=yGS4qGQ2-g&sig=ACfU3U2d0uztH_KtnIi6PNnfsJTAm5pfFw&hl=ko&sa=X&ved=2ahUKEwii3Yzg0L3qAhXhIqYKHQnbAKIQ6AEwBnoECAoQAQ#v=onepage&q=nbdime%20jupyterlab&f=false){:target="_blank"}
+
+### 4. jupyterlab-github
 
 [github.com/jupyterlab/jupyterlab-github](https://github.com/jupyterlab/jupyterlab-github){:target="_blank"}
 
@@ -104,7 +130,7 @@ github에 올린 노트북 파일을 참고하는 용도로 적합하다. github
 
 ![jupyter_ext_3]({{site.baseurl}}/assets/img/devops/jupyter_ext_3.png)
 
-### 4. lckr/jupyterlab_variableinspector
+### 5. lckr/jupyterlab_variableinspector
 
 [github.com/lckr/jupyterlab-variableInspector](https://github.com/lckr/jupyterlab-variableInspector){:target="_blank"}
 
@@ -122,7 +148,7 @@ Name을 클릭하면 array나 dataframe은 value를 테이블 형태로 확인�
 
 ![jupyter_ext_4]({{site.baseurl}}/assets/img/devops/jupyter_ext_4.png)
 
-### 5. pbugnion/jupyterlab-sql
+### 6. pbugnion/jupyterlab-sql
 
 [github.com/pbugnion/jupyterlab-sql](https://github.com/pbugnion/jupyterlab-sql){:target="_blank"}
 
