@@ -3,7 +3,7 @@ layout: post
 title: JupyterLab에서 유용한 extensions
 permalink: posts/81
 date: 2019-11-02 02:00:00 am
-update: 2020-07-09 06:00:00 pm
+update: 2020-07-14 10:00:00 pm
 description: JupyterLab 1.0 버전 이후로 유용한 extension을 소개한다.
 categories : [Dev, DevOps]
 tags: [Jupyter, extensions]
@@ -45,6 +45,17 @@ Settings 설정을 해주면, 원하는 extension을 검색해서 간단히 설�
 |[dnanhkhoa/nb_black](https://github.com/dnanhkhoa/nb_black){:target="_blank"}| black formatter 자동적용을 위한 extension|
 |[hadim/jupyter-archive](https://github.com/hadim/jupyter-archive){:target="_blank"}| 작업중인 폴더 다운로드(zip) 기능을 위한 extension|
 
+
+
+#### 0-1. jupyterlab-execute-time
+
+[github.com/deshaw/jupyterlab-execute-time](https://github.com/deshaw/jupyterlab-execute-time){:target="_blank"}
+
+    1.0.0 기준
+
+셀을 실행한 시간과 경과한 시간을 확인할 수 있다. 설치 후 settings에서 recordTiming을 true로 설정해야 한다.
+
+![jupyter_exec_time]({{site.baseurl}}/assets/img/devops/jupyter_exec_time.png)
 
 ### 1. jupyterlab-system-monitor
 
