@@ -2,16 +2,26 @@
 layout: post
 title: pymysql(MySQL)과 psycopg2(PostgreSQL) 사용하기
 date: 2019-04-08 10:00:00 pm
-update: 2019-09-14 07:00:00 pm
+update: 2020-07-28 09:00:00 pm
 permalink: posts/66
-description: Python에서 SQL client 라이브러리인 pymysql(MySQL)과 psycopg2(PostgreSQL) 사용법을 알아본다.
+description: Python SQL client 라이브러리인 pymysql(MySQL)과 psycopg2(PostgreSQL) 사용법을 알아본다.
 categories: [Data, SQL]
 tags: [pymysql, psycopg2, copy_from, Python, StringIO]
 ---
 
-> Python에서 SQL client 라이브러리인 pymysql(MySQL)과 psycopg2(PostgreSQL) 사용법을 알아본다.
+> Python SQL client 라이브러리인 pymysql(MySQL)과 psycopg2(PostgreSQL) 사용법을 알아본다.
+
+## 0. 알아두어야 할 내용
+
+pymysql은 순수 python으로만 만들어져 있어 mysql 연결 시 C compiler와 추가 라이브러리 설치를 요구하지 않는다.
+
+psycopg2의 경우, psycopg2-binary로 설치하면 pymysql처럼 추가 설치 없이 PosgresSQL에 연결할 수 있다.
+
+production 환경 또는 성능이 중요한 경우, **mysqlclient**와 **psycopg2**를 사용하기를 권장한다.
 
 ## pymysql - mysql client for python
+
+설치 : pip install PyMySQL
 
 ### 데이터 읽기
 
@@ -395,7 +405,7 @@ connection.close() # connection 종료
 
 ## psycopg2 - postgresql client for python
 
-#### 설치 : pip install psycopg2-binary
+설치 : pip install psycopg2
 
 기본적인 사용법은 pymysql과 동일하다.
 
