@@ -2,7 +2,7 @@
 layout: post
 title: MySQL과 PostgreSQL Query 차이점 정리
 date: 2019-12-17 02:00:00 am
-update: 2020-07-09 11:00:00 pm
+update: 2020-08-04 11:00:00 pm
 permalink: posts/mysql-vs-postgres
 description: MySQL과 PostgreSQL Query의 차이점을 정리해본다.
 categories: [Data, SQL]
@@ -72,9 +72,72 @@ CREATE TABLE table_name(
     ...
 ```
 
+### *PostgreSQL* 은 정수 / 정수를 정수로 계산한다.
+
+타입 캐스트 또는 하나를 실수로 바꾸면 소수점 계산이 가능하다.
+
+``` sql
+SELECT 100 / 3;
+
+-- 해결방법
+SELECT CAST(100 AS float) / 3;
+SELECT 100.0 / 3; 
+```
+
+### 문자열을 숫자 타입으로 변환하는 방법
+
+MySQL은 정수(Integer)타입으로 변환 시 SIGNED(-포함) 혹은 UNSIGNED 타입을 요구한다.
+
+실수 타입은 DECIMAL 타입으로 하고 자리 수 설정까지 해야 한다. PostgreSQL은 같은 용도로 Numeric 타입이 있다.
+
+``` sql
+-- INTEGER
+SELECT CAST('777' AS UNSIGNED);
+SELECT CAST('-777' AS SIGNED);
+
+-- FLOAT(DOUBLE)
+-- DECIMAL(M, D) M은 총 자리 수 D는 소수 점 자리수를 의미한다.
+SELECT CAST('77.77' as DECIMAL(4, 2));
+```
+
+``` sql
+-- INTEGER
+SELECT CAST('777' AS INTEGER);
+SELECT '-777'::INTEGER;
+
+-- FLOAT(DOUBLE)
+SELECT CAST('77.77' AS FLOAT);
+SELECT CAST('77.77' AS DOUBLE PRECISION);
+SELECT CAST('77.77' as NUMERIC(4, 2));
+```
+
+### *MySQL* 은 문자열을 숫자 타입으로 변환 시 오류를 알려주지 않는다.
+
+PostgreSQL은 오류를 바로 나타내는 반면, MySQL은 값을 0으로 바꿔버려서 주의가 필요하다.
+
+참고 : Hive는 NULL로 표현한다고 한다.
+
+``` sql
+-- MySQL
+SELECT CAST('DBDFD' AS SIGNED); -- => 0
+```
+
+### *MySQL* 은 문자열 비교 시 case-insensitive하다.
+
+case-insensitive는 대소문자를 구분하지 않는다는 의미이다. **LIKE**를 사용할 때도 MySQL과 PostgreSQL 방식이 다르다.
+
+참고 : [SQL에서 패턴을 찾아주는 LIKE 활용하기](https://yahwang.github.io/posts/30){:target="_blank"}
+
+``` sql
+SELECT 'Hello' =  'hello' -- => True
+
+-- PostgreSQL => case-sensitive
+SELECT 'Hello' =  'hello' -- => False
+```
+
 ### *PostgreSQL* 은 작은 따옴표 / 큰 따옴표 사용을 명확히 구분
 
-작은 따옴표(single quote)는 string을 표현하고 큰 따옴표(double quotes)는 컬럼명과 같은 identifier 네이밍에 활용된다.
+작은 따옴표(single quote)는 string을 표현하고 큰 따옴표(double quotes)는 컬럼명과 테이블명 같은 identifier 네이밍에 활용된다.
 
 ``` sql
 -- MySQL
@@ -97,21 +160,9 @@ SELECT "yahwang's blog";
 SELECT 'yahwang''s blog';
 ```
 
-참고 : PostgreSQL은 기본적으로 모든 identifier(컬럼명 등)를 lower-case(소문자)로 인식한다.
+**PostgreSQL은 기본적으로 모든 identifier를 lower-case(소문자)로 인식한다.**
 
-컬럼명에 대문자가 있다면 "first_Name"처럼 큰 따옴표(double quotes)를 사용해야 한다.
-
-### *PostgreSQL* 은 정수 / 정수를 정수로 계산한다.
-
-타입 캐스트 또는 하나를 실수로 바꾸면 소수점 계산이 가능하다.
-
-``` sql
-SELECT 100 / 3;
-
--- 해결방법
-SELECT CAST(100 AS float) / 3;
-SELECT 100.0 / 3; 
-```
+테이블명이나 컬럼명에 대문자가 있다면 "first_Name"처럼 큰 따옴표(double quotes)를 사용해야 한다. (생성할 때도 포함)
 
 ### *PostgreSQL* 은 오른쪽 공백이 들어간 문자를 다르게 인식한다.
 
@@ -183,3 +234,7 @@ SELECT IFNULL(NULL, 'IS NULL');
 -- PostgreSQL 
 SELECT COALESCE(NULL, 'IS NULL');
 ```
+
+`References` : 
+
+* [The Curious Case of MySQL, PostgreSQL, and Hive](https://towardsdatascience.com/the-curious-case-of-mysql-postgresql-and-hive-9e7cae9e52f4){:target="_blank"}
