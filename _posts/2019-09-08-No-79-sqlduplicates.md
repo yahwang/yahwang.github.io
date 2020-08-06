@@ -1,11 +1,12 @@
 ---
 layout: post
 title: SQL로 중복 데이터 확인 및 삭제하기
-date: 2019-09-08 05:00:00 pm
+date : 2019-09-08 05:00:00 pm
+update: 2020-08-06 06:00:00 pm
 permalink: posts/79
 description: SQL로 중복 데이터를 확인 및 삭제하는 법을 알아본다.
 categories: [Data, SQL]
-tags: [PostgreSQL, MySQL, duplicates]
+tags: [PostgreSQL, MySQL, duplicates, DELETE JOIN]
 ---
 
 > SQL로 중복 데이터를 확인 및 삭제하는 법을 알아본다.
@@ -86,59 +87,42 @@ ORDER BY first_name; -- 단순 정렬 용도
 ``` sql
 DELETE FROM contacts
 WHERE id IN (SELECT id
-             FROM ( SELECT id, ROW_NUMBER() OVER (PARTITION BY first_name, last_name, email) as row_num
-                    FROM contacts ) a
+             FROM ( 
+                 SELECT id, ROW_NUMBER() OVER (PARTITION BY first_name, last_name, email) as row_num
+                 FROM contacts 
+                 ) tmp
              WHERE row_num > 1);
 ```
 
-### MySQL 5
+[DB Fiddle - MySQL 8 에서 확인](https://www.db-fiddle.com/f/uxCSKY7VZ4taXzuHp9FPRp/1){:target="_blank"}
 
-중복 데이터 확인 쿼리에 **DISTINCT**를 추가해서 활용했다.
+### MySQL 5
 
     삭제할 데이터 id 확인
 
-``` sql
--- IN subquery 버전
-SELECT *
-FROM contacts
-WHERE (first_name, last_name, email) IN ( SELECT DISTINCT first_name, last_name, email
-                                          FROM contacts
-                                          GROUP BY email, first_name, last_name
-                                          HAVING COUNT(email) > 1 AND COUNT(first_name) > 1 
-                                                 AND COUNT(last_name) > 1)
-ORDER BY first_name;
+SELF JOIN을 통해 중복된 row의 id를 확인하는 방법이지만 결과를 보면 데이터가 오히려 중복되어 더 생기는 현상이 있다. (삭제 쿼리에 활용할 경우, 문제는 없어보임)
 
--- JOIN 버전
-SELECT a.*
-FROM contacts a
-JOIN (SELECT DISTINCT first_name, last_name, email
-      FROM contacts
-      GROUP BY email, first_name, last_name
-      HAVING COUNT(email) > 1 AND COUNT(first_name) > 1 AND COUNT(last_name) > 1) b
-ON a.first_name=b.first_name AND a.last_name=b.last_name AND a.email=b.email
-ORDER BY a.first_name;
+``` sql
+SELECT t2.*
+FROM contacts t1 JOIN contacts t2
+ON t1.first_name=t2.first_name AND t1.last_name=t2.last_name AND t1.email=t2.email
+WHERE t1.id < t2.id;
 ```
 
-[DB Fiddle - MySQL 5 에서 확인](https://www.db-fiddle.com/f/mHRDZMqTD6hbiq21k7gW2c/0){:target="_blank"}
+[DB Fiddle - MySQL 5 에서 확인](https://www.db-fiddle.com/f/bZyWoSx1sDEjHw3Rb6wPaz/1){:target="_blank"}
 
     데이터 삭제 쿼리
 
-MIN 함수를 활용해서 남길 데이터를 제외한 id를 NOT IN으로 처리하였다.
-
-참고 : MySQL은 DELETE 시 자체 데이터를 바로 사용 못하는 이유로 아래 Error reference를 참고했다.
+MySQL에서 지원하는 **DELETE JOIN** 방식을 활용한다.
 
 ``` sql
-DELETE FROM contacts
-WHERE id NOT IN ( SELECT *
-                  FROM (SELECT MIN(id)
-                        FROM contacts
-                        WHERE (first_name,last_name,email) IN ( SELECT DISTINCT first_name, last_name, email
-                                                                FROM contacts
-                                                                GROUP BY email, first_name, last_name
-                                                                HAVING COUNT(email) > 1 AND COUNT(first_name) > 1 
-                                                                       AND COUNT(last_name) > 1)
-                        GROUP BY first_name, last_name, email) tmp);
+DELETE t2 FROM contacts t1 
+JOIN contacts t2
+ON t1.first_name=t2.first_name AND t1.last_name=t2.last_name AND t1.email=t2.email
+WHERE t1.id < t2.id;
 ```
+
+[DB Fiddle - MySQL 5 에서 확인](https://www.db-fiddle.com/f/4s9gf42vvSG6v6KikpDyFP/0){:target="_blank"}
 
 `References` : 
 
@@ -146,5 +130,5 @@ WHERE id NOT IN ( SELECT *
 
 * [How To Delete Duplicate Rows in MySQL - MySQLTUTORIAL](http://www.mysqltutorial.org/mysql-delete-duplicate-rows/){:target="_blank"}
 
-* [MySQL Error 1093 : You can't specify target table ...](https://www.lesstif.com/display/DBMS/MySQL+Error+1093+%3A+You+can%27t+specify+target+table+%27cwd_group%27+for+update+in+FROM+clause){:target="_blank"}
+* [MySQL DELETE JOIN - MySQLTUTORIAL](https://www.mysqltutorial.org/mysql-delete-join/){:target="_blank"}
 
