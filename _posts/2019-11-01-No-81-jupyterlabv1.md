@@ -3,7 +3,7 @@ layout: post
 title: JupyterLab에서 유용한 extensions
 permalink: posts/81
 date: 2019-11-02 02:00:00 am
-update: 2020-07-14 10:00:00 pm
+update: 2020-08-06 10:00:00 pm
 description: JupyterLab 1.0 버전 이후로 유용한 extension을 소개한다.
 categories : [Dev, DevOps]
 tags: [Jupyter, extensions]
@@ -43,7 +43,9 @@ Settings 설정을 해주면, 원하는 extension을 검색해서 간단히 설�
 | [jupyterlab/jupyterlab-toc](https://github.com/jupyterlab/jupyterlab-toc){:target="_blank"} | table of contents 기능을 위한 extension|
 | [krassowski/jupyterlab-go-to-definition](https://github.com/krassowski/jupyterlab-go-to-definition){:target="_blank"} | go to definition 기능을 위한 extension |
 |[dnanhkhoa/nb_black](https://github.com/dnanhkhoa/nb_black){:target="_blank"}| black formatter 자동적용을 위한 extension|
+|[kiteco/jupyterlab-kite](https://github.com/kiteco/jupyterlab-kite){:target="_blank"}| Kite Autocomplete Extension for JupyterLab |
 |[hadim/jupyter-archive](https://github.com/hadim/jupyter-archive){:target="_blank"}| 작업중인 폴더 다운로드(zip) 기능을 위한 extension|
+
 
 
 
