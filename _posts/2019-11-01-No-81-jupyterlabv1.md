@@ -21,6 +21,8 @@ tags: [Jupyter, extensions]
 
 jupyterlab extension을 설치하기 위해서는 **nodejs**가 필수로 설치되어 있어야 한다.
 
+참고 : [How to Install Node.js and npm on Ubuntu 20.04 & 18.04](https://websiteforstudents.com/how-to-install-node-js-and-npm-on-ubuntu-20-04-18-04/){:target="_blank"}
+
 `CLI를 통한 설치`
 
 ```bash
