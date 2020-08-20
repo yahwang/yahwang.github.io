@@ -2,6 +2,7 @@
 layout: post
 title: AWS EC2, GCP VM Instance에 SSH로 접속하기 with Ubuntu
 date: 2020-07-22 01:00:00 am
+update: 2020-08-20 10:00:00 am
 permalink: posts/93
 description: AWS EC2, GCP VM Instance에 SSH로 접속하는 법을 간단히 정리한다.
 categories: [Dev, DevOps]
@@ -10,7 +11,13 @@ tags: [ssh, AWS, GCP]
 
 > AWS EC2, GCP VM Instance에 SSH로 접속하는 법을 간단히 정리한다.
 
+    주의
+
+이 방법은 보안이슈가 생길 수 있기 때문에 실무환경보다는 테스트환경에서 사용하기 쉬운 방법이다.
+
 ## AWS EC2에 접속
+
+### 0. AWS Private Key 사용하는 법
 
 먼저, EC2 생성 시에 Key pair를 생성하고 Private Key를 발급받는다. Security Group(보안그룹) 설정 시 IP를 원하는 대로 설정한다.
 
@@ -39,6 +46,44 @@ ssh -i ~/aws_ec2_test.pem ubuntu@[Public DNS or IP]
 참고로, user(owner)만 읽을 수 있도록 권한이 변경된다.
 
 ![aws_ssh_3]({{site.baseurl}}/assets/img/aws/ssh_aws_3.png)
+
+### 1. EC2 INSTANCE CONNECT
+
+만약, EC2 Instance를 여러 사람이 공유하는 경우, Private Key를 공유해야 하는 보안 이슈가 생길 수 있다.
+
+EC2 INSTANCE CONNECT 방식은 AWS CLI를 활용해 IAM과 연동하여 접속할 수 있다.
+
+추가해야 할 IAM 권한은 아래 reference 링크에서 확인할 수 있다.
+
+이 방식은 매번 임시의 SSH KEY를 발급해 등록 후 사용하는 방식이라고 한다. 
+
+먼저, SSH를 통해 **인스턴스**에 접근 후 인스턴스용 패키지를 설치해야 한다.
+
+[ Install EC2 Instance Connect on an instance - AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-set-up.html#ec2-instance-connect-install){:target="_blank"}
+
+``` python
+# Ubuntu의 경우
+sudo apt update
+sudo apt upgrade
+sudo apt install ec2-instance-connect
+```
+
+**로컬 PC**에 EC2 CLI CONNECT 패키지를 설치한다.
+
+``` python
+pip install ec2instancecli
+```
+
+**mssh**라는 명령어를 통해 EC2 instance에 접근한다. ( 별도의 mssh 패키지가 아니다.)
+
+``` python
+mssh ubuntu@[instance ID]
+
+# scp 역할을 하기 위해 다음처럼 활용
+rsync -a -e mssh [로컬 파일] ubuntu@[instance ID]:/home/ubuntu/[파일명]
+```
+
+![aws_ec2connect]({{site.baseurl}}/assets/img/aws/aws_ec2connect.png)
 
 ## GCP VM Instance에 접속
 
@@ -101,6 +146,12 @@ ssh aws_ssh
 
 
 `References` : 
+
+* [Set up EC2 Instance Connect - AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-set-up.html){:target="_blank"}
+
+
+* [EC2 CLI CONNECT scp 해결 이슈](https://github.com/aws/aws-ec2-instance-connect-cli/issues/1){:target="_blank"}
+
 
 * [Managing SSH keys in metadata - GCP 설명서](https://cloud.google.com/compute/docs/instances/adding-removing-ssh-keys#linux-and-macos_1){:target="_blank"}
 
