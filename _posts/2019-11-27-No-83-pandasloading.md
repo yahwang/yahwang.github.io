@@ -2,7 +2,7 @@
 layout: post
 title: Pandas에서 CSV 데이터를 빠르게 읽기 (with. Apache Arrow, Parquet)
 date: 2019-11-27 01:00:00 am
-update: 2020-01-08 01:00:00 am
+update: 2020-09-03 01:00:00 am
 permalink: posts/83
 description: Pandas에서 CSV 데이터를 빠르게 읽는 법을 알아본다.
 categories: [Data, ETL]
@@ -87,6 +87,21 @@ convert_opts = csv.ConvertOptions(column_types={'st_cradle': pa.uint8(), 'st_id'
 
 df_typed = csv.read_csv('bike_data.csv', convert_options=convert_opts).to_pandas()
 ```
+
+#### 추가 옵션
+
+include_columns : 읽을 컬럼명만 지정
+
+strings_can_be_null : True -  Nan이 아닌 빈 데이터를 **None**으로 처리 (np.nan이 아님) / False(default) - 공백(' ')으로 처리
+
+``` python
+convert_opts = csv.ConvertOptions(
+    ... ,
+    include_columns = ["st_cradle", "st_id"],
+    strings_can_be_null = True
+    )
+```
+
 
 추가 파라미터 관련 : [pyarrow.csv.read_csv Parameter](https://arrow.apache.org/docs/python/generated/pyarrow.csv.read_csv.html){:target="_blank"}
 
