@@ -12,6 +12,7 @@ _site/
 */.ipynb_checkpoints/
 chromedriver.exe
 drafts/
+tmp/*
 
 ### macOS ###
 *.DS_Store

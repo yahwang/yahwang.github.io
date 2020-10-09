@@ -140,6 +140,9 @@ glueContext = GlueContext(SparkContext.getOrCreate())
 
 `References` : 
 
+* [Building an AWS Glue ETL pipeline locally without an AWS account](https://aws.amazon.com/blogs/big-data/building-an-aws-glue-etl-pipeline-locally-without-an-aws-account/){:target="_blank"}
+
 * [Developing AWS Glue ETL jobs locally using a container](https://aws.amazon.com/ko/blogs/big-data/developing-aws-glue-etl-jobs-locally-using-a-container/){:target="_blank"}
+
 
 * [Connect Jupyter Notebook to AWS Glue Endpoint](https://medium.com/explore-ml/connect-jupyter-notebook-to-aws-glue-endpoint-f5fc78b4e00){:target="_blank"}
