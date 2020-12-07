@@ -11,7 +11,7 @@ tags: [AWS, Lambda, Layer, Python]
 > AWS Lambda를 사용하기 전 Docker로 테스트하는 법을 알아본다.
 
 
-#### [docker-lambda](https://hub.docker.com/r/lambci/lambda){:target="_blank"}라는 유용한 도커 이미지가 존재한다.
+[docker-lambda](https://hub.docker.com/r/lambci/lambda){:target="_blank"}라는 유용한 도커 이미지가 존재한다.
 
 ![lambda_docker_0]({{site.baseurl}}/assets/img/dataops/lambdadocker_0.png)
 
