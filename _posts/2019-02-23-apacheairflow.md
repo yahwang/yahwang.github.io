@@ -2,7 +2,7 @@
 layout: post
 title: Airflow 기본 정보 (상시 업데이트)
 date: 2019-02-23 10:00:00 pm
-update: 2020-05-05 09:00:00 pm
+update: 2020-12-13 03:00:00 pm
 permalink: posts/airflow
 description: Airflow에 대해 정리한 자료
 categories: [Data, DataOps]
@@ -134,7 +134,7 @@ Scheduler는 interval을 두고 실행할 DAG를 Monitoring한다. ( Airflow는 
 
 ![airflow_heartbeat]({{site.baseurl}}/assets/img/dataops/airflow_heartbeat.png)
 
-Production 환경에서는 **scheduler_hearbeat_sec**를 60초 이상으로 설정하는 것을 추천한다고 한다.
+Production 환경에서는 **scheduler_heartbeat_sec**를 60초 이상으로 설정하는 것을 추천한다고 한다.
 
 자세한 정보는 아래 references에서 Airflow Schedule Interval 101을 보는 것을 추천한다.
 
@@ -160,17 +160,20 @@ timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0,
 |@monthly|'0 0 1 * *'||
 |@yearly|'0 0 1 1 *'||
 
-참고 : https://airflow.apache.org/scheduler.html
+참고 : [https://airflow.apache.org/scheduler.html](https://airflow.apache.org/scheduler.html){:target="_blank"}
+
+airflow 스케줄과 execution_date
+
 
 ### execution_date와 start_date
 
-Browse - Task Instances에서 보면
+execution_date는 스케줄링 된 실행시간을 의미하고 start_date는 실제 dagrun이 실행된 시간을 의미한다.
 
-execution_date는 스케줄링 된 실행시간을 의미하고 start_date는 실제 task가 실행된 시간을 의미한다.
+일반적으로, hourly 스케줄이 적용된 DAG 중 11시에 스케줄링 된 task는 실제로는 12시에 실행된다. **( + 1 interval )**
 
-두 시간에서 gap이 존재하는 이유는 scheduler의 interval 설정, 코드 실행 및 META DB 업데이트하는 데 시간이 필요하기 때문이다.
+추가적인 gap이 존재하는 이유는 scheduler의 interval 설정, 코드 실행 및 META DB 업데이트하는 데 시간이 필요하기 때문이다.
 
-( 아래 이미지는 interval이 5초로 default 값이 되어 있을 경우이다. )
+( 아래 이미지는 스케줄링이 적용되지 않았고 interval이 5초로 default 값이 되어 있을 경우이다. )
 
 ![airflow_ui_task]({{site.baseurl}}/assets/img/dataops/airflow_execution.png)
 
