@@ -85,7 +85,12 @@ from pyarrow import csv
 # 데이터 타입에 ()을 항상 명시
 convert_opts = csv.ConvertOptions(column_types={'st_cradle': pa.uint8(), 'st_id': pa.uint16()})
 
-df_typed = csv.read_csv('bike_data.csv', convert_options=convert_opts).to_pandas()
+# header가 없는 경우, 컬럼명 지정 가능
+read_opts = csv.ReadOptions(
+    column_names=['register_at', 'st_cradle','st_id'])
+
+df_typed = csv.read_csv('bike_data.csv', convert_options=convert_opts, 
+                        read_options=read_opts).to_pandas()
 ```
 
 #### 추가 옵션
