@@ -2,7 +2,7 @@
 layout: post
 title: SQL로 중복 데이터 확인 및 삭제하기
 date : 2019-09-08 05:00:00 pm
-update: 2020-08-06 06:00:00 pm
+update: 2021-01-26 00:00:00 am
 permalink: posts/79
 description: SQL로 중복 데이터를 확인 및 삭제하는 법을 알아본다.
 categories: [Data, SQL]
@@ -51,6 +51,38 @@ HAVING COUNT(email) > 1 AND COUNT(first_name) > 1 AND COUNT(last_name) > 1;
 
 중복 데이터를 삭제하기 위해서는 먼저 남길 데이터를 제외한 데이터를 구분할 컬럼(e.g. id)의 값을 구해야 한다.
 
+### MySQL 5
+
+    삭제할 데이터 id 확인
+
+SELF JOIN을 통해 중복된 row의 id를 확인하는 방법이지만 결과를 보면 데이터가 오히려 중복되어 더 생기는 현상이 있다. 
+
+(삭제 쿼리에 활용할 경우, 문제는 없어보임)
+
+``` sql
+SELECT t1.*
+FROM contacts t1 JOIN contacts t2
+ON t1.first_name=t2.first_name AND t1.last_name=t2.last_name AND t1.email=t2.email
+WHERE t1.id > t2.id;
+```
+
+[DB Fiddle - MySQL 5 에서 확인](https://www.db-fiddle.com/f/bZyWoSx1sDEjHw3Rb6wPaz/2){:target="_blank"}
+
+    데이터 삭제 쿼리
+
+MySQL에서 지원하는 **DELETE JOIN** 방식을 활용한다.
+
+contacts(t1) 테이블에서 FROM 절 이후 JOIN된 결과에 해당하는 ROW들을 삭제한다는 의미이다.
+
+``` sql
+DELETE t1 FROM contacts t1 
+JOIN contacts t2
+ON t1.first_name=t2.first_name AND t1.last_name=t2.last_name AND t1.email=t2.email
+WHERE t1.id > t2.id;
+```
+
+[DB Fiddle - MySQL 5 에서 확인](https://www.db-fiddle.com/f/4s9gf42vvSG6v6KikpDyFP/2){:target="_blank"}
+
 ### PostgreSQL & MySQL 8
 
 WINDOW FUNCTION을 지원하는 경우, **ROW_NUMBER**를 활용하여 처리할 수 있다.
@@ -82,7 +114,9 @@ ORDER BY first_name; -- 단순 정렬 용도
 [DB Fiddle - MySQL 8 에서 확인](https://www.db-fiddle.com/f/bZyWoSx1sDEjHw3Rb6wPaz/0){:target="_blank"}
 
 
-    데이터 삭제 쿼리
+    간단한 데이터 삭제 쿼리
+
+데이터가 적을 경우, 간단하게 IN 으로 해당 id들을 제거할 수 있다.
 
 ``` sql
 DELETE FROM contacts
@@ -96,33 +130,26 @@ WHERE id IN (SELECT id
 
 [DB Fiddle - MySQL 8 에서 확인](https://www.db-fiddle.com/f/uxCSKY7VZ4taXzuHp9FPRp/1){:target="_blank"}
 
-### MySQL 5
-
-    삭제할 데이터 id 확인
-
-SELF JOIN을 통해 중복된 row의 id를 확인하는 방법이지만 결과를 보면 데이터가 오히려 중복되어 더 생기는 현상이 있다. (삭제 쿼리에 활용할 경우, 문제는 없어보임)
-
-``` sql
-SELECT t2.*
-FROM contacts t1 JOIN contacts t2
-ON t1.first_name=t2.first_name AND t1.last_name=t2.last_name AND t1.email=t2.email
-WHERE t1.id < t2.id;
-```
-
-[DB Fiddle - MySQL 5 에서 확인](https://www.db-fiddle.com/f/bZyWoSx1sDEjHw3Rb6wPaz/1){:target="_blank"}
-
     데이터 삭제 쿼리
 
-MySQL에서 지원하는 **DELETE JOIN** 방식을 활용한다.
+PostgreSQL에서는 **DELETE + USING** 방식을 활용한다. 데이터가 많은 것을 고려할 경우, 이 방법을 먼저 사용해야 할 듯하다.
+
+JOIN 과 ON 대신 USING과 WHERE이 사용된다.
 
 ``` sql
-DELETE t2 FROM contacts t1 
-JOIN contacts t2
-ON t1.first_name=t2.first_name AND t1.last_name=t2.last_name AND t1.email=t2.email
-WHERE t1.id < t2.id;
+DELETE FROM contacts t1 
+USING contacts t2
+WHERE t1.first_name=t2.first_name AND t1.last_name=t2.last_name AND t1.email=t2.email AND t1.id > t2.id;
 ```
 
-[DB Fiddle - MySQL 5 에서 확인](https://www.db-fiddle.com/f/4s9gf42vvSG6v6KikpDyFP/0){:target="_blank"}
+[DB Fiddle - PostgreSQL 9.6 에서 확인](https://www.db-fiddle.com/f/4s9gf42vvSG6v6KikpDyFP/3){:target="_blank"}
+
+### 속도가 느릴 경우
+
+데이터가 너무 많을 경우, 일부분씩 나누어서 DELETE를 하는 것을 고려해볼 수 있다. (특히, 실 사용중인 DB인 경우)
+
+위에서 설명한 삭제할 id를 미리 테이블로 만들어 DELETE JOIN에 사용하는 것이다. (JOIN 연산을 단순화한다.)
+
 
 `References` : 
 
@@ -131,4 +158,6 @@ WHERE t1.id < t2.id;
 * [How To Delete Duplicate Rows in MySQL - MySQLTUTORIAL](http://www.mysqltutorial.org/mysql-delete-duplicate-rows/){:target="_blank"}
 
 * [MySQL DELETE JOIN - MySQLTUTORIAL](https://www.mysqltutorial.org/mysql-delete-join/){:target="_blank"}
+
+* [PostgreSQL DELETE JOIN - PostgreSQLTUTORIAL](https://www.postgresqltutorial.com/postgresql-delete-join/){:target="_blank"}
 
