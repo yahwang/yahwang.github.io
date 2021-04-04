@@ -131,7 +131,7 @@ Partitioning과 Bucketing은 각각의 컬럼이 필요하다.
 ``` sql
 CREATE TABLE my_db.my_table_parquet_partitioned
 WITH ( format = 'PARQUET', partitioned_by = ARRAY['year', 'month', 'day'], 
-    bucketed_by=ARRAY['day_a'], bucket_count=1, parquet_compression = 'SNAPPY', 
+    bucketed_by=ARRAY['day'], bucket_count=1, parquet_compression = 'SNAPPY', 
     external_location = 's3:// bucket / prefix(folder) /' ) AS
 SELECT `uuid_seq` bigint,
          `col_1` string,

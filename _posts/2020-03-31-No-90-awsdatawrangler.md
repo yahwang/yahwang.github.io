@@ -17,7 +17,11 @@ tags: [AWS, Pandas, Lambda]
 
 <div><i class="fa fa-github fa-lg" aria-hidden="true"></i> &nbsp;<a href="https://github.com/awslabs/aws-data-wrangler" target="_blank" style="font-size:1.3em">awslabs/aws-data-wrangler</a></div>
 
-참고 : 1.0 버전으로 업그레이드되면서 코드가 전체적으로 변화했다.
+참고 : 최신 버전을 설치하는 경우,  
+
+MWAA, EMR, Glue PySpark Job 등 Pyarrow 3를 지원하지 않는 곳에 사용하려면
+
+pip install pyarrow==2 awswrangler로 설치한다.
 
 ## 사용 가능한 방법
 
