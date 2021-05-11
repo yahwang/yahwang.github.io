@@ -7,6 +7,7 @@ _site/
 .ipynb_checkpoints/
 .Gemfile
 .Gemfile.lock
+Gemfile.lock
 .README.md
 .vscode/
 */.ipynb_checkpoints/

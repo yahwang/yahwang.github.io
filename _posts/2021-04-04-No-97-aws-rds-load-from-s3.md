@@ -55,14 +55,14 @@ Pandas 같은 데이터 분석을 위해 데이터를 추출하는 것이라면 
 ### TEXT 포맷
 
 ```sql
-SELECT * FROM [테이블명] INTO OUTFILE S3 's3:/ bucket / xxxx'
+SELECT * FROM [테이블명] INTO OUTFILE S3 's3:// bucket / xxxx'
 FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' OVERWRITE ON;
 ```
 
 ### CSV 포맷
 
 ```sql
-SELECT * FROM [테이블명] INTO OUTFILE S3 's3:/ bucket / xxxx'
+SELECT * FROM [테이블명] INTO OUTFILE S3 's3:// bucket / xxxx'
 FORMAT CSV OVERWRITE ON;
 ```
 
