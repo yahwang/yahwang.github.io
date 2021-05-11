@@ -2,6 +2,7 @@
 layout: post
 title: Athena로 대용량 CSV 데이터를 Parquet로 변환하기
 date: 2020-10-09 10:00:00 pm
+update: 2021-05-12 02:00:00 am
 permalink: posts/96
 description: AWS Glue 테스트 환경을 간단하게 생성하고 활용하는 방법을 알아본다.
 categories: [Data, ETL]
@@ -9,6 +10,10 @@ tags: [Athena, S3, Parquet, CTAS]
 ---
 
 > Athena로 대용량 CSV 데이터를 Parquet로 변환하는 방법을 알아본다.
+
+```text
+21/5/12 기준 그동안 쿼리 문제가 있는 걸 확인했으며, Athena Engine 2 작동 확인
+```
 
 ## 도입
 
@@ -104,11 +109,11 @@ Athena는 쿼리 결과를 CSV 타입으로만 저장할 수 있다. CTAS를 사
 CREATE TABLE my_db.my_table_parquet
 WITH ( format = 'PARQUET', parquet_compression = 'SNAPPY', 
     external_location = 's3:// bucket / prefix /' ) AS
-SELECT `uuid_seq` bigint,
-         `col_1` string,
-         `col_2` double,
-         `col_4` int,
-         `registered_at` timestamp
+SELECT uuid_seq,
+         col_1,
+         col_2,
+         col_4,
+         registered_at
 FROM my_db.my_table
 ```
 
@@ -131,13 +136,13 @@ Partitioning과 Bucketing은 각각의 컬럼이 필요하다.
 ``` sql
 CREATE TABLE my_db.my_table_parquet_partitioned
 WITH ( format = 'PARQUET', partitioned_by = ARRAY['year', 'month', 'day'], 
-    bucketed_by=ARRAY['day'], bucket_count=1, parquet_compression = 'SNAPPY', 
+    bucketed_by=ARRAY['_day'], bucket_count=1, parquet_compression = 'SNAPPY', 
     external_location = 's3:// bucket / prefix(folder) /' ) AS
-SELECT `uuid_seq` bigint,
-         `col_1` string,
-         `col_2` double,
-         `col_4` int,
-         `registered_at` timestamp, 
+SELECT uuid_seq,
+         col_1,
+         col_2, 
+         col_4,
+         registered_at,
          date_format(register_at, '%d') AS "_day", -- for bucketing
          date_format(register_at, '%Y') AS year,
          date_format(register_at, '%m') AS month,
