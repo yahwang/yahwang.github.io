@@ -2,7 +2,7 @@
 layout: post
 title: pymysql(MySQL)과 psycopg2(PostgreSQL) 사용하기
 date: 2019-04-08 10:00:00 pm
-update: 2020-07-28 09:00:00 pm
+update: 2021-09-12 00:00:00 am
 permalink: posts/66
 description: Python SQL client 라이브러리인 pymysql(MySQL)과 psycopg2(PostgreSQL) 사용법을 알아본다.
 categories: [Data, SQL]
@@ -34,19 +34,23 @@ cursorclass를 DictCursor로 설정 => return값을 dict 형태로 표현한다�
 
 ```python
 import pymysql
+from pymysql.constants import CLIENT
 import pandas as pd
 connection = pymysql.connect(host='localhost',
                              user='root',
                              password='',
                              db='mysql',
                              charset='utf8mb4',
-                             cursorclass=pymysql.cursors.DictCursor)
+                             cursorclass=pymysql.cursors.DictCursor,
+                             client_flag=CLIENT.MULTI_STATEMENT
+                             )
 
 cursor = connection.cursor() # 객체를 가져오는 함수
 ```
 
 cursor에서 SQL문을 실행시키고 실행 결과값을 fetch 함수를 통해 가져온다. 
 
+기본적으로 하나의 명령만 수행한다. 세션 변수가 필요하거나 여러 명령을 한 번에 수행하려면 **client_flag** 옵션을 적용하면 된다.
 
 ```python
 sql = "SELECT Host, User FROM user;"

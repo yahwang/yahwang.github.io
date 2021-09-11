@@ -2,7 +2,7 @@
 layout: post
 title: SQL로 Date / Time 데이터 다루기 (기초)
 date: 2019-07-19 01:00:00 am
-update: 2020-01-19 06:00:00 am
+update: 2020-09-12 00:00:00 am
 permalink: posts/75
 description: SQL로 Date / Time 데이터 다루는 법을 알아본다.
 categories: [Data, SQL]
@@ -37,7 +37,11 @@ MySQL에서는 TIMESTAMP가 TIME ZONE이 포함된 시간을 의미하며,
 
 입력된 TIMESTAMP 데이터를 UTC로 저장 후 TIME ZONE에 따라 변환하는 방식은 같다.
 
-MySQL은 UTC 시간으로 데이터를 INSERT해야 한다. TIME ZONE 설정에 따라 시간이 변경된다.
+MySQL은 현재 설정된 TIMEZONE을 기준으로 데이터를 INSERT해야 한다. 
+
+'Asia/Seoul'이라면 한국 시간에 맞는 'YYYY-mm-dd hh:mm:ss' 형태로 넣어야 한다.
+
+세션마다 TIMEZONE을 설정하고 그에 맞는 시간으로 데이터를 넣으면 GLOBAL TIMEZONE에 맞게 변환된다.
 
 단, PostgreSQL은 'YYYY-MM-DD HH:MI:SS**+09**'와 같은 형태로 직접 TIMEZONE이 포함된 데이터를 INSERT할 수 있다.
 
