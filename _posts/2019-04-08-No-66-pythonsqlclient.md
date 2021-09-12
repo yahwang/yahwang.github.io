@@ -45,8 +45,12 @@ connection = pymysql.connect(host='localhost',
                              client_flag=CLIENT.MULTI_STATEMENT
                              )
 
+connection.ping(reconnect=True)                             
+
 cursor = connection.cursor() # 객체를 가져오는 함수
 ```
+
+참고 : Lambda처럼 connection을 재사용하는 경우, ping 함수를 활용해서 연결이 계속 이어지도록 할 수 있다.
 
 cursor에서 SQL문을 실행시키고 실행 결과값을 fetch 함수를 통해 가져온다. 
 
