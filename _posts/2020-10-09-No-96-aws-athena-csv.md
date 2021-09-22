@@ -4,7 +4,7 @@ title: Athena로 대용량 CSV 데이터를 Parquet로 변환하기
 date: 2020-10-09 10:00:00 pm
 update: 2021-05-12 02:00:00 am
 permalink: posts/96
-description: AWS Glue 테스트 환경을 간단하게 생성하고 활용하는 방법을 알아본다.
+description: Athena로 대용량 CSV 데이터를 Parquet로 변환하는 방법을 알아본다.
 categories: [Data, ETL]
 tags: [Athena, S3, Parquet, CTAS]
 ---
@@ -151,6 +151,8 @@ FROM my_db.my_table
 ```
 
 `bucket / prefix / year=2020 / month=10 / day=12 ` 안에 파일이 생성된다. 
+
+임시 테이블이 생성되기 때문에 마지막에 DROP TABLE을 실행해야 한다.
 
 ## 추가 이슈 및 대응
 
