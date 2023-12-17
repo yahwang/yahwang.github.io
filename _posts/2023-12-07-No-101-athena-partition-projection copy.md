@@ -128,4 +128,4 @@ S3 저장 비용보다 상대적으로 적어 문제를 모를 수도 있고 오
 
 * [Partition projection with Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/partition-projection.html){:target="_blank"}
 
-* [ALTER TABLE ADD PARTITION](https://docs.aws.amazon.com/ko_kr/athena/latest/ug/alter-table-add-partition.html)
+* [ALTER TABLE ADD PARTITION](https://docs.aws.amazon.com/ko_kr/athena/latest/ug/alter-table-add-partition.html){:target="_blank"}
