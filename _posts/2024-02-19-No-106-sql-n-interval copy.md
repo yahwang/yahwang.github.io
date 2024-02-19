@@ -5,7 +5,7 @@ date: 2024-02-19 01:00:00 am
 permalink: posts/106
 description: N-interval(N시간 간격) 데이터 처리하는 방법에 대해 간단히 정리해본다.
 categories: [Data, SQL]
-tags: [SQL, Athena, DuckDB]
+tags: [Athena, DuckDB]
 ---
 
 > N-interval(N시간 간격) 데이터 처리하는 방법에 대해 간단히 정리해본다.
