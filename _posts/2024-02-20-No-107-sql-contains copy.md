@@ -12,13 +12,13 @@ tags: [Athena, DuckDB]
 
 SQL 기준 : `ATHENA` `DuckDB`
 
-### 지리 데이터 형식
+## GEOMETRY 타입
 
-지리 데이터는 geometry 타입으로 사용하며, point, line, polygon 등이 있다.
+GEOMETRY는 위치를 평면(Cartesian Plane) 내에서 표현하는 방법이며, point, line, polygon 등이 있다.
 
 WKT, GeoJson는 geometry 타입을 텍스트로 표현하는 방식이다.
 
-### Polyline Tool
+## Polyline Tool
 
 웹사이트 : [https://www.keene.edu/campus/maps/tool](https://www.keene.edu/campus/maps/tool){:target="_blank"}
 
@@ -30,7 +30,7 @@ WKT, GeoJson는 geometry 타입을 텍스트로 표현하는 방식이다.
 
 ![sql_polygon_contains]({{site.baseurl}}/assets/img/sql/sql_polygon_contains.jpg)
 
-### 기본 사용법
+## 기본 사용법
 
 SQL로 사용하기 위해서는 **WKT Format**으로 표현해야 한다.
 
@@ -64,12 +64,12 @@ SELECT ST_GeometryFromText('POLYGON((
 
 DuckDB의 경우, ST_GeomFromText 함수를 사용하며, spatial extension 로딩이 필요하다. 아래 Reference 참고
 
-### 활용
+## 활용
 
 `ST_Contains (A, B)`: A가 B를 포함하는 경우, true를 반환한다.
 
 ```sql
--- DuckDB의 경우, ST_GeomFromText만 변경하면 가능
+-- DuckDB의 경우, ST_GeometryFromText 대신 ST_GeomFromText으로 변경하면 가능
 WITH points AS (
 	SELECT ST_Point(127.0336542, 37.5176621) AS target_point
 	UNION ALL
