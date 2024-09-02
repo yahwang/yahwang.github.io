@@ -93,6 +93,18 @@ CRUD 실행마다 하나의 메타데이터 파일이 생기며, 하나의 메�
 
 하나의 Manifest 파일은 여러 Data 파일에 대한 정보를 가지고 있다.
 
+### 간편한 테이블 관리
+
+기존 아테나 테이블은 ALTER TABLE ADD PARTITION으로 파티션을 매일 추가해주어야 하고
+
+컬럼 추가/삭제가 필요할 경우 테이블을 재정의 후 MSCK REPAIR TABLE로 파티션을 다시 스캔하는 작업까지 해야 했다.
+
+Iceberg 테이블은 컬럼 추가/삭제 등의 DDL 기능을 제공하고 파티션도 자동으로 인식한다.
+
+단, 빅쿼리와 같이 파티션을 강제하는 쿼리 옵션은 없기 때문에 주의는 필요하다.
+
+[변화하는 Iceberg 테이블 스키마 - in AWS](https://docs.aws.amazon.com/ko_kr/athena/latest/ug/querying-iceberg-evolving-table-schema.html){:target="_blank"}
+
 ## 간단한 CRUD TEST
 
 ### INSERT
