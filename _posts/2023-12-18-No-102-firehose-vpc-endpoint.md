@@ -30,6 +30,8 @@ VPC Privatelink는 VPC Endpoint를 생성해야 적용되는 기술이다. ( 제
 
 | **핵심은 AWS 서비스들은 별도의 VPC 내에 존재한다는 것이다.** |
 
+Lambda도 ENI를 생성해 고객 VPC에 연결하는 것이고 실제 VPC는 별도로 관리된다. ENI가 생성되면서 해당 서브넷의 규칙을 따르게 된다.
+
 ![firehose_vpcendpoint_3]({{site.baseurl}}/assets/img/etl/firehose_vpcendpoint_3.jpg)
 
 AWS 청구서에서는 데이터 전송 비용에 대한 종류가 여러가지로 나뉘어져 있다.
