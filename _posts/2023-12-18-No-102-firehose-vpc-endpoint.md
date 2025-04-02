@@ -2,6 +2,7 @@
 layout: post
 title: Kinesis Data Firehose 사용 시 주의할 사항 (with VPC Endpoint)
 date: 2023-12-18 01:00:00 am
+update: 2025-04-03 01:00:00 am
 permalink: posts/102
 description: Kinesis Data Firehose 사용 시 주의할 사항에 대해 알아본다.
 categories: [Data, ETL]
@@ -62,9 +63,21 @@ VPC 메뉴 내 엔드포인트 생성 화면에 들어가면 AWS 서비스를 �
 
 Firehose 뿐만 아니라 Cloudwatch 등 여러 서비스들에 적용할 수 있다. 
 
-VPC Endpoint 생성만 해도 시간당 비용이 청구되기 때문에 데이터 전송 양이 적은 서비스는 오히려 생성하지 않는 것이 나을 수도 있다.
+## 참고사항
 
-참고로, S3, Dynamodb의 경우는 Gateway 형태로 생성되며, 통신 비용은 따로 청구되지 않는다.
+보안 이슈가 특별히 없고 트래픽이 적은 상황이라면 VPC Endpoint보다 NAT Gateway를 사용하는 편이 나을 수 있다.
+
+VPC Endpoint는 AZ별로 요금이 청구된다. 보통 2개 이상의 AZ를 사용하기 때문에 아래 요금의 X배로 계산한다.
+
+![firehose_vpcendpoint_5]({{site.baseurl}}/assets/img/etl/firehose_vpcendpoint_5.png)
+
+서울 리전 기준으로 AZ가 2개일 때 한 달 기본 약 $ 19 요금이 나갈 것이다. ( 0.013 * 2 * 24 * 30)
+
+역으로 계산해봤을 때 약 390GB 정도의 트래픽이 발생되어야 본전이다.
+
+( 388 * (0.059-0.01) = $19.012 비용을 절감할 수 있음 )
+
+S3, Dynamodb의 경우는 Gateway 형태로 생성되며, 통신 비용은 따로 청구되지 않는다.
 
 `References` : 
 
