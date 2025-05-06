@@ -28,6 +28,11 @@
   .ad1, .ad2, .ad3, .ad4, .ad5{
     display:none;
   }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 /* Small Devices, Tablets */
@@ -82,6 +87,11 @@
 
   .tag-cloud, .contact, .copyright{
     display: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
@@ -170,4 +180,8 @@
     }
   }
 
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }

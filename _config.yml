@@ -31,7 +31,7 @@ plugins:
   - jekyll-feed
 
 # pagination settings
-paginate: 10
+paginate: 15
 paginate_path: "/posts/page/:num"
 
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
