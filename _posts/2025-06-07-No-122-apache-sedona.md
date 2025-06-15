@@ -4,7 +4,7 @@ title: Apache Sedona로 Spark에서 geospatial 데이터 처리하기
 date: 2025-06-08 10:00:00 pm
 permalink: posts/122
 description: Apache Sedona를 활용하여 Spark에서 geospatial 데이터를 처리하는 방법을 간단하게 정리한다.
-categories: [dataops]
+categories: [ETL]
 tags: [spark, sedona]
 ---
 

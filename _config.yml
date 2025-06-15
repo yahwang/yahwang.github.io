@@ -29,6 +29,7 @@ highlighter: rouge
 plugins:
   - jekyll-paginate
   - jekyll-feed
+  - jekyll-redirect-from
 
 # pagination settings
 paginate: 15
