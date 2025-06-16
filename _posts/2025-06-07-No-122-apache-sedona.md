@@ -63,7 +63,7 @@ config = (
     .config("spark.executor.memory", "2g") \
     .config("spark.default.parallelism", "8") \
     .config("spark.jars.packages",
-        "org.apache.sedona:sedona-spark-3.5_2.12:1.7.1,"
+        "org.apache.sedona:sedona-spark-shaded-3.5_2.12:1.7.1,"
         "org.datasyslab:geotools-wrapper:1.7.1-28.5",
     ) \
     .getOrCreate()
