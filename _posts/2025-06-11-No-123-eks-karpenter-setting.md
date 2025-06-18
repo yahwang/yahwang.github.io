@@ -213,8 +213,6 @@ resource "helm_release" "karpenter" {
 
 참고: nodeclass와 nodepool은 helm_release.karpenter를 먼저 적용한 이후에 진행했다. ( 같이 적용할 경우, CRD 의존성 오류 발생 )
 
-
-
 ${path.module} : 현재 .tf 파일의 경로를 나타낸다.
 
 node_ami 버전은 @latest를 사용하지 말라고 권장한다. node_ami_alias에 적용할 버전은 
@@ -222,6 +220,10 @@ node_ami 버전은 @latest를 사용하지 말라고 권장한다. node_ami_alia
 [https://github.com/awslabs/amazon-eks-ami/releases](https://github.com/awslabs/amazon-eks-ami/releases){:target="_blank"}에서 확인할 수 있다.
 
 자세한 내용은 공식문서 [Managing AMIs - Karpenter](https://karpenter.sh/docs/tasks/managing-amis/#controlling-ami-replacement){:target="_blank"}를 참고하면 된다.
+
+`terraform 코드 일부`
+
+NodePool 별로 태그를 적용하기 위해 NodeClass와 NodePool은 1:1로 생성된다. ( 추후 모니터링 및 비용추적 가능 )
 
 ```python
 
@@ -236,27 +238,61 @@ provider "kubernetes" {
   }
 }
 
+#---------------
+# 사용자 NodeClass, NodePool 정의
+#---------------
+
+locals {
+  nodepools = {
+    dataops = {
+      node_ami_alias      = "al2023@v20250505"
+      node_ami_family     = "AL2023"
+      nodepool_name       = "dataops-nodepool"
+      nodeclass_name      = "dataops-nodeclass"
+      nodepool_taint_role = "dataops"
+      volume_size         = "20Gi"
+      tags = {
+        Name = "dataops-nodepool"
+        role = "dataops"
+      }
+    }
+
+    ...
+    
+  }
+}
+
 resource "kubernetes_manifest" "karpenter_nodeclass" {
+  for_each = local.nodepools
+
   manifest = yamldecode(
     templatefile("${path.module}/yamls/karpenter-nodeclass.yaml", {
       node_iam_role_name = module.eks_node_default_role.iam_role_name
-      node_ami_family = "AL2023"
-      node_ami_alias = "al2023@v20250505"
-      cluster_name  = module.yahwang_eks_cluster.cluster_name
-      nodeclass_name = "dataops-nodeclass"
+      node_ami_family    = each.value.node_ami_family
+      node_ami_alias     = each.value.node_ami_alias
+      cluster_name       = module.prd_eks_cluster.cluster_name
+      nodeclass_name     = each.value.nodeclass_name
+      nodepool_name      = each.value.nodepool_name
+      volume_size        = each.value.volume_size
+      tags               = each.value.tags
     })
   )
 }
 
 resource "kubernetes_manifest" "karpenter_nodepool" {
+  for_each = local.nodepools
+
   manifest = yamldecode(
     templatefile("${path.module}/yamls/karpenter-nodepool.yaml", {
-      nodepool_name = "dataops-nodepool"
-      nodepool_taint_role = "dataops" 
-      nodeclass_name = "dataops-nodeclass"
-      nodeclass_instance_type = "t4g.medium"
+      nodepool_name       = each.value.nodepool_name
+      nodepool_taint_role = each.value.nodepool_taint_role
+      nodeclass_name      = each.value.nodeclass_name
     })
   )
+
+  depends_on = [
+    kubernetes_manifest.karpenter_nodeclass
+  ]
 }
 ```
 
@@ -268,7 +304,9 @@ resource "kubernetes_manifest" "karpenter_nodepool" {
 
 여기서 이전에 설정한 node_security_group_tags과 subnet에 설정한 태그를 사용한다.
 
-    karpenter-nodeclass.yaml
+참고 : 볼륨 최소 크기는 20Gi로 보여진다. ( 낮을 경우, 오류 확인 )
+
+`karpenter-nodeclass.yaml`
 
 ```python
 apiVersion: karpenter.k8s.aws/v1
@@ -289,16 +327,18 @@ spec:
   blockDeviceMappings:
     - deviceName: /dev/xvda
       ebs:
-        volumeSize: 20Gi
+        volumeSize: "${volume_size}"
         volumeType: gp3
         deleteOnTermination: true
   tags:
-    role: dataops
+%{ for key, value in tags ~}
+    ${key}: "${value}"
+%{ endfor ~}
 ```
 
 ### NodePool yaml 설정
 
-    karpenter-nodepool.yaml
+`karpenter-nodepool.yaml`
 
 노드 타입 조정, 삭제 등 노드 관리 방법을 정의한다.
 
@@ -349,8 +389,9 @@ spec:
             - "on-demand"
         - key: node.kubernetes.io/instance-type
           operator: In
-          values: 
-            - "${nodeclass_instance_type}"
+          values:
+            - "t4g.medium"
+            - "t4g.large"
 ```
 
 그 외 추가 설정은 공식 문서 [NodePools](https://karpenter.sh/docs/concepts/nodepools/){:target="_blank"}를 참고하면 된다.
