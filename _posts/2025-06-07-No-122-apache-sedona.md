@@ -218,33 +218,6 @@ Sedona : 1.9 s ± 122 ms per loop (mean ± std. dev. of 5 runs, 10 loops each)
 
 ![apache_sedona_2]({{site.baseurl}}/assets/img/dataops/apache_sedona_2.png)
 
-## 참고 : MinIO와 연동 코드
-
-```python
-from sedona.spark import SedonaContext
-
-config = (
-    SedonaContext.builder().appName("MinIO") \
-    .config("spark.master", "local[*]") \
-    .config("spark.driver.memory", "3g") \
-    .config("spark.default.parallelism", "8") \
-    .config("spark.jars.packages",
-        "org.apache.hadoop:hadoop-aws:3.3.4,"
-        "org.apache.sedona:sedona-spark-3.5_2.12:1.7.1,"
-        "org.datasyslab:geotools-wrapper:1.7.1-28.5",
-    ) \
-    .config("spark.hadoop.fs.s3a.access.key", "...") \
-    .config("spark.hadoop.fs.s3a.secret.key", "...") \
-    .config("spark.hadoop.fs.s3a.endpoint", "http://minio.common.svc:80") \ # k8s 내부 minio 주소
-    .config("spark.hadoop.fs.s3a.endpoint.region", "ap-northeast-2") \
-    .config("spark.hadoop.fs.s3a.path.style.access", "true") \
-    .config("spark.hadoop.fs.s3a.connection.ssl.enabled", "false") \
-    .getOrCreate()
-)
-
-sedona = SedonaContext.create(config)
-```
-
 Sedona에서 필요한 기능만 테스트해보았으며, 다양한 기능이 있는 것으로 보인다. 아래 참고 자료에서 더 많은 정보를 확인할 수 있다.
 
 > 대용량 geospatial 데이터를 처리할 때는 Apache Sedona가 유용해 보인다.

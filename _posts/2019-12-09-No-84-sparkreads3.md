@@ -6,6 +6,7 @@ permalink: posts/84
 description: Pyspark에서 AWS S3 데이터 읽는 법을 알아본다.
 categories: [Data, ETL]
 tags: [Pyspark, AWS, S3]
+redirect_to: /posts/125
 ---
 
 > Pyspark에서 AWS S3 데이터 읽는 법을 알아본다.
