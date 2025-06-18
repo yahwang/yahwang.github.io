@@ -224,45 +224,6 @@ application_file 또는 template_spec은 둘 중 하나를 선택하여 사용�
 
 **random_name_suffix** : Spark application name에 랜덤한 suffix를 추가한다. (Spark UI 접속 시 suffix를 알아야 함)
 
-참고: driver.labels가 없으면 KeyError 오류가 발생하므로 추가하였다.
-
-`spark_app_template.yaml 예시`
-
-```yaml
-apiVersion: sparkoperator.k8s.io/v1beta2
-kind: SparkApplication`
-metadata:
-  name: spark-pi-python-2
-  namespace: spark-jobs
-spec:
-  type: Python
-  pythonVersion: "3"
-  mode: cluster
-  image: harbor도메인/spark/my-spark:0.0.3
-  imagePullPolicy: IfNotPresent
-  imagePullSecrets:
-    - harbor-registry
-  mainApplicationFile: local:///opt/spark/examples/src/main/python/my_long_job.py
-  sparkVersion: 3.5.3
-  driver:
-    labels:
-      worker: "airflow"
-    cores: 1
-    memory: 512m
-    serviceAccount: spark-operator-spark
-  executor:
-    instances: 3
-    cores: 1
-    memory: 512m
-  monitoring:
-    exposeDriverMetrics: true
-    exposeExecutorMetrics: true
-    prometheus:
-      jmxExporterJar: "/opt/spark/jars/jmx_prometheus_javaagent-1.0.1.jar"
-      port: 8090
-      portName: jmx-exporter
-```
-
 `airflow DAG 정의`
 
 ```python
@@ -281,6 +242,71 @@ SparkKubernetesOperator(
 
 [SparkKubernetesOperator args](https://airflow.apache.org/docs/apache-airflow-providers-cncf-kubernetes/stable/_api/airflow/providers/cncf/kubernetes/operators/spark_kubernetes/index.html){:target="_blank"}
 
+`spark_app_template.yaml 예시`
+
+참고: driver.labels가 없으면 KeyError 오류가 발생하므로 추가하였다.
+
+XCOM을 통해 이전 task의 결과를 환경변수로 전달해서 사용할 수도 있다.
+
+```yaml
+apiVersion: sparkoperator.k8s.io/v1beta2
+kind: SparkApplication`
+metadata:
+  name: spark-pi-python-2
+  namespace: spark-jobs
+spec:
+  type: Python
+  pythonVersion: "3"
+  mode: cluster
+  image: harbor도메인/spark/my-spark:0.0.3
+  imagePullPolicy: IfNotPresent
+  imagePullSecrets:
+    - harbor-registry
+  mainApplicationFile: local:///opt/spark/examples/src/main/python/my_long_job.py
+  sparkVersion: 3.5.3
+  sparkConf:
+    spark.hadoop.fs.s3a.path.style.access: "true"
+    spark.hadoop.fs.s3a.impl: "org.apache.hadoop.fs.s3a.S3AFileSystem"
+    spark.hadoop.fs.s3a.aws.credentials.provider: "org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider"
+    spark.hadoop.fs.s3a.endpoint: "s3.ap-northeast-2.amazonaws.com"
+    com.amazonaws.services.s3.enableV4: "true"
+  driver:
+    labels:
+      worker: "airflow"
+    cores: 1
+    memory: 512m
+    serviceAccount: spark-operator-spark
+    env:
+      - name: APP_NAME
+        value: "..."
+      - name: QUERY_EXECUTION_ID_MSP
+        {% raw %}value: "{{ task_instance.xcom_pull(task_ids='TASK_1') }}" {% endraw %}
+    nodeSelector:
+      role: dataops
+    tolerations:
+      - key: dedicated
+        operator: Equal
+        value: dataops
+        effect: NoSchedule
+  executor:
+    instances: 3
+    cores: 1
+    memory: 512m
+    nodeSelector:
+      role: dataops
+    tolerations:
+      - key: dedicated
+        operator: Equal
+        value: dataops
+        effect: NoSchedule
+  monitoring:
+    exposeDriverMetrics: true
+    exposeExecutorMetrics: true
+    prometheus:
+      jmxExporterJar: "/opt/spark/jars/jmx_prometheus_javaagent-1.0.1.jar"
+      port: 8090
+      portName: jmx-exporter
+```
 
 `References` : 
 
