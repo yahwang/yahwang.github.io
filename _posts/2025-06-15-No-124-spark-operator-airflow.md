@@ -199,6 +199,8 @@ RoleBinding 시에는 Airflow의 namespace와 Spark를 실행할 namespace가 �
 
 참고: 네임스페이스가 여러 개일 경우, 각각의 role을 binding해야 한다.
 
+`spark-rolebinding.yaml`
+
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
