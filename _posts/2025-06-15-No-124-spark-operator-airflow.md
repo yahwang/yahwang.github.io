@@ -271,10 +271,11 @@ spec:
     spark.hadoop.fs.s3a.impl: "org.apache.hadoop.fs.s3a.S3AFileSystem"
     spark.hadoop.fs.s3a.aws.credentials.provider: "org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider"
     spark.hadoop.fs.s3a.endpoint: "s3.ap-northeast-2.amazonaws.com"
-    com.amazonaws.services.s3.enableV4: "true"
+    spark.hadoop.com.amazonaws.services.s3.enableV4: "true"
   driver:
     labels:
       worker: "airflow"
+    terminationGracePeriodSeconds: 60
     cores: 1
     memory: 512m
     serviceAccount: spark-operator-spark
@@ -291,6 +292,7 @@ spec:
         value: dataops
         effect: NoSchedule
   executor:
+    terminationGracePeriodSeconds: 60
     instances: 3
     cores: 1
     memory: 512m
