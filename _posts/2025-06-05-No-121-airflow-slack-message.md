@@ -4,7 +4,7 @@ title: Airflow에서 Slack으로 DAG 실패 메시지 보내기 (2025)
 date: 2025-06-06 00:00:00 am
 permalink: posts/121
 description: Airflow에서 Slack으로 DAG 실패 메시지를 보내는 방법을 간단하게 정리한다.
-categories: [dataops]
+categories: [DataOps]
 tags: [airflow, slack]
 ---
 

@@ -4,7 +4,7 @@ title: Airflow의 AthenaOperator 활용하기
 date: 2025-05-19 01:00:00 am
 permalink: posts/120
 description: Airflow의 AthenaOperator를 활용하는 방법을 간단하게 정리한다.
-categories: [dataops]
+categories: [DataOps]
 tags: [airflow, athena]
 ---
 

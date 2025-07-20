@@ -4,7 +4,7 @@ title: Airflow에서 ExternalTaskSensor 활용 사례
 date: 2025-06-22 11:00:00 pm
 permalink: posts/126
 description: Airflow에서 ExternalTaskSensor를 활용했던 사례를 간단하게 정리한다.
-categories: [dataops]
+categories: [DataOps]
 tags: [airflow, sensor]
 ---
 

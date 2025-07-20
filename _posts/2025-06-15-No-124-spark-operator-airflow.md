@@ -4,7 +4,7 @@ title: Airflow에서 Spark 배치 작업 실행하기
 date: 2025-06-15 03:00:00 pm
 permalink: posts/124
 description: Airflow에서 Spark 배치 작업을 실행하기 위한 방법을 간단히 정리한다.
-categories: [dataops]
+categories: [DataOps]
 tags: [spark, airflow, kubernetes]
 ---
 
