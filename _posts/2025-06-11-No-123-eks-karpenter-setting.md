@@ -4,7 +4,7 @@ title: EKS Karpenter 설치하기 (with Terraform)
 date: 2025-06-11 02:00:00 am
 permalink: posts/123
 description: Terraform으로 EKS에 Karpenter 설치하는 법을 간단히 정리한다.
-categories: [devops]
+categories: [Dev, k8s]
 tags: [eks, karpenter]
 ---
 

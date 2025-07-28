@@ -4,7 +4,7 @@ title: kubernetes 네임스페이스 간 secret 간단히 복사하기
 date: 2025-03-06 02:00:00 am
 permalink: posts/118
 description: kubernetes 네임스페이스 간 secret 간단히 복사하는 법을 알아본다.
-categories: [Dev]
+categories: [Dev, k8s]
 tags: [k8s, reflector]
 ---
 

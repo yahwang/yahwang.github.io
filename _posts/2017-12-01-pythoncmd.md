@@ -6,6 +6,7 @@ permalink: posts/12
 description: # Add post description (optional)
 categories: [Dev, Language]
 tags: [Python, cmd] # add tag
+published: false
 ---
 
 > cx_Freeze를 활용하여 Python cmd.exe 실행파일을 만든다. --  
