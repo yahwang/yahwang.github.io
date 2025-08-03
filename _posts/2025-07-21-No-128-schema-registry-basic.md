@@ -4,7 +4,7 @@ title: Schema Registry 기본 사용법 간단 정리
 date: 2025-07-21 01:00:00 am
 permalink: posts/128
 description: Schema Registry 기본 사용법을 간단하게 정리한다.
-categories: [DevOps]
+categories: [DataOps]
 tags: [schema-registry]
 ---
 
