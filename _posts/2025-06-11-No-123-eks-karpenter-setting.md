@@ -2,6 +2,7 @@
 layout: post
 title: EKS Karpenter 설치하기 (with Terraform)
 date: 2025-06-11 02:00:00 am
+update: 2025-08-08 01:00:00 am
 permalink: posts/123
 description: Terraform으로 EKS에 Karpenter 설치하는 법을 간단히 정리한다.
 categories: [Dev, k8s]
@@ -153,6 +154,22 @@ module "karpenter" {
 }
 ```
 
+### Interruption Handling
+
+[Karpenter Interruption](https://karpenter.sh/docs/concepts/disruption/#interruption){:target="_blank"}
+
+이 모듈의 주요 기능은 Spot Instance 활용을 위한 SQS 큐와 EventBridge 규칙을 생성하는 것이다.
+
+Spot Instance는 종료 2분 전에 알림을 보내며, Karpenter는 이 알림을 받아 해당 노드에 cordon(파드 배포 중지)과 drain(파드 종료)을 수행한다.
+
+![karpenter_setting_4]({{site.baseurl}}/assets/img/devops/karpenter_setting_4.png)
+
+*출처 : https://www.youtube.com/watch?v=_Fc8CfvEAUQ&t=1203s*
+
+![karpenter_setting_5]({{site.baseurl}}/assets/img/devops/karpenter_setting_5.png)
+
+[How Spot Interruption Handling Works in Karpenter](https://medium.com/@zghanem/how-spot-interruption-handling-works-in-karpenter-c2c6d8271f22){:target="_blank"} 이 링크를 확인하면 실제 동작에 대해 알 수 있다.
+
 ## karpenter helm chart 설정
 
 ```python
@@ -190,7 +207,7 @@ resource "helm_release" "karpenter" {
       }
       settings = {
         clusterName = module.yahwang_eks_cluster.cluster_name
-        interruptionQueue = module.karpenter.queue_name
+        interruptionQueue = module.karpenter.queue_name # 모듈에서 생성된 Queue
       }
       replicas = 1
       controller = {
