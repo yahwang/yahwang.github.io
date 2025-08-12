@@ -106,11 +106,11 @@ schema_registry_client = SchemaRegistryClient(schema_registry_conf)
 
 latest_schema = schema_registry_client.get_latest_version(SCHEMA_SUBJECT_NAME)
 # latest_schema = schema_registry_client.get_version(SCHEMA_SUBJECT_NAME, '1')
-schema_str = latest_schema.schema.schema_str
+# schema_str = latest_schema.schema.schema_str
 
-# 두 번째 인자는 스키마 형식 자리
+# 두 번째 인자는 스키마 형식 자리 (None인 경우, 자동으로 스키마를 찾음)
 # 세 번째 인자는 역직렬화 후 dict 타입 데이터를 처리하는 부분이다. ( 여기서는 그냥 그대로 반환 )
-avro_deserializer = AvroDeserializer(schema_registry_client, schema_str, lambda data, ctx: data)
+avro_deserializer = AvroDeserializer(schema_registry_client, None, lambda data, ctx: data)
 
 consumer = Consumer(consumer_conf)
 consumer.subscribe([TOPIC_NAME])
@@ -120,6 +120,7 @@ try:
         msg = consumer.poll(10.0) # 10초 대기
 
         # 메시지 역직렬화
+        ## SerializationContext : 메시지 역직렬화에 필요한 정보를 담는 객체 ( 토픽 정보 + key or value)
         try:
             deserialized_value = avro_deserializer(
                 msg.value(), 
