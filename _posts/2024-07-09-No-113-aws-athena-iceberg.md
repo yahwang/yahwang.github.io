@@ -219,11 +219,9 @@ UPDATE default.iceberg_test SET part_val = part_val*10 WHERE part_name = 'A'
 ]
 ```
 
-manifest-list 파일을 확인해 보니 overwrite 동작에 대한 간단한 확인이 가능했다.
+manifest-list 파일을 확인해 보니 overwrite 동작에 대한 간단한 확인이 가능했다. sequence_number 2를 보면 content 값이 0인 상태와 1인 상태가 존재한다.
 
-sequence_number 2를 보면 content 값이 0인 상태와 1인 상태가 존재한다.
-
-0은 데이터를 의미하며 1은 삭제를 의미한다.
+0은 데이터를 의미하며 1은 삭제를 의미한다. 
 
 |manifest_path|content|sequence_number|added_rows_count|
 |-----------|-|-|-|
@@ -235,17 +233,31 @@ sequence_number 2를 보면 content 값이 0인 상태와 1인 상태가 존재�
 
 content 1인 경우 다음과 같이 파일명과 pos 값을 가지고 있다. 이는 이 파일의 pos 0인 값을 지우라는 뜻이다. ( 실제 삭제는 아님 )
 
+DELETE + INSERT 방식으로 동작한다는 것을 확인할 수 있다.
+
 |file_path|pos|
 |---------|---|
 |../part_date=2024-01-02/[...].parquet|0|
 
-이렇게 복잡해보이는 이유는 Iceberg 타입의 time travel 기능을 수행하기 위해서이다.
+위와 같은 방식을 **position delete** 방식이리 한다. ( 반대로 equality delete 방식이 있다. ) [Trino - row-level-deletion](https://trino.io/docs/current/connector/iceberg.html#row-level-deletion){:target="_blank"}
 
-이전 스냅샷의 데이터를 모두 읽은 뒤 pos로 지정된 데이터는 숨기고 새로 추가된 데이터를 보여준다.
+equality delete 방식은 parquet 파일에 삭제할 컬럼과 value 정보를 저장한다.
 
-UPDATE가 되기 이전 값은 이전 스냅샷의 데이터만 읽으면 간단하다. DELETE의 방식은 새로 추가된 데이터만 제외하면 UPDATE 방식과 같다.
+( 배치 처리가 대부분이라 읽기 성능을 우선으로 생각해서 선택한 것이 아닌가 생각한다. 실시간 처리가 가능한 오픈소스들은 equality delete 기능을 지원한다. )
 
-자세한 Manifest에 대한 정보는 이곳에서 확인할 수 있다.
+이전 스냅샷의 데이터를 모두 읽은 뒤 pos로 지정된 데이터는 숨기고 새로 추가된 데이터를 보여준다. 
+
+이렇게 파일을 통합해서 읽는 방식을 **MOR(Merge On Read)**라고 한다. 반대로는 COW(Copy On Write) 방식이 있다. 
+
+스냅샷 생성 시 새로운 데이터 파일을 만드는 방식이다. 쓰기 성능이 중요하면 MOR, 읽기 성능이 중요하면 COW 방식을 사용할 수 있는데 
+
+기본적으로는 MOR 방식을 사용한다.
+
+이렇게 복잡해보이는 이유는 History를 관리하여 Iceberg 타입의 time travel 기능을 수행하기 위해서이다.
+
+UPDATE가 되기 이전 값은 이전 스냅샷의 데이터만 읽으면 간단하다. 
+
+DELETE의 방식은 새로 추가된 데이터만 제외하면 UPDATE 방식과 같다. 자세한 Manifest에 대한 정보는 이곳에서 확인할 수 있다.
 
 [Iceberg Table Spec - Manifests](https://iceberg.apache.org/spec/?h=content#manifests){:target="_blank"}
 
